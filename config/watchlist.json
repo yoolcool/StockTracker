@@ -2,8 +2,13 @@
   "maxItems": 10,
   "items": [
     {
-      "ticker": "AAPL",
-      "name": "Apple",
+      "ticker": "^GSPC",
+      "name": "S&P 500",
+      "market": "us"
+    },
+    {
+      "ticker": "^NDX",
+      "name": "Nasdaq 100",
       "market": "us"
     },
     {
@@ -12,13 +17,38 @@
       "market": "us"
     },
     {
-      "ticker": "005930.KS",
-      "name": "Samsung Electronics",
+      "ticker": "MU",
+      "name": "Micron Technology",
+      "market": "us"
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir",
+      "market": "us"
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "market": "us"
+    },
+    {
+      "ticker": "RKLB",
+      "name": "Rocket Lab",
+      "market": "us"
+    },
+    {
+      "ticker": "COIN",
+      "name": "Coinbase Global",
+      "market": "us"
+    },
+    {
+      "ticker": "^KQ11",
+      "name": "KOSDAQ",
       "market": "kr"
     },
     {
-      "ticker": "035420.KS",
-      "name": "NAVER",
+      "ticker": "000660.KS",
+      "name": "SK hynix",
       "market": "kr"
     }
   ]
