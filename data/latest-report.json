@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T13:44:38.797Z",
-  "generatedAtKst": "2026. 7. 13. 오후 10:44",
+  "generatedAt": "2026-07-13T13:45:09.627Z",
+  "generatedAtKst": "2026. 7. 13. PM 10:45",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -173,8 +173,8 @@
       "conclusion": "지수 추세가 강세장 조건이다. 기술 87.1점, 매크로 48.9점.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": 0.1,
-        "summary": "강세장 maintained (+0.1 pts)."
+        "scoreDelta": 0,
+        "summary": "강세장 maintained (0 pts)."
       },
       "technical": {
         "score": 87.1,
@@ -190,7 +190,7 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 100,
-            "lastClose": 7554.0601,
+            "lastClose": 7554.23,
             "dataDate": "2026-07-13",
             "dailyChangePct": -0.3,
             "return5dPct": 0.2,
@@ -213,14 +213,14 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 74.1,
-            "lastClose": 29382.8965,
+            "lastClose": 29381.8574,
             "dataDate": "2026-07-13",
             "dailyChangePct": -1.5,
             "return5dPct": -1.1,
             "return20dPct": -0.2,
             "return60dPct": 12.1,
             "drawdownFrom52wHighPct": -4.5,
-            "ma50": 29433.55,
+            "ma50": 29433.53,
             "ma200": 26243.21,
             "aboveMa50": false,
             "aboveMa200": true,
@@ -291,11 +291,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 64.3,
+            "score": 64.2,
             "dataDate": "2026-07-13",
             "return5dPct": 7.7,
-            "return20dPct": -12.8,
-            "reason": "lower is risk-on; 20d -12.8%, 5d 7.7%, score 64.3"
+            "return20dPct": -12.7,
+            "reason": "lower is risk-on; 20d -12.7%, 5d 7.7%, score 64.2"
           },
           {
             "ticker": "GLD",
@@ -330,11 +330,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 49.3,
+            "score": 49.1,
             "dataDate": "2026-07-13",
             "return5dPct": -0.3,
-            "return20dPct": -0.3,
-            "reason": "higher is risk-on; 20d -0.3%, 5d -0.3%, score 49.3"
+            "return20dPct": -0.4,
+            "reason": "higher is risk-on; 20d -0.4%, 5d -0.3%, score 49.1"
           },
           {
             "ticker": "LQD",
@@ -443,7 +443,7 @@
         ]
       },
       "macro": {
-        "score": 45.4,
+        "score": 45.3,
         "label": "매크로 중립",
         "signals": [
           {
@@ -492,11 +492,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 64.3,
+            "score": 64.2,
             "dataDate": "2026-07-13",
             "return5dPct": 7.7,
-            "return20dPct": -12.8,
-            "reason": "lower is risk-on; 20d -12.8%, 5d 7.7%, score 64.3"
+            "return20dPct": -12.7,
+            "reason": "lower is risk-on; 20d -12.7%, 5d 7.7%, score 64.2"
           },
           {
             "ticker": "HYG",
@@ -505,11 +505,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 49.3,
+            "score": 49.1,
             "dataDate": "2026-07-13",
             "return5dPct": -0.3,
-            "return20dPct": -0.3,
-            "reason": "higher is risk-on; 20d -0.3%, 5d -0.3%, score 49.3"
+            "return20dPct": -0.4,
+            "reason": "higher is risk-on; 20d -0.4%, 5d -0.3%, score 49.1"
           },
           {
             "ticker": "^VIX",
@@ -531,11 +531,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 17.4,
+            "score": 17,
             "dataDate": "2026-07-13",
-            "return5dPct": -10.9,
-            "return20dPct": -14.9,
-            "reason": "higher is risk-on; 20d -14.9%, 5d -10.9%, score 17.4"
+            "return5dPct": -11.1,
+            "return20dPct": -15.1,
+            "reason": "higher is risk-on; 20d -15.1%, 5d -11.1%, score 17"
           }
         ]
       },
@@ -558,7 +558,7 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 7554.0601,
+      "lastClose": 7554.23,
       "dailyChangePct": -0.3,
       "return5dPct": 0.2,
       "return20dPct": 2.2,
@@ -988,7 +988,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 7554.0601,
+          "close": 7554.23,
           "high": 7565.3701,
           "low": 7547.5298
         }
@@ -1075,7 +1075,7 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 29382.8965,
+      "lastClose": 29381.8574,
       "dailyChangePct": -1.5,
       "return5dPct": -1.1,
       "return20dPct": -0.2,
@@ -1505,7 +1505,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 29382.8965,
+          "close": 29381.8574,
           "high": 29536.293,
           "low": 29349.8691
         }
@@ -1592,12 +1592,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 207.8,
+      "lastClose": 207.89,
       "dailyChangePct": -1.5,
       "return5dPct": 6.3,
-      "return20dPct": 1.4,
-      "drawdownFrom52wHighPct": -12.2,
-      "drawdownFromTrackingHighPct": -11.9,
+      "return20dPct": 1.5,
+      "drawdownFrom52wHighPct": -12.1,
+      "drawdownFromTrackingHighPct": -11.8,
       "high52w": 236.54,
       "trackingWindow": {
         "weeks": 12,
@@ -2022,7 +2022,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 207.8,
+          "close": 207.89,
           "high": 210.57,
           "low": 207.66
         }
@@ -2121,12 +2121,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 911.59,
-      "dailyChangePct": -6.9,
-      "return5dPct": -7.4,
-      "return20dPct": -8.5,
-      "drawdownFrom52wHighPct": -27.4,
-      "drawdownFromTrackingHighPct": -24.9,
+      "lastClose": 909.6201,
+      "dailyChangePct": -7.1,
+      "return5dPct": -7.6,
+      "return20dPct": -8.7,
+      "drawdownFrom52wHighPct": -27.5,
+      "drawdownFromTrackingHighPct": -25,
       "high52w": 1255,
       "trackingWindow": {
         "weeks": 12,
@@ -2153,7 +2153,7 @@
       },
       "bottom": {
         "date": "2026-07-13",
-        "price": 911.59
+        "price": 909.6201
       },
       "firstReclaim": {
         "date": "2026-07-09",
@@ -2193,7 +2193,7 @@
         "date": "2026-06-25",
         "price": 1213.5601
       },
-      "distanceToFirstReclaimPct": -8.1,
+      "distanceToFirstReclaimPct": -8.3,
       "chart": [
         {
           "date": "2026-04-16",
@@ -2551,7 +2551,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 911.59,
+          "close": 909.6201,
           "high": 931,
           "low": 902.6
         }
@@ -2642,7 +2642,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-13 @ 911.59; 1차 2026-07-09 @ 991.64; 2차 2026-06-30 @ 1154.29; 3차 2026-06-25 @ 1213.5601; breakout 2026-06-25 @ 1213.5601"
+      "reason": "관망: bottom 2026-07-13 @ 909.6201; 1차 2026-07-09 @ 991.64; 2차 2026-06-30 @ 1154.29; 3차 2026-06-25 @ 1213.5601; breakout 2026-06-25 @ 1213.5601"
     },
     {
       "ticker": "PLTR",
@@ -2650,12 +2650,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 127.935,
-      "dailyChangePct": 0.9,
-      "return5dPct": -3.5,
-      "return20dPct": -2.4,
-      "drawdownFrom52wHighPct": -38.4,
-      "drawdownFromTrackingHighPct": -20.4,
+      "lastClose": 128.035,
+      "dailyChangePct": 1,
+      "return5dPct": -3.4,
+      "return20dPct": -2.3,
+      "drawdownFrom52wHighPct": -38.3,
+      "drawdownFromTrackingHighPct": -20.3,
       "high52w": 207.52,
       "trackingWindow": {
         "weeks": 12,
@@ -3080,7 +3080,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 127.935,
+          "close": 128.035,
           "high": 129.56,
           "low": 126.77
         }
@@ -3179,12 +3179,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 396.435,
-      "dailyChangePct": -2.8,
-      "return5dPct": -5.6,
-      "return20dPct": -0.7,
+      "lastClose": 396.785,
+      "dailyChangePct": -2.7,
+      "return5dPct": -5.5,
+      "return20dPct": -0.6,
       "drawdownFrom52wHighPct": -20.5,
-      "drawdownFromTrackingHighPct": -11,
+      "drawdownFromTrackingHighPct": -10.9,
       "high52w": 498.83,
       "trackingWindow": {
         "weeks": 12,
@@ -3251,7 +3251,7 @@
         "date": "2026-05-13",
         "price": 445.27
       },
-      "distanceToFirstReclaimPct": -5.6,
+      "distanceToFirstReclaimPct": -5.5,
       "chart": [
         {
           "date": "2026-04-16",
@@ -3609,7 +3609,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 396.435,
+          "close": 396.785,
           "high": 405.4,
           "low": 394.85
         }
@@ -3708,12 +3708,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 77.63,
-      "dailyChangePct": -4.2,
-      "return5dPct": -16.6,
-      "return20dPct": -32.4,
-      "drawdownFrom52wHighPct": -48.6,
-      "drawdownFromTrackingHighPct": -48.3,
+      "lastClose": 77.3951,
+      "dailyChangePct": -4.5,
+      "return5dPct": -16.9,
+      "return20dPct": -32.6,
+      "drawdownFrom52wHighPct": -48.7,
+      "drawdownFromTrackingHighPct": -48.5,
       "high52w": 151,
       "trackingWindow": {
         "weeks": 12,
@@ -3740,7 +3740,7 @@
       },
       "bottom": {
         "date": "2026-07-13",
-        "price": 77.63
+        "price": 77.3951
       },
       "firstReclaim": {
         "date": "2026-07-02",
@@ -3780,7 +3780,7 @@
         "date": "2026-05-27",
         "price": 150.23
       },
-      "distanceToFirstReclaimPct": -22.7,
+      "distanceToFirstReclaimPct": -23,
       "chart": [
         {
           "date": "2026-04-16",
@@ -4138,7 +4138,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 77.63,
+          "close": 77.3951,
           "high": 79.97,
           "low": 77.05
         }
@@ -4209,7 +4209,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-13 @ 77.63; 1차 2026-07-02 @ 100.46; 2차 2026-06-30 @ 101.65; 3차 2026-06-17 @ 107.98; breakout 2026-05-27 @ 150.23"
+      "reason": "관망: bottom 2026-07-13 @ 77.3951; 1차 2026-07-02 @ 100.46; 2차 2026-06-30 @ 101.65; 3차 2026-06-17 @ 107.98; breakout 2026-05-27 @ 150.23"
     },
     {
       "ticker": "COIN",
@@ -4217,12 +4217,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-13",
-      "lastClose": 156.895,
-      "dailyChangePct": -1.4,
-      "return5dPct": -7.1,
-      "return20dPct": -2.2,
-      "drawdownFrom52wHighPct": -64.7,
-      "drawdownFromTrackingHighPct": -27.6,
+      "lastClose": 156.46,
+      "dailyChangePct": -1.6,
+      "return5dPct": -7.3,
+      "return20dPct": -2.5,
+      "drawdownFrom52wHighPct": -64.8,
+      "drawdownFromTrackingHighPct": -27.8,
       "high52w": 444.65,
       "trackingWindow": {
         "weeks": 12,
@@ -4289,7 +4289,7 @@
         "date": "2026-05-11",
         "price": 216.6
       },
-      "distanceToFirstReclaimPct": 3.5,
+      "distanceToFirstReclaimPct": 3.2,
       "chart": [
         {
           "date": "2026-04-16",
@@ -4647,7 +4647,7 @@
         },
         {
           "date": "2026-07-13",
-          "close": 156.895,
+          "close": 156.46,
           "high": 161.19,
           "low": 155.25
         }
