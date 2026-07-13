@@ -53,7 +53,6 @@ export function renderReport(report) {
 }
 
 function renderMarketCard(regime, label) {
-  const allocation = regime?.targetAllocation || { stocks: 0, cash: 0 };
   return `<article class="market-card ${toneClass(regime?.label)}">
     <div class="market-card-head">
       <span>${label}</span>
@@ -65,8 +64,12 @@ function renderMarketCard(regime, label) {
         <strong>${regime?.score ?? "n/a"}</strong>
       </div>
       <div>
-        <p>Target</p>
-        <strong>${allocation.stocks}:${allocation.cash}</strong>
+        <p>Technical</p>
+        <strong>${regime?.technical?.score ?? "n/a"}</strong>
+      </div>
+      <div>
+        <p>Macro</p>
+        <strong>${regime?.macro?.score ?? "n/a"}</strong>
       </div>
     </div>
     <p class="bias">${escapeHtml(regime?.actionBias || "데이터 확인 필요")}</p>
@@ -292,7 +295,7 @@ function distanceToTrigger(stock, trigger) {
 
 function toneClass(label) {
   if (label === "강세장" || label === "중립-상승") return "positive";
-  if (label === "중립") return "neutral";
+  if (label === "기간 조정" || label === "중립") return "neutral";
   return "negative";
 }
 
@@ -372,7 +375,7 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .market-card-head strong { font-size: 22px; }
 .score-row, .mini-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 10px;
   margin: 18px 0;
 }

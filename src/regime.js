@@ -14,14 +14,13 @@ export function buildMarketRegimeAssessment(profile, marketData, previousRegime 
   );
   const macroScore = weightedAverage(macroSignals.map((row) => ({ value: row.score, weight: 1 })), 50);
   const finalScore = rounded(technicalScore * 0.65 + macroScore * 0.35);
-  const label = marketRegimeLabel(finalScore);
+  const label = marketRegimeLabel(finalScore, benchmarks, macroScore);
 
   return {
     market: profile.id,
     label,
     score: finalScore,
     actionBias: marketRegimeActionBias(label),
-    targetAllocation: targetAllocation(label),
     conclusion: marketRegimeConclusion(label, technicalScore, macroScore),
     change: marketRegimeChange({ label, score: finalScore }, previousRegime),
     technical: {
@@ -146,8 +145,24 @@ function regimeMarketStats(market) {
   };
 }
 
-function marketRegimeLabel(score) {
-  if (score >= 70) return "강세장";
+function marketRegimeLabel(score, benchmarks = [], macroScore = 50) {
+  const validBenchmarks = benchmarks.filter((row) => row.dataStatus === "ok");
+  const hasBenchmarks = validBenchmarks.length > 0;
+  const allAboveMa50 = hasBenchmarks && validBenchmarks.every((row) => row.aboveMa50);
+  const allAboveMa200 = hasBenchmarks && validBenchmarks.every((row) => row.aboveMa200);
+  const allPositive20d = hasBenchmarks && validBenchmarks.every((row) => Number(row.return20dPct) > 0);
+  const mostlyPositive60d =
+    hasBenchmarks &&
+    validBenchmarks.filter((row) => Number(row.return60dPct) > 0).length >= Math.ceil(validBenchmarks.length / 2);
+  const longTermTrendAlive = hasBenchmarks && validBenchmarks.filter((row) => row.aboveMa200).length >= Math.ceil(validBenchmarks.length / 2);
+  const shortTermStalling =
+    hasBenchmarks &&
+    validBenchmarks.some((row) => !row.aboveMa50 || Number(row.return20dPct) <= 0 || Number(row.return5dPct) <= 0);
+
+  if (score >= 70 && allAboveMa50 && allAboveMa200 && allPositive20d && mostlyPositive60d && macroScore >= 52) {
+    return "강세장";
+  }
+  if (score >= 60 && longTermTrendAlive && (shortTermStalling || macroScore < 52)) return "기간 조정";
   if (score >= 55) return "중립-상승";
   if (score >= 40) return "중립";
   if (score >= 25) return "중립-하락";
@@ -170,24 +185,20 @@ function macroRegimeLabel(score) {
   return "매크로 위험";
 }
 
-function targetAllocation(label) {
-  if (label === "강세장" || label === "중립-상승") return { stocks: 70, cash: 30 };
-  if (label === "중립") return { stocks: 50, cash: 50 };
-  return { stocks: 30, cash: 70 };
-}
-
 function marketRegimeActionBias(label) {
-  if (label === "강세장") return "공격 비중 유지";
+  if (label === "강세장") return "상승 추세 우위";
+  if (label === "기간 조정") return "추격 보류, 돌파 확인";
   if (label === "중립-상승") return "선별 매수 우위";
-  if (label === "중립") return "기존 비중 점검";
-  if (label === "중립-하락") return "방어 비중 확대";
+  if (label === "중립") return "방향성 확인";
+  if (label === "중립-하락") return "반등 확인 우선";
   return "신규 매수 보류";
 }
 
 function marketRegimeConclusion(label, technicalScore, macroScore) {
   const tech = rounded(technicalScore);
   const macro = rounded(macroScore);
-  if (label === "강세장") return `지수 추세가 강세장 조건이다. 기술 ${tech}점, 매크로 ${macro}점.`;
+  if (label === "강세장") return `주요 지수가 단기·장기 추세를 모두 유지하고 있다. 기술 ${tech}점, 매크로 ${macro}점.`;
+  if (label === "기간 조정") return `장기 추세는 유지되지만 단기 추세가 둔화되어 기간 조정으로 본다. 기술 ${tech}점, 매크로 ${macro}점.`;
   if (label === "중립-상승") return `상승 우위지만 추격보다 종목별 돌파 확인이 필요하다. 기술 ${tech}점, 매크로 ${macro}점.`;
   if (label === "중립") return `시장 방향성이 중립이다. 종목별 트리거와 현금 비중을 함께 확인한다.`;
   if (label === "중립-하락") return `시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.`;
