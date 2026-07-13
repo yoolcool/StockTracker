@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T09:16:21.189Z",
-  "generatedAtKst": "2026. 7. 13. PM 6:16",
+  "generatedAt": "2026-07-13T09:18:07.036Z",
+  "generatedAtKst": "2026. 7. 13. PM 6:18",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -453,11 +453,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 53.3,
+            "score": 53.4,
             "dataDate": "2026-07-13",
             "return5dPct": -2.3,
-            "return20dPct": -0.9,
-            "reason": "lower is risk-on; 20d -0.9%, 5d -2.3%, score 53.3"
+            "return20dPct": -1,
+            "reason": "lower is risk-on; 20d -1%, 5d -2.3%, score 53.4"
           },
           {
             "ticker": "^TNX",
