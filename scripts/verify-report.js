@@ -25,6 +25,8 @@ for (const stock of report.stocks) {
   assert(stock.stage, `stage missing for ${stock.ticker}`);
   assert(stock.nextTrigger, `nextTrigger missing for ${stock.ticker}`);
   assert(Array.isArray(stock.chart), `chart data missing for ${stock.ticker}`);
+  assert(Array.isArray(stock.targets), `target levels missing for ${stock.ticker}`);
+  assert(stock.breakoutTarget, `breakout target missing for ${stock.ticker}`);
 }
 
 console.log(`Verified report: ${report.stocks.length} stocks, US ${report.regimes.us.label}, KR ${report.regimes.kr.label}.`);

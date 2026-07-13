@@ -20,15 +20,14 @@ export function buildStockSignal(item, marketItem, regime) {
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
   const lastLow = pivots.lows.at(-1);
-  const highsAfterLow = lastLow ? pivots.highs.filter((pivot) => pivot.index > lastLow.index) : [];
-  const highsBeforeLow = lastLow ? pivots.highs.filter((pivot) => pivot.index < lastLow.index) : pivots.highs;
-  const firstReclaim = highsAfterLow.at(-1) || highsBeforeLow.at(-1) || null;
-  const secondReclaim = highsBeforeLow.at(-1) || highsAfterLow.at(-2) || null;
-  const high52w = Number(marketItem.high52w);
+  const targets = buildReclaimTargets(pivots.highs, lastLow);
+  const firstReclaim = targets[0] || null;
+  const secondReclaim = targets[1] || null;
+  const thirdReclaim = targets[2] || null;
+  const breakoutTarget = buildBreakoutTarget(history, latestDate);
   const nearBreakoutPct = firstReclaim ? distancePct(latestClose, firstReclaim.price) : null;
-  const isNewHigh = Number.isFinite(high52w) && latestClose >= high52w * 0.999;
-  const firstTriggered = firstReclaim ? latestClose >= firstReclaim.price : false;
-  const secondTriggered = secondReclaim ? latestClose >= secondReclaim.price : false;
+  const achievedTargets = targets.filter((target) => latestClose >= Number(target.price));
+  const isNewHigh = breakoutTarget ? latestClose >= Number(breakoutTarget.price) : false;
   const defensiveMarket = regime?.targetAllocation?.stocks <= 30;
 
   let stage = "관망";
@@ -37,23 +36,28 @@ export function buildStockSignal(item, marketItem, regime) {
   let confidence = firstReclaim ? "MEDIUM" : "LOW";
 
   if (isNewHigh) {
-    stage = "전량 투입 후보";
-    action = "신고가 갱신: 잔여 현금 투입 후보";
+    stage = "최대 모멘텀";
+    action = "이전 최고점 돌파: 신고가 모멘텀, 잔여 현금 전량 투입 후보";
     targetWeight = 100;
     confidence = "HIGH";
-  } else if (secondTriggered) {
+  } else if (achievedTargets.length >= 3) {
+    stage = "3차 매수";
+    action = "3차 목표가 돌파: 최대 모멘텀 전 단계";
+    targetWeight = defensiveMarket ? 40 : 90;
+    confidence = "HIGH";
+  } else if (achievedTargets.length === 2) {
     stage = "2차 매수";
-    action = "상위 전고점 돌파: 2차 분할 매수 후보";
+    action = "2차 목표가 돌파: 추가 분할 매수 후보";
     targetWeight = defensiveMarket ? 30 : 70;
     confidence = "HIGH";
-  } else if (firstTriggered) {
+  } else if (achievedTargets.length === 1) {
     stage = "1차 매수";
-    action = "바닥 이후 전고점 돌파: 1차 분할 매수 후보";
+    action = "1차 목표가 돌파: V자 반등 1차 분할 매수 후보";
     targetWeight = defensiveMarket ? 20 : 40;
     confidence = "MEDIUM";
   }
 
-  const nextTrigger = nextTriggerFor({ firstTriggered, secondTriggered, isNewHigh, firstReclaim, secondReclaim, high52w });
+  const nextTrigger = nextTriggerFor({ targets, achievedTargets, isNewHigh, breakoutTarget });
 
   return {
     ...identity(item),
@@ -65,6 +69,7 @@ export function buildStockSignal(item, marketItem, regime) {
     return20dPct: marketItem.return20dPct,
     drawdownFrom52wHighPct: marketItem.drawdownFrom52wHighPct,
     high52w: marketItem.high52w,
+    priorPeak: breakoutTarget,
     stage,
     action,
     targetWeight,
@@ -73,13 +78,16 @@ export function buildStockSignal(item, marketItem, regime) {
     bottom: lastLow ? serializePivot(lastLow) : null,
     firstReclaim: firstReclaim ? serializePivot(firstReclaim) : null,
     secondReclaim: secondReclaim ? serializePivot(secondReclaim) : null,
+    thirdReclaim: thirdReclaim ? serializePivot(thirdReclaim) : null,
+    targets: targets.map(serializeTarget),
+    breakoutTarget: breakoutTarget ? serializeTarget(breakoutTarget) : null,
     distanceToFirstReclaimPct: nearBreakoutPct,
     chart: compactChartData(history),
     pivots: {
       lows: pivots.lows.slice(-5).map(serializePivot),
       highs: pivots.highs.slice(-5).map(serializePivot)
     },
-    reason: signalReason({ stage, lastLow, firstReclaim, secondReclaim, isNewHigh, defensiveMarket })
+    reason: signalReason({ stage, lastLow, targets, breakoutTarget, isNewHigh, defensiveMarket })
   };
 }
 
@@ -115,19 +123,63 @@ function appendPivot(pivots, pivot, minSwingPct) {
   }
 }
 
-function nextTriggerFor({ firstTriggered, secondTriggered, isNewHigh, firstReclaim, secondReclaim, high52w }) {
-  if (!firstTriggered && firstReclaim) return { label: "1차 매수", price: firstReclaim.price, date: firstReclaim.date };
-  if (!secondTriggered && secondReclaim) return { label: "2차 매수", price: secondReclaim.price, date: secondReclaim.date };
-  if (!isNewHigh && Number.isFinite(high52w)) return { label: "신고가", price: rounded(high52w, 4), date: null };
+function buildReclaimTargets(highs, lastLow) {
+  if (!lastLow) return [];
+  const targets = [];
+  let cursorIndex = lastLow.index;
+  let minimumPrice = 0;
+
+  while (targets.length < 3) {
+    const next = highs
+      .filter((pivot) => pivot.index < cursorIndex && Number(pivot.price) > minimumPrice)
+      .sort((a, b) => b.index - a.index)
+      .find((pivot) => Number(pivot.price) > minimumPrice);
+    if (!next) break;
+    const targetNumber = targets.length + 1;
+    targets.push({
+      ...next,
+      targetNumber,
+      label: `${targetNumber}차 목표가`
+    });
+    cursorIndex = next.index;
+    minimumPrice = Number(next.price);
+  }
+
+  return targets;
+}
+
+function buildBreakoutTarget(history, latestDate) {
+  const priorBars = history.filter((bar) => bar.date !== latestDate);
+  if (!priorBars.length) return null;
+  const best = priorBars.reduce((peak, bar, index) => {
+    if (!peak || Number(bar.high) > Number(peak.price)) {
+      return {
+        type: "high",
+        index,
+        date: bar.date,
+        price: rounded(bar.high, 4),
+        label: "신고가 목표"
+      };
+    }
+    return peak;
+  }, null);
+  return best;
+}
+
+function nextTriggerFor({ targets, achievedTargets, isNewHigh, breakoutTarget }) {
+  const achievedCount = achievedTargets.length;
+  const nextTarget = targets[achievedCount];
+  if (nextTarget) return { label: nextTarget.label, price: nextTarget.price, date: nextTarget.date };
+  if (!isNewHigh && breakoutTarget) return { label: "신고가 목표", price: breakoutTarget.price, date: breakoutTarget.date };
   return { label: "추가 트리거 없음", price: null, date: null };
 }
 
-function signalReason({ stage, lastLow, firstReclaim, secondReclaim, isNewHigh, defensiveMarket }) {
+function signalReason({ stage, lastLow, targets, breakoutTarget, isNewHigh, defensiveMarket }) {
   const parts = [];
   if (lastLow) parts.push(`bottom ${lastLow.date} @ ${lastLow.price}`);
-  if (firstReclaim) parts.push(`first reclaim ${firstReclaim.date} @ ${firstReclaim.price}`);
-  if (secondReclaim) parts.push(`second reclaim ${secondReclaim.date} @ ${secondReclaim.price}`);
-  if (isNewHigh) parts.push("52-week high reached");
+  targets.forEach((target) => parts.push(`${target.targetNumber}차 ${target.date} @ ${target.price}`));
+  if (breakoutTarget) parts.push(`breakout ${breakoutTarget.date} @ ${breakoutTarget.price}`);
+  if (isNewHigh) parts.push("prior peak reached");
   if (defensiveMarket) parts.push("market allocation is defensive");
   return `${stage}: ${parts.join("; ") || "insufficient pivot structure"}`;
 }
@@ -141,6 +193,15 @@ function serializePivot(pivot) {
   return {
     date: pivot.date,
     price: pivot.price
+  };
+}
+
+function serializeTarget(target) {
+  return {
+    label: target.label,
+    targetNumber: target.targetNumber || null,
+    date: target.date,
+    price: target.price
   };
 }
 

@@ -152,9 +152,10 @@ function renderPriceChart(stock, currency) {
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
-      <span><i class="legend-line buy1"></i>1차</span>
-      <span><i class="legend-line buy2"></i>2차</span>
-      <span><i class="legend-line high"></i>52주 고점</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
       <span><i class="legend-dot"></i>바닥</span>
     </div>
   </div>`;
@@ -171,8 +172,11 @@ function renderLevelLine(level, yPos, width, pad, currency) {
 function renderPivotMarkers(stock, chart, x, y) {
   const markers = [
     { ...stock.bottom, kind: "bottom", label: "바닥" },
-    { ...stock.firstReclaim, kind: "high", label: "1차 전고점" },
-    { ...stock.secondReclaim, kind: "high", label: "2차 전고점" }
+    ...(stock.targets || []).map((target) => ({
+      ...target,
+      kind: "high",
+      label: `${target.targetNumber}차`
+    }))
   ].filter((marker) => marker.date && Number.isFinite(Number(marker.price)));
 
   return markers.map((marker) => {
@@ -229,16 +233,21 @@ function chartLevels(stock) {
     const existing = rows.find((row) => Math.abs((row.price - next.price) / row.price) < 0.001);
     if (existing) {
       existing.label = `${existing.label} / ${next.label}`;
-      if (next.className === "high") existing.className = "high";
+      if (next.className === "breakout") existing.className = "breakout";
       return;
     }
     rows.push(next);
   };
-  if (stock.firstReclaim?.price) addLevel({ label: "1차 전고점", price: Number(stock.firstReclaim.price), className: "buy1" });
-  if (stock.secondReclaim?.price && Number(stock.secondReclaim.price) !== Number(stock.firstReclaim?.price)) {
-    addLevel({ label: "2차 전고점", price: Number(stock.secondReclaim.price), className: "buy2" });
+  (stock.targets || []).forEach((target) => {
+    addLevel({
+      label: `${target.targetNumber}차 목표`,
+      price: Number(target.price),
+      className: `buy${target.targetNumber}`
+    });
+  });
+  if (stock.breakoutTarget?.price) {
+    addLevel({ label: "신고가 목표", price: Number(stock.breakoutTarget.price), className: "breakout" });
   }
-  if (stock.high52w) addLevel({ label: "52주 고점", price: Number(stock.high52w), className: "high" });
   return rows.filter((row) => Number.isFinite(row.price));
 }
 
@@ -411,7 +420,8 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 }
 .level-line.buy1 { stroke: var(--blue); }
 .level-line.buy2 { stroke: var(--violet); }
-.level-line.high { stroke: var(--green); }
+.level-line.buy3 { stroke: var(--amber); }
+.level-line.breakout { stroke: var(--green); }
 .level-label {
   fill: var(--muted);
   font-size: 12px;
@@ -459,7 +469,8 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 }
 .legend-line.buy1 { border-top-style: dashed; border-top-color: var(--blue); }
 .legend-line.buy2 { border-top-style: dashed; border-top-color: var(--violet); }
-.legend-line.high { border-top-style: dashed; border-top-color: var(--green); }
+.legend-line.buy3 { border-top-style: dashed; border-top-color: var(--amber); }
+.legend-line.breakout { border-top-style: dashed; border-top-color: var(--green); }
 .legend-dot {
   width: 8px;
   height: 8px;
