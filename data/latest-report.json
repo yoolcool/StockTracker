@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T12:38:29.207Z",
-  "generatedAtKst": "2026. 7. 13. 오후 9:38",
+  "generatedAt": "2026-07-13T12:39:03.231Z",
+  "generatedAtKst": "2026. 7. 13. PM 9:39",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -239,11 +239,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.6,
+            "score": 43.5,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.4,
+            "return5dPct": 2.5,
             "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
+            "reason": "lower is risk-on; 20d 2.8%, 5d 2.5%, score 43.5"
           },
           {
             "ticker": "^IRX",
@@ -466,11 +466,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.6,
+            "score": 43.5,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.4,
+            "return5dPct": 2.5,
             "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
+            "reason": "lower is risk-on; 20d 2.8%, 5d 2.5%, score 43.5"
           },
           {
             "ticker": "TLT",
