@@ -74,6 +74,7 @@ export function buildStockSignal(item, marketItem, regime) {
     firstReclaim: firstReclaim ? serializePivot(firstReclaim) : null,
     secondReclaim: secondReclaim ? serializePivot(secondReclaim) : null,
     distanceToFirstReclaimPct: nearBreakoutPct,
+    chart: compactChartData(history),
     pivots: {
       lows: pivots.lows.slice(-5).map(serializePivot),
       highs: pivots.highs.slice(-5).map(serializePivot)
@@ -141,6 +142,15 @@ function serializePivot(pivot) {
     date: pivot.date,
     price: pivot.price
   };
+}
+
+function compactChartData(history) {
+  return history.slice(-180).map((bar) => ({
+    date: bar.date,
+    close: rounded(bar.close, 4),
+    high: rounded(bar.high, 4),
+    low: rounded(bar.low, 4)
+  }));
 }
 
 function identity(item) {

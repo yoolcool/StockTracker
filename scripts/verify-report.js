@@ -12,7 +12,8 @@ const html = fs.readFileSync(htmlPath, "utf8");
 const report = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 
 assert(html.includes("Stock Tracker"), "HTML title/header missing");
-assert(html.includes("매수 타이밍 신호"), "HTML stock signal section missing");
+assert(html.includes("차트 기반 매수 타이밍"), "HTML stock signal section missing");
+assert(html.includes("price-chart"), "HTML price chart missing");
 assert(html.includes("시장 국면 세부"), "HTML regime details missing");
 assert(report.regimes?.us?.label, "US regime missing");
 assert(report.regimes?.kr?.label, "KR regime missing");
@@ -23,6 +24,7 @@ for (const stock of report.stocks) {
   assert(stock.ticker, "stock ticker missing");
   assert(stock.stage, `stage missing for ${stock.ticker}`);
   assert(stock.nextTrigger, `nextTrigger missing for ${stock.ticker}`);
+  assert(Array.isArray(stock.chart), `chart data missing for ${stock.ticker}`);
 }
 
 console.log(`Verified report: ${report.stocks.length} stocks, US ${report.regimes.us.label}, KR ${report.regimes.kr.label}.`);
