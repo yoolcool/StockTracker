@@ -26,7 +26,7 @@ export function buildStockSignal(item, marketItem, regime) {
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
   const lastLow = resolveCurrentBottom(trackingHistory, targetLows);
-  const targets = buildReclaimTargets(targetPeaks, lastLow);
+  const targets = buildReclaimTargets(trackingHistory, lastLow);
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
   const thirdReclaim = targets[2] || null;
@@ -218,17 +218,14 @@ function appendPivot(pivots, pivot, minSwingPct) {
   }
 }
 
-function buildReclaimTargets(highs, lastLow) {
+function buildReclaimTargets(history, lastLow) {
   if (!lastLow) return [];
   const targets = [];
   let cursorIndex = lastLow.index;
   let minimumPrice = 0;
 
   while (targets.length < 3) {
-    const next = highs
-      .filter((pivot) => pivot.index < cursorIndex && Number(pivot.price) > minimumPrice)
-      .sort((a, b) => b.index - a.index)
-      .find((pivot) => Number(pivot.price) > minimumPrice);
+    const next = findNearestPriorHigh(history, cursorIndex, minimumPrice);
     if (!next) break;
     const targetNumber = targets.length + 1;
     targets.push({
@@ -241,6 +238,31 @@ function buildReclaimTargets(highs, lastLow) {
   }
 
   return targets;
+}
+
+function findNearestPriorHigh(history, cursorIndex, minimumPrice) {
+  for (let index = cursorIndex - 1; index >= 0; index -= 1) {
+    const close = Number(history[index]?.close);
+    if (!Number.isFinite(close) || close <= minimumPrice) continue;
+    if (isTurningHigh(history, index)) {
+      return {
+        type: "high",
+        index,
+        date: history[index].date,
+        price: rounded(close, 4)
+      };
+    }
+  }
+  return null;
+}
+
+function isTurningHigh(history, index) {
+  const close = Number(history[index]?.close);
+  const previous = Number(history[index - 1]?.close);
+  const next = Number(history[index + 1]?.close);
+  const higherThanPrevious = !Number.isFinite(previous) || close >= previous;
+  const higherThanNext = !Number.isFinite(next) || close > next;
+  return Number.isFinite(close) && higherThanPrevious && higherThanNext;
 }
 
 function buildBreakoutTarget(history, latestDate) {
