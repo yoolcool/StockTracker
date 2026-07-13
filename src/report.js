@@ -90,6 +90,7 @@ function renderStockCard(stock, profile) {
       <span class="${Number(stock.dailyChangePct) >= 0 ? "up" : "down"}">${pct(stock.dailyChangePct)}</span>
     </div>
     ${renderPriceChart(stock, currency)}
+    ${renderPriceChart(stock, currency, { days: 5, title: "최근 1주 확대", variant: "week-zoom" })}
     <div class="stage-row">
       <span>${escapeHtml(stock.stage)}</span>
       <strong>${escapeHtml(stock.confidence)}</strong>
@@ -106,13 +107,14 @@ function renderStockCard(stock, profile) {
   </article>`;
 }
 
-function renderPriceChart(stock, currency) {
-  const chart = Array.isArray(stock.chart) ? stock.chart.filter((bar) => Number.isFinite(Number(bar.close))) : [];
+function renderPriceChart(stock, currency, options = {}) {
+  const fullChart = Array.isArray(stock.chart) ? stock.chart.filter((bar) => Number.isFinite(Number(bar.close))) : [];
+  const chart = options.days ? fullChart.slice(-options.days) : fullChart;
   if (chart.length < 2) return `<div class="chart-empty">차트 데이터 없음</div>`;
 
   const width = 720;
-  const height = 250;
-  const pad = { top: 20, right: 92, bottom: 32, left: 12 };
+  const height = options.days ? 360 : 250;
+  const pad = { top: options.title ? 34 : 20, right: 120, bottom: 32, left: 12 };
   const levels = chartLevels(stock);
   const prices = [
     ...chart.flatMap((bar) => [bar.high, bar.low, bar.close]),
@@ -129,21 +131,23 @@ function renderPriceChart(stock, currency) {
   const areaPath = `${linePath} L${rounded(x(chart.length - 1), 2)} ${height - pad.bottom} L${pad.left} ${height - pad.bottom} Z`;
   const firstDate = chart[0].date;
   const lastDate = chart.at(-1).date;
-  const markerSvg = renderPivotMarkers(stock, chart, x, y);
+  const markerSvg = renderPivotMarkers(stock, chart, x, y, { exactOnly: Boolean(options.days) });
+  const chartId = `${safeId(stock.ticker)}-${options.variant || "full"}`;
 
-  return `<div class="chart-wrap">
+  return `<div class="chart-wrap ${options.variant || "full"}">
     <svg class="price-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(stock.ticker)} price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-${safeId(stock.ticker)}" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-${chartId}" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="${width}" height="${height}" rx="8" class="chart-bg"/>
+      ${options.title ? `<text x="${pad.left}" y="20" class="chart-title">${escapeHtml(options.title)}</text>` : ""}
       ${[0.25, 0.5, 0.75].map((ratio) => `<line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" y2="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" class="grid-line"/>`).join("")}
-      <path d="${areaPath}" fill="url(#area-${safeId(stock.ticker)})"/>
+      <path d="${areaPath}" fill="url(#area-${chartId})"/>
       <path d="${linePath}" class="price-path"/>
-      ${levels.map((level) => renderLevelLine(level, y(level.price), width, pad, currency)).join("")}
+      ${renderLevelLines(levels, y, width, height, pad, currency)}
       ${markerSvg}
       <circle cx="${rounded(x(chart.length - 1), 2)}" cy="${rounded(y(stock.lastClose), 2)}" r="4.5" class="current-dot"/>
       <text x="${width - pad.right + 12}" y="${rounded(y(stock.lastClose), 2) + 4}" class="current-label">${escapeHtml(money(stock.lastClose, currency))}</text>
@@ -161,15 +165,28 @@ function renderPriceChart(stock, currency) {
   </div>`;
 }
 
-function renderLevelLine(level, yPos, width, pad, currency) {
+function renderLevelLines(levels, y, width, height, pad, currency) {
+  const rows = levels
+    .map((level) => ({ ...level, yPos: y(level.price) }))
+    .sort((a, b) => a.yPos - b.yPos);
+  let nextLabelY = pad.top + 8;
+
+  return rows.map((level) => {
+    const labelY = Math.min(Math.max(level.yPos, nextLabelY), height - pad.bottom - 18);
+    nextLabelY = labelY + 24;
+    return renderLevelLine(level, labelY, width, pad, currency);
+  }).join("");
+}
+
+function renderLevelLine(level, labelY, width, pad, currency) {
   return `<g>
-    <line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(yPos, 2)}" y2="${rounded(yPos, 2)}" class="level-line ${level.className}"/>
-    <text x="${width - pad.right + 12}" y="${rounded(yPos, 2) - 4}" class="level-label">${escapeHtml(level.label)}</text>
-    <text x="${width - pad.right + 12}" y="${rounded(yPos, 2) + 11}" class="level-price">${escapeHtml(money(level.price, currency))}</text>
+    <line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(level.yPos, 2)}" y2="${rounded(level.yPos, 2)}" class="level-line ${level.className}"/>
+    <text x="${width - pad.right + 12}" y="${rounded(labelY, 2) - 4}" class="level-label">${escapeHtml(level.label)}</text>
+    <text x="${width - pad.right + 12}" y="${rounded(labelY, 2) + 11}" class="level-price">${escapeHtml(money(level.price, currency))}</text>
   </g>`;
 }
 
-function renderPivotMarkers(stock, chart, x, y) {
+function renderPivotMarkers(stock, chart, x, y, options = {}) {
   const markers = [
     { ...stock.bottom, kind: "bottom", label: "바닥" },
     ...(stock.targets || []).map((target) => ({
@@ -180,7 +197,7 @@ function renderPivotMarkers(stock, chart, x, y) {
   ].filter((marker) => marker.date && Number.isFinite(Number(marker.price)));
 
   return markers.map((marker) => {
-    const index = nearestDateIndex(chart, marker.date);
+    const index = options.exactOnly ? chart.findIndex((bar) => bar.date === marker.date) : nearestDateIndex(chart, marker.date);
     if (index < 0) return "";
     const cx = rounded(x(index), 2);
     const cy = rounded(y(marker.price), 2);
@@ -403,7 +420,18 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .price-chart {
   display: block;
   width: 100%;
+  height: auto;
+}
+.chart-wrap.full .price-chart {
   aspect-ratio: 720 / 250;
+}
+.chart-wrap.week-zoom .price-chart {
+  aspect-ratio: 720 / 360;
+}
+.chart-title {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
 }
 .chart-bg { fill: #fbfcfa; }
 .grid-line { stroke: #e6ecef; stroke-width: 1; }
