@@ -1,0 +1,14 @@
+{
+  "name": "stock-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node src/main.js",
+    "verify": "node scripts/verify-report.js",
+    "daily": "npm run generate && npm run verify"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

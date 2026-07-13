@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Tracker</title>
+  <style>
+:root {
+  color-scheme: light;
+  --ink: #172026;
+  --muted: #66727a;
+  --line: #d9e0e4;
+  --bg: #f5f7f4;
+  --panel: #ffffff;
+  --green: #177245;
+  --red: #b33a3a;
+  --amber: #9a6700;
+  --blue: #1c5d99;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  padding: 28px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+  background: #fbfcfa;
+}
+h1, h2, h3, h4, p { margin: 0; }
+h1 { font-size: clamp(32px, 5vw, 56px); letter-spacing: 0; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { margin-top: 22px; margin-bottom: 8px; font-size: 14px; color: var(--muted); }
+main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
+.eyebrow { color: var(--muted); font-size: 12px; text-transform: uppercase; font-weight: 700; }
+.timestamp { text-align: right; color: var(--muted); display: grid; gap: 4px; }
+.timestamp strong { color: var(--ink); }
+.summary-grid, .details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.market-card, .stock-card, .detail-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+.market-card { border-top: 5px solid var(--blue); }
+.market-card.positive { border-top-color: var(--green); }
+.market-card.negative { border-top-color: var(--red); }
+.market-card.neutral { border-top-color: var(--amber); }
+.market-card-head, .stock-head, .section-header, .stage-row, .price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.market-card-head span, .ticker { color: var(--muted); font-size: 13px; font-weight: 700; }
+.market-card-head strong { font-size: 22px; }
+.score-row, .mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.score-row div, .mini-grid div {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+.score-row p, .mini-grid span { color: var(--muted); font-size: 12px; }
+.score-row strong, .mini-grid strong { display: block; margin-top: 4px; font-size: 24px; }
+.bias, .action { font-weight: 700; margin-bottom: 8px; }
+.muted { color: var(--muted); line-height: 1.5; }
+.small { font-size: 12px; }
+.section-header { margin: 28px 0 14px; }
+.pill, .market-badge {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.stock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.stock-card { border-left: 5px solid var(--line); }
+.stock-card.stage-hot { border-left-color: var(--green); }
+.stock-card.stage-watch { border-left-color: var(--blue); }
+.stock-card.stage-missing { border-left-color: var(--red); }
+.stock-head { align-items: start; }
+.price-line { margin: 16px 0; }
+.price-line strong { font-size: 26px; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+.stage-row {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+.metric-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.metric-list div {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 62px;
+}
+dt { color: var(--muted); font-size: 12px; }
+dd { margin: 4px 0 0; font-weight: 700; }
+.details { margin-top: 30px; }
+.details h2 { margin-bottom: 14px; }
+.detail-panel { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; border-top: 1px solid var(--line); padding: 9px 8px; vertical-align: top; }
+th { color: var(--muted); font-size: 12px; }
+@media (max-width: 780px) {
+  .topbar, .section-header { align-items: start; flex-direction: column; }
+  .timestamp { text-align: left; }
+  .summary-grid, .details-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Daily Timing Tracker</p>
+      <h1>Stock Tracker</h1>
+    </div>
+    <div class="timestamp">
+      <span>2026. 7. 13. 오후 5:42</span>
+      <strong>2026-07-13</strong>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary-grid">
+      <article class="market-card positive">
+    <div class="market-card-head">
+      <span>US</span>
+      <strong>강세장</strong>
+    </div>
+    <div class="score-row">
+      <div>
+        <p>Regime Score</p>
+        <strong>83</strong>
+      </div>
+      <div>
+        <p>Target</p>
+        <strong>70:30</strong>
+      </div>
+    </div>
+    <p class="bias">공격 비중 유지</p>
+    <p class="muted">지수 추세가 강세장 조건이다. 기술 100점, 매크로 51.4점.</p>
+  </article>
+      <article class="market-card negative">
+    <div class="market-card-head">
+      <span>KR</span>
+      <strong>중립-하락</strong>
+    </div>
+    <div class="score-row">
+      <div>
+        <p>Regime Score</p>
+        <strong>32.9</strong>
+      </div>
+      <div>
+        <p>Target</p>
+        <strong>30:70</strong>
+      </div>
+    </div>
+    <p class="bias">방어 비중 확대</p>
+    <p class="muted">시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.</p>
+  </article>
+    </section>
+
+    <section class="section-header">
+      <div>
+        <p class="eyebrow">Watchlist</p>
+        <h2>매수 타이밍 신호</h2>
+      </div>
+      <div class="pill">4/10 tracked</div>
+    </section>
+
+    <section class="stock-grid">
+      <article class="stock-card stage-calm">
+    <div class="stock-head">
+      <div>
+        <span class="ticker">AAPL</span>
+        <h3>Apple</h3>
+      </div>
+      <span class="market-badge">US</span>
+    </div>
+    <div class="price-line">
+      <strong>$315.32</strong>
+      <span class="down">-0.3%</span>
+    </div>
+    <div class="stage-row">
+      <span>관망</span>
+      <strong>MEDIUM</strong>
+    </div>
+    <p class="action">다음 돌파 가격 대기</p>
+    <dl class="metric-list">
+      <div><dt>Next</dt><dd>1차 매수 $317.40</dd></div>
+      <div><dt>20D</dt><dd>+8.1%</dd></div>
+      <div><dt>52W DD</dt><dd>-0.7%</dd></div>
+      <div><dt>Target</dt><dd>0%</dd></div>
+    </dl>
+    <p class="muted small">관망: bottom 2026-06-25 @ 273.75; first reclaim 2026-06-08 @ 317.4; second reclaim 2026-06-08 @ 317.4</p>
+  </article><article class="stock-card stage-calm">
+    <div class="stock-head">
+      <div>
+        <span class="ticker">NVDA</span>
+        <h3>NVIDIA</h3>
+      </div>
+      <span class="market-badge">US</span>
+    </div>
+    <div class="price-line">
+      <strong>$210.96</strong>
+      <span class="up">+4%</span>
+    </div>
+    <div class="stage-row">
+      <span>관망</span>
+      <strong>MEDIUM</strong>
+    </div>
+    <p class="action">다음 돌파 가격 대기</p>
+    <dl class="metric-list">
+      <div><dt>Next</dt><dd>1차 매수 $213.99</dd></div>
+      <div><dt>20D</dt><dd>+5.3%</dd></div>
+      <div><dt>52W DD</dt><dd>-10.8%</dd></div>
+      <div><dt>Target</dt><dd>0%</dd></div>
+    </dl>
+    <p class="muted small">관망: bottom 2026-06-29 @ 189.8; first reclaim 2026-06-22 @ 213.99; second reclaim 2026-06-22 @ 213.99</p>
+  </article><article class="stock-card stage-calm">
+    <div class="stock-head">
+      <div>
+        <span class="ticker">005930.KS</span>
+        <h3>Samsung Electronics</h3>
+      </div>
+      <span class="market-badge">KR</span>
+    </div>
+    <div class="price-line">
+      <strong>₩254,500</strong>
+      <span class="down">-10.7%</span>
+    </div>
+    <div class="stage-row">
+      <span>관망</span>
+      <strong>MEDIUM</strong>
+    </div>
+    <p class="action">시장 방어 국면: 신호가 켜져도 분할 규모 축소</p>
+    <dl class="metric-list">
+      <div><dt>Next</dt><dd>1차 매수 ₩374,500</dd></div>
+      <div><dt>20D</dt><dd>-24.5%</dd></div>
+      <div><dt>52W DD</dt><dd>-32%</dd></div>
+      <div><dt>Target</dt><dd>0%</dd></div>
+    </dl>
+    <p class="muted small">관망: bottom 2026-06-23 @ 310000; first reclaim 2026-06-19 @ 374500; second reclaim 2026-06-19 @ 374500; market allocation is defensive</p>
+  </article><article class="stock-card stage-calm">
+    <div class="stock-head">
+      <div>
+        <span class="ticker">035420.KS</span>
+        <h3>NAVER</h3>
+      </div>
+      <span class="market-badge">KR</span>
+    </div>
+    <div class="price-line">
+      <strong>₩188,000</strong>
+      <span class="down">-1.7%</span>
+    </div>
+    <div class="stage-row">
+      <span>관망</span>
+      <strong>MEDIUM</strong>
+    </div>
+    <p class="action">시장 방어 국면: 신호가 켜져도 분할 규모 축소</p>
+    <dl class="metric-list">
+      <div><dt>Next</dt><dd>1차 매수 ₩304,000</dd></div>
+      <div><dt>20D</dt><dd>-24.2%</dd></div>
+      <div><dt>52W DD</dt><dd>-38.2%</dd></div>
+      <div><dt>Target</dt><dd>0%</dd></div>
+    </dl>
+    <p class="muted small">관망: bottom 2026-06-26 @ 190300; first reclaim 2026-06-01 @ 304000; second reclaim 2026-06-01 @ 304000; market allocation is defensive</p>
+  </article>
+    </section>
+
+    <section class="details">
+      <h2>시장 국면 세부</h2>
+      <div class="details-grid">
+        <article class="detail-panel">
+    <h3>US Market</h3>
+    <div class="mini-grid">
+      <div><span>기술</span><strong>100</strong></div>
+      <div><span>매크로</span><strong>51.4</strong></div>
+      <div><span>커버리지</span><strong>2/2</strong></div>
+    </div>
+    <h4>Benchmarks</h4>
+    <table>
+      <thead><tr><th>자산</th><th>점수</th><th>20D</th><th>상태</th></tr></thead>
+      <tbody><tr><td>S&amp;P 500</td><td>100</td><td>+4.2%</td><td>above MA50, above MA200, 20d 4.2%, score 100</td></tr><tr><td>Nasdaq 100</td><td>100</td><td>+4.6%</td><td>above MA50, above MA200, 20d 4.6%, score 100</td></tr></tbody>
+    </table>
+    <h4>Macro</h4>
+    <table>
+      <thead><tr><th>지표</th><th>점수</th><th>20D</th><th>해석</th></tr></thead>
+      <tbody><tr><td>US 10Y yield</td><td>47.5</td><td>+0.6%</td><td>lower is risk-on; 20d 0.6%, 5d 1.9%, score 47.5</td></tr><tr><td>US 3M yield</td><td>46.7</td><td>+1.7%</td><td>lower is risk-on; 20d 1.7%, 5d 0.7%, score 46.7</td></tr><tr><td>US long-duration bonds</td><td>48.2</td><td>-0.5%</td><td>higher is risk-on; 20d -0.5%, 5d -1.2%, score 48.2</td></tr><tr><td>TIPS ETF</td><td>50</td><td>-1%</td><td>context signal; 20d -1%, 5d -0.2%, score 50</td></tr><tr><td>Oil ETF</td><td>77</td><td>-19.1%</td><td>lower is risk-on; 20d -19.1%, 5d 4.5%, score 77</td></tr><tr><td>Gold</td><td>50</td><td>+0.6%</td><td>context signal; 20d 0.6%, 5d -0.3%, score 50</td></tr><tr><td>US dollar</td><td>47.9</td><td>+1.2%</td><td>lower is risk-on; 20d 1.2%, 5d 0.2%, score 47.9</td></tr><tr><td>High yield credit</td><td>50.5</td><td>+0.3%</td><td>higher is risk-on; 20d 0.3%, 5d 0%, score 50.5</td></tr><tr><td>Investment grade credit</td><td>50</td><td>-0.6%</td><td>context signal; 20d -0.6%, 5d -1.1%, score 50</td></tr><tr><td>VIX</td><td>45.8</td><td>+0.4%</td><td>lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8</td></tr></tbody>
+    </table>
+  </article>
+        <article class="detail-panel">
+    <h3>Korean Market</h3>
+    <div class="mini-grid">
+      <div><span>기술</span><strong>21.6</strong></div>
+      <div><span>매크로</span><strong>54</strong></div>
+      <div><span>커버리지</span><strong>2/2</strong></div>
+    </div>
+    <h4>Benchmarks</h4>
+    <table>
+      <thead><tr><th>자산</th><th>점수</th><th>20D</th><th>상태</th></tr></thead>
+      <tbody><tr><td>KOSPI</td><td>39.2</td><td>-20.3%</td><td>below MA50, above MA200, 20d -20.3%, score 39.2</td></tr><tr><td>KOSDAQ</td><td>0</td><td>-22.7%</td><td>below MA50, below MA200, 20d -22.7%, score 0</td></tr></tbody>
+    </table>
+    <h4>Macro</h4>
+    <table>
+      <thead><tr><th>지표</th><th>점수</th><th>20D</th><th>해석</th></tr></thead>
+      <tbody><tr><td>USD/KRW</td><td>53.3</td><td>-0.9%</td><td>lower is risk-on; 20d -0.9%, 5d -2.3%, score 53.3</td></tr><tr><td>US 10Y yield</td><td>47.5</td><td>+0.6%</td><td>lower is risk-on; 20d 0.6%, 5d 1.9%, score 47.5</td></tr><tr><td>US long-duration bonds</td><td>48.2</td><td>-0.5%</td><td>higher is risk-on; 20d -0.5%, 5d -1.2%, score 48.2</td></tr><tr><td>Oil ETF</td><td>77</td><td>-19.1%</td><td>lower is risk-on; 20d -19.1%, 5d 4.5%, score 77</td></tr><tr><td>High yield credit</td><td>50.5</td><td>+0.3%</td><td>higher is risk-on; 20d 0.3%, 5d 0%, score 50.5</td></tr><tr><td>VIX</td><td>45.8</td><td>+0.4%</td><td>lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8</td></tr><tr><td>Korea equity ETF</td><td>56</td><td>+2.8%</td><td>higher is risk-on; 20d 2.8%, 5d 1.9%, score 56</td></tr></tbody>
+    </table>
+  </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "id": "us",
+  "label": "US Market",
+  "timezone": "America/New_York",
+  "currency": "USD",
+  "benchmarkTickers": ["SPY", "QQQ", "IWM"],
+  "regimeBenchmarks": [
+    {
+      "ticker": "^GSPC",
+      "label": "S&P 500",
+      "fallbackTicker": "SPY",
+      "weight": 0.5
+    },
+    {
+      "ticker": "^NDX",
+      "label": "Nasdaq 100",
+      "fallbackTicker": "QQQ",
+      "weight": 0.5
+    }
+  ],
+  "macroSignals": [
+    {
+      "ticker": "^TNX",
+      "label": "US 10Y yield",
+      "type": "rates",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "^IRX",
+      "label": "US 3M yield",
+      "type": "short-rates",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "TLT",
+      "label": "US long-duration bonds",
+      "type": "rates",
+      "riskOnWhen": "up"
+    },
+    {
+      "ticker": "TIP",
+      "label": "TIPS ETF",
+      "type": "inflation",
+      "riskOnWhen": "neutral"
+    },
+    {
+      "ticker": "USO",
+      "label": "Oil ETF",
+      "type": "inflation",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "GLD",
+      "label": "Gold",
+      "type": "safe-haven",
+      "riskOnWhen": "neutral"
+    },
+    {
+      "ticker": "UUP",
+      "label": "US dollar",
+      "type": "fx",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "HYG",
+      "label": "High yield credit",
+      "type": "credit",
+      "riskOnWhen": "up"
+    },
+    {
+      "ticker": "LQD",
+      "label": "Investment grade credit",
+      "type": "credit-quality",
+      "riskOnWhen": "neutral"
+    },
+    {
+      "ticker": "^VIX",
+      "label": "VIX",
+      "type": "volatility",
+      "riskOnWhen": "down"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "maxItems": 10,
+  "items": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "market": "us"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "market": "us"
+    },
+    {
+      "ticker": "005930.KS",
+      "name": "Samsung Electronics",
+      "market": "kr"
+    },
+    {
+      "ticker": "035420.KS",
+      "name": "NAVER",
+      "market": "kr"
+    }
+  ]
+}

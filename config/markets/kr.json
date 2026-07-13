@@ -1,0 +1,65 @@
+{
+  "id": "kr",
+  "label": "Korean Market",
+  "timezone": "Asia/Seoul",
+  "currency": "KRW",
+  "benchmarkTickers": ["069500.KS", "229200.KS"],
+  "regimeBenchmarks": [
+    {
+      "ticker": "^KS11",
+      "label": "KOSPI",
+      "fallbackTicker": "069500.KS",
+      "weight": 0.55
+    },
+    {
+      "ticker": "^KQ11",
+      "label": "KOSDAQ",
+      "fallbackTicker": "229200.KS",
+      "weight": 0.45
+    }
+  ],
+  "macroSignals": [
+    {
+      "ticker": "USDKRW=X",
+      "label": "USD/KRW",
+      "type": "fx",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "^TNX",
+      "label": "US 10Y yield",
+      "type": "rates",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "TLT",
+      "label": "US long-duration bonds",
+      "type": "rates",
+      "riskOnWhen": "up"
+    },
+    {
+      "ticker": "USO",
+      "label": "Oil ETF",
+      "type": "inflation",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "HYG",
+      "label": "High yield credit",
+      "type": "credit",
+      "riskOnWhen": "up"
+    },
+    {
+      "ticker": "^VIX",
+      "label": "VIX",
+      "type": "volatility",
+      "riskOnWhen": "down"
+    },
+    {
+      "ticker": "EWY",
+      "label": "Korea equity ETF",
+      "type": "foreign-risk",
+      "riskOnWhen": "up"
+    }
+  ]
+}

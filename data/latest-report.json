@@ -1,0 +1,882 @@
+{
+  "generatedAt": "2026-07-13T08:42:11.072Z",
+  "generatedAtKst": "2026. 7. 13. 오후 5:42",
+  "tradingDate": "2026-07-13",
+  "watchlistMaxItems": 10,
+  "marketProfiles": {
+    "us": {
+      "id": "us",
+      "label": "US Market",
+      "timezone": "America/New_York",
+      "currency": "USD",
+      "benchmarkTickers": [
+        "SPY",
+        "QQQ",
+        "IWM"
+      ],
+      "regimeBenchmarks": [
+        {
+          "ticker": "^GSPC",
+          "label": "S&P 500",
+          "fallbackTicker": "SPY",
+          "weight": 0.5
+        },
+        {
+          "ticker": "^NDX",
+          "label": "Nasdaq 100",
+          "fallbackTicker": "QQQ",
+          "weight": 0.5
+        }
+      ],
+      "macroSignals": [
+        {
+          "ticker": "^TNX",
+          "label": "US 10Y yield",
+          "type": "rates",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "^IRX",
+          "label": "US 3M yield",
+          "type": "short-rates",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "TLT",
+          "label": "US long-duration bonds",
+          "type": "rates",
+          "riskOnWhen": "up"
+        },
+        {
+          "ticker": "TIP",
+          "label": "TIPS ETF",
+          "type": "inflation",
+          "riskOnWhen": "neutral"
+        },
+        {
+          "ticker": "USO",
+          "label": "Oil ETF",
+          "type": "inflation",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "GLD",
+          "label": "Gold",
+          "type": "safe-haven",
+          "riskOnWhen": "neutral"
+        },
+        {
+          "ticker": "UUP",
+          "label": "US dollar",
+          "type": "fx",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "HYG",
+          "label": "High yield credit",
+          "type": "credit",
+          "riskOnWhen": "up"
+        },
+        {
+          "ticker": "LQD",
+          "label": "Investment grade credit",
+          "type": "credit-quality",
+          "riskOnWhen": "neutral"
+        },
+        {
+          "ticker": "^VIX",
+          "label": "VIX",
+          "type": "volatility",
+          "riskOnWhen": "down"
+        }
+      ]
+    },
+    "kr": {
+      "id": "kr",
+      "label": "Korean Market",
+      "timezone": "Asia/Seoul",
+      "currency": "KRW",
+      "benchmarkTickers": [
+        "069500.KS",
+        "229200.KS"
+      ],
+      "regimeBenchmarks": [
+        {
+          "ticker": "^KS11",
+          "label": "KOSPI",
+          "fallbackTicker": "069500.KS",
+          "weight": 0.55
+        },
+        {
+          "ticker": "^KQ11",
+          "label": "KOSDAQ",
+          "fallbackTicker": "229200.KS",
+          "weight": 0.45
+        }
+      ],
+      "macroSignals": [
+        {
+          "ticker": "USDKRW=X",
+          "label": "USD/KRW",
+          "type": "fx",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "^TNX",
+          "label": "US 10Y yield",
+          "type": "rates",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "TLT",
+          "label": "US long-duration bonds",
+          "type": "rates",
+          "riskOnWhen": "up"
+        },
+        {
+          "ticker": "USO",
+          "label": "Oil ETF",
+          "type": "inflation",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "HYG",
+          "label": "High yield credit",
+          "type": "credit",
+          "riskOnWhen": "up"
+        },
+        {
+          "ticker": "^VIX",
+          "label": "VIX",
+          "type": "volatility",
+          "riskOnWhen": "down"
+        },
+        {
+          "ticker": "EWY",
+          "label": "Korea equity ETF",
+          "type": "foreign-risk",
+          "riskOnWhen": "up"
+        }
+      ]
+    }
+  },
+  "regimes": {
+    "us": {
+      "market": "us",
+      "label": "강세장",
+      "score": 83,
+      "actionBias": "공격 비중 유지",
+      "targetAllocation": {
+        "stocks": 70,
+        "cash": 30
+      },
+      "conclusion": "지수 추세가 강세장 조건이다. 기술 100점, 매크로 51.4점.",
+      "change": {
+        "status": "new",
+        "summary": "No previous regime snapshot."
+      },
+      "technical": {
+        "score": 100,
+        "label": "상승 추세 우위",
+        "benchmarks": [
+          {
+            "ticker": "^GSPC",
+            "sourceTicker": "^GSPC",
+            "label": "S&P 500",
+            "fallbackTicker": "SPY",
+            "usingFallback": false,
+            "weight": 0.5,
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 100,
+            "lastClose": 7575.3901,
+            "dataDate": "2026-07-10",
+            "dailyChangePct": 0.4,
+            "return5dPct": 1.2,
+            "return20dPct": 4.2,
+            "return60dPct": 8.7,
+            "drawdownFrom52wHighPct": -0.6,
+            "ma50": 7433.12,
+            "ma200": 6965.14,
+            "aboveMa50": true,
+            "aboveMa200": true,
+            "reason": "above MA50, above MA200, 20d 4.2%, score 100"
+          },
+          {
+            "ticker": "^NDX",
+            "sourceTicker": "^NDX",
+            "label": "Nasdaq 100",
+            "fallbackTicker": "QQQ",
+            "usingFallback": false,
+            "weight": 0.5,
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 100,
+            "lastClose": 29825.1094,
+            "dataDate": "2026-07-10",
+            "dailyChangePct": 0.3,
+            "return5dPct": 1.7,
+            "return20dPct": 4.6,
+            "return60dPct": 15.4,
+            "drawdownFrom52wHighPct": -3,
+            "ma50": 29389.63,
+            "ma200": 26219.2,
+            "aboveMa50": true,
+            "aboveMa200": true,
+            "reason": "above MA50, above MA200, 20d 4.6%, score 100"
+          }
+        ]
+      },
+      "macro": {
+        "score": 51.4,
+        "label": "매크로 중립",
+        "signals": [
+          {
+            "ticker": "^TNX",
+            "label": "US 10Y yield",
+            "type": "rates",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 47.5,
+            "dataDate": "2026-07-10",
+            "return5dPct": 1.9,
+            "return20dPct": 0.6,
+            "reason": "lower is risk-on; 20d 0.6%, 5d 1.9%, score 47.5"
+          },
+          {
+            "ticker": "^IRX",
+            "label": "US 3M yield",
+            "type": "short-rates",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 46.7,
+            "dataDate": "2026-07-10",
+            "return5dPct": 0.7,
+            "return20dPct": 1.7,
+            "reason": "lower is risk-on; 20d 1.7%, 5d 0.7%, score 46.7"
+          },
+          {
+            "ticker": "TLT",
+            "label": "US long-duration bonds",
+            "type": "rates",
+            "riskOnWhen": "up",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 48.2,
+            "dataDate": "2026-07-10",
+            "return5dPct": -1.2,
+            "return20dPct": -0.5,
+            "reason": "higher is risk-on; 20d -0.5%, 5d -1.2%, score 48.2"
+          },
+          {
+            "ticker": "TIP",
+            "label": "TIPS ETF",
+            "type": "inflation",
+            "riskOnWhen": "neutral",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 50,
+            "dataDate": "2026-07-10",
+            "return5dPct": -0.2,
+            "return20dPct": -1,
+            "reason": "context signal; 20d -1%, 5d -0.2%, score 50"
+          },
+          {
+            "ticker": "USO",
+            "label": "Oil ETF",
+            "type": "inflation",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 77,
+            "dataDate": "2026-07-10",
+            "return5dPct": 4.5,
+            "return20dPct": -19.1,
+            "reason": "lower is risk-on; 20d -19.1%, 5d 4.5%, score 77"
+          },
+          {
+            "ticker": "GLD",
+            "label": "Gold",
+            "type": "safe-haven",
+            "riskOnWhen": "neutral",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 50,
+            "dataDate": "2026-07-10",
+            "return5dPct": -0.3,
+            "return20dPct": 0.6,
+            "reason": "context signal; 20d 0.6%, 5d -0.3%, score 50"
+          },
+          {
+            "ticker": "UUP",
+            "label": "US dollar",
+            "type": "fx",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 47.9,
+            "dataDate": "2026-07-10",
+            "return5dPct": 0.2,
+            "return20dPct": 1.2,
+            "reason": "lower is risk-on; 20d 1.2%, 5d 0.2%, score 47.9"
+          },
+          {
+            "ticker": "HYG",
+            "label": "High yield credit",
+            "type": "credit",
+            "riskOnWhen": "up",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 50.5,
+            "dataDate": "2026-07-10",
+            "return5dPct": 0,
+            "return20dPct": 0.3,
+            "reason": "higher is risk-on; 20d 0.3%, 5d 0%, score 50.5"
+          },
+          {
+            "ticker": "LQD",
+            "label": "Investment grade credit",
+            "type": "credit-quality",
+            "riskOnWhen": "neutral",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 50,
+            "dataDate": "2026-07-10",
+            "return5dPct": -1.1,
+            "return20dPct": -0.6,
+            "reason": "context signal; 20d -0.6%, 5d -1.1%, score 50"
+          },
+          {
+            "ticker": "^VIX",
+            "label": "VIX",
+            "type": "volatility",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 45.8,
+            "dataDate": "2026-07-13",
+            "return5dPct": 4.5,
+            "return20dPct": 0.4,
+            "reason": "lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8"
+          }
+        ]
+      },
+      "coverage": {
+        "technical": 2,
+        "technicalTotal": 2,
+        "macro": 10,
+        "macroTotal": 10
+      },
+      "weights": {
+        "technical": 0.65,
+        "macro": 0.35
+      }
+    },
+    "kr": {
+      "market": "kr",
+      "label": "중립-하락",
+      "score": 32.9,
+      "actionBias": "방어 비중 확대",
+      "targetAllocation": {
+        "stocks": 30,
+        "cash": 70
+      },
+      "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
+      "change": {
+        "status": "new",
+        "summary": "No previous regime snapshot."
+      },
+      "technical": {
+        "score": 21.6,
+        "label": "하락 추세",
+        "benchmarks": [
+          {
+            "ticker": "^KS11",
+            "sourceTicker": "^KS11",
+            "label": "KOSPI",
+            "fallbackTicker": "069500.KS",
+            "usingFallback": false,
+            "weight": 0.55,
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 39.2,
+            "lastClose": 6806.9302,
+            "dataDate": "2026-07-13",
+            "dailyChangePct": -8.9,
+            "return5dPct": -15.5,
+            "return20dPct": -20.3,
+            "return60dPct": 14.1,
+            "drawdownFrom52wHighPct": -27.5,
+            "ma50": 7967.89,
+            "ma200": 5530.87,
+            "aboveMa50": false,
+            "aboveMa200": true,
+            "reason": "below MA50, above MA200, 20d -20.3%, score 39.2"
+          },
+          {
+            "ticker": "^KQ11",
+            "sourceTicker": "^KQ11",
+            "label": "KOSDAQ",
+            "fallbackTicker": "229200.KS",
+            "usingFallback": false,
+            "weight": 0.45,
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 0,
+            "lastClose": 799.36,
+            "dataDate": "2026-07-13",
+            "dailyChangePct": -4.5,
+            "return5dPct": -5.6,
+            "return20dPct": -22.7,
+            "return60dPct": -28.7,
+            "drawdownFrom52wHighPct": -35,
+            "ma50": 1021.45,
+            "ma200": 1004.07,
+            "aboveMa50": false,
+            "aboveMa200": false,
+            "reason": "below MA50, below MA200, 20d -22.7%, score 0"
+          }
+        ]
+      },
+      "macro": {
+        "score": 54,
+        "label": "매크로 중립-우호",
+        "signals": [
+          {
+            "ticker": "USDKRW=X",
+            "label": "USD/KRW",
+            "type": "fx",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 53.3,
+            "dataDate": "2026-07-13",
+            "return5dPct": -2.3,
+            "return20dPct": -0.9,
+            "reason": "lower is risk-on; 20d -0.9%, 5d -2.3%, score 53.3"
+          },
+          {
+            "ticker": "^TNX",
+            "label": "US 10Y yield",
+            "type": "rates",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 47.5,
+            "dataDate": "2026-07-10",
+            "return5dPct": 1.9,
+            "return20dPct": 0.6,
+            "reason": "lower is risk-on; 20d 0.6%, 5d 1.9%, score 47.5"
+          },
+          {
+            "ticker": "TLT",
+            "label": "US long-duration bonds",
+            "type": "rates",
+            "riskOnWhen": "up",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 48.2,
+            "dataDate": "2026-07-10",
+            "return5dPct": -1.2,
+            "return20dPct": -0.5,
+            "reason": "higher is risk-on; 20d -0.5%, 5d -1.2%, score 48.2"
+          },
+          {
+            "ticker": "USO",
+            "label": "Oil ETF",
+            "type": "inflation",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 77,
+            "dataDate": "2026-07-10",
+            "return5dPct": 4.5,
+            "return20dPct": -19.1,
+            "reason": "lower is risk-on; 20d -19.1%, 5d 4.5%, score 77"
+          },
+          {
+            "ticker": "HYG",
+            "label": "High yield credit",
+            "type": "credit",
+            "riskOnWhen": "up",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 50.5,
+            "dataDate": "2026-07-10",
+            "return5dPct": 0,
+            "return20dPct": 0.3,
+            "reason": "higher is risk-on; 20d 0.3%, 5d 0%, score 50.5"
+          },
+          {
+            "ticker": "^VIX",
+            "label": "VIX",
+            "type": "volatility",
+            "riskOnWhen": "down",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 45.8,
+            "dataDate": "2026-07-13",
+            "return5dPct": 4.5,
+            "return20dPct": 0.4,
+            "reason": "lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8"
+          },
+          {
+            "ticker": "EWY",
+            "label": "Korea equity ETF",
+            "type": "foreign-risk",
+            "riskOnWhen": "up",
+            "dataStatus": "ok",
+            "dataFreshness": "LIVE",
+            "score": 56,
+            "dataDate": "2026-07-10",
+            "return5dPct": 1.9,
+            "return20dPct": 2.8,
+            "reason": "higher is risk-on; 20d 2.8%, 5d 1.9%, score 56"
+          }
+        ]
+      },
+      "coverage": {
+        "technical": 2,
+        "technicalTotal": 2,
+        "macro": 7,
+        "macroTotal": 7
+      },
+      "weights": {
+        "technical": 0.65,
+        "macro": 0.35
+      }
+    }
+  },
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "market": "us",
+      "dataStatus": "ok",
+      "dataDate": "2026-07-10",
+      "lastClose": 315.32,
+      "dailyChangePct": -0.3,
+      "return5dPct": 2.2,
+      "return20dPct": 8.1,
+      "drawdownFrom52wHighPct": -0.7,
+      "high52w": 317.4,
+      "stage": "관망",
+      "action": "다음 돌파 가격 대기",
+      "targetWeight": 0,
+      "confidence": "MEDIUM",
+      "nextTrigger": {
+        "label": "1차 매수",
+        "price": 317.4,
+        "date": "2026-06-08"
+      },
+      "bottom": {
+        "date": "2026-06-25",
+        "price": 273.75
+      },
+      "firstReclaim": {
+        "date": "2026-06-08",
+        "price": 317.4
+      },
+      "secondReclaim": {
+        "date": "2026-06-08",
+        "price": 317.4
+      },
+      "distanceToFirstReclaimPct": -0.7,
+      "pivots": {
+        "lows": [
+          {
+            "date": "2025-08-21",
+            "price": 223.78
+          },
+          {
+            "date": "2025-10-10",
+            "price": 244
+          },
+          {
+            "date": "2026-01-20",
+            "price": 243.42
+          },
+          {
+            "date": "2026-04-27",
+            "price": 265.07
+          },
+          {
+            "date": "2026-06-25",
+            "price": 273.75
+          }
+        ],
+        "highs": [
+          {
+            "date": "2025-09-05",
+            "price": 241.32
+          },
+          {
+            "date": "2025-10-03",
+            "price": 259.24
+          },
+          {
+            "date": "2025-12-03",
+            "price": 288.62
+          },
+          {
+            "date": "2026-03-26",
+            "price": 257
+          },
+          {
+            "date": "2026-06-08",
+            "price": 317.4
+          }
+        ]
+      },
+      "reason": "관망: bottom 2026-06-25 @ 273.75; first reclaim 2026-06-08 @ 317.4; second reclaim 2026-06-08 @ 317.4"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "market": "us",
+      "dataStatus": "ok",
+      "dataDate": "2026-07-10",
+      "lastClose": 210.96,
+      "dailyChangePct": 4,
+      "return5dPct": 8.3,
+      "return20dPct": 5.3,
+      "drawdownFrom52wHighPct": -10.8,
+      "high52w": 236.54,
+      "stage": "관망",
+      "action": "다음 돌파 가격 대기",
+      "targetWeight": 0,
+      "confidence": "MEDIUM",
+      "nextTrigger": {
+        "label": "1차 매수",
+        "price": 213.99,
+        "date": "2026-06-22"
+      },
+      "bottom": {
+        "date": "2026-06-29",
+        "price": 189.8
+      },
+      "firstReclaim": {
+        "date": "2026-06-22",
+        "price": 213.99
+      },
+      "secondReclaim": {
+        "date": "2026-06-22",
+        "price": 213.99
+      },
+      "distanceToFirstReclaimPct": -1.4,
+      "pivots": {
+        "lows": [
+          {
+            "date": "2025-11-25",
+            "price": 169.55
+          },
+          {
+            "date": "2026-03-02",
+            "price": 174.64
+          },
+          {
+            "date": "2026-03-30",
+            "price": 164.27
+          },
+          {
+            "date": "2026-05-04",
+            "price": 194.74
+          },
+          {
+            "date": "2026-06-29",
+            "price": 189.8
+          }
+        ],
+        "highs": [
+          {
+            "date": "2025-10-29",
+            "price": 212.19
+          },
+          {
+            "date": "2026-02-25",
+            "price": 197.63
+          },
+          {
+            "date": "2026-04-27",
+            "price": 216.83
+          },
+          {
+            "date": "2026-05-14",
+            "price": 236.54
+          },
+          {
+            "date": "2026-06-22",
+            "price": 213.99
+          }
+        ]
+      },
+      "reason": "관망: bottom 2026-06-29 @ 189.8; first reclaim 2026-06-22 @ 213.99; second reclaim 2026-06-22 @ 213.99"
+    },
+    {
+      "ticker": "005930.KS",
+      "name": "Samsung Electronics",
+      "market": "kr",
+      "dataStatus": "ok",
+      "dataDate": "2026-07-13",
+      "lastClose": 254500,
+      "dailyChangePct": -10.7,
+      "return5dPct": -20,
+      "return20dPct": -24.5,
+      "drawdownFrom52wHighPct": -32,
+      "high52w": 374500,
+      "stage": "관망",
+      "action": "시장 방어 국면: 신호가 켜져도 분할 규모 축소",
+      "targetWeight": 0,
+      "confidence": "MEDIUM",
+      "nextTrigger": {
+        "label": "1차 매수",
+        "price": 374500,
+        "date": "2026-06-19"
+      },
+      "bottom": {
+        "date": "2026-06-23",
+        "price": 310000
+      },
+      "firstReclaim": {
+        "date": "2026-06-19",
+        "price": 374500
+      },
+      "secondReclaim": {
+        "date": "2026-06-19",
+        "price": 374500
+      },
+      "distanceToFirstReclaimPct": -32,
+      "pivots": {
+        "lows": [
+          {
+            "date": "2025-12-16",
+            "price": 102700
+          },
+          {
+            "date": "2026-03-31",
+            "price": 167000
+          },
+          {
+            "date": "2026-05-18",
+            "price": 262000
+          },
+          {
+            "date": "2026-06-11",
+            "price": 287500
+          },
+          {
+            "date": "2026-06-23",
+            "price": 310000
+          }
+        ],
+        "highs": [
+          {
+            "date": "2026-02-04",
+            "price": 169400
+          },
+          {
+            "date": "2026-02-27",
+            "price": 223000
+          },
+          {
+            "date": "2026-03-18",
+            "price": 209000
+          },
+          {
+            "date": "2026-05-14",
+            "price": 299500
+          },
+          {
+            "date": "2026-06-19",
+            "price": 374500
+          }
+        ]
+      },
+      "reason": "관망: bottom 2026-06-23 @ 310000; first reclaim 2026-06-19 @ 374500; second reclaim 2026-06-19 @ 374500; market allocation is defensive"
+    },
+    {
+      "ticker": "035420.KS",
+      "name": "NAVER",
+      "market": "kr",
+      "dataStatus": "ok",
+      "dataDate": "2026-07-13",
+      "lastClose": 188000,
+      "dailyChangePct": -1.7,
+      "return5dPct": -4.4,
+      "return20dPct": -24.2,
+      "drawdownFrom52wHighPct": -38.2,
+      "high52w": 304000,
+      "stage": "관망",
+      "action": "시장 방어 국면: 신호가 켜져도 분할 규모 축소",
+      "targetWeight": 0,
+      "confidence": "MEDIUM",
+      "nextTrigger": {
+        "label": "1차 매수",
+        "price": 304000,
+        "date": "2026-06-01"
+      },
+      "bottom": {
+        "date": "2026-06-26",
+        "price": 190300
+      },
+      "firstReclaim": {
+        "date": "2026-06-01",
+        "price": 304000
+      },
+      "secondReclaim": {
+        "date": "2026-06-01",
+        "price": 304000
+      },
+      "distanceToFirstReclaimPct": -38.2,
+      "pivots": {
+        "lows": [
+          {
+            "date": "2026-02-06",
+            "price": 244000
+          },
+          {
+            "date": "2026-03-09",
+            "price": 207000
+          },
+          {
+            "date": "2026-05-20",
+            "price": 190800
+          },
+          {
+            "date": "2026-06-11",
+            "price": 218500
+          },
+          {
+            "date": "2026-06-26",
+            "price": 190300
+          }
+        ],
+        "highs": [
+          {
+            "date": "2026-01-14",
+            "price": 270000
+          },
+          {
+            "date": "2026-01-27",
+            "price": 292000
+          },
+          {
+            "date": "2026-02-26",
+            "price": 267000
+          },
+          {
+            "date": "2026-04-29",
+            "price": 227500
+          },
+          {
+            "date": "2026-06-01",
+            "price": 304000
+          }
+        ]
+      },
+      "reason": "관망: bottom 2026-06-26 @ 190300; first reclaim 2026-06-01 @ 304000; second reclaim 2026-06-01 @ 304000; market allocation is defensive"
+    }
+  ]
+}
