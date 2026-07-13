@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T08:42:11.072Z",
-  "generatedAtKst": "2026. 7. 13. 오후 5:42",
+  "generatedAt": "2026-07-13T09:14:21.345Z",
+  "generatedAtKst": "2026. 7. 13. 오후 6:14",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -164,16 +164,17 @@
     "us": {
       "market": "us",
       "label": "강세장",
-      "score": 83,
+      "score": 83.9,
       "actionBias": "공격 비중 유지",
       "targetAllocation": {
         "stocks": 70,
         "cash": 30
       },
-      "conclusion": "지수 추세가 강세장 조건이다. 기술 100점, 매크로 51.4점.",
+      "conclusion": "지수 추세가 강세장 조건이다. 기술 100점, 매크로 54점.",
       "change": {
-        "status": "new",
-        "summary": "No previous regime snapshot."
+        "status": "unchanged",
+        "scoreDelta": 0.9,
+        "summary": "강세장 maintained (+0.9 pts)."
       },
       "technical": {
         "score": 100,
@@ -228,8 +229,8 @@
         ]
       },
       "macro": {
-        "score": 51.4,
-        "label": "매크로 중립",
+        "score": 54,
+        "label": "매크로 중립-우호",
         "signals": [
           {
             "ticker": "^TNX",
@@ -355,11 +356,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 45.8,
+            "score": 72.5,
             "dataDate": "2026-07-13",
             "return5dPct": 4.5,
-            "return20dPct": 0.4,
-            "reason": "lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8"
+            "return20dPct": -16.3,
+            "reason": "lower is risk-on; 20d -16.3%, 5d 4.5%, score 72.5"
           }
         ]
       },
@@ -377,7 +378,7 @@
     "kr": {
       "market": "kr",
       "label": "중립-하락",
-      "score": 32.9,
+      "score": 34.3,
       "actionBias": "방어 비중 확대",
       "targetAllocation": {
         "stocks": 30,
@@ -385,8 +386,9 @@
       },
       "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
       "change": {
-        "status": "new",
-        "summary": "No previous regime snapshot."
+        "status": "unchanged",
+        "scoreDelta": 1.4,
+        "summary": "중립-하락 maintained (+1.4 pts)."
       },
       "technical": {
         "score": 21.6,
@@ -441,7 +443,7 @@
         ]
       },
       "macro": {
-        "score": 54,
+        "score": 57.9,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -516,11 +518,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 45.8,
+            "score": 72.5,
             "dataDate": "2026-07-13",
             "return5dPct": 4.5,
-            "return20dPct": 0.4,
-            "reason": "lower is risk-on; 20d 0.4%, 5d 4.5%, score 45.8"
+            "return20dPct": -16.3,
+            "reason": "lower is risk-on; 20d -16.3%, 5d 4.5%, score 72.5"
           },
           {
             "ticker": "EWY",
