@@ -99,7 +99,7 @@ function renderStockCard(stock, profile) {
       <div><dt>다음 목표</dt><dd>${escapeHtml(trigger.label || "n/a")} ${trigger.price ? money(trigger.price, currency) : ""}</dd></div>
       <div><dt>목표까지</dt><dd>${distanceToTrigger(stock, trigger)}</dd></div>
       <div><dt>20일 수익률</dt><dd>${pct(stock.return20dPct)}</dd></div>
-      <div><dt>52주 고점 대비</dt><dd>${pct(stock.drawdownFrom52wHighPct)}</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>${pct(stock.drawdownFromTrackingHighPct)}</dd></div>
     </dl>
     ${renderTargetStack(stock, currency)}
     <p class="muted small">${escapeHtml(stock.reason)}</p>

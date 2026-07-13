@@ -2,6 +2,8 @@ import { rounded } from "./utils.js";
 
 const DEFAULT_PIVOT_WINDOW = 5;
 const DEFAULT_MIN_SWING_PCT = 5;
+const TRACKING_WEEKS = 12;
+const TRACKING_TRADING_DAYS = TRACKING_WEEKS * 5;
 
 export function buildStockSignal(item, marketItem, regime) {
   if (!marketItem || marketItem.dataStatus !== "ok") {
@@ -16,7 +18,8 @@ export function buildStockSignal(item, marketItem, regime) {
   }
 
   const history = marketItem.history || [];
-  const pivots = detectPivots(history, DEFAULT_PIVOT_WINDOW, DEFAULT_MIN_SWING_PCT);
+  const trackingHistory = history.slice(-TRACKING_TRADING_DAYS);
+  const pivots = detectPivots(trackingHistory, DEFAULT_PIVOT_WINDOW, DEFAULT_MIN_SWING_PCT);
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
   const lastLow = pivots.lows.at(-1);
@@ -24,7 +27,11 @@ export function buildStockSignal(item, marketItem, regime) {
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
   const thirdReclaim = targets[2] || null;
-  const breakoutTarget = buildBreakoutTarget(history, latestDate);
+  const breakoutTarget = buildBreakoutTarget(trackingHistory, latestDate);
+  const trackingHigh = Math.max(...trackingHistory.map((bar) => Number(bar.high)).filter(Number.isFinite));
+  const drawdownFromTrackingHighPct = Number.isFinite(trackingHigh)
+    ? rounded(((latestClose - trackingHigh) / trackingHigh) * 100)
+    : null;
   const nearBreakoutPct = firstReclaim ? distancePct(latestClose, firstReclaim.price) : null;
   const achievedTargets = targets.filter((target) => latestClose >= Number(target.price));
   const isNewHigh = breakoutTarget ? latestClose >= Number(breakoutTarget.price) : false;
@@ -68,7 +75,15 @@ export function buildStockSignal(item, marketItem, regime) {
     return5dPct: marketItem.return5dPct,
     return20dPct: marketItem.return20dPct,
     drawdownFrom52wHighPct: marketItem.drawdownFrom52wHighPct,
+    drawdownFromTrackingHighPct,
     high52w: marketItem.high52w,
+    trackingWindow: {
+      weeks: TRACKING_WEEKS,
+      tradingDays: trackingHistory.length,
+      startDate: trackingHistory[0]?.date || null,
+      endDate: trackingHistory.at(-1)?.date || null,
+      high: Number.isFinite(trackingHigh) ? rounded(trackingHigh, 4) : null
+    },
     priorPeak: breakoutTarget,
     stage,
     action,
@@ -82,7 +97,7 @@ export function buildStockSignal(item, marketItem, regime) {
     targets: targets.map(serializeTarget),
     breakoutTarget: breakoutTarget ? serializeTarget(breakoutTarget) : null,
     distanceToFirstReclaimPct: nearBreakoutPct,
-    chart: compactChartData(history),
+    chart: compactChartData(trackingHistory),
     pivots: {
       lows: pivots.lows.slice(-5).map(serializePivot),
       highs: pivots.highs.slice(-5).map(serializePivot)
@@ -206,7 +221,7 @@ function serializeTarget(target) {
 }
 
 function compactChartData(history) {
-  return history.slice(-180).map((bar) => ({
+  return history.slice(-TRACKING_TRADING_DAYS).map((bar) => ({
     date: bar.date,
     close: rounded(bar.close, 4),
     high: rounded(bar.high, 4),

@@ -25,6 +25,8 @@ for (const stock of report.stocks) {
   assert(stock.stage, `stage missing for ${stock.ticker}`);
   assert(stock.nextTrigger, `nextTrigger missing for ${stock.ticker}`);
   assert(Array.isArray(stock.chart), `chart data missing for ${stock.ticker}`);
+  assert(stock.chart.length <= 60, `chart data exceeds 12-week window for ${stock.ticker}`);
+  assert(stock.trackingWindow?.weeks === 12, `tracking window missing for ${stock.ticker}`);
   assert(Array.isArray(stock.targets), `target levels missing for ${stock.ticker}`);
   assert(stock.breakoutTarget, `breakout target missing for ${stock.ticker}`);
 }
