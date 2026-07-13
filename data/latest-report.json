@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T12:25:44.152Z",
-  "generatedAtKst": "2026. 7. 13. 오후 9:25",
+  "generatedAt": "2026-07-13T12:26:28.952Z",
+  "generatedAtKst": "2026. 7. 13. PM 9:26",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -356,11 +356,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 71.4,
+            "score": 71.5,
             "dataDate": "2026-07-13",
-            "return5dPct": 5,
+            "return5dPct": 4.9,
             "return20dPct": -15.9,
-            "reason": "lower is risk-on; 20d -15.9%, 5d 5%, score 71.4"
+            "reason": "lower is risk-on; 20d -15.9%, 5d 4.9%, score 71.5"
           }
         ]
       },
@@ -518,11 +518,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 71.4,
+            "score": 71.5,
             "dataDate": "2026-07-13",
-            "return5dPct": 5,
+            "return5dPct": 4.9,
             "return20dPct": -15.9,
-            "reason": "lower is risk-on; 20d -15.9%, 5d 5%, score 71.4"
+            "reason": "lower is risk-on; 20d -15.9%, 5d 4.9%, score 71.5"
           },
           {
             "ticker": "EWY",
