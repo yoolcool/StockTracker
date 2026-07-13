@@ -2,6 +2,7 @@ import { rounded } from "./utils.js";
 
 const DEFAULT_PIVOT_WINDOW = 5;
 const DEFAULT_MIN_SWING_PCT = 5;
+const TARGET_PEAK_WINDOW = 2;
 const TRACKING_WEEKS = 12;
 const TRACKING_TRADING_DAYS = TRACKING_WEEKS * 5;
 
@@ -20,10 +21,11 @@ export function buildStockSignal(item, marketItem, regime) {
   const history = marketItem.history || [];
   const trackingHistory = history.slice(-TRACKING_TRADING_DAYS);
   const pivots = detectPivots(trackingHistory, DEFAULT_PIVOT_WINDOW, DEFAULT_MIN_SWING_PCT);
+  const targetPeaks = detectLocalHighs(trackingHistory, TARGET_PEAK_WINDOW);
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
   const lastLow = pivots.lows.at(-1);
-  const targets = buildReclaimTargets(pivots.highs, lastLow);
+  const targets = buildReclaimTargets(targetPeaks, lastLow);
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
   const thirdReclaim = targets[2] || null;
@@ -100,7 +102,8 @@ export function buildStockSignal(item, marketItem, regime) {
     chart: compactChartData(trackingHistory),
     pivots: {
       lows: pivots.lows.slice(-5).map(serializePivot),
-      highs: pivots.highs.slice(-5).map(serializePivot)
+      highs: pivots.highs.slice(-5).map(serializePivot),
+      targetPeaks: targetPeaks.slice(-8).map(serializePivot)
     },
     reason: signalReason({ stage, lastLow, targets, breakoutTarget, isNewHigh, defensiveMarket })
   };
@@ -120,6 +123,27 @@ export function detectPivots(history, window = DEFAULT_PIVOT_WINDOW, minSwingPct
   }
 
   return { highs, lows };
+}
+
+function detectLocalHighs(history, window = TARGET_PEAK_WINDOW) {
+  const highs = [];
+  for (let index = window; index < history.length - window; index += 1) {
+    const bar = history[index];
+    const before = history.slice(index - window, index);
+    const after = history.slice(index + 1, index + window + 1);
+    const isLocalHigh =
+      before.every((row) => Number(bar.high) >= Number(row.high)) &&
+      after.every((row) => Number(bar.high) > Number(row.high));
+    if (isLocalHigh) {
+      highs.push({
+        type: "high",
+        index,
+        date: bar.date,
+        price: rounded(bar.high, 4)
+      });
+    }
+  }
+  return highs;
 }
 
 function appendPivot(pivots, pivot, minSwingPct) {
