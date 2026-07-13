@@ -1,6 +1,8 @@
 name: Daily Stock Tracker
 
 on:
+  push:
+    branches: ["master"]
   schedule:
     - cron: "30 22 * * 1-5"
   workflow_dispatch:
