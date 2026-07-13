@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T09:48:59.371Z",
-  "generatedAtKst": "2026. 7. 13. PM 6:48",
+  "generatedAt": "2026-07-13T12:17:35.911Z",
+  "generatedAtKst": "2026. 7. 13. PM 9:17",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -164,17 +164,17 @@
     "us": {
       "market": "us",
       "label": "강세장",
-      "score": 84,
+      "score": 83.9,
       "actionBias": "공격 비중 유지",
       "targetAllocation": {
         "stocks": 70,
         "cash": 30
       },
-      "conclusion": "지수 추세가 강세장 조건이다. 기술 100점, 매크로 54.2점.",
+      "conclusion": "지수 추세가 강세장 조건이다. 기술 100점, 매크로 53.9점.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": 0,
-        "summary": "강세장 maintained (0 pts)."
+        "scoreDelta": 0.1,
+        "summary": "강세장 maintained (+0.1 pts)."
       },
       "technical": {
         "score": 100,
@@ -229,7 +229,7 @@
         ]
       },
       "macro": {
-        "score": 54.2,
+        "score": 53.9,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -356,11 +356,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 74.2,
+            "score": 70.9,
             "dataDate": "2026-07-13",
-            "return5dPct": 3.7,
-            "return20dPct": -17,
-            "reason": "lower is risk-on; 20d -17%, 5d 3.7%, score 74.2"
+            "return5dPct": 5.3,
+            "return20dPct": -15.7,
+            "reason": "lower is risk-on; 20d -15.7%, 5d 5.3%, score 70.9"
           }
         ]
       },
@@ -378,7 +378,7 @@
     "kr": {
       "market": "kr",
       "label": "중립-하락",
-      "score": 34.4,
+      "score": 34.2,
       "actionBias": "방어 비중 확대",
       "targetAllocation": {
         "stocks": 30,
@@ -443,7 +443,7 @@
         ]
       },
       "macro": {
-        "score": 58.1,
+        "score": 57.6,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -453,11 +453,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 53.5,
+            "score": 53.4,
             "dataDate": "2026-07-13",
-            "return5dPct": -2.4,
+            "return5dPct": -2.3,
             "return20dPct": -1,
-            "reason": "lower is risk-on; 20d -1%, 5d -2.4%, score 53.5"
+            "reason": "lower is risk-on; 20d -1%, 5d -2.3%, score 53.4"
           },
           {
             "ticker": "^TNX",
@@ -518,11 +518,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 74.2,
+            "score": 70.9,
             "dataDate": "2026-07-13",
-            "return5dPct": 3.7,
-            "return20dPct": -17,
-            "reason": "lower is risk-on; 20d -17%, 5d 3.7%, score 74.2"
+            "return5dPct": 5.3,
+            "return20dPct": -15.7,
+            "reason": "lower is risk-on; 20d -15.7%, 5d 5.3%, score 70.9"
           },
           {
             "ticker": "EWY",
@@ -564,12 +564,19 @@
       "return20dPct": 8.1,
       "drawdownFrom52wHighPct": -0.7,
       "high52w": 317.4,
+      "priorPeak": {
+        "type": "high",
+        "index": 478,
+        "date": "2026-06-08",
+        "price": 317.4,
+        "label": "신고가 목표"
+      },
       "stage": "관망",
       "action": "다음 돌파 가격 대기",
       "targetWeight": 0,
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 매수",
+        "label": "1차 목표가",
         "price": 317.4,
         "date": "2026-06-08"
       },
@@ -581,7 +588,19 @@
         "date": "2026-06-08",
         "price": 317.4
       },
-      "secondReclaim": {
+      "secondReclaim": null,
+      "thirdReclaim": null,
+      "targets": [
+        {
+          "label": "1차 목표가",
+          "targetNumber": 1,
+          "date": "2026-06-08",
+          "price": 317.4
+        }
+      ],
+      "breakoutTarget": {
+        "label": "신고가 목표",
+        "targetNumber": null,
         "date": "2026-06-08",
         "price": 317.4
       },
@@ -1714,7 +1733,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-25 @ 273.75; first reclaim 2026-06-08 @ 317.4; second reclaim 2026-06-08 @ 317.4"
+      "reason": "관망: bottom 2026-06-25 @ 273.75; 1차 2026-06-08 @ 317.4; breakout 2026-06-08 @ 317.4"
     },
     {
       "ticker": "NVDA",
@@ -1728,12 +1747,19 @@
       "return20dPct": 5.3,
       "drawdownFrom52wHighPct": -10.8,
       "high52w": 236.54,
+      "priorPeak": {
+        "type": "high",
+        "index": 462,
+        "date": "2026-05-14",
+        "price": 236.54,
+        "label": "신고가 목표"
+      },
       "stage": "관망",
       "action": "다음 돌파 가격 대기",
       "targetWeight": 0,
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 매수",
+        "label": "1차 목표가",
         "price": 213.99,
         "date": "2026-06-22"
       },
@@ -1746,8 +1772,29 @@
         "price": 213.99
       },
       "secondReclaim": {
-        "date": "2026-06-22",
-        "price": 213.99
+        "date": "2026-05-14",
+        "price": 236.54
+      },
+      "thirdReclaim": null,
+      "targets": [
+        {
+          "label": "1차 목표가",
+          "targetNumber": 1,
+          "date": "2026-06-22",
+          "price": 213.99
+        },
+        {
+          "label": "2차 목표가",
+          "targetNumber": 2,
+          "date": "2026-05-14",
+          "price": 236.54
+        }
+      ],
+      "breakoutTarget": {
+        "label": "신고가 목표",
+        "targetNumber": null,
+        "date": "2026-05-14",
+        "price": 236.54
       },
       "distanceToFirstReclaimPct": -1.4,
       "chart": [
@@ -2878,7 +2925,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-29 @ 189.8; first reclaim 2026-06-22 @ 213.99; second reclaim 2026-06-22 @ 213.99"
+      "reason": "관망: bottom 2026-06-29 @ 189.8; 1차 2026-06-22 @ 213.99; 2차 2026-05-14 @ 236.54; breakout 2026-05-14 @ 236.54"
     },
     {
       "ticker": "005930.KS",
@@ -2892,12 +2939,19 @@
       "return20dPct": -24.5,
       "drawdownFrom52wHighPct": -32,
       "high52w": 374500,
+      "priorPeak": {
+        "type": "high",
+        "index": 467,
+        "date": "2026-06-19",
+        "price": 374500,
+        "label": "신고가 목표"
+      },
       "stage": "관망",
       "action": "시장 방어 국면: 신호가 켜져도 분할 규모 축소",
       "targetWeight": 0,
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 매수",
+        "label": "1차 목표가",
         "price": 374500,
         "date": "2026-06-19"
       },
@@ -2909,7 +2963,19 @@
         "date": "2026-06-19",
         "price": 374500
       },
-      "secondReclaim": {
+      "secondReclaim": null,
+      "thirdReclaim": null,
+      "targets": [
+        {
+          "label": "1차 목표가",
+          "targetNumber": 1,
+          "date": "2026-06-19",
+          "price": 374500
+        }
+      ],
+      "breakoutTarget": {
+        "label": "신고가 목표",
+        "targetNumber": null,
         "date": "2026-06-19",
         "price": 374500
       },
@@ -4042,7 +4108,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-23 @ 310000; first reclaim 2026-06-19 @ 374500; second reclaim 2026-06-19 @ 374500; market allocation is defensive"
+      "reason": "관망: bottom 2026-06-23 @ 310000; 1차 2026-06-19 @ 374500; breakout 2026-06-19 @ 374500; market allocation is defensive"
     },
     {
       "ticker": "035420.KS",
@@ -4056,12 +4122,19 @@
       "return20dPct": -24.2,
       "drawdownFrom52wHighPct": -38.2,
       "high52w": 304000,
+      "priorPeak": {
+        "type": "high",
+        "index": 454,
+        "date": "2026-06-01",
+        "price": 304000,
+        "label": "신고가 목표"
+      },
       "stage": "관망",
       "action": "시장 방어 국면: 신호가 켜져도 분할 규모 축소",
       "targetWeight": 0,
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 매수",
+        "label": "1차 목표가",
         "price": 304000,
         "date": "2026-06-01"
       },
@@ -4073,7 +4146,19 @@
         "date": "2026-06-01",
         "price": 304000
       },
-      "secondReclaim": {
+      "secondReclaim": null,
+      "thirdReclaim": null,
+      "targets": [
+        {
+          "label": "1차 목표가",
+          "targetNumber": 1,
+          "date": "2026-06-01",
+          "price": 304000
+        }
+      ],
+      "breakoutTarget": {
+        "label": "신고가 목표",
+        "targetNumber": null,
         "date": "2026-06-01",
         "price": 304000
       },
@@ -5206,7 +5291,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-26 @ 190300; first reclaim 2026-06-01 @ 304000; second reclaim 2026-06-01 @ 304000; market allocation is defensive"
+      "reason": "관망: bottom 2026-06-26 @ 190300; 1차 2026-06-01 @ 304000; breakout 2026-06-01 @ 304000; market allocation is defensive"
     }
   ]
 }
