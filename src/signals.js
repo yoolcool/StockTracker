@@ -22,15 +22,16 @@ export function buildStockSignal(item, marketItem, regime) {
   const trackingHistory = history.slice(-TRACKING_TRADING_DAYS);
   const pivots = detectPivots(trackingHistory, DEFAULT_PIVOT_WINDOW, DEFAULT_MIN_SWING_PCT);
   const targetPeaks = detectLocalHighs(trackingHistory, TARGET_PEAK_WINDOW);
+  const targetLows = detectLocalLows(trackingHistory, TARGET_PEAK_WINDOW);
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
-  const lastLow = pivots.lows.at(-1);
+  const lastLow = targetLows.at(-1) || buildTrackingLow(trackingHistory);
   const targets = buildReclaimTargets(targetPeaks, lastLow);
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
   const thirdReclaim = targets[2] || null;
   const breakoutTarget = buildBreakoutTarget(trackingHistory, latestDate);
-  const trackingHigh = Math.max(...trackingHistory.map((bar) => Number(bar.high)).filter(Number.isFinite));
+  const trackingHigh = Math.max(...trackingHistory.map((bar) => Number(bar.close)).filter(Number.isFinite));
   const drawdownFromTrackingHighPct = Number.isFinite(trackingHigh)
     ? rounded(((latestClose - trackingHigh) / trackingHigh) * 100)
     : null;
@@ -103,6 +104,7 @@ export function buildStockSignal(item, marketItem, regime) {
     pivots: {
       lows: pivots.lows.slice(-5).map(serializePivot),
       highs: pivots.highs.slice(-5).map(serializePivot),
+      targetLows: targetLows.slice(-8).map(serializePivot),
       targetPeaks: targetPeaks.slice(-8).map(serializePivot)
     },
     reason: signalReason({ stage, lastLow, targets, breakoutTarget, isNewHigh, defensiveMarket })
@@ -116,10 +118,10 @@ export function detectPivots(history, window = DEFAULT_PIVOT_WINDOW, minSwingPct
   for (let index = window; index < history.length - window; index += 1) {
     const bar = history[index];
     const slice = history.slice(index - window, index + window + 1);
-    const isHigh = bar.high >= Math.max(...slice.map((row) => row.high));
-    const isLow = bar.low <= Math.min(...slice.map((row) => row.low));
-    if (isHigh) appendPivot(highs, { type: "high", index, date: bar.date, price: rounded(bar.high, 4) }, minSwingPct);
-    if (isLow) appendPivot(lows, { type: "low", index, date: bar.date, price: rounded(bar.low, 4) }, minSwingPct);
+    const isHigh = bar.close >= Math.max(...slice.map((row) => row.close));
+    const isLow = bar.close <= Math.min(...slice.map((row) => row.close));
+    if (isHigh) appendPivot(highs, { type: "high", index, date: bar.date, price: rounded(bar.close, 4) }, minSwingPct);
+    if (isLow) appendPivot(lows, { type: "low", index, date: bar.date, price: rounded(bar.close, 4) }, minSwingPct);
   }
 
   return { highs, lows };
@@ -132,18 +134,55 @@ function detectLocalHighs(history, window = TARGET_PEAK_WINDOW) {
     const before = history.slice(index - window, index);
     const after = history.slice(index + 1, index + window + 1);
     const isLocalHigh =
-      before.every((row) => Number(bar.high) >= Number(row.high)) &&
-      after.every((row) => Number(bar.high) > Number(row.high));
+      before.every((row) => Number(bar.close) >= Number(row.close)) &&
+      after.every((row) => Number(bar.close) > Number(row.close));
     if (isLocalHigh) {
       highs.push({
         type: "high",
         index,
         date: bar.date,
-        price: rounded(bar.high, 4)
+        price: rounded(bar.close, 4)
       });
     }
   }
   return highs;
+}
+
+function detectLocalLows(history, window = TARGET_PEAK_WINDOW) {
+  const lows = [];
+  for (let index = window; index < history.length - window; index += 1) {
+    const bar = history[index];
+    const before = history.slice(index - window, index);
+    const after = history.slice(index + 1, index + window + 1);
+    const isLocalLow =
+      before.every((row) => Number(bar.close) <= Number(row.close)) &&
+      after.every((row) => Number(bar.close) < Number(row.close));
+    if (isLocalLow) {
+      lows.push({
+        type: "low",
+        index,
+        date: bar.date,
+        price: rounded(bar.close, 4)
+      });
+    }
+  }
+  return lows;
+}
+
+function buildTrackingLow(history) {
+  return history.reduce((low, bar, index) => {
+    const close = Number(bar.close);
+    if (!Number.isFinite(close)) return low;
+    if (!low || close <= Number(low.price)) {
+      return {
+        type: "low",
+        index,
+        date: bar.date,
+        price: rounded(close, 4)
+      };
+    }
+    return low;
+  }, null);
 }
 
 function appendPivot(pivots, pivot, minSwingPct) {
@@ -191,12 +230,12 @@ function buildBreakoutTarget(history, latestDate) {
   const priorBars = history.filter((bar) => bar.date !== latestDate);
   if (!priorBars.length) return null;
   const best = priorBars.reduce((peak, bar, index) => {
-    if (!peak || Number(bar.high) > Number(peak.price)) {
+    if (!peak || Number(bar.close) > Number(peak.price)) {
       return {
         type: "high",
         index,
         date: bar.date,
-        price: rounded(bar.high, 4),
+        price: rounded(bar.close, 4),
         label: "신고가 목표"
       };
     }
