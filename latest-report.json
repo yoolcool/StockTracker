@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T12:39:03.231Z",
-  "generatedAtKst": "2026. 7. 13. PM 9:39",
+  "generatedAt": "2026-07-13T13:02:47.725Z",
+  "generatedAtKst": "2026. 7. 13. PM 10:02",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -239,11 +239,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.5,
+            "score": 43.6,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.5,
+            "return5dPct": 2.4,
             "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.5%, score 43.5"
+            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
           },
           {
             "ticker": "^IRX",
@@ -252,11 +252,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 46.2,
+            "score": 45.9,
             "dataDate": "2026-07-13",
-            "return5dPct": 0.4,
-            "return20dPct": 2.2,
-            "reason": "lower is risk-on; 20d 2.2%, 5d 0.4%, score 46.2"
+            "return5dPct": 0.5,
+            "return20dPct": 2.3,
+            "reason": "lower is risk-on; 20d 2.3%, 5d 0.5%, score 45.9"
           },
           {
             "ticker": "TLT",
@@ -356,11 +356,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 70.4,
+            "score": 70.6,
             "dataDate": "2026-07-13",
-            "return5dPct": 5.5,
-            "return20dPct": -15.5,
-            "reason": "lower is risk-on; 20d -15.5%, 5d 5.5%, score 70.4"
+            "return5dPct": 5.4,
+            "return20dPct": -15.6,
+            "reason": "lower is risk-on; 20d -15.6%, 5d 5.4%, score 70.6"
           }
         ]
       },
@@ -443,7 +443,7 @@
         ]
       },
       "macro": {
-        "score": 57,
+        "score": 57.1,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -453,11 +453,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 53.5,
+            "score": 53.8,
             "dataDate": "2026-07-13",
-            "return5dPct": -2.4,
-            "return20dPct": -1,
-            "reason": "lower is risk-on; 20d -1%, 5d -2.4%, score 53.5"
+            "return5dPct": -2.5,
+            "return20dPct": -1.1,
+            "reason": "lower is risk-on; 20d -1.1%, 5d -2.5%, score 53.8"
           },
           {
             "ticker": "^TNX",
@@ -466,11 +466,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.5,
+            "score": 43.6,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.5,
+            "return5dPct": 2.4,
             "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.5%, score 43.5"
+            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
           },
           {
             "ticker": "TLT",
@@ -518,11 +518,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 70.4,
+            "score": 70.6,
             "dataDate": "2026-07-13",
-            "return5dPct": 5.5,
-            "return20dPct": -15.5,
-            "reason": "lower is risk-on; 20d -15.5%, 5d 5.5%, score 70.4"
+            "return5dPct": 5.4,
+            "return20dPct": -15.6,
+            "reason": "lower is risk-on; 20d -15.6%, 5d 5.4%, score 70.6"
           },
           {
             "ticker": "EWY",
@@ -563,65 +563,65 @@
       "return5dPct": 2.2,
       "return20dPct": 8.1,
       "drawdownFrom52wHighPct": -0.7,
-      "drawdownFromTrackingHighPct": -0.7,
+      "drawdownFromTrackingHighPct": -0.3,
       "high52w": 317.4,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
         "startDate": "2026-04-15",
         "endDate": "2026-07-10",
-        "high": 317.4
+        "high": 316.22
       },
       "priorPeak": {
         "type": "high",
-        "index": 37,
-        "date": "2026-06-08",
-        "price": 317.4,
+        "index": 58,
+        "date": "2026-07-09",
+        "price": 316.22,
         "label": "신고가 목표"
       },
-      "stage": "1차 매수",
-      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
-      "targetWeight": 40,
-      "confidence": "MEDIUM",
+      "stage": "2차 매수",
+      "action": "2차 목표가 돌파: 추가 분할 매수 후보",
+      "targetWeight": 70,
+      "confidence": "HIGH",
       "nextTrigger": {
-        "label": "2차 목표가",
-        "price": 317.4,
-        "date": "2026-06-08"
+        "label": "신고가 목표",
+        "price": 316.22,
+        "date": "2026-07-09"
       },
       "bottom": {
         "date": "2026-06-25",
-        "price": 273.75
+        "price": 275.15
       },
       "firstReclaim": {
-        "date": "2026-06-22",
-        "price": 302.42
+        "date": "2026-06-16",
+        "price": 299.24
       },
       "secondReclaim": {
-        "date": "2026-06-08",
-        "price": 317.4
+        "date": "2026-06-02",
+        "price": 315.2
       },
       "thirdReclaim": null,
       "targets": [
         {
           "label": "1차 목표가",
           "targetNumber": 1,
-          "date": "2026-06-22",
-          "price": 302.42
+          "date": "2026-06-16",
+          "price": 299.24
         },
         {
           "label": "2차 목표가",
           "targetNumber": 2,
-          "date": "2026-06-08",
-          "price": 317.4
+          "date": "2026-06-02",
+          "price": 315.2
         }
       ],
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-08",
-        "price": 317.4
+        "date": "2026-07-09",
+        "price": 316.22
       },
-      "distanceToFirstReclaimPct": 4.3,
+      "distanceToFirstReclaimPct": 5.4,
       "chart": [
         {
           "date": "2026-04-15",
@@ -987,52 +987,86 @@
       "pivots": {
         "lows": [
           {
-            "date": "2026-04-27",
-            "price": 265.07
+            "date": "2026-06-09",
+            "price": 290.55
           },
           {
             "date": "2026-06-25",
-            "price": 273.75
+            "price": 275.15
           }
         ],
         "highs": [
           {
-            "date": "2026-06-08",
-            "price": 317.4
+            "date": "2026-04-23",
+            "price": 273.43
+          },
+          {
+            "date": "2026-06-02",
+            "price": 315.2
+          },
+          {
+            "date": "2026-06-16",
+            "price": 299.24
+          }
+        ],
+        "targetLows": [
+          {
+            "date": "2026-04-21",
+            "price": 266.17
+          },
+          {
+            "date": "2026-04-27",
+            "price": 267.61
+          },
+          {
+            "date": "2026-05-18",
+            "price": 297.84
+          },
+          {
+            "date": "2026-06-01",
+            "price": 306.31
+          },
+          {
+            "date": "2026-06-09",
+            "price": 290.55
+          },
+          {
+            "date": "2026-06-12",
+            "price": 291.13
+          },
+          {
+            "date": "2026-06-17",
+            "price": 295.95
+          },
+          {
+            "date": "2026-06-25",
+            "price": 275.15
           }
         ],
         "targetPeaks": [
           {
-            "date": "2026-04-20",
-            "price": 274.28
-          },
-          {
             "date": "2026-04-23",
-            "price": 275.77
-          },
-          {
-            "date": "2026-05-01",
-            "price": 287.22
+            "price": 273.43
           },
           {
             "date": "2026-05-15",
-            "price": 303.2
+            "price": 300.23
           },
           {
-            "date": "2026-06-03",
-            "price": 316.94
+            "date": "2026-05-28",
+            "price": 312.51
           },
           {
-            "date": "2026-06-08",
-            "price": 317.4
+            "date": "2026-06-02",
+            "price": 315.2
           },
           {
-            "date": "2026-06-22",
-            "price": 302.42
+            "date": "2026-06-16",
+            "price": 299.24
           }
         ]
       },
-      "reason": "1차 매수: bottom 2026-06-25 @ 273.75; 1차 2026-06-22 @ 302.42; 2차 2026-06-08 @ 317.4; breakout 2026-06-08 @ 317.4"
+      "reason": "2차 매수: bottom 2026-06-25 @ 275.15; 1차 2026-06-16 @ 299.24; 2차 2026-06-02 @ 315.2; breakout 2026-07-09 @ 316.22"
     },
     {
       "ticker": "NVDA",
@@ -1045,74 +1079,74 @@
       "return5dPct": 8.3,
       "return20dPct": 5.3,
       "drawdownFrom52wHighPct": -10.8,
-      "drawdownFromTrackingHighPct": -10.8,
+      "drawdownFromTrackingHighPct": -10.5,
       "high52w": 236.54,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
         "startDate": "2026-04-15",
         "endDate": "2026-07-10",
-        "high": 236.54
+        "high": 235.74
       },
       "priorPeak": {
         "type": "high",
         "index": 21,
         "date": "2026-05-14",
-        "price": 236.54,
+        "price": 235.74,
         "label": "신고가 목표"
       },
-      "stage": "관망",
-      "action": "다음 돌파 가격 대기",
-      "targetWeight": 0,
-      "confidence": "MEDIUM",
+      "stage": "2차 매수",
+      "action": "2차 목표가 돌파: 추가 분할 매수 후보",
+      "targetWeight": 70,
+      "confidence": "HIGH",
       "nextTrigger": {
-        "label": "1차 목표가",
-        "price": 213.99,
-        "date": "2026-06-22"
+        "label": "3차 목표가",
+        "price": 212.45,
+        "date": "2026-06-15"
       },
       "bottom": {
-        "date": "2026-06-29",
-        "price": 189.8
+        "date": "2026-07-02",
+        "price": 194.83
       },
       "firstReclaim": {
-        "date": "2026-06-22",
-        "price": 213.99
+        "date": "2026-06-30",
+        "price": 200.09
       },
       "secondReclaim": {
-        "date": "2026-06-02",
-        "price": 232.28
+        "date": "2026-06-18",
+        "price": 210.69
       },
       "thirdReclaim": {
-        "date": "2026-05-14",
-        "price": 236.54
+        "date": "2026-06-15",
+        "price": 212.45
       },
       "targets": [
         {
           "label": "1차 목표가",
           "targetNumber": 1,
-          "date": "2026-06-22",
-          "price": 213.99
+          "date": "2026-06-30",
+          "price": 200.09
         },
         {
           "label": "2차 목표가",
           "targetNumber": 2,
-          "date": "2026-06-02",
-          "price": 232.28
+          "date": "2026-06-18",
+          "price": 210.69
         },
         {
           "label": "3차 목표가",
           "targetNumber": 3,
-          "date": "2026-05-14",
-          "price": 236.54
+          "date": "2026-06-15",
+          "price": 212.45
         }
       ],
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
         "date": "2026-05-14",
-        "price": 236.54
+        "price": 235.74
       },
-      "distanceToFirstReclaimPct": -1.4,
+      "distanceToFirstReclaimPct": 5.4,
       "chart": [
         {
           "date": "2026-04-15",
@@ -1478,60 +1512,90 @@
       "pivots": {
         "lows": [
           {
-            "date": "2026-05-04",
-            "price": 194.74
-          },
-          {
-            "date": "2026-06-29",
-            "price": 189.8
+            "date": "2026-06-26",
+            "price": 192.53
           }
         ],
         "highs": [
           {
             "date": "2026-04-27",
-            "price": 216.83
+            "price": 216.61
           },
           {
             "date": "2026-05-14",
-            "price": 236.54
+            "price": 235.74
           },
           {
-            "date": "2026-06-22",
-            "price": 213.99
+            "date": "2026-06-15",
+            "price": 212.45
+          }
+        ],
+        "targetLows": [
+          {
+            "date": "2026-04-23",
+            "price": 199.64
+          },
+          {
+            "date": "2026-05-05",
+            "price": 196.5
+          },
+          {
+            "date": "2026-05-29",
+            "price": 211.14
+          },
+          {
+            "date": "2026-06-05",
+            "price": 205.1
+          },
+          {
+            "date": "2026-06-10",
+            "price": 200.42
+          },
+          {
+            "date": "2026-06-17",
+            "price": 204.65
+          },
+          {
+            "date": "2026-06-26",
+            "price": 192.53
+          },
+          {
+            "date": "2026-07-02",
+            "price": 194.83
           }
         ],
         "targetPeaks": [
           {
             "date": "2026-04-27",
-            "price": 216.83
+            "price": 216.61
           },
           {
             "date": "2026-05-14",
-            "price": 236.54
+            "price": 235.74
           },
           {
-            "date": "2026-05-21",
-            "price": 227.4
+            "date": "2026-05-20",
+            "price": 223.47
           },
           {
-            "date": "2026-06-02",
-            "price": 232.28
+            "date": "2026-06-01",
+            "price": 224.36
           },
           {
             "date": "2026-06-15",
-            "price": 212.71
+            "price": 212.45
           },
           {
-            "date": "2026-06-22",
-            "price": 213.99
+            "date": "2026-06-18",
+            "price": 210.69
           },
           {
             "date": "2026-06-30",
-            "price": 200.63
+            "price": 200.09
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-29 @ 189.8; 1차 2026-06-22 @ 213.99; 2차 2026-06-02 @ 232.28; 3차 2026-05-14 @ 236.54; breakout 2026-05-14 @ 236.54"
+      "reason": "2차 매수: bottom 2026-07-02 @ 194.83; 1차 2026-06-30 @ 200.09; 2차 2026-06-18 @ 210.69; 3차 2026-06-15 @ 212.45; breakout 2026-05-14 @ 235.74"
     },
     {
       "ticker": "005930.KS",
@@ -1544,20 +1608,20 @@
       "return5dPct": -20,
       "return20dPct": -24.5,
       "drawdownFrom52wHighPct": -32,
-      "drawdownFromTrackingHighPct": -32,
+      "drawdownFromTrackingHighPct": -29.8,
       "high52w": 374500,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
         "startDate": "2026-04-15",
         "endDate": "2026-07-13",
-        "high": 374500
+        "high": 362500
       },
       "priorPeak": {
         "type": "high",
-        "index": 43,
-        "date": "2026-06-19",
-        "price": 374500,
+        "index": 42,
+        "date": "2026-06-18",
+        "price": 362500,
         "label": "신고가 목표"
       },
       "stage": "관망",
@@ -1566,34 +1630,52 @@
       "confidence": "MEDIUM",
       "nextTrigger": {
         "label": "1차 목표가",
-        "price": 374500,
-        "date": "2026-06-19"
+        "price": 318000,
+        "date": "2026-07-06"
       },
       "bottom": {
-        "date": "2026-06-23",
-        "price": 310000
+        "date": "2026-07-08",
+        "price": 277500
       },
       "firstReclaim": {
-        "date": "2026-06-19",
-        "price": 374500
+        "date": "2026-07-06",
+        "price": 318000
       },
-      "secondReclaim": null,
-      "thirdReclaim": null,
+      "secondReclaim": {
+        "date": "2026-06-25",
+        "price": 358500
+      },
+      "thirdReclaim": {
+        "date": "2026-06-18",
+        "price": 362500
+      },
       "targets": [
         {
           "label": "1차 목표가",
           "targetNumber": 1,
-          "date": "2026-06-19",
-          "price": 374500
+          "date": "2026-07-06",
+          "price": 318000
+        },
+        {
+          "label": "2차 목표가",
+          "targetNumber": 2,
+          "date": "2026-06-25",
+          "price": 358500
+        },
+        {
+          "label": "3차 목표가",
+          "targetNumber": 3,
+          "date": "2026-06-18",
+          "price": 362500
         }
       ],
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-19",
-        "price": 374500
+        "date": "2026-06-18",
+        "price": 362500
       },
-      "distanceToFirstReclaimPct": -32,
+      "distanceToFirstReclaimPct": -20,
       "chart": [
         {
           "date": "2026-04-15",
@@ -1959,60 +2041,82 @@
       "pivots": {
         "lows": [
           {
-            "date": "2026-05-18",
-            "price": 262000
-          },
-          {
-            "date": "2026-06-11",
-            "price": 287500
-          },
-          {
-            "date": "2026-06-23",
-            "price": 310000
+            "date": "2026-06-08",
+            "price": 295500
           }
         ],
         "highs": [
           {
-            "date": "2026-05-14",
-            "price": 299500
+            "date": "2026-06-18",
+            "price": 362500
+          }
+        ],
+        "targetLows": [
+          {
+            "date": "2026-04-20",
+            "price": 214500
           },
           {
-            "date": "2026-06-19",
-            "price": 374500
+            "date": "2026-04-30",
+            "price": 220500
+          },
+          {
+            "date": "2026-05-15",
+            "price": 270500
+          },
+          {
+            "date": "2026-06-08",
+            "price": 295500
+          },
+          {
+            "date": "2026-06-11",
+            "price": 299000
+          },
+          {
+            "date": "2026-06-23",
+            "price": 310000
+          },
+          {
+            "date": "2026-07-02",
+            "price": 286000
+          },
+          {
+            "date": "2026-07-08",
+            "price": 277500
           }
         ],
         "targetPeaks": [
           {
-            "date": "2026-04-23",
-            "price": 229500
+            "date": "2026-05-11",
+            "price": 285500
           },
           {
             "date": "2026-05-14",
+            "price": 296000
+          },
+          {
+            "date": "2026-05-21",
             "price": 299500
           },
           {
-            "date": "2026-05-27",
-            "price": 323000
-          },
-          {
             "date": "2026-06-02",
-            "price": 370000
+            "price": 360500
           },
           {
-            "date": "2026-06-19",
-            "price": 374500
-          },
-          {
-            "date": "2026-06-25",
+            "date": "2026-06-18",
             "price": 362500
           },
           {
+            "date": "2026-06-25",
+            "price": 358500
+          },
+          {
             "date": "2026-07-06",
-            "price": 325000
+            "price": 318000
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-23 @ 310000; 1차 2026-06-19 @ 374500; breakout 2026-06-19 @ 374500; market allocation is defensive"
+      "reason": "관망: bottom 2026-07-08 @ 277500; 1차 2026-07-06 @ 318000; 2차 2026-06-25 @ 358500; 3차 2026-06-18 @ 362500; breakout 2026-06-18 @ 362500; market allocation is defensive"
     },
     {
       "ticker": "035420.KS",
@@ -2025,20 +2129,20 @@
       "return5dPct": -4.4,
       "return20dPct": -24.2,
       "drawdownFrom52wHighPct": -38.2,
-      "drawdownFromTrackingHighPct": -38.2,
+      "drawdownFromTrackingHighPct": -33,
       "high52w": 304000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
         "startDate": "2026-04-15",
         "endDate": "2026-07-13",
-        "high": 304000
+        "high": 280500
       },
       "priorPeak": {
         "type": "high",
-        "index": 30,
-        "date": "2026-06-01",
-        "price": 304000,
+        "index": 31,
+        "date": "2026-06-02",
+        "price": 280500,
         "label": "신고가 목표"
       },
       "stage": "관망",
@@ -2047,52 +2151,52 @@
       "confidence": "MEDIUM",
       "nextTrigger": {
         "label": "1차 목표가",
-        "price": 265500,
-        "date": "2026-06-16"
+        "price": 197200,
+        "date": "2026-07-07"
       },
       "bottom": {
-        "date": "2026-06-26",
-        "price": 190300
+        "date": "2026-07-09",
+        "price": 184400
       },
       "firstReclaim": {
-        "date": "2026-06-16",
-        "price": 265500
+        "date": "2026-07-07",
+        "price": 197200
       },
       "secondReclaim": {
-        "date": "2026-06-08",
-        "price": 294000
+        "date": "2026-07-02",
+        "price": 199900
       },
       "thirdReclaim": {
-        "date": "2026-06-01",
-        "price": 304000
+        "date": "2026-06-29",
+        "price": 204000
       },
       "targets": [
         {
           "label": "1차 목표가",
           "targetNumber": 1,
-          "date": "2026-06-16",
-          "price": 265500
+          "date": "2026-07-07",
+          "price": 197200
         },
         {
           "label": "2차 목표가",
           "targetNumber": 2,
-          "date": "2026-06-08",
-          "price": 294000
+          "date": "2026-07-02",
+          "price": 199900
         },
         {
           "label": "3차 목표가",
           "targetNumber": 3,
-          "date": "2026-06-01",
-          "price": 304000
+          "date": "2026-06-29",
+          "price": 204000
         }
       ],
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-01",
-        "price": 304000
+        "date": "2026-06-02",
+        "price": 280500
       },
-      "distanceToFirstReclaimPct": -29.2,
+      "distanceToFirstReclaimPct": -4.7,
       "chart": [
         {
           "date": "2026-04-15",
@@ -2459,59 +2563,93 @@
         "lows": [
           {
             "date": "2026-05-20",
-            "price": 190800
+            "price": 191500
           },
           {
             "date": "2026-06-11",
-            "price": 218500
-          },
-          {
-            "date": "2026-06-26",
-            "price": 190300
+            "price": 224000
           }
         ],
         "highs": [
           {
             "date": "2026-04-29",
-            "price": 227500
+            "price": 220000
           },
           {
-            "date": "2026-06-01",
-            "price": 304000
+            "date": "2026-06-02",
+            "price": 280500
+          }
+        ],
+        "targetLows": [
+          {
+            "date": "2026-05-13",
+            "price": 201500
+          },
+          {
+            "date": "2026-05-20",
+            "price": 191500
+          },
+          {
+            "date": "2026-05-27",
+            "price": 198800
+          },
+          {
+            "date": "2026-06-05",
+            "price": 255500
+          },
+          {
+            "date": "2026-06-11",
+            "price": 224000
+          },
+          {
+            "date": "2026-06-26",
+            "price": 196400
+          },
+          {
+            "date": "2026-07-03",
+            "price": 195800
+          },
+          {
+            "date": "2026-07-09",
+            "price": 184400
           }
         ],
         "targetPeaks": [
           {
-            "date": "2026-04-23",
-            "price": 221000
+            "date": "2026-05-14",
+            "price": 213000
           },
           {
-            "date": "2026-04-29",
-            "price": 227500
+            "date": "2026-05-22",
+            "price": 203000
           },
           {
-            "date": "2026-05-08",
-            "price": 219000
-          },
-          {
-            "date": "2026-05-15",
-            "price": 216500
-          },
-          {
-            "date": "2026-06-01",
-            "price": 304000
+            "date": "2026-06-02",
+            "price": 280500
           },
           {
             "date": "2026-06-08",
-            "price": 294000
+            "price": 279000
           },
           {
-            "date": "2026-06-16",
-            "price": 265500
+            "date": "2026-06-15",
+            "price": 248000
+          },
+          {
+            "date": "2026-06-29",
+            "price": 204000
+          },
+          {
+            "date": "2026-07-02",
+            "price": 199900
+          },
+          {
+            "date": "2026-07-07",
+            "price": 197200
           }
         ]
       },
-      "reason": "관망: bottom 2026-06-26 @ 190300; 1차 2026-06-16 @ 265500; 2차 2026-06-08 @ 294000; 3차 2026-06-01 @ 304000; breakout 2026-06-01 @ 304000; market allocation is defensive"
+      "reason": "관망: bottom 2026-07-09 @ 184400; 1차 2026-07-07 @ 197200; 2차 2026-07-02 @ 199900; 3차 2026-06-29 @ 204000; breakout 2026-06-02 @ 280500; market allocation is defensive"
     }
   ]
 }
