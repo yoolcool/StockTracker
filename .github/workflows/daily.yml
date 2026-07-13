@@ -9,11 +9,9 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: stock-tracker-report
   cancel-in-progress: false
 
 jobs:
@@ -37,13 +35,8 @@ jobs:
           commit_message: "Update daily stock tracker report"
           file_pattern: "data/latest-report.json docs/index.html docs/latest-report.json docs/.nojekyll"
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Publish docs to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: docs
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
