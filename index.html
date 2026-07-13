@@ -116,7 +116,18 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .price-chart {
   display: block;
   width: 100%;
+  height: auto;
+}
+.chart-wrap.full .price-chart {
   aspect-ratio: 720 / 250;
+}
+.chart-wrap.week-zoom .price-chart {
+  aspect-ratio: 720 / 360;
+}
+.chart-title {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
 }
 .chart-bg { fill: #fbfcfa; }
 .grid-line { stroke: #e6ecef; stroke-width: 1; }
@@ -244,7 +255,7 @@ th { color: var(--muted); font-size: 12px; }
       <h1>Stock Tracker</h1>
     </div>
     <div class="timestamp">
-      <span>2026. 7. 13. PM 10:45</span>
+      <span>2026. 7. 13. PM 10:54</span>
       <strong>2026-07-13</strong>
     </div>
   </header>
@@ -267,7 +278,7 @@ th { color: var(--muted); font-size: 12px; }
       </div>
     </div>
     <p class="bias">공격 비중 유지</p>
-    <p class="muted">지수 추세가 강세장 조건이다. 기술 87.1점, 매크로 48.9점.</p>
+    <p class="muted">지수 추세가 강세장 조건이다. 기술 86.9점, 매크로 49.2점.</p>
   </article>
       <article class="market-card negative">
     <div class="market-card-head">
@@ -277,7 +288,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="score-row">
       <div>
         <p>Regime Score</p>
-        <strong>29.9</strong>
+        <strong>30.1</strong>
       </div>
       <div>
         <p>Target</p>
@@ -307,55 +318,104 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$7,554.23</strong>
+      <strong>$7,550.95</strong>
       <span class="down">-0.3%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="^GSPC price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area--GSPC" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area--GSPC-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 195.97 L22.44 173.13 L32.88 177.69 L43.32 189.85 L53.76 169.94 L64.2 177.89 L74.64 162.62 L85.08 160.24 L95.53 169.7 L105.97 170.47 L116.41 150.78 L126.85 145.09 L137.29 153.01 L147.73 137.25 L158.17 108.72 L168.61 116.26 L179.05 99.61 L189.49 95.86 L199.93 99.06 L210.37 87.4 L220.81 72.04 L231.25 97.03 L241.69 98.5 L252.14 111.82 L262.58 90.44 L273.02 87 L283.46 79.52 L293.9 67.22 L304.34 66.89 L314.78 55.23 L325.22 50.8 L335.66 45.44 L346.1 42.8 L356.54 57.91 L366.98 49.66 L377.42 103.7 L387.86 97.78 L398.31 102.92 L408.75 135.16 L419.19 100.86 L429.63 90.84 L440.07 57.75 L450.51 69.32 L460.95 93.9 L471.39 72.22 L481.83 79.71 L492.27 108.63 L502.71 110.58 L513.15 110.77 L523.59 111.71 L534.03 88.43 L544.47 72.55 L554.92 76.89 L565.36 76.89 L575.8 62.29 L586.24 71.34 L596.68 77.03 L607.12 60.62 L617.56 52.06 L628 57.76 L628 218 L12 218 Z" fill="url(#area--GSPC)"/>
-      <path d="M12 195.97 L22.44 173.13 L32.88 177.69 L43.32 189.85 L53.76 169.94 L64.2 177.89 L74.64 162.62 L85.08 160.24 L95.53 169.7 L105.97 170.47 L116.41 150.78 L126.85 145.09 L137.29 153.01 L147.73 137.25 L158.17 108.72 L168.61 116.26 L179.05 99.61 L189.49 95.86 L199.93 99.06 L210.37 87.4 L220.81 72.04 L231.25 97.03 L241.69 98.5 L252.14 111.82 L262.58 90.44 L273.02 87 L283.46 79.52 L293.9 67.22 L304.34 66.89 L314.78 55.23 L325.22 50.8 L335.66 45.44 L346.1 42.8 L356.54 57.91 L366.98 49.66 L377.42 103.7 L387.86 97.78 L398.31 102.92 L408.75 135.16 L419.19 100.86 L429.63 90.84 L440.07 57.75 L450.51 69.32 L460.95 93.9 L471.39 72.22 L481.83 79.71 L492.27 108.63 L502.71 110.58 L513.15 110.77 L523.59 111.71 L534.03 88.43 L544.47 72.55 L554.92 76.89 L565.36 76.89 L575.8 62.29 L586.24 71.34 L596.68 77.03 L607.12 60.62 L617.56 52.06 L628 57.76" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 195.97 L21.97 173.13 L31.93 177.69 L41.9 189.85 L51.86 169.94 L61.83 177.89 L71.8 162.62 L81.76 160.24 L91.73 169.7 L101.69 170.47 L111.66 150.78 L121.63 145.09 L131.59 153.01 L141.56 137.25 L151.53 108.72 L161.49 116.26 L171.46 99.61 L181.42 95.86 L191.39 99.06 L201.36 87.4 L211.32 72.04 L221.29 97.03 L231.25 98.5 L241.22 111.82 L251.19 90.44 L261.15 87 L271.12 79.52 L281.08 67.22 L291.05 66.89 L301.02 55.23 L310.98 50.8 L320.95 45.44 L330.92 42.8 L340.88 57.91 L350.85 49.66 L360.81 103.7 L370.78 97.78 L380.75 102.92 L390.71 135.16 L400.68 100.86 L410.64 90.84 L420.61 57.75 L430.58 69.32 L440.54 93.9 L450.51 72.22 L460.47 79.71 L470.44 108.63 L480.41 110.58 L490.37 110.77 L500.34 111.71 L510.31 88.43 L520.27 72.55 L530.24 76.89 L540.2 76.89 L550.17 62.29 L560.14 71.34 L570.1 77.03 L580.07 60.62 L590.03 52.06 L600 58.65 L600 218 L12 218 Z" fill="url(#area--GSPC-full)"/>
+      <path d="M12 195.97 L21.97 173.13 L31.93 177.69 L41.9 189.85 L51.86 169.94 L61.83 177.89 L71.8 162.62 L81.76 160.24 L91.73 169.7 L101.69 170.47 L111.66 150.78 L121.63 145.09 L131.59 153.01 L141.56 137.25 L151.53 108.72 L161.49 116.26 L171.46 99.61 L181.42 95.86 L191.39 99.06 L201.36 87.4 L211.32 72.04 L221.29 97.03 L231.25 98.5 L241.22 111.82 L251.19 90.44 L261.15 87 L271.12 79.52 L281.08 67.22 L291.05 66.89 L301.02 55.23 L310.98 50.8 L320.95 45.44 L330.92 42.8 L340.88 57.91 L350.85 49.66 L360.81 103.7 L370.78 97.78 L380.75 102.92 L390.71 135.16 L400.68 100.86 L410.64 90.84 L420.61 57.75 L430.58 69.32 L440.54 93.9 L450.51 72.22 L460.47 79.71 L470.44 108.63 L480.41 110.58 L490.37 110.77 L500.34 111.71 L510.31 88.43 L520.27 72.55 L530.24 76.89 L540.2 76.89 L550.17 62.29 L560.14 71.34 L570.1 77.03 L580.07 60.62 L590.03 52.06 L600 58.65" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="62.29" y2="62.29" class="level-line buy1"/>
-    <text x="640" y="58.29" class="level-label">1차 목표</text>
-    <text x="640" y="73.28999999999999" class="level-price">$7,537.43</text>
+    <line x1="12" x2="600" y1="42.8" y2="42.8" class="level-line breakout"/>
+    <text x="612" y="38.8" class="level-label">신고가 목표</text>
+    <text x="612" y="53.8" class="level-price">$7,609.78</text>
   </g><g>
-    <line x1="12" x2="628" y1="57.75" y2="57.75" class="level-line buy2"/>
-    <text x="640" y="53.75" class="level-label">2차 목표</text>
-    <text x="640" y="68.75" class="level-price">$7,554.29</text>
+    <line x1="12" x2="600" y1="49.66" y2="49.66" class="level-line buy3"/>
+    <text x="612" y="62.8" class="level-label">3차 목표</text>
+    <text x="612" y="77.8" class="level-price">$7,584.31</text>
   </g><g>
-    <line x1="12" x2="628" y1="49.66" y2="49.66" class="level-line buy3"/>
-    <text x="640" y="45.66" class="level-label">3차 목표</text>
-    <text x="640" y="60.66" class="level-price">$7,584.31</text>
+    <line x1="12" x2="600" y1="57.75" y2="57.75" class="level-line buy2"/>
+    <text x="612" y="86.8" class="level-label">2차 목표</text>
+    <text x="612" y="101.8" class="level-price">$7,554.29</text>
   </g><g>
-    <line x1="12" x2="628" y1="42.8" y2="42.8" class="level-line breakout"/>
-    <text x="640" y="38.8" class="level-label">신고가 목표</text>
-    <text x="640" y="53.8" class="level-price">$7,609.78</text>
+    <line x1="12" x2="600" y1="62.29" y2="62.29" class="level-line buy1"/>
+    <text x="612" y="110.8" class="level-label">1차 목표</text>
+    <text x="612" y="125.8" class="level-price">$7,537.43</text>
   </g>
       <g>
-      <circle cx="596.68" cy="77.03" r="4" class="pivot-low"/>
-      <text x="596.68" y="95.03" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="570.1" cy="77.03" r="4" class="pivot-low"/>
+      <text x="570.1" y="95.03" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="575.8" cy="62.29" r="4" class="pivot-high"/>
-      <text x="575.8" y="52.29" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="550.17" cy="62.29" r="4" class="pivot-high"/>
+      <text x="550.17" y="52.29" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="440.07" cy="57.75" r="4" class="pivot-high"/>
-      <text x="440.07" y="47.75" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="420.61" cy="57.75" r="4" class="pivot-high"/>
+      <text x="420.61" y="47.75" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="366.98" cy="49.66" r="4" class="pivot-high"/>
-      <text x="366.98" y="39.66" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="350.85" cy="49.66" r="4" class="pivot-high"/>
+      <text x="350.85" y="39.66" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="57.76" r="4.5" class="current-dot"/>
-      <text x="640" y="61.76" class="current-label">$7,554.23</text>
+      <circle cx="600" cy="58.65" r="4.5" class="current-dot"/>
+      <text x="612" y="62.65" class="current-label">$7,550.95</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="^GSPC price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area--GSPC-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 201.48 L159 229.03 L306 149.61 L453 108.23 L600 140.08 L600 328 L12 328 Z" fill="url(#area--GSPC-week-zoom)"/>
+      <path d="M12 201.48 L159 229.03 L306 149.61 L453 108.23 L600 140.08" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$7,609.78</text>
+  </g><g>
+    <line x1="12" x2="600" y1="96.6" y2="96.6" class="level-line buy3"/>
+    <text x="612" y="92.6" class="level-label">3차 목표</text>
+    <text x="612" y="107.6" class="level-price">$7,584.31</text>
+  </g><g>
+    <line x1="12" x2="600" y1="135.73" y2="135.73" class="level-line buy2"/>
+    <text x="612" y="131.73" class="level-label">2차 목표</text>
+    <text x="612" y="146.73" class="level-price">$7,554.29</text>
+  </g><g>
+    <line x1="12" x2="600" y1="157.71" y2="157.71" class="level-line buy1"/>
+    <text x="612" y="155.73" class="level-label">1차 목표</text>
+    <text x="612" y="170.73" class="level-price">$7,537.43</text>
+  </g>
+      <g>
+      <circle cx="159" cy="229.03" r="4" class="pivot-low"/>
+      <text x="159" y="247.03" text-anchor="middle" class="pivot-label">바닥</text>
+    </g>
+      <circle cx="600" cy="140.08" r="4.5" class="current-dot"/>
+      <text x="612" y="144.08" class="current-label">$7,550.95</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -374,8 +434,8 @@ th { color: var(--muted); font-size: 12px; }
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>2차 목표가 $7,554.29</dd></div>
       <div><dt>목표까지</dt><dd>0%</dd></div>
-      <div><dt>20일 수익률</dt><dd>+2.2%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-0.7%</dd></div>
+      <div><dt>20일 수익률</dt><dd>+2.1%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-0.8%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -402,55 +462,104 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$29,381.86</strong>
-      <span class="down">-1.5%</span>
+      <strong>$29,338.94</strong>
+      <span class="down">-1.6%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="^NDX price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area--NDX" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area--NDX-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 197.01 L22.44 184.97 L32.88 187.88 L43.32 191.82 L53.76 175.57 L64.2 181.05 L74.64 162.56 L85.08 162.49 L95.53 172.31 L105.97 166.7 L116.41 157.29 L126.85 148.12 L137.29 150.2 L147.73 137.31 L158.17 116.58 L168.61 117.83 L179.05 94.01 L189.49 90.97 L199.93 100.05 L210.37 89.32 L220.81 81.75 L231.25 97.91 L241.69 102.55 L252.14 108.78 L262.58 91.78 L273.02 89.67 L283.46 85.25 L293.9 66.81 L304.34 67.79 L314.78 58.91 L325.22 55.03 L335.66 48.61 L346.1 43.41 L356.54 46.58 L366.98 52.38 L377.42 103.85 L387.86 87.65 L398.31 99.35 L408.75 119.81 L419.19 86.51 L429.63 79.78 L440.07 47.55 L450.51 67.99 L460.95 78.53 L471.39 52.44 L481.83 54.53 L492.27 90.02 L502.71 94.54 L513.15 86.72 L523.59 98.15 L534.03 74.85 L544.47 57.05 L554.92 73.63 L565.36 90.66 L575.8 77.58 L586.24 96.21 L596.68 93.38 L607.12 76.54 L617.56 73.06 L628 88.8 L628 218 L12 218 Z" fill="url(#area--NDX)"/>
-      <path d="M12 197.01 L22.44 184.97 L32.88 187.88 L43.32 191.82 L53.76 175.57 L64.2 181.05 L74.64 162.56 L85.08 162.49 L95.53 172.31 L105.97 166.7 L116.41 157.29 L126.85 148.12 L137.29 150.2 L147.73 137.31 L158.17 116.58 L168.61 117.83 L179.05 94.01 L189.49 90.97 L199.93 100.05 L210.37 89.32 L220.81 81.75 L231.25 97.91 L241.69 102.55 L252.14 108.78 L262.58 91.78 L273.02 89.67 L283.46 85.25 L293.9 66.81 L304.34 67.79 L314.78 58.91 L325.22 55.03 L335.66 48.61 L346.1 43.41 L356.54 46.58 L366.98 52.38 L377.42 103.85 L387.86 87.65 L398.31 99.35 L408.75 119.81 L419.19 86.51 L429.63 79.78 L440.07 47.55 L450.51 67.99 L460.95 78.53 L471.39 52.44 L481.83 54.53 L492.27 90.02 L502.71 94.54 L513.15 86.72 L523.59 98.15 L534.03 74.85 L544.47 57.05 L554.92 73.63 L565.36 90.66 L575.8 77.58 L586.24 96.21 L596.68 93.38 L607.12 76.54 L617.56 73.06 L628 88.8" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 197.01 L21.97 184.97 L31.93 187.88 L41.9 191.82 L51.86 175.57 L61.83 181.05 L71.8 162.56 L81.76 162.49 L91.73 172.31 L101.69 166.7 L111.66 157.29 L121.63 148.12 L131.59 150.2 L141.56 137.31 L151.53 116.58 L161.49 117.83 L171.46 94.01 L181.42 90.97 L191.39 100.05 L201.36 89.32 L211.32 81.75 L221.29 97.91 L231.25 102.55 L241.22 108.78 L251.19 91.78 L261.15 89.67 L271.12 85.25 L281.08 66.81 L291.05 67.79 L301.02 58.91 L310.98 55.03 L320.95 48.61 L330.92 43.41 L340.88 46.58 L350.85 52.38 L360.81 103.85 L370.78 87.65 L380.75 99.35 L390.71 119.81 L400.68 86.51 L410.64 79.78 L420.61 47.55 L430.58 67.99 L440.54 78.53 L450.51 52.44 L460.47 54.53 L470.44 90.02 L480.41 94.54 L490.37 86.72 L500.34 98.15 L510.31 74.85 L520.27 57.05 L530.24 73.63 L540.2 90.66 L550.17 77.58 L560.14 96.21 L570.1 93.38 L580.07 76.54 L590.03 73.06 L600 90.32 L600 218 L12 218 Z" fill="url(#area--NDX-full)"/>
+      <path d="M12 197.01 L21.97 184.97 L31.93 187.88 L41.9 191.82 L51.86 175.57 L61.83 181.05 L71.8 162.56 L81.76 162.49 L91.73 172.31 L101.69 166.7 L111.66 157.29 L121.63 148.12 L131.59 150.2 L141.56 137.31 L151.53 116.58 L161.49 117.83 L171.46 94.01 L181.42 90.97 L191.39 100.05 L201.36 89.32 L211.32 81.75 L221.29 97.91 L231.25 102.55 L241.22 108.78 L251.19 91.78 L261.15 89.67 L271.12 85.25 L281.08 66.81 L291.05 67.79 L301.02 58.91 L310.98 55.03 L320.95 48.61 L330.92 43.41 L340.88 46.58 L350.85 52.38 L360.81 103.85 L370.78 87.65 L380.75 99.35 L390.71 119.81 L400.68 86.51 L410.64 79.78 L420.61 47.55 L430.58 67.99 L440.54 78.53 L450.51 52.44 L460.47 54.53 L470.44 90.02 L480.41 94.54 L490.37 86.72 L500.34 98.15 L510.31 74.85 L520.27 57.05 L530.24 73.63 L540.2 90.66 L550.17 77.58 L560.14 96.21 L570.1 93.38 L580.07 76.54 L590.03 73.06 L600 90.32" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="77.58" y2="77.58" class="level-line buy1"/>
-    <text x="640" y="73.58" class="level-label">1차 목표</text>
-    <text x="640" y="88.58" class="level-price">$29,697.87</text>
+    <line x1="12" x2="600" y1="43.41" y2="43.41" class="level-line breakout"/>
+    <text x="612" y="39.41" class="level-label">신고가 목표</text>
+    <text x="612" y="54.41" class="level-price">$30,660.60</text>
   </g><g>
-    <line x1="12" x2="628" y1="57.05" y2="57.05" class="level-line buy2"/>
-    <text x="640" y="53.05" class="level-label">2차 목표</text>
-    <text x="640" y="68.05" class="level-price">$30,276.35</text>
+    <line x1="12" x2="600" y1="52.44" y2="52.44" class="level-line buy3"/>
+    <text x="612" y="63.41" class="level-label">3차 목표</text>
+    <text x="612" y="78.41" class="level-price">$30,406.19</text>
   </g><g>
-    <line x1="12" x2="628" y1="52.44" y2="52.44" class="level-line buy3"/>
-    <text x="640" y="48.44" class="level-label">3차 목표</text>
-    <text x="640" y="63.44" class="level-price">$30,406.19</text>
+    <line x1="12" x2="600" y1="57.05" y2="57.05" class="level-line buy2"/>
+    <text x="612" y="87.41" class="level-label">2차 목표</text>
+    <text x="612" y="102.41" class="level-price">$30,276.35</text>
   </g><g>
-    <line x1="12" x2="628" y1="43.41" y2="43.41" class="level-line breakout"/>
-    <text x="640" y="39.41" class="level-label">신고가 목표</text>
-    <text x="640" y="54.41" class="level-price">$30,660.60</text>
+    <line x1="12" x2="600" y1="77.58" y2="77.58" class="level-line buy1"/>
+    <text x="612" y="111.41" class="level-label">1차 목표</text>
+    <text x="612" y="126.41" class="level-price">$29,697.87</text>
   </g>
       <g>
-      <circle cx="586.24" cy="96.21" r="4" class="pivot-low"/>
-      <text x="586.24" y="114.21" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="560.14" cy="96.21" r="4" class="pivot-low"/>
+      <text x="560.14" y="114.21" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="575.8" cy="77.58" r="4" class="pivot-high"/>
-      <text x="575.8" y="67.58" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="550.17" cy="77.58" r="4" class="pivot-high"/>
+      <text x="550.17" y="67.58" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="544.47" cy="57.05" r="4" class="pivot-high"/>
-      <text x="544.47" y="47.05" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="520.27" cy="57.05" r="4" class="pivot-high"/>
+      <text x="520.27" y="47.05" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="471.39" cy="52.44" r="4" class="pivot-high"/>
-      <text x="471.39" y="42.44" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="450.51" cy="52.44" r="4" class="pivot-high"/>
+      <text x="450.51" y="42.44" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="88.8" r="4.5" class="current-dot"/>
-      <text x="640" y="92.8" class="current-label">$29,381.86</text>
+      <circle cx="600" cy="90.32" r="4.5" class="current-dot"/>
+      <text x="612" y="94.32" class="current-label">$29,338.94</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="^NDX price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area--NDX-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 260.83 L159 250.27 L306 187.29 L453 174.28 L600 238.81 L600 328 L12 328 Z" fill="url(#area--NDX-week-zoom)"/>
+      <path d="M12 260.83 L159 250.27 L306 187.29 L453 174.28 L600 238.81" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$30,660.60</text>
+  </g><g>
+    <line x1="12" x2="600" y1="97.16" y2="97.16" class="level-line buy3"/>
+    <text x="612" y="93.16" class="level-label">3차 목표</text>
+    <text x="612" y="108.16" class="level-price">$30,406.19</text>
+  </g><g>
+    <line x1="12" x2="600" y1="114.4" y2="114.4" class="level-line buy2"/>
+    <text x="612" y="117.16" class="level-label">2차 목표</text>
+    <text x="612" y="132.16" class="level-price">$30,276.35</text>
+  </g><g>
+    <line x1="12" x2="600" y1="191.17" y2="191.17" class="level-line buy1"/>
+    <text x="612" y="187.17" class="level-label">1차 목표</text>
+    <text x="612" y="202.17" class="level-price">$29,697.87</text>
+  </g>
+      <g>
+      <circle cx="12" cy="260.83" r="4" class="pivot-low"/>
+      <text x="12" y="278.83" text-anchor="middle" class="pivot-label">바닥</text>
+    </g>
+      <circle cx="600" cy="238.81" r="4.5" class="current-dot"/>
+      <text x="612" y="242.81" class="current-label">$29,338.94</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -468,9 +577,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 $29,697.87</dd></div>
-      <div><dt>목표까지</dt><dd>+1.1%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-0.2%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-4.2%</dd></div>
+      <div><dt>목표까지</dt><dd>+1.2%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-0.4%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-4.3%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -497,55 +606,101 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$207.89</strong>
-      <span class="down">-1.5%</span>
+      <strong>$207.10</strong>
+      <span class="down">-1.8%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="NVDA price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-NVDA" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-NVDA-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 174.62 L22.44 162.86 L32.88 161.52 L43.32 169.22 L53.76 159.97 L64.2 170.06 L74.64 139.6 L85.08 110.16 L95.53 122.3 L105.97 136.14 L116.41 170.31 L126.85 174.26 L137.29 174.16 L147.73 181.15 L158.17 141.15 L168.61 128.2 L179.05 115.13 L189.49 100.17 L199.93 95.44 L210.37 77.61 L220.81 42.62 L231.25 79.41 L241.69 90 L252.14 96.04 L262.58 85.94 L273.02 99.92 L283.46 114.67 L293.9 116.33 L304.34 124.31 L314.78 118.49 L325.22 129.47 L335.66 82.8 L346.1 88.23 L356.54 116.72 L366.98 102.92 L377.42 150.79 L387.86 138.29 L398.31 139.88 L408.75 167.31 L419.19 151.6 L429.63 150.47 L440.07 124.84 L450.51 142.63 L460.95 152.38 L471.39 131.05 L481.83 138.26 L492.27 168.65 L502.71 172.32 L513.15 183.83 L523.59 195.16 L534.03 186.55 L544.47 168.47 L554.92 177.34 L565.36 187.04 L575.8 184.5 L586.24 179.63 L596.68 154.25 L607.12 158.98 L617.56 130.1 L628 140.94 L628 218 L12 218 Z" fill="url(#area-NVDA)"/>
-      <path d="M12 174.62 L22.44 162.86 L32.88 161.52 L43.32 169.22 L53.76 159.97 L64.2 170.06 L74.64 139.6 L85.08 110.16 L95.53 122.3 L105.97 136.14 L116.41 170.31 L126.85 174.26 L137.29 174.16 L147.73 181.15 L158.17 141.15 L168.61 128.2 L179.05 115.13 L189.49 100.17 L199.93 95.44 L210.37 77.61 L220.81 42.62 L231.25 79.41 L241.69 90 L252.14 96.04 L262.58 85.94 L273.02 99.92 L283.46 114.67 L293.9 116.33 L304.34 124.31 L314.78 118.49 L325.22 129.47 L335.66 82.8 L346.1 88.23 L356.54 116.72 L366.98 102.92 L377.42 150.79 L387.86 138.29 L398.31 139.88 L408.75 167.31 L419.19 151.6 L429.63 150.47 L440.07 124.84 L450.51 142.63 L460.95 152.38 L471.39 131.05 L481.83 138.26 L492.27 168.65 L502.71 172.32 L513.15 183.83 L523.59 195.16 L534.03 186.55 L544.47 168.47 L554.92 177.34 L565.36 187.04 L575.8 184.5 L586.24 179.63 L596.68 154.25 L607.12 158.98 L617.56 130.1 L628 140.94" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 174.62 L21.97 162.86 L31.93 161.52 L41.9 169.22 L51.86 159.97 L61.83 170.06 L71.8 139.6 L81.76 110.16 L91.73 122.3 L101.69 136.14 L111.66 170.31 L121.63 174.26 L131.59 174.16 L141.56 181.15 L151.53 141.15 L161.49 128.2 L171.46 115.13 L181.42 100.17 L191.39 95.44 L201.36 77.61 L211.32 42.62 L221.29 79.41 L231.25 90 L241.22 96.04 L251.19 85.94 L261.15 99.92 L271.12 114.67 L281.08 116.33 L291.05 124.31 L301.02 118.49 L310.98 129.47 L320.95 82.8 L330.92 88.23 L340.88 116.72 L350.85 102.92 L360.81 150.79 L370.78 138.29 L380.75 139.88 L390.71 167.31 L400.68 151.6 L410.64 150.47 L420.61 124.84 L430.58 142.63 L440.54 152.38 L450.51 131.05 L460.47 138.26 L470.44 168.65 L480.41 172.32 L490.37 183.83 L500.34 195.16 L510.31 186.55 L520.27 168.47 L530.24 177.34 L540.2 187.04 L550.17 184.5 L560.14 179.63 L570.1 154.25 L580.07 158.98 L590.03 130.1 L600 143.73 L600 218 L12 218 Z" fill="url(#area-NVDA-full)"/>
+      <path d="M12 174.62 L21.97 162.86 L31.93 161.52 L41.9 169.22 L51.86 159.97 L61.83 170.06 L71.8 139.6 L81.76 110.16 L91.73 122.3 L101.69 136.14 L111.66 170.31 L121.63 174.26 L131.59 174.16 L141.56 181.15 L151.53 141.15 L161.49 128.2 L171.46 115.13 L181.42 100.17 L191.39 95.44 L201.36 77.61 L211.32 42.62 L221.29 79.41 L231.25 90 L241.22 96.04 L251.19 85.94 L261.15 99.92 L271.12 114.67 L281.08 116.33 L291.05 124.31 L301.02 118.49 L310.98 129.47 L320.95 82.8 L330.92 88.23 L340.88 116.72 L350.85 102.92 L360.81 150.79 L370.78 138.29 L380.75 139.88 L390.71 167.31 L400.68 151.6 L410.64 150.47 L420.61 124.84 L430.58 142.63 L440.54 152.38 L450.51 131.05 L460.47 138.26 L470.44 168.65 L480.41 172.32 L490.37 183.83 L500.34 195.16 L510.31 186.55 L520.27 168.47 L530.24 177.34 L540.2 187.04 L550.17 184.5 L560.14 179.63 L570.1 154.25 L580.07 158.98 L590.03 130.1 L600 143.73" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="168.47" y2="168.47" class="level-line buy1"/>
-    <text x="640" y="164.47" class="level-label">1차 목표</text>
-    <text x="640" y="179.47" class="level-price">$200.09</text>
+    <line x1="12" x2="600" y1="42.62" y2="42.62" class="level-line breakout"/>
+    <text x="612" y="38.62" class="level-label">신고가 목표</text>
+    <text x="612" y="53.62" class="level-price">$235.74</text>
   </g><g>
-    <line x1="12" x2="628" y1="131.05" y2="131.05" class="level-line buy2"/>
-    <text x="640" y="127.05000000000001" class="level-label">2차 목표</text>
-    <text x="640" y="142.05" class="level-price">$210.69</text>
+    <line x1="12" x2="600" y1="124.84" y2="124.84" class="level-line buy3"/>
+    <text x="612" y="120.84" class="level-label">3차 목표</text>
+    <text x="612" y="135.84" class="level-price">$212.45</text>
   </g><g>
-    <line x1="12" x2="628" y1="124.84" y2="124.84" class="level-line buy3"/>
-    <text x="640" y="120.84" class="level-label">3차 목표</text>
-    <text x="640" y="135.84" class="level-price">$212.45</text>
+    <line x1="12" x2="600" y1="131.05" y2="131.05" class="level-line buy2"/>
+    <text x="612" y="144.84" class="level-label">2차 목표</text>
+    <text x="612" y="159.84" class="level-price">$210.69</text>
   </g><g>
-    <line x1="12" x2="628" y1="42.62" y2="42.62" class="level-line breakout"/>
-    <text x="640" y="38.62" class="level-label">신고가 목표</text>
-    <text x="640" y="53.62" class="level-price">$235.74</text>
+    <line x1="12" x2="600" y1="168.47" y2="168.47" class="level-line buy1"/>
+    <text x="612" y="168.84" class="level-label">1차 목표</text>
+    <text x="612" y="183.84" class="level-price">$200.09</text>
   </g>
       <g>
-      <circle cx="565.36" cy="187.04" r="4" class="pivot-low"/>
-      <text x="565.36" y="205.04" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="540.2" cy="187.04" r="4" class="pivot-low"/>
+      <text x="540.2" y="205.04" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="544.47" cy="168.47" r="4" class="pivot-high"/>
-      <text x="544.47" y="158.47" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="520.27" cy="168.47" r="4" class="pivot-high"/>
+      <text x="520.27" y="158.47" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="471.39" cy="131.05" r="4" class="pivot-high"/>
-      <text x="471.39" y="121.05000000000001" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="450.51" cy="131.05" r="4" class="pivot-high"/>
+      <text x="450.51" y="121.05000000000001" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="440.07" cy="124.84" r="4" class="pivot-high"/>
-      <text x="440.07" y="114.84" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="420.61" cy="124.84" r="4" class="pivot-high"/>
+      <text x="420.61" y="114.84" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="140.94" r="4.5" class="current-dot"/>
-      <text x="640" y="144.94" class="current-label">$207.89</text>
+      <circle cx="600" cy="143.73" r="4.5" class="current-dot"/>
+      <text x="612" y="147.73" class="current-label">$207.10</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="NVDA price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-NVDA-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 276.59 L159 237.1 L306 244.46 L453 199.52 L600 220.73 L600 328 L12 328 Z" fill="url(#area-NVDA-week-zoom)"/>
+      <path d="M12 276.59 L159 237.1 L306 244.46 L453 199.52 L600 220.73" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$235.74</text>
+  </g><g>
+    <line x1="12" x2="600" y1="191.34" y2="191.34" class="level-line buy3"/>
+    <text x="612" y="187.34" class="level-label">3차 목표</text>
+    <text x="612" y="202.34" class="level-price">$212.45</text>
+  </g><g>
+    <line x1="12" x2="600" y1="201.01" y2="201.01" class="level-line buy2"/>
+    <text x="612" y="211.34" class="level-label">2차 목표</text>
+    <text x="612" y="226.34" class="level-price">$210.69</text>
+  </g><g>
+    <line x1="12" x2="600" y1="259.24" y2="259.24" class="level-line buy1"/>
+    <text x="612" y="255.24" class="level-label">1차 목표</text>
+    <text x="612" y="270.24" class="level-price">$200.09</text>
+  </g>
+      
+      <circle cx="600" cy="220.73" r="4.5" class="current-dot"/>
+      <text x="612" y="224.73" class="current-label">$207.10</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -563,9 +718,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">1차 목표가 돌파: V자 반등 1차 분할 매수 후보</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>2차 목표가 $210.69</dd></div>
-      <div><dt>목표까지</dt><dd>+1.3%</dd></div>
-      <div><dt>20일 수익률</dt><dd>+1.5%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-11.8%</dd></div>
+      <div><dt>목표까지</dt><dd>+1.7%</dd></div>
+      <div><dt>20일 수익률</dt><dd>+1.1%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-12.1%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -592,51 +747,99 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$909.62</strong>
-      <span class="down">-7.1%</span>
+      <strong>$915.00</strong>
+      <span class="down">-6.6%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="MU price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-MU" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-MU-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 200.5 L22.44 200.94 L32.88 202.28 L43.32 202.08 L53.76 194.41 L64.2 195.57 L74.64 192.55 L85.08 186.94 L95.53 191.02 L105.97 188.17 L116.41 188.43 L126.85 183.38 L137.29 176.49 L147.73 163.65 L158.17 158.33 L168.61 162.35 L179.05 142.17 L189.49 132.4 L199.93 138.19 L210.37 130.72 L220.81 136.29 L231.25 146.63 L241.69 155.32 L252.14 151.85 L262.58 145.16 L273.02 139.09 L283.46 141.33 L293.9 112.14 L304.34 105.59 L314.78 106.57 L325.22 97.01 L335.66 84.02 L346.1 78.26 L356.54 75.14 L366.98 91.97 L377.42 118.56 L387.86 101.38 L398.31 104.08 L408.75 112.95 L419.19 92 L429.63 94.87 L440.07 73.44 L450.51 86.99 L460.95 82.47 L471.39 64.18 L481.83 48.59 L492.27 80.74 L502.71 81.4 L513.15 48.15 L523.59 64.51 L534.03 61.9 L544.47 60.09 L554.92 84.66 L565.36 96.09 L575.8 94.24 L586.24 103.58 L596.68 101.48 L607.12 92.85 L617.56 95.34 L628 109.37 L628 218 L12 218 Z" fill="url(#area-MU)"/>
-      <path d="M12 200.5 L22.44 200.94 L32.88 202.28 L43.32 202.08 L53.76 194.41 L64.2 195.57 L74.64 192.55 L85.08 186.94 L95.53 191.02 L105.97 188.17 L116.41 188.43 L126.85 183.38 L137.29 176.49 L147.73 163.65 L158.17 158.33 L168.61 162.35 L179.05 142.17 L189.49 132.4 L199.93 138.19 L210.37 130.72 L220.81 136.29 L231.25 146.63 L241.69 155.32 L252.14 151.85 L262.58 145.16 L273.02 139.09 L283.46 141.33 L293.9 112.14 L304.34 105.59 L314.78 106.57 L325.22 97.01 L335.66 84.02 L346.1 78.26 L356.54 75.14 L366.98 91.97 L377.42 118.56 L387.86 101.38 L398.31 104.08 L408.75 112.95 L419.19 92 L429.63 94.87 L440.07 73.44 L450.51 86.99 L460.95 82.47 L471.39 64.18 L481.83 48.59 L492.27 80.74 L502.71 81.4 L513.15 48.15 L523.59 64.51 L534.03 61.9 L544.47 60.09 L554.92 84.66 L565.36 96.09 L575.8 94.24 L586.24 103.58 L596.68 101.48 L607.12 92.85 L617.56 95.34 L628 109.37" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 200.5 L21.97 200.94 L31.93 202.28 L41.9 202.08 L51.86 194.41 L61.83 195.57 L71.8 192.55 L81.76 186.94 L91.73 191.02 L101.69 188.17 L111.66 188.43 L121.63 183.38 L131.59 176.49 L141.56 163.65 L151.53 158.33 L161.49 162.35 L171.46 142.17 L181.42 132.4 L191.39 138.19 L201.36 130.72 L211.32 136.29 L221.29 146.63 L231.25 155.32 L241.22 151.85 L251.19 145.16 L261.15 139.09 L271.12 141.33 L281.08 112.14 L291.05 105.59 L301.02 106.57 L310.98 97.01 L320.95 84.02 L330.92 78.26 L340.88 75.14 L350.85 91.97 L360.81 118.56 L370.78 101.38 L380.75 104.08 L390.71 112.95 L400.68 92 L410.64 94.87 L420.61 73.44 L430.58 86.99 L440.54 82.47 L450.51 64.18 L460.47 48.59 L470.44 80.74 L480.41 81.4 L490.37 48.15 L500.34 64.51 L510.31 61.9 L520.27 60.09 L530.24 84.66 L540.2 96.09 L550.17 94.24 L560.14 103.58 L570.1 101.48 L580.07 92.85 L590.03 95.34 L600 108.29 L600 218 L12 218 Z" fill="url(#area-MU-full)"/>
+      <path d="M12 200.5 L21.97 200.94 L31.93 202.28 L41.9 202.08 L51.86 194.41 L61.83 195.57 L71.8 192.55 L81.76 186.94 L91.73 191.02 L101.69 188.17 L111.66 188.43 L121.63 183.38 L131.59 176.49 L141.56 163.65 L151.53 158.33 L161.49 162.35 L171.46 142.17 L181.42 132.4 L191.39 138.19 L201.36 130.72 L211.32 136.29 L221.29 146.63 L231.25 155.32 L241.22 151.85 L251.19 145.16 L261.15 139.09 L271.12 141.33 L281.08 112.14 L291.05 105.59 L301.02 106.57 L310.98 97.01 L320.95 84.02 L330.92 78.26 L340.88 75.14 L350.85 91.97 L360.81 118.56 L370.78 101.38 L380.75 104.08 L390.71 112.95 L400.68 92 L410.64 94.87 L420.61 73.44 L430.58 86.99 L440.54 82.47 L450.51 64.18 L460.47 48.59 L470.44 80.74 L480.41 81.4 L490.37 48.15 L500.34 64.51 L510.31 61.9 L520.27 60.09 L530.24 84.66 L540.2 96.09 L550.17 94.24 L560.14 103.58 L570.1 101.48 L580.07 92.85 L590.03 95.34 L600 108.29" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="92.85" y2="92.85" class="level-line buy1"/>
-    <text x="640" y="88.85" class="level-label">1차 목표</text>
-    <text x="640" y="103.85" class="level-price">$991.64</text>
+    <line x1="12" x2="600" y1="48.15" y2="48.15" class="level-line breakout"/>
+    <text x="612" y="44.15" class="level-label">3차 목표 / 신고가 목표</text>
+    <text x="612" y="59.15" class="level-price">$1,213.56</text>
   </g><g>
-    <line x1="12" x2="628" y1="60.09" y2="60.09" class="level-line buy2"/>
-    <text x="640" y="56.09" class="level-label">2차 목표</text>
-    <text x="640" y="71.09" class="level-price">$1,154.29</text>
+    <line x1="12" x2="600" y1="60.09" y2="60.09" class="level-line buy2"/>
+    <text x="612" y="68.15" class="level-label">2차 목표</text>
+    <text x="612" y="83.15" class="level-price">$1,154.29</text>
   </g><g>
-    <line x1="12" x2="628" y1="48.15" y2="48.15" class="level-line breakout"/>
-    <text x="640" y="44.15" class="level-label">3차 목표 / 신고가 목표</text>
-    <text x="640" y="59.15" class="level-price">$1,213.56</text>
+    <line x1="12" x2="600" y1="92.85" y2="92.85" class="level-line buy1"/>
+    <text x="612" y="92.15" class="level-label">1차 목표</text>
+    <text x="612" y="107.15" class="level-price">$991.64</text>
   </g>
       <g>
-      <circle cx="628" cy="109.37" r="4" class="pivot-low"/>
-      <text x="628" y="127.37" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="600" cy="108.29" r="4" class="pivot-low"/>
+      <text x="600" y="126.29" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="607.12" cy="92.85" r="4" class="pivot-high"/>
-      <text x="607.12" y="82.85" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="580.07" cy="92.85" r="4" class="pivot-high"/>
+      <text x="580.07" y="82.85" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="544.47" cy="60.09" r="4" class="pivot-high"/>
-      <text x="544.47" y="50.09" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="520.27" cy="60.09" r="4" class="pivot-high"/>
+      <text x="520.27" y="50.09" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="513.15" cy="48.15" r="4" class="pivot-high"/>
-      <text x="513.15" y="38.15" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="490.37" cy="48.15" r="4" class="pivot-high"/>
+      <text x="490.37" y="38.15" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="109.37" r="4.5" class="current-dot"/>
-      <text x="640" y="113.37" class="current-label">$909.62</text>
+      <circle cx="600" cy="108.29" r="4.5" class="current-dot"/>
+      <text x="612" y="112.29" class="current-label">$915.00</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="MU price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-MU-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 272.84 L159 264.91 L306 232.3 L453 241.7 L600 290.64 L600 328 L12 328 Z" fill="url(#area-MU-week-zoom)"/>
+      <path d="M12 272.84 L159 264.91 L306 232.3 L453 241.7 L600 290.64" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">3차 목표 / 신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$1,213.56</text>
+  </g><g>
+    <line x1="12" x2="600" y1="108.51" y2="108.51" class="level-line buy2"/>
+    <text x="612" y="104.51" class="level-label">2차 목표</text>
+    <text x="612" y="119.51" class="level-price">$1,154.29</text>
+  </g><g>
+    <line x1="12" x2="600" y1="232.3" y2="232.3" class="level-line buy1"/>
+    <text x="612" y="228.3" class="level-label">1차 목표</text>
+    <text x="612" y="243.3" class="level-price">$991.64</text>
+  </g>
+      <g>
+      <circle cx="600" cy="290.64" r="4" class="pivot-low"/>
+      <text x="600" y="308.64" text-anchor="middle" class="pivot-label">바닥</text>
+    </g><g>
+      <circle cx="306" cy="232.3" r="4" class="pivot-high"/>
+      <text x="306" y="222.3" text-anchor="middle" class="pivot-label">1차</text>
+    </g>
+      <circle cx="600" cy="290.64" r="4.5" class="current-dot"/>
+      <text x="612" y="294.64" class="current-label">$915.00</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -654,9 +857,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 $991.64</dd></div>
-      <div><dt>목표까지</dt><dd>+9%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-8.7%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-25%</dd></div>
+      <div><dt>목표까지</dt><dd>+8.4%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-8.1%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-24.6%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -670,7 +873,7 @@ th { color: var(--muted); font-size: 12px; }
       <strong>$1,213.56</strong>
     </div>
   </div>
-    <p class="muted small">관망: bottom 2026-07-13 @ 909.6201; 1차 2026-07-09 @ 991.64; 2차 2026-06-30 @ 1154.29; 3차 2026-06-25 @ 1213.5601; breakout 2026-06-25 @ 1213.5601</p>
+    <p class="muted small">관망: bottom 2026-07-13 @ 915; 1차 2026-07-09 @ 991.64; 2차 2026-06-30 @ 1154.29; 3차 2026-06-25 @ 1213.5601; breakout 2026-06-25 @ 1213.5601</p>
   </article><article class="stock-card stage-calm">
     <div class="stock-head">
       <div>
@@ -680,51 +883,93 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$128.04</strong>
-      <span class="up">+1%</span>
+      <strong>$126.89</strong>
+      <span class="up">+0.1%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="PLTR price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-PLTR" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-PLTR-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 100.07 L22.44 89.62 L32.88 91.06 L43.32 90.83 L53.76 71.69 L64.2 103.49 L74.64 99.12 L85.08 99.09 L95.53 104.61 L105.97 113.85 L116.41 110.57 L126.85 96.3 L137.29 90.66 L147.73 119.78 L158.17 125.88 L168.61 116.5 L179.05 114.34 L189.49 116.96 L199.93 119.52 L210.37 136.65 L220.81 126.06 L231.25 125.31 L241.69 122 L252.14 121.65 L262.58 116.21 L273.02 115.45 L283.46 116.99 L293.9 117.8 L304.34 129.57 L314.78 98.4 L325.22 60.41 L335.66 48.58 L346.1 72.98 L356.54 101.68 L366.98 103.12 L377.42 120.88 L387.86 118.17 L398.31 130.83 L408.75 136.19 L419.19 133.68 L429.63 142.58 L440.07 123.24 L450.51 127.44 L460.95 134.98 L471.39 141.19 L481.83 167.01 L492.27 175.07 L502.71 184.28 L513.15 202.21 L523.59 185.92 L534.03 177.95 L544.47 175.16 L554.92 149.08 L565.36 138.81 L575.8 129.48 L586.24 124.21 L596.68 130.4 L607.12 139.55 L617.56 146.03 L628 142.45 L628 218 L12 218 Z" fill="url(#area-PLTR)"/>
-      <path d="M12 100.07 L22.44 89.62 L32.88 91.06 L43.32 90.83 L53.76 71.69 L64.2 103.49 L74.64 99.12 L85.08 99.09 L95.53 104.61 L105.97 113.85 L116.41 110.57 L126.85 96.3 L137.29 90.66 L147.73 119.78 L158.17 125.88 L168.61 116.5 L179.05 114.34 L189.49 116.96 L199.93 119.52 L210.37 136.65 L220.81 126.06 L231.25 125.31 L241.69 122 L252.14 121.65 L262.58 116.21 L273.02 115.45 L283.46 116.99 L293.9 117.8 L304.34 129.57 L314.78 98.4 L325.22 60.41 L335.66 48.58 L346.1 72.98 L356.54 101.68 L366.98 103.12 L377.42 120.88 L387.86 118.17 L398.31 130.83 L408.75 136.19 L419.19 133.68 L429.63 142.58 L440.07 123.24 L450.51 127.44 L460.95 134.98 L471.39 141.19 L481.83 167.01 L492.27 175.07 L502.71 184.28 L513.15 202.21 L523.59 185.92 L534.03 177.95 L544.47 175.16 L554.92 149.08 L565.36 138.81 L575.8 129.48 L586.24 124.21 L596.68 130.4 L607.12 139.55 L617.56 146.03 L628 142.45" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 100.07 L21.97 89.62 L31.93 91.06 L41.9 90.83 L51.86 71.69 L61.83 103.49 L71.8 99.12 L81.76 99.09 L91.73 104.61 L101.69 113.85 L111.66 110.57 L121.63 96.3 L131.59 90.66 L141.56 119.78 L151.53 125.88 L161.49 116.5 L171.46 114.34 L181.42 116.96 L191.39 119.52 L201.36 136.65 L211.32 126.06 L221.29 125.31 L231.25 122 L241.22 121.65 L251.19 116.21 L261.15 115.45 L271.12 116.99 L281.08 117.8 L291.05 129.57 L301.02 98.4 L310.98 60.41 L320.95 48.58 L330.92 72.98 L340.88 101.68 L350.85 103.12 L360.81 120.88 L370.78 118.17 L380.75 130.83 L390.71 136.19 L400.68 133.68 L410.64 142.58 L420.61 123.24 L430.58 127.44 L440.54 134.98 L450.51 141.19 L460.47 167.01 L470.44 175.07 L480.41 184.28 L490.37 202.21 L500.34 185.92 L510.31 177.95 L520.27 175.16 L530.24 149.08 L540.2 138.81 L550.17 129.48 L560.14 124.21 L570.1 130.4 L580.07 139.55 L590.03 146.03 L600 145.74 L600 218 L12 218 Z" fill="url(#area-PLTR-full)"/>
+      <path d="M12 100.07 L21.97 89.62 L31.93 91.06 L41.9 90.83 L51.86 71.69 L61.83 103.49 L71.8 99.12 L81.76 99.09 L91.73 104.61 L101.69 113.85 L111.66 110.57 L121.63 96.3 L131.59 90.66 L141.56 119.78 L151.53 125.88 L161.49 116.5 L171.46 114.34 L181.42 116.96 L191.39 119.52 L201.36 136.65 L211.32 126.06 L221.29 125.31 L231.25 122 L241.22 121.65 L251.19 116.21 L261.15 115.45 L271.12 116.99 L281.08 117.8 L291.05 129.57 L301.02 98.4 L310.98 60.41 L320.95 48.58 L330.92 72.98 L340.88 101.68 L350.85 103.12 L360.81 120.88 L370.78 118.17 L380.75 130.83 L390.71 136.19 L400.68 133.68 L410.64 142.58 L420.61 123.24 L430.58 127.44 L440.54 134.98 L450.51 141.19 L460.47 167.01 L470.44 175.07 L480.41 184.28 L490.37 202.21 L500.34 185.92 L510.31 177.95 L520.27 175.16 L530.24 149.08 L540.2 138.81 L550.17 129.48 L560.14 124.21 L570.1 130.4 L580.07 139.55 L590.03 146.03 L600 145.74" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="123.24" y2="123.24" class="level-line buy1"/>
-    <text x="640" y="119.24" class="level-label">1차 목표</text>
-    <text x="640" y="134.24" class="level-price">$134.71</text>
+    <line x1="12" x2="600" y1="48.58" y2="48.58" class="level-line breakout"/>
+    <text x="612" y="44.58" class="level-label">3차 목표 / 신고가 목표</text>
+    <text x="612" y="59.58" class="level-price">$160.65</text>
   </g><g>
-    <line x1="12" x2="628" y1="118.17" y2="118.17" class="level-line buy2"/>
-    <text x="640" y="114.17" class="level-label">2차 목표</text>
-    <text x="640" y="129.17000000000002" class="level-price">$136.47</text>
+    <line x1="12" x2="600" y1="118.17" y2="118.17" class="level-line buy2"/>
+    <text x="612" y="114.17" class="level-label">2차 목표</text>
+    <text x="612" y="129.17000000000002" class="level-price">$136.47</text>
   </g><g>
-    <line x1="12" x2="628" y1="48.58" y2="48.58" class="level-line breakout"/>
-    <text x="640" y="44.58" class="level-label">3차 목표 / 신고가 목표</text>
-    <text x="640" y="59.58" class="level-price">$160.65</text>
+    <line x1="12" x2="600" y1="123.24" y2="123.24" class="level-line buy1"/>
+    <text x="612" y="138.17" class="level-label">1차 목표</text>
+    <text x="612" y="153.17" class="level-price">$134.71</text>
   </g>
       <g>
-      <circle cx="513.15" cy="202.21" r="4" class="pivot-low"/>
-      <text x="513.15" y="220.21" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="490.37" cy="202.21" r="4" class="pivot-low"/>
+      <text x="490.37" y="220.21" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="440.07" cy="123.24" r="4" class="pivot-high"/>
-      <text x="440.07" y="113.24" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="420.61" cy="123.24" r="4" class="pivot-high"/>
+      <text x="420.61" y="113.24" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="387.86" cy="118.17" r="4" class="pivot-high"/>
-      <text x="387.86" y="108.17" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="370.78" cy="118.17" r="4" class="pivot-high"/>
+      <text x="370.78" y="108.17" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="335.66" cy="48.58" r="4" class="pivot-high"/>
-      <text x="335.66" y="38.58" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="320.95" cy="48.58" r="4" class="pivot-high"/>
+      <text x="320.95" y="38.58" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="142.45" r="4.5" class="current-dot"/>
-      <text x="640" y="146.45" class="current-label">$128.04</text>
+      <circle cx="600" cy="145.74" r="4.5" class="current-dot"/>
+      <text x="612" y="149.74" class="current-label">$126.89</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="PLTR price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-PLTR-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 243.05 L159 257.75 L306 279.48 L453 294.86 L600 294.18 L600 328 L12 328 Z" fill="url(#area-PLTR-week-zoom)"/>
+      <path d="M12 243.05 L159 257.75 L306 279.48 L453 294.86 L600 294.18" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">3차 목표 / 신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$160.65</text>
+  </g><g>
+    <line x1="12" x2="600" y1="228.69" y2="228.69" class="level-line buy2"/>
+    <text x="612" y="224.69" class="level-label">2차 목표</text>
+    <text x="612" y="239.69" class="level-price">$136.47</text>
+  </g><g>
+    <line x1="12" x2="600" y1="240.72" y2="240.72" class="level-line buy1"/>
+    <text x="612" y="248.69" class="level-label">1차 목표</text>
+    <text x="612" y="263.69" class="level-price">$134.71</text>
+  </g>
+      
+      <circle cx="600" cy="294.18" r="4.5" class="current-dot"/>
+      <text x="612" y="298.18" class="current-label">$126.89</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -742,9 +987,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 $134.71</dd></div>
-      <div><dt>목표까지</dt><dd>+5.2%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-2.3%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-20.3%</dd></div>
+      <div><dt>목표까지</dt><dd>+6.2%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-3.2%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-21%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -768,55 +1013,104 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$396.79</strong>
-      <span class="down">-2.7%</span>
+      <strong>$394.77</strong>
+      <span class="down">-3.2%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="TSLA price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-TSLA" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-TSLA-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 158.87 L22.44 137.23 L32.88 152.22 L43.32 163.45 L53.76 161.44 L64.2 186.89 L74.64 182.13 L85.08 177.76 L95.53 182.65 L105.97 188.59 L116.41 172.29 L126.85 155.33 L137.29 152.21 L147.73 158 L158.17 140.72 L168.61 116.61 L179.05 86.04 L189.49 55.31 L199.93 76.63 L210.37 54.81 L220.81 58.45 L231.25 97.32 L241.69 119.94 L252.14 130.79 L262.58 106.52 L273.02 105.43 L283.46 90.36 L293.9 76.37 L304.34 63.87 L314.78 60.66 L325.22 72.31 L335.66 109.06 L346.1 94.55 L356.54 94.63 L366.98 104.32 L377.42 154.99 L387.86 121.86 L398.31 144.51 L408.75 172.36 L419.19 139.95 L429.63 126.51 L440.07 117.8 L450.51 129.78 L460.95 145.06 L471.39 137.47 L481.83 129.06 L492.27 172.33 L502.71 183.55 L513.15 184.31 L523.59 175.84 L534.03 116.52 L544.47 100.35 L554.92 91.67 L565.36 150.47 L575.8 101.88 L586.24 133.03 L596.68 149.34 L607.12 126.29 L617.56 124.05 L628 144.31 L628 218 L12 218 Z" fill="url(#area-TSLA)"/>
-      <path d="M12 158.87 L22.44 137.23 L32.88 152.22 L43.32 163.45 L53.76 161.44 L64.2 186.89 L74.64 182.13 L85.08 177.76 L95.53 182.65 L105.97 188.59 L116.41 172.29 L126.85 155.33 L137.29 152.21 L147.73 158 L158.17 140.72 L168.61 116.61 L179.05 86.04 L189.49 55.31 L199.93 76.63 L210.37 54.81 L220.81 58.45 L231.25 97.32 L241.69 119.94 L252.14 130.79 L262.58 106.52 L273.02 105.43 L283.46 90.36 L293.9 76.37 L304.34 63.87 L314.78 60.66 L325.22 72.31 L335.66 109.06 L346.1 94.55 L356.54 94.63 L366.98 104.32 L377.42 154.99 L387.86 121.86 L398.31 144.51 L408.75 172.36 L419.19 139.95 L429.63 126.51 L440.07 117.8 L450.51 129.78 L460.95 145.06 L471.39 137.47 L481.83 129.06 L492.27 172.33 L502.71 183.55 L513.15 184.31 L523.59 175.84 L534.03 116.52 L544.47 100.35 L554.92 91.67 L565.36 150.47 L575.8 101.88 L586.24 133.03 L596.68 149.34 L607.12 126.29 L617.56 124.05 L628 144.31" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 158.87 L21.97 137.23 L31.93 152.22 L41.9 163.45 L51.86 161.44 L61.83 186.89 L71.8 182.13 L81.76 177.76 L91.73 182.65 L101.69 188.59 L111.66 172.29 L121.63 155.33 L131.59 152.21 L141.56 158 L151.53 140.72 L161.49 116.61 L171.46 86.04 L181.42 55.31 L191.39 76.63 L201.36 54.81 L211.32 58.45 L221.29 97.32 L231.25 119.94 L241.22 130.79 L251.19 106.52 L261.15 105.43 L271.12 90.36 L281.08 76.37 L291.05 63.87 L301.02 60.66 L310.98 72.31 L320.95 109.06 L330.92 94.55 L340.88 94.63 L350.85 104.32 L360.81 154.99 L370.78 121.86 L380.75 144.51 L390.71 172.36 L400.68 139.95 L410.64 126.51 L420.61 117.8 L430.58 129.78 L440.54 145.06 L450.51 137.47 L460.47 129.06 L470.44 172.33 L480.41 183.55 L490.37 184.31 L500.34 175.84 L510.31 116.52 L520.27 100.35 L530.24 91.67 L540.2 150.47 L550.17 101.88 L560.14 133.03 L570.1 149.34 L580.07 126.29 L590.03 124.05 L600 148.04 L600 218 L12 218 Z" fill="url(#area-TSLA-full)"/>
+      <path d="M12 158.87 L21.97 137.23 L31.93 152.22 L41.9 163.45 L51.86 161.44 L61.83 186.89 L71.8 182.13 L81.76 177.76 L91.73 182.65 L101.69 188.59 L111.66 172.29 L121.63 155.33 L131.59 152.21 L141.56 158 L151.53 140.72 L161.49 116.61 L171.46 86.04 L181.42 55.31 L191.39 76.63 L201.36 54.81 L211.32 58.45 L221.29 97.32 L231.25 119.94 L241.22 130.79 L251.19 106.52 L261.15 105.43 L271.12 90.36 L281.08 76.37 L291.05 63.87 L301.02 60.66 L310.98 72.31 L320.95 109.06 L330.92 94.55 L340.88 94.63 L350.85 104.32 L360.81 154.99 L370.78 121.86 L380.75 144.51 L390.71 172.36 L400.68 139.95 L410.64 126.51 L420.61 117.8 L430.58 129.78 L440.54 145.06 L450.51 137.47 L460.47 129.06 L470.44 172.33 L480.41 183.55 L490.37 184.31 L500.34 175.84 L510.31 116.52 L520.27 100.35 L530.24 91.67 L540.2 150.47 L550.17 101.88 L560.14 133.03 L570.1 149.34 L580.07 126.29 L590.03 124.05 L600 148.04" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="101.88" y2="101.88" class="level-line buy1"/>
-    <text x="640" y="97.88" class="level-label">1차 목표</text>
-    <text x="640" y="112.88" class="level-price">$419.77</text>
+    <line x1="12" x2="600" y1="54.81" y2="54.81" class="level-line breakout"/>
+    <text x="612" y="50.81" class="level-label">신고가 목표</text>
+    <text x="612" y="65.81" class="level-price">$445.27</text>
   </g><g>
-    <line x1="12" x2="628" y1="91.67" y2="91.67" class="level-line buy2"/>
-    <text x="640" y="87.67" class="level-label">2차 목표</text>
-    <text x="640" y="102.67" class="level-price">$425.30</text>
+    <line x1="12" x2="600" y1="60.66" y2="60.66" class="level-line buy3"/>
+    <text x="612" y="74.81" class="level-label">3차 목표</text>
+    <text x="612" y="89.81" class="level-price">$442.10</text>
   </g><g>
-    <line x1="12" x2="628" y1="60.66" y2="60.66" class="level-line buy3"/>
-    <text x="640" y="56.66" class="level-label">3차 목표</text>
-    <text x="640" y="71.66" class="level-price">$442.10</text>
+    <line x1="12" x2="600" y1="91.67" y2="91.67" class="level-line buy2"/>
+    <text x="612" y="98.81" class="level-label">2차 목표</text>
+    <text x="612" y="113.81" class="level-price">$425.30</text>
   </g><g>
-    <line x1="12" x2="628" y1="54.81" y2="54.81" class="level-line breakout"/>
-    <text x="640" y="50.81" class="level-label">신고가 목표</text>
-    <text x="640" y="65.81" class="level-price">$445.27</text>
+    <line x1="12" x2="600" y1="101.88" y2="101.88" class="level-line buy1"/>
+    <text x="612" y="122.81" class="level-label">1차 목표</text>
+    <text x="612" y="137.81" class="level-price">$419.77</text>
   </g>
       <g>
-      <circle cx="596.68" cy="149.34" r="4" class="pivot-low"/>
-      <text x="596.68" y="167.34" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="570.1" cy="149.34" r="4" class="pivot-low"/>
+      <text x="570.1" y="167.34" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="575.8" cy="101.88" r="4" class="pivot-high"/>
-      <text x="575.8" y="91.88" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="550.17" cy="101.88" r="4" class="pivot-high"/>
+      <text x="550.17" y="91.88" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="554.92" cy="91.67" r="4" class="pivot-high"/>
-      <text x="554.92" y="81.67" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="530.24" cy="91.67" r="4" class="pivot-high"/>
+      <text x="530.24" y="81.67" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="314.78" cy="60.66" r="4" class="pivot-high"/>
-      <text x="314.78" y="50.66" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="301.02" cy="60.66" r="4" class="pivot-high"/>
+      <text x="301.02" y="50.66" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="144.31" r="4.5" class="current-dot"/>
-      <text x="640" y="148.31" class="current-label">$396.79</text>
+      <circle cx="600" cy="148.04" r="4.5" class="current-dot"/>
+      <text x="612" y="152.04" class="current-label">$394.77</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="TSLA price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-TSLA-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 252.97 L159 292.52 L306 236.64 L453 231.22 L600 289.36 L600 328 L12 328 Z" fill="url(#area-TSLA-week-zoom)"/>
+      <path d="M12 252.97 L159 292.52 L306 236.64 L453 231.22 L600 289.36" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$445.27</text>
+  </g><g>
+    <line x1="12" x2="600" y1="77.58" y2="77.58" class="level-line buy3"/>
+    <text x="612" y="83.4" class="level-label">3차 목표</text>
+    <text x="612" y="98.4" class="level-price">$442.10</text>
+  </g><g>
+    <line x1="12" x2="600" y1="152.75" y2="152.75" class="level-line buy2"/>
+    <text x="612" y="148.75" class="level-label">2차 목표</text>
+    <text x="612" y="163.75" class="level-price">$425.30</text>
+  </g><g>
+    <line x1="12" x2="600" y1="177.49" y2="177.49" class="level-line buy1"/>
+    <text x="612" y="173.49" class="level-label">1차 목표</text>
+    <text x="612" y="188.49" class="level-price">$419.77</text>
+  </g>
+      <g>
+      <circle cx="159" cy="292.52" r="4" class="pivot-low"/>
+      <text x="159" y="310.52" text-anchor="middle" class="pivot-label">바닥</text>
+    </g>
+      <circle cx="600" cy="289.36" r="4.5" class="current-dot"/>
+      <text x="612" y="293.36" class="current-label">$394.77</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -834,9 +1128,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 $419.77</dd></div>
-      <div><dt>목표까지</dt><dd>+5.8%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-0.6%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-10.9%</dd></div>
+      <div><dt>목표까지</dt><dd>+6.3%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-1.1%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-11.3%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -863,55 +1157,104 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$77.40</strong>
-      <span class="down">-4.5%</span>
+      <strong>$78.51</strong>
+      <span class="down">-3.1%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="RKLB price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-RKLB" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-RKLB-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 185.65 L22.44 181.64 L32.88 171.65 L43.32 177.7 L53.76 170.41 L64.2 182.07 L74.64 192.61 L85.08 187.02 L95.53 194.94 L105.97 198.31 L116.41 186.55 L126.85 194.47 L137.29 191.26 L147.73 194.58 L158.17 181.96 L168.61 194.97 L179.05 137.35 L189.49 111.9 L199.93 111.45 L210.37 97.33 L220.81 79.33 L231.25 96 L241.69 82.31 L252.14 90.56 L262.58 75.62 L273.02 94.54 L283.46 72.45 L293.9 56.51 L304.34 41.45 L314.78 46.16 L325.22 55.91 L335.66 101.1 L346.1 99.11 L356.54 117.58 L366.98 106.33 L377.42 127.47 L387.86 119.83 L398.31 131.44 L408.75 138.25 L419.19 117.4 L429.63 143.95 L440.07 129.25 L450.51 139.15 L460.95 131.97 L471.39 133.56 L481.83 148.45 L492.27 159.53 L502.71 180.33 L513.15 190.44 L523.59 182.2 L534.03 153.34 L544.47 145.54 L554.92 148.92 L565.36 148.09 L575.8 163.88 L586.24 184.62 L596.68 184.75 L607.12 186.46 L617.56 189.69 L628 197.5 L628 218 L12 218 Z" fill="url(#area-RKLB)"/>
-      <path d="M12 185.65 L22.44 181.64 L32.88 171.65 L43.32 177.7 L53.76 170.41 L64.2 182.07 L74.64 192.61 L85.08 187.02 L95.53 194.94 L105.97 198.31 L116.41 186.55 L126.85 194.47 L137.29 191.26 L147.73 194.58 L158.17 181.96 L168.61 194.97 L179.05 137.35 L189.49 111.9 L199.93 111.45 L210.37 97.33 L220.81 79.33 L231.25 96 L241.69 82.31 L252.14 90.56 L262.58 75.62 L273.02 94.54 L283.46 72.45 L293.9 56.51 L304.34 41.45 L314.78 46.16 L325.22 55.91 L335.66 101.1 L346.1 99.11 L356.54 117.58 L366.98 106.33 L377.42 127.47 L387.86 119.83 L398.31 131.44 L408.75 138.25 L419.19 117.4 L429.63 143.95 L440.07 129.25 L450.51 139.15 L460.95 131.97 L471.39 133.56 L481.83 148.45 L492.27 159.53 L502.71 180.33 L513.15 190.44 L523.59 182.2 L534.03 153.34 L544.47 145.54 L554.92 148.92 L565.36 148.09 L575.8 163.88 L586.24 184.62 L596.68 184.75 L607.12 186.46 L617.56 189.69 L628 197.5" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 185.65 L21.97 181.64 L31.93 171.65 L41.9 177.7 L51.86 170.41 L61.83 182.07 L71.8 192.61 L81.76 187.02 L91.73 194.94 L101.69 198.31 L111.66 186.55 L121.63 194.47 L131.59 191.26 L141.56 194.58 L151.53 181.96 L161.49 194.97 L171.46 137.35 L181.42 111.9 L191.39 111.45 L201.36 97.33 L211.32 79.33 L221.29 96 L231.25 82.31 L241.22 90.56 L251.19 75.62 L261.15 94.54 L271.12 72.45 L281.08 56.51 L291.05 41.45 L301.02 46.16 L310.98 55.91 L320.95 101.1 L330.92 99.11 L340.88 117.58 L350.85 106.33 L360.81 127.47 L370.78 119.83 L380.75 131.44 L390.71 138.25 L400.68 117.4 L410.64 143.95 L420.61 129.25 L430.58 139.15 L440.54 131.97 L450.51 133.56 L460.47 148.45 L470.44 159.53 L480.41 180.33 L490.37 190.44 L500.34 182.2 L510.31 153.34 L520.27 145.54 L530.24 148.92 L540.2 148.09 L550.17 163.88 L560.14 184.62 L570.1 184.75 L580.07 186.46 L590.03 189.69 L600 195.12 L600 218 L12 218 Z" fill="url(#area-RKLB-full)"/>
+      <path d="M12 185.65 L21.97 181.64 L31.93 171.65 L41.9 177.7 L51.86 170.41 L61.83 182.07 L71.8 192.61 L81.76 187.02 L91.73 194.94 L101.69 198.31 L111.66 186.55 L121.63 194.47 L131.59 191.26 L141.56 194.58 L151.53 181.96 L161.49 194.97 L171.46 137.35 L181.42 111.9 L191.39 111.45 L201.36 97.33 L211.32 79.33 L221.29 96 L231.25 82.31 L241.22 90.56 L251.19 75.62 L261.15 94.54 L271.12 72.45 L281.08 56.51 L291.05 41.45 L301.02 46.16 L310.98 55.91 L320.95 101.1 L330.92 99.11 L340.88 117.58 L350.85 106.33 L360.81 127.47 L370.78 119.83 L380.75 131.44 L390.71 138.25 L400.68 117.4 L410.64 143.95 L420.61 129.25 L430.58 139.15 L440.54 131.97 L450.51 133.56 L460.47 148.45 L470.44 159.53 L480.41 180.33 L490.37 190.44 L500.34 182.2 L510.31 153.34 L520.27 145.54 L530.24 148.92 L540.2 148.09 L550.17 163.88 L560.14 184.62 L570.1 184.75 L580.07 186.46 L590.03 189.69 L600 195.12" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="148.09" y2="148.09" class="level-line buy1"/>
-    <text x="640" y="144.09" class="level-label">1차 목표</text>
-    <text x="640" y="159.09" class="level-price">$100.46</text>
+    <line x1="12" x2="600" y1="41.45" y2="41.45" class="level-line breakout"/>
+    <text x="612" y="37.45" class="level-label">신고가 목표</text>
+    <text x="612" y="52.45" class="level-price">$150.23</text>
   </g><g>
-    <line x1="12" x2="628" y1="145.54" y2="145.54" class="level-line buy2"/>
-    <text x="640" y="141.54" class="level-label">2차 목표</text>
-    <text x="640" y="156.54" class="level-price">$101.65</text>
+    <line x1="12" x2="600" y1="131.97" y2="131.97" class="level-line buy3"/>
+    <text x="612" y="127.97" class="level-label">3차 목표</text>
+    <text x="612" y="142.97" class="level-price">$107.98</text>
   </g><g>
-    <line x1="12" x2="628" y1="131.97" y2="131.97" class="level-line buy3"/>
-    <text x="640" y="127.97" class="level-label">3차 목표</text>
-    <text x="640" y="142.97" class="level-price">$107.98</text>
+    <line x1="12" x2="600" y1="145.54" y2="145.54" class="level-line buy2"/>
+    <text x="612" y="151.97" class="level-label">2차 목표</text>
+    <text x="612" y="166.97" class="level-price">$101.65</text>
   </g><g>
-    <line x1="12" x2="628" y1="41.45" y2="41.45" class="level-line breakout"/>
-    <text x="640" y="37.45" class="level-label">신고가 목표</text>
-    <text x="640" y="52.45" class="level-price">$150.23</text>
+    <line x1="12" x2="600" y1="148.09" y2="148.09" class="level-line buy1"/>
+    <text x="612" y="175.97" class="level-label">1차 목표</text>
+    <text x="612" y="190.97" class="level-price">$100.46</text>
   </g>
       <g>
-      <circle cx="628" cy="197.5" r="4" class="pivot-low"/>
-      <text x="628" y="215.5" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="600" cy="195.12" r="4" class="pivot-low"/>
+      <text x="600" y="213.12" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="565.36" cy="148.09" r="4" class="pivot-high"/>
-      <text x="565.36" y="138.09" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="540.2" cy="148.09" r="4" class="pivot-high"/>
+      <text x="540.2" y="138.09" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="544.47" cy="145.54" r="4" class="pivot-high"/>
-      <text x="544.47" y="135.54" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="520.27" cy="145.54" r="4" class="pivot-high"/>
+      <text x="520.27" y="135.54" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="460.95" cy="131.97" r="4" class="pivot-high"/>
-      <text x="460.95" y="121.97" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="440.54" cy="131.97" r="4" class="pivot-high"/>
+      <text x="440.54" y="121.97" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="197.5" r="4.5" class="current-dot"/>
-      <text x="640" y="201.5" class="current-label">$77.40</text>
+      <circle cx="600" cy="195.12" r="4.5" class="current-dot"/>
+      <text x="612" y="199.12" class="current-label">$78.51</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="RKLB price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-RKLB-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 287.11 L159 287.31 L306 289.99 L453 295.04 L600 303.51 L600 328 L12 328 Z" fill="url(#area-RKLB-week-zoom)"/>
+      <path d="M12 287.11 L159 287.31 L306 289.99 L453 295.04 L600 303.51" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$150.23</text>
+  </g><g>
+    <line x1="12" x2="600" y1="204.85" y2="204.85" class="level-line buy3"/>
+    <text x="612" y="200.85" class="level-label">3차 목표</text>
+    <text x="612" y="215.85" class="level-price">$107.98</text>
+  </g><g>
+    <line x1="12" x2="600" y1="226.04" y2="226.04" class="level-line buy2"/>
+    <text x="612" y="224.85" class="level-label">2차 목표</text>
+    <text x="612" y="239.85" class="level-price">$101.65</text>
+  </g><g>
+    <line x1="12" x2="600" y1="230.03" y2="230.03" class="level-line buy1"/>
+    <text x="612" y="248.85" class="level-label">1차 목표</text>
+    <text x="612" y="263.85" class="level-price">$100.46</text>
+  </g>
+      <g>
+      <circle cx="600" cy="303.51" r="4" class="pivot-low"/>
+      <text x="600" y="321.51" text-anchor="middle" class="pivot-label">바닥</text>
+    </g>
+      <circle cx="600" cy="303.51" r="4.5" class="current-dot"/>
+      <text x="612" y="307.51" class="current-label">$78.51</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -929,9 +1272,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 $100.46</dd></div>
-      <div><dt>목표까지</dt><dd>+29.8%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-32.6%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-48.5%</dd></div>
+      <div><dt>목표까지</dt><dd>+28%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-31.6%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-47.7%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -948,7 +1291,7 @@ th { color: var(--muted); font-size: 12px; }
       <strong>$150.23</strong>
     </div>
   </div>
-    <p class="muted small">관망: bottom 2026-07-13 @ 77.3951; 1차 2026-07-02 @ 100.46; 2차 2026-06-30 @ 101.65; 3차 2026-06-17 @ 107.98; breakout 2026-05-27 @ 150.23</p>
+    <p class="muted small">관망: bottom 2026-07-13 @ 78.51; 1차 2026-07-02 @ 100.46; 2차 2026-06-30 @ 101.65; 3차 2026-06-17 @ 107.98; breakout 2026-05-27 @ 150.23</p>
   </article><article class="stock-card stage-watch">
     <div class="stock-head">
       <div>
@@ -958,55 +1301,101 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">US</span>
     </div>
     <div class="price-line">
-      <strong>$156.46</strong>
+      <strong>$156.51</strong>
       <span class="down">-1.6%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="COIN price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-COIN" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-COIN-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 84.48 L22.44 71.58 L32.88 61.07 L43.32 92.17 L53.76 71.76 L64.2 88.25 L74.64 84.6 L85.08 90.73 L95.53 95.84 L105.97 120.39 L116.41 108.4 L126.85 101.5 L137.29 78.21 L147.73 88.6 L158.17 88.19 L168.61 98.11 L179.05 81.84 L189.49 51.21 L199.93 68.98 L210.37 80.57 L220.81 60.31 L231.25 93.21 L241.69 105.09 L252.14 97.13 L262.58 101.42 L273.02 96.92 L283.46 113.92 L293.9 123.8 L304.34 136.16 L314.78 119.35 L325.22 105.9 L335.66 118.64 L346.1 135.74 L356.54 157.11 L366.98 155.3 L377.42 178.57 L387.86 159.31 L398.31 172.42 L408.75 175.46 L419.19 162.64 L429.63 163.93 L440.07 144.41 L450.51 145.1 L460.95 153.73 L471.39 157.03 L481.83 153.89 L492.27 167.11 L502.71 183.12 L513.15 198.17 L523.59 185.2 L534.03 180.06 L544.47 190.89 L554.92 165 L565.36 152.62 L575.8 145.9 L586.24 156.53 L596.68 164.77 L607.12 166.59 L617.56 165.34 L628 170.52 L628 218 L12 218 Z" fill="url(#area-COIN)"/>
-      <path d="M12 84.48 L22.44 71.58 L32.88 61.07 L43.32 92.17 L53.76 71.76 L64.2 88.25 L74.64 84.6 L85.08 90.73 L95.53 95.84 L105.97 120.39 L116.41 108.4 L126.85 101.5 L137.29 78.21 L147.73 88.6 L158.17 88.19 L168.61 98.11 L179.05 81.84 L189.49 51.21 L199.93 68.98 L210.37 80.57 L220.81 60.31 L231.25 93.21 L241.69 105.09 L252.14 97.13 L262.58 101.42 L273.02 96.92 L283.46 113.92 L293.9 123.8 L304.34 136.16 L314.78 119.35 L325.22 105.9 L335.66 118.64 L346.1 135.74 L356.54 157.11 L366.98 155.3 L377.42 178.57 L387.86 159.31 L398.31 172.42 L408.75 175.46 L419.19 162.64 L429.63 163.93 L440.07 144.41 L450.51 145.1 L460.95 153.73 L471.39 157.03 L481.83 153.89 L492.27 167.11 L502.71 183.12 L513.15 198.17 L523.59 185.2 L534.03 180.06 L544.47 190.89 L554.92 165 L565.36 152.62 L575.8 145.9 L586.24 156.53 L596.68 164.77 L607.12 166.59 L617.56 165.34 L628 170.52" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 84.48 L21.97 71.58 L31.93 61.07 L41.9 92.17 L51.86 71.76 L61.83 88.25 L71.8 84.6 L81.76 90.73 L91.73 95.84 L101.69 120.39 L111.66 108.4 L121.63 101.5 L131.59 78.21 L141.56 88.6 L151.53 88.19 L161.49 98.11 L171.46 81.84 L181.42 51.21 L191.39 68.98 L201.36 80.57 L211.32 60.31 L221.29 93.21 L231.25 105.09 L241.22 97.13 L251.19 101.42 L261.15 96.92 L271.12 113.92 L281.08 123.8 L291.05 136.16 L301.02 119.35 L310.98 105.9 L320.95 118.64 L330.92 135.74 L340.88 157.11 L350.85 155.3 L360.81 178.57 L370.78 159.31 L380.75 172.42 L390.71 175.46 L400.68 162.64 L410.64 163.93 L420.61 144.41 L430.58 145.1 L440.54 153.73 L450.51 157.03 L460.47 153.89 L470.44 167.11 L480.41 183.12 L490.37 198.17 L500.34 185.2 L510.31 180.06 L520.27 190.89 L530.24 165 L540.2 152.62 L550.17 145.9 L560.14 156.53 L570.1 164.77 L580.07 166.59 L590.03 165.34 L600 170.42 L600 218 L12 218 Z" fill="url(#area-COIN-full)"/>
+      <path d="M12 84.48 L21.97 71.58 L31.93 61.07 L41.9 92.17 L51.86 71.76 L61.83 88.25 L71.8 84.6 L81.76 90.73 L91.73 95.84 L101.69 120.39 L111.66 108.4 L121.63 101.5 L131.59 78.21 L141.56 88.6 L151.53 88.19 L161.49 98.11 L171.46 81.84 L181.42 51.21 L191.39 68.98 L201.36 80.57 L211.32 60.31 L221.29 93.21 L231.25 105.09 L241.22 97.13 L251.19 101.42 L261.15 96.92 L271.12 113.92 L281.08 123.8 L291.05 136.16 L301.02 119.35 L310.98 105.9 L320.95 118.64 L330.92 135.74 L340.88 157.11 L350.85 155.3 L360.81 178.57 L370.78 159.31 L380.75 172.42 L390.71 175.46 L400.68 162.64 L410.64 163.93 L420.61 144.41 L430.58 145.1 L440.54 153.73 L450.51 157.03 L460.47 153.89 L470.44 167.11 L480.41 183.12 L490.37 198.17 L500.34 185.2 L510.31 180.06 L520.27 190.89 L530.24 165 L540.2 152.62 L550.17 145.9 L560.14 156.53 L570.1 164.77 L580.07 166.59 L590.03 165.34 L600 170.42" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="180.06" y2="180.06" class="level-line buy1"/>
-    <text x="640" y="176.06" class="level-label">1차 목표</text>
-    <text x="640" y="191.06" class="level-price">$151.65</text>
+    <line x1="12" x2="600" y1="51.21" y2="51.21" class="level-line breakout"/>
+    <text x="612" y="47.21" class="level-label">신고가 목표</text>
+    <text x="612" y="62.21" class="level-price">$216.60</text>
   </g><g>
-    <line x1="12" x2="628" y1="153.89" y2="153.89" class="level-line buy2"/>
-    <text x="640" y="149.89" class="level-label">2차 목표</text>
-    <text x="640" y="164.89" class="level-price">$164.84</text>
+    <line x1="12" x2="600" y1="144.41" y2="144.41" class="level-line buy3"/>
+    <text x="612" y="140.41" class="level-label">3차 목표</text>
+    <text x="612" y="155.41" class="level-price">$169.62</text>
   </g><g>
-    <line x1="12" x2="628" y1="144.41" y2="144.41" class="level-line buy3"/>
-    <text x="640" y="140.41" class="level-label">3차 목표</text>
-    <text x="640" y="155.41" class="level-price">$169.62</text>
+    <line x1="12" x2="600" y1="153.89" y2="153.89" class="level-line buy2"/>
+    <text x="612" y="164.41" class="level-label">2차 목표</text>
+    <text x="612" y="179.41" class="level-price">$164.84</text>
   </g><g>
-    <line x1="12" x2="628" y1="51.21" y2="51.21" class="level-line breakout"/>
-    <text x="640" y="47.21" class="level-label">신고가 목표</text>
-    <text x="640" y="62.21" class="level-price">$216.60</text>
+    <line x1="12" x2="600" y1="180.06" y2="180.06" class="level-line buy1"/>
+    <text x="612" y="188.41" class="level-label">1차 목표</text>
+    <text x="612" y="203.41" class="level-price">$151.65</text>
   </g>
       <g>
-      <circle cx="544.47" cy="190.89" r="4" class="pivot-low"/>
-      <text x="544.47" y="208.89" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="520.27" cy="190.89" r="4" class="pivot-low"/>
+      <text x="520.27" y="208.89" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="534.03" cy="180.06" r="4" class="pivot-high"/>
-      <text x="534.03" y="170.06" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="510.31" cy="180.06" r="4" class="pivot-high"/>
+      <text x="510.31" y="170.06" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="481.83" cy="153.89" r="4" class="pivot-high"/>
-      <text x="481.83" y="143.89" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="460.47" cy="153.89" r="4" class="pivot-high"/>
+      <text x="460.47" y="143.89" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="440.07" cy="144.41" r="4" class="pivot-high"/>
-      <text x="440.07" y="134.41" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="420.61" cy="144.41" r="4" class="pivot-high"/>
+      <text x="420.61" y="134.41" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="170.52" r="4.5" class="current-dot"/>
-      <text x="640" y="174.52" class="current-label">$156.46</text>
+      <circle cx="600" cy="170.42" r="4.5" class="current-dot"/>
+      <text x="612" y="174.42" class="current-label">$156.51</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="COIN price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-COIN-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 263.66 L159 279.32 L306 282.79 L453 280.41 L600 290.07 L600 328 L12 328 Z" fill="url(#area-COIN-week-zoom)"/>
+      <path d="M12 263.66 L159 279.32 L306 282.79 L453 280.41 L600 290.07" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">$216.60</text>
+  </g><g>
+    <line x1="12" x2="600" y1="240.61" y2="240.61" class="level-line buy3"/>
+    <text x="612" y="236.61" class="level-label">3차 목표</text>
+    <text x="612" y="251.61" class="level-price">$169.62</text>
+  </g><g>
+    <line x1="12" x2="600" y1="258.65" y2="258.65" class="level-line buy2"/>
+    <text x="612" y="260.61" class="level-label">2차 목표</text>
+    <text x="612" y="275.61" class="level-price">$164.84</text>
+  </g><g>
+    <line x1="12" x2="600" y1="308.4" y2="308.4" class="level-line buy1"/>
+    <text x="612" y="304.4" class="level-label">1차 목표</text>
+    <text x="612" y="319.4" class="level-price">$151.65</text>
+  </g>
+      
+      <circle cx="600" cy="290.07" r="4.5" class="current-dot"/>
+      <text x="612" y="294.07" class="current-label">$156.51</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -1024,9 +1413,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">1차 목표가 돌파: V자 반등 1차 분할 매수 후보</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>2차 목표가 $164.84</dd></div>
-      <div><dt>목표까지</dt><dd>+5.4%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-2.5%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-27.8%</dd></div>
+      <div><dt>목표까지</dt><dd>+5.3%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-2.4%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-27.7%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -1056,52 +1445,101 @@ th { color: var(--muted); font-size: 12px; }
       <strong>₩799</strong>
       <span class="down">-4.5%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="^KQ11 price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area--KQ11" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area--KQ11-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 67.95 L22.44 64.1 L32.88 61.51 L43.32 59.75 L53.76 58.23 L64.2 57.46 L74.64 59.95 L85.08 49.15 L95.53 40.98 L105.97 44.86 L116.41 43.15 L126.85 53.35 L137.29 45.53 L147.73 46.84 L158.17 50.86 L168.61 47.73 L179.05 47.87 L189.49 58.13 L199.93 58.99 L210.37 53.82 L220.81 76.22 L231.25 83.07 L241.69 92.84 L252.14 103.19 L262.58 84.94 L273.02 64.77 L283.46 60.61 L293.9 75.01 L304.34 85.53 L314.78 96.34 L325.22 105.39 L335.66 114.17 L346.1 105.5 L356.54 122.8 L366.98 156.09 L377.42 135.46 L387.86 141.37 L398.31 124.81 L408.75 113.07 L419.19 111.24 L429.63 116.86 L440.07 112 L450.51 123.35 L460.95 135.9 L471.39 135.24 L481.83 163.35 L492.27 156.85 L502.71 164.71 L513.15 178.03 L523.59 152.73 L534.03 154.34 L544.47 149.52 L554.92 172.42 L565.36 171.8 L575.8 179.61 L586.24 185.4 L596.68 202.3 L607.12 199.01 L617.56 183.13 L628 197.05 L628 218 L12 218 Z" fill="url(#area--KQ11)"/>
-      <path d="M12 67.95 L22.44 64.1 L32.88 61.51 L43.32 59.75 L53.76 58.23 L64.2 57.46 L74.64 59.95 L85.08 49.15 L95.53 40.98 L105.97 44.86 L116.41 43.15 L126.85 53.35 L137.29 45.53 L147.73 46.84 L158.17 50.86 L168.61 47.73 L179.05 47.87 L189.49 58.13 L199.93 58.99 L210.37 53.82 L220.81 76.22 L231.25 83.07 L241.69 92.84 L252.14 103.19 L262.58 84.94 L273.02 64.77 L283.46 60.61 L293.9 75.01 L304.34 85.53 L314.78 96.34 L325.22 105.39 L335.66 114.17 L346.1 105.5 L356.54 122.8 L366.98 156.09 L377.42 135.46 L387.86 141.37 L398.31 124.81 L408.75 113.07 L419.19 111.24 L429.63 116.86 L440.07 112 L450.51 123.35 L460.95 135.9 L471.39 135.24 L481.83 163.35 L492.27 156.85 L502.71 164.71 L513.15 178.03 L523.59 152.73 L534.03 154.34 L544.47 149.52 L554.92 172.42 L565.36 171.8 L575.8 179.61 L586.24 185.4 L596.68 202.3 L607.12 199.01 L617.56 183.13 L628 197.05" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 67.95 L21.97 64.1 L31.93 61.51 L41.9 59.75 L51.86 58.23 L61.83 57.46 L71.8 59.95 L81.76 49.15 L91.73 40.98 L101.69 44.86 L111.66 43.15 L121.63 53.35 L131.59 45.53 L141.56 46.84 L151.53 50.86 L161.49 47.73 L171.46 47.87 L181.42 58.13 L191.39 58.99 L201.36 53.82 L211.32 76.22 L221.29 83.07 L231.25 92.84 L241.22 103.19 L251.19 84.94 L261.15 64.77 L271.12 60.61 L281.08 75.01 L291.05 85.53 L301.02 96.34 L310.98 105.39 L320.95 114.17 L330.92 105.5 L340.88 122.8 L350.85 156.09 L360.81 135.46 L370.78 141.37 L380.75 124.81 L390.71 113.07 L400.68 111.24 L410.64 116.86 L420.61 112 L430.58 123.35 L440.54 135.9 L450.51 135.24 L460.47 163.35 L470.44 156.85 L480.41 164.71 L490.37 178.03 L500.34 152.73 L510.31 154.34 L520.27 149.52 L530.24 172.42 L540.2 171.8 L550.17 179.61 L560.14 185.4 L570.1 202.3 L580.07 199.01 L590.03 183.13 L600 197.05 L600 218 L12 218 Z" fill="url(#area--KQ11-full)"/>
+      <path d="M12 67.95 L21.97 64.1 L31.93 61.51 L41.9 59.75 L51.86 58.23 L61.83 57.46 L71.8 59.95 L81.76 49.15 L91.73 40.98 L101.69 44.86 L111.66 43.15 L121.63 53.35 L131.59 45.53 L141.56 46.84 L151.53 50.86 L161.49 47.73 L171.46 47.87 L181.42 58.13 L191.39 58.99 L201.36 53.82 L211.32 76.22 L221.29 83.07 L231.25 92.84 L241.22 103.19 L251.19 84.94 L261.15 64.77 L271.12 60.61 L281.08 75.01 L291.05 85.53 L301.02 96.34 L310.98 105.39 L320.95 114.17 L330.92 105.5 L340.88 122.8 L350.85 156.09 L360.81 135.46 L370.78 141.37 L380.75 124.81 L390.71 113.07 L400.68 111.24 L410.64 116.86 L420.61 112 L430.58 123.35 L440.54 135.9 L450.51 135.24 L460.47 163.35 L470.44 156.85 L480.41 164.71 L490.37 178.03 L500.34 152.73 L510.31 154.34 L520.27 149.52 L530.24 172.42 L540.2 171.8 L550.17 179.61 L560.14 185.4 L570.1 202.3 L580.07 199.01 L590.03 183.13 L600 197.05" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="171.8" y2="171.8" class="level-line buy1"/>
-    <text x="640" y="167.8" class="level-label">1차 목표</text>
-    <text x="640" y="182.8" class="level-price">₩868</text>
+    <line x1="12" x2="600" y1="40.98" y2="40.98" class="level-line breakout"/>
+    <text x="612" y="36.98" class="level-label">신고가 목표</text>
+    <text x="612" y="51.98" class="level-price">₩1,226</text>
   </g><g>
-    <line x1="12" x2="628" y1="149.52" y2="149.52" class="level-line buy2"/>
-    <text x="640" y="145.52" class="level-label">2차 목표</text>
-    <text x="640" y="160.52" class="level-price">₩929</text>
+    <line x1="12" x2="600" y1="135.24" y2="135.24" class="level-line buy3"/>
+    <text x="612" y="131.24" class="level-label">3차 목표</text>
+    <text x="612" y="146.24" class="level-price">₩968</text>
   </g><g>
-    <line x1="12" x2="628" y1="135.24" y2="135.24" class="level-line buy3"/>
-    <text x="640" y="131.24" class="level-label">3차 목표</text>
-    <text x="640" y="146.24" class="level-price">₩968</text>
+    <line x1="12" x2="600" y1="149.52" y2="149.52" class="level-line buy2"/>
+    <text x="612" y="155.24" class="level-label">2차 목표</text>
+    <text x="612" y="170.24" class="level-price">₩929</text>
   </g><g>
-    <line x1="12" x2="628" y1="40.98" y2="40.98" class="level-line breakout"/>
-    <text x="640" y="36.98" class="level-label">신고가 목표</text>
-    <text x="640" y="51.98" class="level-price">₩1,226</text>
+    <line x1="12" x2="600" y1="171.8" y2="171.8" class="level-line buy1"/>
+    <text x="612" y="179.24" class="level-label">1차 목표</text>
+    <text x="612" y="194.24" class="level-price">₩868</text>
   </g>
       <g>
-      <circle cx="596.68" cy="202.3" r="4" class="pivot-low"/>
-      <text x="596.68" y="220.3" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="570.1" cy="202.3" r="4" class="pivot-low"/>
+      <text x="570.1" y="220.3" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="565.36" cy="171.8" r="4" class="pivot-high"/>
-      <text x="565.36" y="161.8" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="540.2" cy="171.8" r="4" class="pivot-high"/>
+      <text x="540.2" y="161.8" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="544.47" cy="149.52" r="4" class="pivot-high"/>
-      <text x="544.47" y="139.52" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="520.27" cy="149.52" r="4" class="pivot-high"/>
+      <text x="520.27" y="139.52" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="471.39" cy="135.24" r="4" class="pivot-high"/>
-      <text x="471.39" y="125.24000000000001" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="450.51" cy="135.24" r="4" class="pivot-high"/>
+      <text x="450.51" y="125.24000000000001" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="197.05" r="4.5" class="current-dot"/>
-      <text x="640" y="201.05" class="current-label">₩799</text>
+      <circle cx="600" cy="197.05" r="4.5" class="current-dot"/>
+      <text x="612" y="201.05" class="current-label">₩799</text>
       <text x="12" y="240" class="axis-label">2026-04-15</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="^KQ11 price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area--KQ11-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 279.38 L159 304.66 L306 299.74 L453 275.99 L600 296.81 L600 328 L12 328 Z" fill="url(#area--KQ11-week-zoom)"/>
+      <path d="M12 279.38 L159 304.66 L306 299.74 L453 275.99 L600 296.81" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">₩1,226</text>
+  </g><g>
+    <line x1="12" x2="600" y1="204.37" y2="204.37" class="level-line buy3"/>
+    <text x="612" y="200.37" class="level-label">3차 목표</text>
+    <text x="612" y="215.37" class="level-price">₩968</text>
+  </g><g>
+    <line x1="12" x2="600" y1="225.73" y2="225.73" class="level-line buy2"/>
+    <text x="612" y="224.37" class="level-label">2차 목표</text>
+    <text x="612" y="239.37" class="level-price">₩929</text>
+  </g><g>
+    <line x1="12" x2="600" y1="259.05" y2="259.05" class="level-line buy1"/>
+    <text x="612" y="255.05" class="level-label">1차 목표</text>
+    <text x="612" y="270.05" class="level-price">₩868</text>
+  </g>
+      <g>
+      <circle cx="159" cy="304.66" r="4" class="pivot-low"/>
+      <text x="159" y="322.66" text-anchor="middle" class="pivot-label">바닥</text>
+    </g>
+      <circle cx="600" cy="296.81" r="4.5" class="current-dot"/>
+      <text x="612" y="300.81" class="current-label">₩799</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -1151,52 +1589,104 @@ th { color: var(--muted); font-size: 12px; }
       <strong>₩1,845,000</strong>
       <span class="down">-15.4%</span>
     </div>
-    <div class="chart-wrap">
+    <div class="chart-wrap full">
     <svg class="price-chart" viewBox="0 0 720 250" role="img" aria-label="000660.KS price chart with buy trigger levels">
       <defs>
-        <linearGradient id="area-000660-KS" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="area-000660-KS-full" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
           <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
-      <line x1="12" x2="628" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="628" y1="119" y2="119" class="grid-line"/><line x1="12" x2="628" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 203.47 L22.44 201.79 L32.88 204.18 L43.32 200.82 L53.76 195.69 L64.2 195.78 L74.64 195.6 L85.08 195.87 L95.53 189.68 L105.97 188.97 L116.41 189.59 L126.85 190.21 L137.29 175.97 L147.73 162.36 L158.17 157.67 L168.61 154.84 L179.05 137.69 L189.49 141.66 L199.93 129.2 L210.37 129.73 L220.81 143.08 L231.25 141.22 L241.69 149.62 L252.14 149.62 L262.58 132.38 L273.02 132.29 L283.46 122.48 L293.9 105.59 L304.34 101.52 L314.78 97.63 L325.22 94.98 L335.66 95.24 L346.1 100.72 L356.54 120.89 L366.98 134.94 L377.42 108.06 L387.86 122.83 L398.31 118.14 L408.75 113.81 L419.19 101.61 L429.63 93.3 L440.07 81.01 L450.51 66.5 L460.95 59.52 L471.39 45.81 L481.83 78 L492.27 72.16 L502.71 45.99 L513.15 67.57 L523.59 71.54 L534.03 69.6 L544.47 77.56 L554.92 110.54 L565.36 89.49 L575.8 96.75 L586.24 109.3 L596.68 120.35 L607.12 110.63 L617.56 111.16 L628 140.78 L628 218 L12 218 Z" fill="url(#area-000660-KS)"/>
-      <path d="M12 203.47 L22.44 201.79 L32.88 204.18 L43.32 200.82 L53.76 195.69 L64.2 195.78 L74.64 195.6 L85.08 195.87 L95.53 189.68 L105.97 188.97 L116.41 189.59 L126.85 190.21 L137.29 175.97 L147.73 162.36 L158.17 157.67 L168.61 154.84 L179.05 137.69 L189.49 141.66 L199.93 129.2 L210.37 129.73 L220.81 143.08 L231.25 141.22 L241.69 149.62 L252.14 149.62 L262.58 132.38 L273.02 132.29 L283.46 122.48 L293.9 105.59 L304.34 101.52 L314.78 97.63 L325.22 94.98 L335.66 95.24 L346.1 100.72 L356.54 120.89 L366.98 134.94 L377.42 108.06 L387.86 122.83 L398.31 118.14 L408.75 113.81 L419.19 101.61 L429.63 93.3 L440.07 81.01 L450.51 66.5 L460.95 59.52 L471.39 45.81 L481.83 78 L492.27 72.16 L502.71 45.99 L513.15 67.57 L523.59 71.54 L534.03 69.6 L544.47 77.56 L554.92 110.54 L565.36 89.49 L575.8 96.75 L586.24 109.3 L596.68 120.35 L607.12 110.63 L617.56 111.16 L628 140.78" class="price-path"/>
+      
+      <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
+      <path d="M12 203.47 L21.97 201.79 L31.93 204.18 L41.9 200.82 L51.86 195.69 L61.83 195.78 L71.8 195.6 L81.76 195.87 L91.73 189.68 L101.69 188.97 L111.66 189.59 L121.63 190.21 L131.59 175.97 L141.56 162.36 L151.53 157.67 L161.49 154.84 L171.46 137.69 L181.42 141.66 L191.39 129.2 L201.36 129.73 L211.32 143.08 L221.29 141.22 L231.25 149.62 L241.22 149.62 L251.19 132.38 L261.15 132.29 L271.12 122.48 L281.08 105.59 L291.05 101.52 L301.02 97.63 L310.98 94.98 L320.95 95.24 L330.92 100.72 L340.88 120.89 L350.85 134.94 L360.81 108.06 L370.78 122.83 L380.75 118.14 L390.71 113.81 L400.68 101.61 L410.64 93.3 L420.61 81.01 L430.58 66.5 L440.54 59.52 L450.51 45.81 L460.47 78 L470.44 72.16 L480.41 45.99 L490.37 67.57 L500.34 71.54 L510.31 69.6 L520.27 77.56 L530.24 110.54 L540.2 89.49 L550.17 96.75 L560.14 109.3 L570.1 120.35 L580.07 110.63 L590.03 111.16 L600 140.78 L600 218 L12 218 Z" fill="url(#area-000660-KS-full)"/>
+      <path d="M12 203.47 L21.97 201.79 L31.93 204.18 L41.9 200.82 L51.86 195.69 L61.83 195.78 L71.8 195.6 L81.76 195.87 L91.73 189.68 L101.69 188.97 L111.66 189.59 L121.63 190.21 L131.59 175.97 L141.56 162.36 L151.53 157.67 L161.49 154.84 L171.46 137.69 L181.42 141.66 L191.39 129.2 L201.36 129.73 L211.32 143.08 L221.29 141.22 L231.25 149.62 L241.22 149.62 L251.19 132.38 L261.15 132.29 L271.12 122.48 L281.08 105.59 L291.05 101.52 L301.02 97.63 L310.98 94.98 L320.95 95.24 L330.92 100.72 L340.88 120.89 L350.85 134.94 L360.81 108.06 L370.78 122.83 L380.75 118.14 L390.71 113.81 L400.68 101.61 L410.64 93.3 L420.61 81.01 L430.58 66.5 L440.54 59.52 L450.51 45.81 L460.47 78 L470.44 72.16 L480.41 45.99 L490.37 67.57 L500.34 71.54 L510.31 69.6 L520.27 77.56 L530.24 110.54 L540.2 89.49 L550.17 96.75 L560.14 109.3 L570.1 120.35 L580.07 110.63 L590.03 111.16 L600 140.78" class="price-path"/>
       <g>
-    <line x1="12" x2="628" y1="110.63" y2="110.63" class="level-line buy1"/>
-    <text x="640" y="106.63" class="level-label">1차 목표</text>
-    <text x="640" y="121.63" class="level-price">₩2,186,000</text>
+    <line x1="12" x2="600" y1="45.81" y2="45.81" class="level-line breakout"/>
+    <text x="612" y="41.81" class="level-label">신고가 목표</text>
+    <text x="612" y="56.81" class="level-price">₩2,919,000</text>
   </g><g>
-    <line x1="12" x2="628" y1="89.49" y2="89.49" class="level-line buy2"/>
-    <text x="640" y="85.49" class="level-label">2차 목표</text>
-    <text x="640" y="100.49" class="level-price">₩2,425,000</text>
+    <line x1="12" x2="600" y1="69.6" y2="69.6" class="level-line buy3"/>
+    <text x="612" y="65.81" class="level-label">3차 목표</text>
+    <text x="612" y="80.81" class="level-price">₩2,650,000</text>
   </g><g>
-    <line x1="12" x2="628" y1="69.6" y2="69.6" class="level-line buy3"/>
-    <text x="640" y="65.6" class="level-label">3차 목표</text>
-    <text x="640" y="80.6" class="level-price">₩2,650,000</text>
+    <line x1="12" x2="600" y1="89.49" y2="89.49" class="level-line buy2"/>
+    <text x="612" y="89.81" class="level-label">2차 목표</text>
+    <text x="612" y="104.81" class="level-price">₩2,425,000</text>
   </g><g>
-    <line x1="12" x2="628" y1="45.81" y2="45.81" class="level-line breakout"/>
-    <text x="640" y="41.81" class="level-label">신고가 목표</text>
-    <text x="640" y="56.81" class="level-price">₩2,919,000</text>
+    <line x1="12" x2="600" y1="110.63" y2="110.63" class="level-line buy1"/>
+    <text x="612" y="113.81" class="level-label">1차 목표</text>
+    <text x="612" y="128.81" class="level-price">₩2,186,000</text>
   </g>
       <g>
-      <circle cx="628" cy="140.78" r="4" class="pivot-low"/>
-      <text x="628" y="158.78" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="600" cy="140.78" r="4" class="pivot-low"/>
+      <text x="600" y="158.78" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="607.12" cy="110.63" r="4" class="pivot-high"/>
-      <text x="607.12" y="100.63" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="580.07" cy="110.63" r="4" class="pivot-high"/>
+      <text x="580.07" y="100.63" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="565.36" cy="89.49" r="4" class="pivot-high"/>
-      <text x="565.36" y="79.49" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="540.2" cy="89.49" r="4" class="pivot-high"/>
+      <text x="540.2" y="79.49" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="534.03" cy="69.6" r="4" class="pivot-high"/>
-      <text x="534.03" y="59.599999999999994" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="510.31" cy="69.6" r="4" class="pivot-high"/>
+      <text x="510.31" y="59.599999999999994" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <circle cx="628" cy="140.78" r="4.5" class="current-dot"/>
-      <text x="640" y="144.78" class="current-label">₩1,845,000</text>
+      <circle cx="600" cy="140.78" r="4.5" class="current-dot"/>
+      <text x="612" y="144.78" class="current-label">₩1,845,000</text>
       <text x="12" y="240" class="axis-label">2026-04-15</text>
-      <text x="628" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+      <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-13</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-line price"></i>종가</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>
+    <div class="chart-wrap week-zoom">
+    <svg class="price-chart" viewBox="0 0 720 360" role="img" aria-label="000660.KS price chart with buy trigger levels">
+      <defs>
+        <linearGradient id="area-000660-KS-week-zoom" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1c5d99" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#1c5d99" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="720" height="360" rx="8" class="chart-bg"/>
+      <text x="12" y="20" class="chart-title">최근 1주 확대</text>
+      <line x1="12" x2="600" y1="107.5" y2="107.5" class="grid-line"/><line x1="12" x2="600" y1="181" y2="181" class="grid-line"/><line x1="12" x2="600" y1="254.5" y2="254.5" class="grid-line"/>
+      <path d="M12 226.28 L159 254.64 L306 229.68 L453 231.04 L600 307.04 L600 328 L12 328 Z" fill="url(#area-000660-KS-week-zoom)"/>
+      <path d="M12 226.28 L159 254.64 L306 229.68 L453 231.04 L600 307.04" class="price-path"/>
+      <g>
+    <line x1="12" x2="600" y1="63.4" y2="63.4" class="level-line breakout"/>
+    <text x="612" y="59.4" class="level-label">신고가 목표</text>
+    <text x="612" y="74.4" class="level-price">₩2,919,000</text>
+  </g><g>
+    <line x1="12" x2="600" y1="124.42" y2="124.42" class="level-line buy3"/>
+    <text x="612" y="120.42" class="level-label">3차 목표</text>
+    <text x="612" y="135.42000000000002" class="level-price">₩2,650,000</text>
+  </g><g>
+    <line x1="12" x2="600" y1="175.46" y2="175.46" class="level-line buy2"/>
+    <text x="612" y="171.46" class="level-label">2차 목표</text>
+    <text x="612" y="186.46" class="level-price">₩2,425,000</text>
+  </g><g>
+    <line x1="12" x2="600" y1="229.68" y2="229.68" class="level-line buy1"/>
+    <text x="612" y="225.68" class="level-label">1차 목표</text>
+    <text x="612" y="240.68" class="level-price">₩2,186,000</text>
+  </g>
+      <g>
+      <circle cx="600" cy="307.04" r="4" class="pivot-low"/>
+      <text x="600" y="325.04" text-anchor="middle" class="pivot-label">바닥</text>
+    </g><g>
+      <circle cx="306" cy="229.68" r="4" class="pivot-high"/>
+      <text x="306" y="219.68" text-anchor="middle" class="pivot-label">1차</text>
+    </g>
+      <circle cx="600" cy="307.04" r="4.5" class="current-dot"/>
+      <text x="612" y="311.04" class="current-label">₩1,845,000</text>
+      <text x="12" y="350" class="axis-label">2026-07-07</text>
+      <text x="600" y="350" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-line price"></i>종가</span>
@@ -1243,26 +1733,26 @@ th { color: var(--muted); font-size: 12px; }
         <article class="detail-panel">
     <h3>US Market</h3>
     <div class="mini-grid">
-      <div><span>기술</span><strong>87.1</strong></div>
-      <div><span>매크로</span><strong>48.9</strong></div>
+      <div><span>기술</span><strong>86.9</strong></div>
+      <div><span>매크로</span><strong>49.2</strong></div>
       <div><span>커버리지</span><strong>2/2</strong></div>
     </div>
     <h4>Benchmarks</h4>
     <table>
       <thead><tr><th>자산</th><th>점수</th><th>20D</th><th>상태</th></tr></thead>
-      <tbody><tr><td>S&amp;P 500</td><td>100</td><td>+2.2%</td><td>above MA50, above MA200, 20d 2.2%, score 100</td></tr><tr><td>Nasdaq 100</td><td>74.1</td><td>-0.2%</td><td>below MA50, above MA200, 20d -0.2%, score 74.1</td></tr></tbody>
+      <tbody><tr><td>S&amp;P 500</td><td>100</td><td>+2.1%</td><td>above MA50, above MA200, 20d 2.1%, score 100</td></tr><tr><td>Nasdaq 100</td><td>73.7</td><td>-0.4%</td><td>below MA50, above MA200, 20d -0.4%, score 73.7</td></tr></tbody>
     </table>
     <h4>Macro</h4>
     <table>
       <thead><tr><th>지표</th><th>점수</th><th>20D</th><th>해석</th></tr></thead>
-      <tbody><tr><td>US 10Y yield</td><td>43.8</td><td>+2.7%</td><td>lower is risk-on; 20d 2.7%, 5d 2.4%, score 43.8</td></tr><tr><td>US 3M yield</td><td>45.2</td><td>+2.6%</td><td>lower is risk-on; 20d 2.6%, 5d 0.8%, score 45.2</td></tr><tr><td>US long-duration bonds</td><td>45.4</td><td>-2.1%</td><td>higher is risk-on; 20d -2.1%, 5d -1.5%, score 45.4</td></tr><tr><td>TIPS ETF</td><td>50</td><td>-1.4%</td><td>context signal; 20d -1.4%, 5d -0.4%, score 50</td></tr><tr><td>Oil ETF</td><td>64.2</td><td>-12.7%</td><td>lower is risk-on; 20d -12.7%, 5d 7.7%, score 64.2</td></tr><tr><td>Gold</td><td>50</td><td>-3.7%</td><td>context signal; 20d -3.7%, 5d -2.7%, score 50</td></tr><tr><td>US dollar</td><td>47.2</td><td>+1.6%</td><td>lower is risk-on; 20d 1.6%, 5d 0.3%, score 47.2</td></tr><tr><td>High yield credit</td><td>49.1</td><td>-0.4%</td><td>higher is risk-on; 20d -0.4%, 5d -0.3%, score 49.1</td></tr><tr><td>Investment grade credit</td><td>50</td><td>-1.6%</td><td>context signal; 20d -1.6%, 5d -1.2%, score 50</td></tr><tr><td>VIX</td><td>43.8</td><td>+1.2%</td><td>lower is risk-on; 20d 1.2%, 5d 5.3%, score 43.8</td></tr></tbody>
+      <tbody><tr><td>US 10Y yield</td><td>43.6</td><td>+2.8%</td><td>lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6</td></tr><tr><td>US 3M yield</td><td>45.2</td><td>+2.6%</td><td>lower is risk-on; 20d 2.6%, 5d 0.8%, score 45.2</td></tr><tr><td>US long-duration bonds</td><td>45.4</td><td>-2.1%</td><td>higher is risk-on; 20d -2.1%, 5d -1.5%, score 45.4</td></tr><tr><td>TIPS ETF</td><td>50</td><td>-1.4%</td><td>context signal; 20d -1.4%, 5d -0.4%, score 50</td></tr><tr><td>Oil ETF</td><td>64.6</td><td>-12.9%</td><td>lower is risk-on; 20d -12.9%, 5d 7.6%, score 64.6</td></tr><tr><td>Gold</td><td>50</td><td>-3.8%</td><td>context signal; 20d -3.8%, 5d -2.7%, score 50</td></tr><tr><td>US dollar</td><td>47.2</td><td>+1.6%</td><td>lower is risk-on; 20d 1.6%, 5d 0.3%, score 47.2</td></tr><tr><td>High yield credit</td><td>49.3</td><td>-0.3%</td><td>higher is risk-on; 20d -0.3%, 5d -0.3%, score 49.3</td></tr><tr><td>Investment grade credit</td><td>50</td><td>-1.6%</td><td>context signal; 20d -1.6%, 5d -1.2%, score 50</td></tr><tr><td>VIX</td><td>46.6</td><td>+0.1%</td><td>lower is risk-on; 20d 0.1%, 5d 4.1%, score 46.6</td></tr></tbody>
     </table>
   </article>
         <article class="detail-panel">
     <h3>Korean Market</h3>
     <div class="mini-grid">
       <div><span>기술</span><strong>21.6</strong></div>
-      <div><span>매크로</span><strong>45.3</strong></div>
+      <div><span>매크로</span><strong>46</strong></div>
       <div><span>커버리지</span><strong>2/2</strong></div>
     </div>
     <h4>Benchmarks</h4>
@@ -1273,7 +1763,7 @@ th { color: var(--muted); font-size: 12px; }
     <h4>Macro</h4>
     <table>
       <thead><tr><th>지표</th><th>점수</th><th>20D</th><th>해석</th></tr></thead>
-      <tbody><tr><td>USD/KRW</td><td>53.8</td><td>-1.1%</td><td>lower is risk-on; 20d -1.1%, 5d -2.5%, score 53.8</td></tr><tr><td>US 10Y yield</td><td>43.8</td><td>+2.7%</td><td>lower is risk-on; 20d 2.7%, 5d 2.4%, score 43.8</td></tr><tr><td>US long-duration bonds</td><td>45.4</td><td>-2.1%</td><td>higher is risk-on; 20d -2.1%, 5d -1.5%, score 45.4</td></tr><tr><td>Oil ETF</td><td>64.2</td><td>-12.7%</td><td>lower is risk-on; 20d -12.7%, 5d 7.7%, score 64.2</td></tr><tr><td>High yield credit</td><td>49.1</td><td>-0.4%</td><td>higher is risk-on; 20d -0.4%, 5d -0.3%, score 49.1</td></tr><tr><td>VIX</td><td>43.8</td><td>+1.2%</td><td>lower is risk-on; 20d 1.2%, 5d 5.3%, score 43.8</td></tr><tr><td>Korea equity ETF</td><td>17</td><td>-15.1%</td><td>higher is risk-on; 20d -15.1%, 5d -11.1%, score 17</td></tr></tbody>
+      <tbody><tr><td>USD/KRW</td><td>53.8</td><td>-1.1%</td><td>lower is risk-on; 20d -1.1%, 5d -2.5%, score 53.8</td></tr><tr><td>US 10Y yield</td><td>43.6</td><td>+2.8%</td><td>lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6</td></tr><tr><td>US long-duration bonds</td><td>45.4</td><td>-2.1%</td><td>higher is risk-on; 20d -2.1%, 5d -1.5%, score 45.4</td></tr><tr><td>Oil ETF</td><td>64.6</td><td>-12.9%</td><td>lower is risk-on; 20d -12.9%, 5d 7.6%, score 64.6</td></tr><tr><td>High yield credit</td><td>49.3</td><td>-0.3%</td><td>higher is risk-on; 20d -0.3%, 5d -0.3%, score 49.3</td></tr><tr><td>VIX</td><td>46.6</td><td>+0.1%</td><td>lower is risk-on; 20d 0.1%, 5d 4.1%, score 46.6</td></tr><tr><td>Korea equity ETF</td><td>18.7</td><td>-14.4%</td><td>higher is risk-on; 20d -14.4%, 5d -10.3%, score 18.7</td></tr></tbody>
     </table>
   </article>
       </div>
