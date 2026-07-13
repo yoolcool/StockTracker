@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T13:02:47.725Z",
-  "generatedAtKst": "2026. 7. 13. PM 10:02",
+  "generatedAt": "2026-07-13T13:12:37.822Z",
+  "generatedAtKst": "2026. 7. 13. 오후 10:12",
   "tradingDate": "2026-07-13",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -239,11 +239,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.6,
+            "score": 44,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.4,
-            "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
+            "return5dPct": 2.3,
+            "return20dPct": 2.6,
+            "reason": "lower is risk-on; 20d 2.6%, 5d 2.3%, score 44"
           },
           {
             "ticker": "^IRX",
@@ -252,11 +252,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 45.9,
+            "score": 45.8,
             "dataDate": "2026-07-13",
             "return5dPct": 0.5,
-            "return20dPct": 2.3,
-            "reason": "lower is risk-on; 20d 2.3%, 5d 0.5%, score 45.9"
+            "return20dPct": 2.4,
+            "reason": "lower is risk-on; 20d 2.4%, 5d 0.5%, score 45.8"
           },
           {
             "ticker": "TLT",
@@ -356,11 +356,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 70.6,
+            "score": 70.9,
             "dataDate": "2026-07-13",
-            "return5dPct": 5.4,
-            "return20dPct": -15.6,
-            "reason": "lower is risk-on; 20d -15.6%, 5d 5.4%, score 70.6"
+            "return5dPct": 5.3,
+            "return20dPct": -15.7,
+            "reason": "lower is risk-on; 20d -15.7%, 5d 5.3%, score 70.9"
           }
         ]
       },
@@ -443,7 +443,7 @@
         ]
       },
       "macro": {
-        "score": 57.1,
+        "score": 57.2,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -466,11 +466,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 43.6,
+            "score": 44,
             "dataDate": "2026-07-13",
-            "return5dPct": 2.4,
-            "return20dPct": 2.8,
-            "reason": "lower is risk-on; 20d 2.8%, 5d 2.4%, score 43.6"
+            "return5dPct": 2.3,
+            "return20dPct": 2.6,
+            "reason": "lower is risk-on; 20d 2.6%, 5d 2.3%, score 44"
           },
           {
             "ticker": "TLT",
@@ -518,11 +518,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 70.6,
+            "score": 70.9,
             "dataDate": "2026-07-13",
-            "return5dPct": 5.4,
-            "return20dPct": -15.6,
-            "reason": "lower is risk-on; 20d -15.6%, 5d 5.4%, score 70.6"
+            "return5dPct": 5.3,
+            "return20dPct": -15.7,
+            "reason": "lower is risk-on; 20d -15.7%, 5d 5.3%, score 70.9"
           },
           {
             "ticker": "EWY",
@@ -1634,8 +1634,8 @@
         "date": "2026-07-06"
       },
       "bottom": {
-        "date": "2026-07-08",
-        "price": 277500
+        "date": "2026-07-13",
+        "price": 254500
       },
       "firstReclaim": {
         "date": "2026-07-06",
@@ -2116,7 +2116,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-08 @ 277500; 1차 2026-07-06 @ 318000; 2차 2026-06-25 @ 358500; 3차 2026-06-18 @ 362500; breakout 2026-06-18 @ 362500; market allocation is defensive"
+      "reason": "관망: bottom 2026-07-13 @ 254500; 1차 2026-07-06 @ 318000; 2차 2026-06-25 @ 358500; 3차 2026-06-18 @ 362500; breakout 2026-06-18 @ 362500; market allocation is defensive"
     },
     {
       "ticker": "035420.KS",

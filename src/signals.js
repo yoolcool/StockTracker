@@ -25,7 +25,7 @@ export function buildStockSignal(item, marketItem, regime) {
   const targetLows = detectLocalLows(trackingHistory, TARGET_PEAK_WINDOW);
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
-  const lastLow = targetLows.at(-1) || buildTrackingLow(trackingHistory);
+  const lastLow = resolveCurrentBottom(trackingHistory, targetLows);
   const targets = buildReclaimTargets(targetPeaks, lastLow);
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
@@ -167,6 +167,23 @@ function detectLocalLows(history, window = TARGET_PEAK_WINDOW) {
     }
   }
   return lows;
+}
+
+function resolveCurrentBottom(history, localLows) {
+  const latest = history.at(-1);
+  const latestClose = Number(latest?.close);
+  const latestBottom = latest && Number.isFinite(latestClose)
+    ? {
+        type: "low",
+        index: history.length - 1,
+        date: latest.date,
+        price: rounded(latestClose, 4)
+      }
+    : null;
+  const lastLocalLow = localLows.at(-1);
+  if (!latestBottom) return lastLocalLow || buildTrackingLow(history);
+  if (!lastLocalLow || latestBottom.price <= Number(lastLocalLow.price)) return latestBottom;
+  return lastLocalLow;
 }
 
 function buildTrackingLow(history) {
