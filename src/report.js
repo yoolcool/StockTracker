@@ -1,6 +1,7 @@
 import { escapeHtml, money, pct, rounded } from "./utils.js";
 
 export function renderReport(report) {
+  const stocks = sortStocksForAction(report.stocks || []);
   return `<!doctype html>
 <html lang="ko">
 <head>
@@ -36,7 +37,7 @@ export function renderReport(report) {
     </section>
 
     <section class="stock-grid">
-      ${report.stocks.map((stock) => renderStockCard(stock, report.marketProfiles[stock.market])).join("")}
+      ${stocks.map((stock) => renderStockCard(stock, report.marketProfiles[stock.market], report.regimes[stock.market])).join("")}
     </section>
 
     <section class="details">
@@ -53,6 +54,7 @@ export function renderReport(report) {
 }
 
 function renderMarketCard(regime, label) {
+  const insight = marketInsight(regime);
   return `<article class="market-card ${toneClass(regime?.label)}">
     <div class="market-card-head">
       <span>${label}</span>
@@ -73,13 +75,62 @@ function renderMarketCard(regime, label) {
       </div>
     </div>
     <p class="bias">${escapeHtml(regime?.actionBias || "데이터 확인 필요")}</p>
+    ${insight ? `<p class="regime-note">${escapeHtml(insight)}</p>` : ""}
     <p class="muted">${escapeHtml(regime?.conclusion || "")}</p>
   </article>`;
 }
 
-function renderStockCard(stock, profile) {
+function sortStocksForAction(stocks) {
+  return [...stocks].sort((a, b) => {
+    const stageDelta = stagePriority(a.stage) - stagePriority(b.stage);
+    if (stageDelta !== 0) return stageDelta;
+    const aDistance = triggerDistancePct(a, a.nextTrigger);
+    const bDistance = triggerDistancePct(b, b.nextTrigger);
+    if (aDistance === null && bDistance === null) return 0;
+    if (aDistance === null) return 1;
+    if (bDistance === null) return -1;
+    return aDistance - bDistance;
+  });
+}
+
+function stagePriority(stage = "") {
+  if (/최대|3차|2차|1차/.test(stage)) return 0;
+  if (/관망/.test(stage)) return 1;
+  return 2;
+}
+
+function triggerDistancePct(stock, trigger) {
+  const current = Number(stock?.lastClose);
+  const price = Number(trigger?.price);
+  if (!Number.isFinite(current) || !Number.isFinite(price) || current === 0) return null;
+  return rounded(((price - current) / current) * 100);
+}
+
+function bottomReboundPct(stock) {
+  const current = Number(stock?.lastClose);
+  const bottom = Number(stock?.bottom?.price);
+  if (!Number.isFinite(current) || !Number.isFinite(bottom) || bottom === 0) return null;
+  return rounded(((current - bottom) / bottom) * 100);
+}
+
+function marketInsight(regime) {
+  const benchmarks = regime?.technical?.benchmarks || [];
+  const weakBenchmarks = benchmarks.filter((row) => !row.aboveMa50 || Number(row.return5dPct) <= 0 || Number(row.return20dPct) <= 0);
+  const lead = weakBenchmarks.length ? weakBenchmarks[0] : benchmarks[0];
+  if (!lead) return "";
+  const flags = [];
+  if (!lead.aboveMa50) flags.push(`${lead.label} MA50 하회`);
+  if (Number(lead.return5dPct) <= 0) flags.push(`${lead.label} 5D ${pct(lead.return5dPct)}`);
+  if (Number(lead.return20dPct) <= 0) flags.push(`${lead.label} 20D ${pct(lead.return20dPct)}`);
+  if (regime?.macro?.score !== undefined) flags.push(`Macro ${regime.macro.score}`);
+  return flags.slice(0, 3).join(" · ");
+}
+
+function renderStockCard(stock, profile, regime) {
   const trigger = stock.nextTrigger || {};
   const currency = profile?.currency || "USD";
+  const distance = triggerDistancePct(stock, trigger);
+  const rebound = bottomReboundPct(stock);
   return `<article class="stock-card ${stageClass(stock.stage)}">
     <div class="stock-head">
       <div>
@@ -91,6 +142,12 @@ function renderStockCard(stock, profile) {
     <div class="price-line">
       <strong>${money(stock.lastClose, currency)}</strong>
       <span class="${Number(stock.dailyChangePct) >= 0 ? "up" : "down"}">${pct(stock.dailyChangePct)}</span>
+    </div>
+    <div class="signal-strip">
+      <span class="${stageClass(stock.stage)}">${escapeHtml(stock.stage)}</span>
+      <strong>${distance === null ? "다음 목표 n/a" : `다음 목표까지 ${pct(distance)}`}</strong>
+      <span>바닥 이후 ${pct(rebound)}</span>
+      <span>${escapeHtml(regime?.label || "시장 n/a")}</span>
     </div>
     ${renderPriceChart(stock, currency)}
     ${renderCandlestickChart(stock, currency, { days: 10, title: "최근 2주 일봉", variant: "two-week-candles" })}
@@ -152,6 +209,7 @@ function renderPriceChart(stock, currency, options = {}) {
       <path d="${linePath}" class="price-path"/>
       ${renderLevelLines(levels, y, width, height, pad, currency)}
       ${markerSvg}
+      <line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(y(stock.lastClose), 2)}" y2="${rounded(y(stock.lastClose), 2)}" class="current-line"/>
       <circle cx="${rounded(x(chart.length - 1), 2)}" cy="${rounded(y(stock.lastClose), 2)}" r="4.5" class="current-dot"/>
       <text x="${width - pad.right + 12}" y="${rounded(y(stock.lastClose), 2) + 4}" class="current-label">${escapeHtml(money(stock.lastClose, currency))}</text>
       <text x="${pad.left}" y="${height - 10}" class="axis-label">${escapeHtml(firstDate)}</text>
@@ -204,6 +262,7 @@ function renderCandlestickChart(stock, currency, options = {}) {
       ${chart.map((bar, index) => renderCandle(bar, x(index), y, candleWidth)).join("")}
       ${renderLevelLines(levels, y, width, height, pad, currency)}
       ${renderPivotMarkers(stock, chart, x, y, { exactOnly: true })}
+      <line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(y(stock.lastClose), 2)}" y2="${rounded(y(stock.lastClose), 2)}" class="current-line"/>
       <circle cx="${rounded(x(chart.length - 1), 2)}" cy="${rounded(y(stock.lastClose), 2)}" r="4.5" class="current-dot"/>
       <text x="${width - pad.right + 12}" y="${rounded(y(stock.lastClose), 2) + 4}" class="current-label">${escapeHtml(money(stock.lastClose, currency))}</text>
       <text x="${pad.left}" y="${height - 10}" class="axis-label">${escapeHtml(firstDate)}</text>
@@ -455,6 +514,12 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .score-row p, .mini-grid span { color: var(--muted); font-size: 12px; }
 .score-row strong, .mini-grid strong { display: block; margin-top: 4px; font-size: 24px; }
 .bias, .action { font-weight: 700; margin-bottom: 8px; }
+.regime-note {
+  margin-bottom: 8px;
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 700;
+}
 .muted { color: var(--muted); line-height: 1.5; }
 .small { font-size: 12px; }
 .section-header { margin: 28px 0 14px; }
@@ -481,6 +546,43 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .price-line strong { font-size: 26px; }
 .up { color: var(--green); }
 .down { color: var(--red); }
+.signal-strip {
+  display: grid;
+  grid-template-columns: auto minmax(150px, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 12px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f8faf8;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.signal-strip strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+.signal-strip span:first-child {
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #eef3f6;
+  color: var(--blue);
+  white-space: nowrap;
+}
+.signal-strip span:first-child.stage-hot {
+  background: #e8f4ee;
+  color: var(--green);
+}
+.signal-strip span:first-child.stage-watch {
+  background: #e8f0f7;
+  color: var(--blue);
+}
+.signal-strip span:first-child.stage-calm {
+  background: #f4f0e7;
+  color: var(--amber);
+}
 .chart-wrap {
   margin: 10px 0 14px;
   border: 1px solid var(--line);
@@ -551,6 +653,12 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   fill: var(--ink);
   stroke: #fff;
   stroke-width: 2;
+}
+.current-line {
+  stroke: var(--ink);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 5;
+  opacity: 0.42;
 }
 .pivot-low {
   fill: var(--amber);
@@ -639,6 +747,7 @@ th { color: var(--muted); font-size: 12px; }
 @media (max-width: 900px) {
   .stock-grid { grid-template-columns: 1fr; }
   .metric-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .signal-strip { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 780px) {
   .topbar, .section-header { align-items: start; flex-direction: column; }
