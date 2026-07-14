@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-14T00:51:08.123Z",
-  "generatedAtKst": "2026. 7. 14. 오전 9:51",
+  "generatedAt": "2026-07-14T00:51:57.812Z",
+  "generatedAtKst": "2026. 7. 14. AM 9:51",
   "tradingDate": "2026-07-14",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -374,16 +374,16 @@
     "kr": {
       "market": "kr",
       "label": "중립-하락",
-      "score": 28,
+      "score": 27.9,
       "actionBias": "반등 확인 우선",
       "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": 0.2,
-        "summary": "중립-하락 maintained (+0.2 pts)."
+        "scoreDelta": -0.1,
+        "summary": "중립-하락 maintained (-0.1 pts)."
       },
       "technical": {
-        "score": 20.7,
+        "score": 20.6,
         "label": "하락 추세",
         "benchmarks": [
           {
@@ -395,19 +395,19 @@
             "weight": 0.55,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 37.7,
-            "lastClose": 6807.71,
+            "score": 37.5,
+            "lastClose": 6799.25,
             "dataDate": "2026-07-14",
             "dailyChangePct": null,
-            "return5dPct": -11.1,
-            "return20dPct": -22,
-            "return60dPct": 11.8,
-            "drawdownFrom52wHighPct": -27.5,
-            "ma50": 7834.09,
-            "ma200": 5513.84,
+            "return5dPct": -11.2,
+            "return20dPct": -22.1,
+            "return60dPct": 11.6,
+            "drawdownFrom52wHighPct": -27.6,
+            "ma50": 7833.92,
+            "ma200": 5513.8,
             "aboveMa50": false,
             "aboveMa200": true,
-            "reason": "below MA50, above MA200, 20d -22%, score 37.7"
+            "reason": "below MA50, above MA200, 20d -22.1%, score 37.5"
           },
           {
             "ticker": "^KQ11",
@@ -419,13 +419,13 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 0,
-            "lastClose": 786.2,
+            "lastClose": 786.41,
             "dataDate": "2026-07-14",
             "dailyChangePct": null,
             "return5dPct": -5.4,
             "return20dPct": -22.8,
             "return60dPct": -31.8,
-            "drawdownFrom52wHighPct": -36.1,
+            "drawdownFrom52wHighPct": -36,
             "ma50": 996.78,
             "ma200": 999.74,
             "aboveMa50": false,
@@ -5218,11 +5218,11 @@
       "market": "kr",
       "dataStatus": "ok",
       "dataDate": "2026-07-14",
-      "lastClose": 786.2,
+      "lastClose": 786.41,
       "dailyChangePct": null,
       "return5dPct": -5.4,
       "return20dPct": -22.8,
-      "drawdownFrom52wHighPct": -36.1,
+      "drawdownFrom52wHighPct": -36,
       "drawdownFromTrackingHighPct": -35.9,
       "high52w": 1229.42,
       "trackingWindow": {
@@ -5289,7 +5289,7 @@
         "date": "2026-04-27",
         "price": 1226.1801
       },
-      "distanceToFirstReclaimPct": -9.5,
+      "distanceToFirstReclaimPct": -9.4,
       "chart": [
         {
           "date": "2026-04-16",
@@ -5707,7 +5707,7 @@
         {
           "date": "2026-07-14",
           "open": 797.16,
-          "close": 786.2,
+          "close": 786.41,
           "high": 802.53,
           "low": 777.81
         }
@@ -5806,12 +5806,12 @@
       "market": "kr",
       "dataStatus": "ok",
       "dataDate": "2026-07-14",
-      "lastClose": 1846000,
-      "dailyChangePct": 0.1,
-      "return5dPct": -16.1,
-      "return20dPct": -22.5,
-      "drawdownFrom52wHighPct": -38.2,
-      "drawdownFromTrackingHighPct": -36.8,
+      "lastClose": 1841000,
+      "dailyChangePct": -0.2,
+      "return5dPct": -16.4,
+      "return20dPct": -22.7,
+      "drawdownFrom52wHighPct": -38.4,
+      "drawdownFromTrackingHighPct": -36.9,
       "high52w": 2987000,
       "trackingWindow": {
         "weeks": 12,
@@ -5837,7 +5837,7 @@
       },
       "bottom": {
         "date": "2026-07-14",
-        "price": 1846000
+        "price": 1841000
       },
       "firstReclaim": {
         "date": "2026-07-09",
@@ -5877,7 +5877,7 @@
         "date": "2026-06-22",
         "price": 2919000
       },
-      "distanceToFirstReclaimPct": -15.6,
+      "distanceToFirstReclaimPct": -15.8,
       "chart": [
         {
           "date": "2026-04-16",
@@ -6295,7 +6295,7 @@
         {
           "date": "2026-07-14",
           "open": 1825000,
-          "close": 1846000,
+          "close": 1841000,
           "high": 1864000,
           "low": 1757500
         }
@@ -6382,7 +6382,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-14 @ 1846000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000"
+      "reason": "관망: bottom 2026-07-14 @ 1841000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000"
     }
   ]
 }
