@@ -317,6 +317,7 @@ function serializeTarget(target) {
 function compactChartData(history) {
   return history.slice(-TRACKING_TRADING_DAYS).map((bar) => ({
     date: bar.date,
+    open: rounded(bar.open, 4),
     close: rounded(bar.close, 4),
     high: rounded(bar.high, 4),
     low: rounded(bar.low, 4)

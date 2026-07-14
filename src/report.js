@@ -93,7 +93,7 @@ function renderStockCard(stock, profile) {
       <span class="${Number(stock.dailyChangePct) >= 0 ? "up" : "down"}">${pct(stock.dailyChangePct)}</span>
     </div>
     ${renderPriceChart(stock, currency)}
-    ${renderPriceChart(stock, currency, { days: 5, title: "최근 1주 확대", variant: "week-zoom" })}
+    ${renderCandlestickChart(stock, currency, { days: 10, title: "최근 2주 일봉", variant: "two-week-candles" })}
     <div class="stage-row">
       <span>${escapeHtml(stock.stage)}</span>
       <strong>${escapeHtml(stock.confidence)}</strong>
@@ -166,6 +166,74 @@ function renderPriceChart(stock, currency, options = {}) {
       <span><i class="legend-dot"></i>바닥</span>
     </div>
   </div>`;
+}
+
+function renderCandlestickChart(stock, currency, options = {}) {
+  const fullChart = Array.isArray(stock.chart)
+    ? stock.chart.filter((bar) => Number.isFinite(Number(bar.close)) && Number.isFinite(Number(bar.open)))
+    : [];
+  const chart = fullChart.slice(-(options.days || 10));
+  if (chart.length < 2) return `<div class="chart-empty">차트 데이터 없음</div>`;
+
+  const width = 720;
+  const height = 380;
+  const pad = { top: 34, right: 120, bottom: 32, left: 12 };
+  const levels = chartLevels(stock);
+  const prices = [
+    ...chart.flatMap((bar) => [bar.open, bar.high, bar.low, bar.close]),
+    ...levels.map((level) => level.price)
+  ].map(Number).filter(Number.isFinite);
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  const span = max - min || 1;
+  const yMin = min - span * 0.08;
+  const yMax = max + span * 0.12;
+  const plotWidth = width - pad.left - pad.right;
+  const step = plotWidth / chart.length;
+  const candleWidth = Math.max(8, Math.min(28, step * 0.58));
+  const x = (index) => pad.left + step * index + step / 2;
+  const y = (price) => pad.top + ((yMax - Number(price)) / (yMax - yMin)) * (height - pad.top - pad.bottom);
+  const firstDate = chart[0].date;
+  const lastDate = chart.at(-1).date;
+
+  return `<div class="chart-wrap ${options.variant || "candles"}">
+    <svg class="price-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(stock.ticker)} two week candlestick chart with buy trigger levels">
+      <rect x="0" y="0" width="${width}" height="${height}" rx="8" class="chart-bg"/>
+      <text x="${pad.left}" y="20" class="chart-title">${escapeHtml(options.title || "최근 2주 일봉")}</text>
+      ${[0.25, 0.5, 0.75].map((ratio) => `<line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" y2="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" class="grid-line"/>`).join("")}
+      ${chart.map((bar, index) => renderCandle(bar, x(index), y, candleWidth)).join("")}
+      ${renderLevelLines(levels, y, width, height, pad, currency)}
+      ${renderPivotMarkers(stock, chart, x, y, { exactOnly: true })}
+      <circle cx="${rounded(x(chart.length - 1), 2)}" cy="${rounded(y(stock.lastClose), 2)}" r="4.5" class="current-dot"/>
+      <text x="${width - pad.right + 12}" y="${rounded(y(stock.lastClose), 2) + 4}" class="current-label">${escapeHtml(money(stock.lastClose, currency))}</text>
+      <text x="${pad.left}" y="${height - 10}" class="axis-label">${escapeHtml(firstDate)}</text>
+      <text x="${width - pad.right}" y="${height - 10}" text-anchor="end" class="axis-label">${escapeHtml(lastDate)}</text>
+    </svg>
+    <div class="legend">
+      <span><i class="legend-candle up"></i>상승 일봉</span>
+      <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line buy1"></i>1차 목표</span>
+      <span><i class="legend-line buy2"></i>2차 목표</span>
+      <span><i class="legend-line buy3"></i>3차 목표</span>
+      <span><i class="legend-line breakout"></i>신고가 목표</span>
+      <span><i class="legend-dot"></i>바닥</span>
+    </div>
+  </div>`;
+}
+
+function renderCandle(bar, cx, y, candleWidth) {
+  const open = Number(bar.open);
+  const close = Number(bar.close);
+  const high = Number(bar.high);
+  const low = Number(bar.low);
+  const top = y(Math.max(open, close));
+  const bottom = y(Math.min(open, close));
+  const bodyHeight = Math.max(2, bottom - top);
+  const cls = close >= open ? "up" : "down";
+  return `<g class="candle ${cls}">
+    <line x1="${rounded(cx, 2)}" x2="${rounded(cx, 2)}" y1="${rounded(y(high), 2)}" y2="${rounded(y(low), 2)}" class="candle-wick"/>
+    <rect x="${rounded(cx - candleWidth / 2, 2)}" y="${rounded(top, 2)}" width="${rounded(candleWidth, 2)}" height="${rounded(bodyHeight, 2)}" rx="2" class="candle-body"/>
+  </g>`;
 }
 
 function renderLevelLines(levels, y, width, height, pad, currency) {
@@ -428,8 +496,8 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .chart-wrap.full .price-chart {
   aspect-ratio: 720 / 250;
 }
-.chart-wrap.week-zoom .price-chart {
-  aspect-ratio: 720 / 360;
+.chart-wrap.two-week-candles .price-chart {
+  aspect-ratio: 720 / 380;
 }
 .chart-title {
   fill: var(--muted);
@@ -444,6 +512,22 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.candle.up .candle-body {
+  fill: #177245;
+}
+.candle.down .candle-body {
+  fill: #b33a3a;
+}
+.candle.up .candle-wick {
+  stroke: #177245;
+}
+.candle.down .candle-wick {
+  stroke: #b33a3a;
+}
+.candle-wick {
+  stroke-width: 1.5;
+  stroke-linecap: round;
 }
 .level-line {
   stroke-width: 1.6;
@@ -502,6 +586,14 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .legend-line.buy2 { border-top-style: dashed; border-top-color: var(--violet); }
 .legend-line.buy3 { border-top-style: dashed; border-top-color: var(--amber); }
 .legend-line.breakout { border-top-style: dashed; border-top-color: var(--green); }
+.legend-candle {
+  display: inline-block;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+}
+.legend-candle.up { background: var(--green); }
+.legend-candle.down { background: var(--red); }
 .legend-dot {
   width: 8px;
   height: 8px;
