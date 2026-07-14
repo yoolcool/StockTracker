@@ -89,6 +89,24 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .muted { color: var(--muted); line-height: 1.5; }
 .small { font-size: 12px; }
 .section-header { margin: 28px 0 14px; }
+.stock-section {
+  margin-top: 18px;
+}
+.stock-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.stock-section-head h3 {
+  font-size: 20px;
+}
+.stock-section-head p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 3px;
+}
 .pill, .market-badge {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -114,7 +132,7 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .down { color: var(--red); }
 .signal-strip {
   display: grid;
-  grid-template-columns: auto minmax(150px, 1fr) auto auto;
+  grid-template-columns: auto minmax(150px, 1fr) auto auto auto;
   gap: 8px;
   align-items: center;
   margin: 0 0 12px;
@@ -146,6 +164,26 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   color: var(--blue);
 }
 .signal-strip span:first-child.stage-calm {
+  background: #f4f0e7;
+  color: var(--amber);
+}
+.proximity-badge {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.proximity-badge.signal,
+.proximity-badge.imminent {
+  background: #e8f4ee;
+  color: var(--green);
+}
+.proximity-badge.near {
+  background: #e8f0f7;
+  color: var(--blue);
+}
+.proximity-badge.wait {
   background: #f4f0e7;
   color: var(--amber);
 }
@@ -196,6 +234,14 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .candle-wick {
   stroke-width: 1.5;
   stroke-linecap: round;
+}
+.ma-line {
+  fill: none;
+  stroke: #111827;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.72;
 }
 .level-line {
   stroke-width: 1.6;
@@ -260,6 +306,7 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .legend-line.buy2 { border-top-style: dashed; border-top-color: var(--violet); }
 .legend-line.buy3 { border-top-style: dashed; border-top-color: var(--amber); }
 .legend-line.breakout { border-top-style: dashed; border-top-color: var(--green); }
+.legend-line.ma5 { border-top-color: var(--ink); }
 .legend-candle {
   display: inline-block;
   width: 9px;
@@ -329,7 +376,7 @@ th { color: var(--muted); font-size: 12px; }
       <h1>Stock Tracker</h1>
     </div>
     <div class="timestamp">
-      <span>2026. 7. 14. AM 10:00</span>
+      <span>2026. 7. 14. 오전 10:25</span>
       <strong>2026-07-14</strong>
     </div>
   </header>
@@ -367,19 +414,19 @@ th { color: var(--muted); font-size: 12px; }
     <div class="score-row">
       <div>
         <p>Regime Score</p>
-        <strong>28</strong>
+        <strong>28.6</strong>
       </div>
       <div>
         <p>Technical</p>
-        <strong>20.7</strong>
+        <strong>21.6</strong>
       </div>
       <div>
         <p>Macro</p>
-        <strong>41.6</strong>
+        <strong>41.7</strong>
       </div>
     </div>
     <p class="bias">반등 확인 우선</p>
-    <p class="regime-note">KOSPI MA50 하회 · KOSPI 5D -11% · KOSPI 20D -21.9%</p>
+    <p class="regime-note">KOSPI MA50 하회 · KOSPI 5D -9.1% · KOSPI 20D -20.2%</p>
     <p class="muted">시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.</p>
   </article>
     </section>
@@ -392,7 +439,15 @@ th { color: var(--muted); font-size: 12px; }
       <div class="pill">10/10 tracked</div>
     </section>
 
-    <section class="stock-grid">
+    <section class="stock-section">
+    <div class="stock-section-head">
+      <div>
+        <h3>매수 신호</h3>
+        <p>목표가를 이미 돌파한 종목</p>
+      </div>
+      <span class="pill">2</span>
+    </div>
+    <div class="stock-grid">
       <article class="stock-card stage-watch">
     <div class="stock-head">
       <div>
@@ -408,6 +463,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-watch">1차 매수</span>
       <strong>다음 목표까지 +3.5%</strong>
+      <span class="proximity-badge signal">신호 발생</span>
       <span>바닥 이후 +4.5%</span>
       <span>기간 조정</span>
     </div>
@@ -505,6 +561,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="208.76" y2="249.89" class="candle-wick"/>
     <rect x="556.6" y="220.33" width="28" height="28.54" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 289.16 L100.2 289.1 L159 290.72 L217.8 291.75 L276.6 288.31 L335.4 286.08 L394.2 281.49 L453 275.56 L511.8 257.19 L570.6 248.1" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -538,6 +595,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -587,6 +645,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-watch">1차 매수</span>
       <strong>다음 목표까지 +4.7%</strong>
+      <span class="proximity-badge signal">신호 발생</span>
       <span>바닥 이후 +7.6%</span>
       <span>기간 조정</span>
     </div>
@@ -684,6 +743,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="260.54" y2="285.83" class="candle-wick"/>
     <rect x="556.6" y="273.99" width="28" height="4.56" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 298.88 L100.2 307.32 L159 300.89 L217.8 284.72 L276.6 270.77 L335.4 262.41 L394.2 253.14 L453 253.7 L511.8 258.22 L570.6 266.32" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -717,6 +777,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -751,7 +812,18 @@ th { color: var(--muted); font-size: 12px; }
     </div>
   </div>
     <p class="muted small">1차 매수: bottom 2026-06-30 @ 146.19; 1차 2026-06-29 @ 151.65; 2차 2026-06-22 @ 164.84; 3차 2026-06-15 @ 169.62; breakout 2026-05-11 @ 216.6</p>
-  </article><article class="stock-card stage-calm">
+  </article>
+    </div>
+  </section><section class="stock-section">
+    <div class="stock-section-head">
+      <div>
+        <h3>돌파 임박</h3>
+        <p>다음 목표까지 5% 이내</p>
+      </div>
+      <span class="pill">3</span>
+    </div>
+    <div class="stock-grid">
+      <article class="stock-card stage-calm">
     <div class="stock-head">
       <div>
         <span class="ticker">^GSPC</span>
@@ -766,6 +838,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +0.3%</strong>
+      <span class="proximity-badge imminent">돌파 임박</span>
       <span>바닥 이후 +0.4%</span>
       <span>기간 조정</span>
     </div>
@@ -863,6 +936,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="109.94" y2="169.07" class="candle-wick"/>
     <rect x="556.6" y="127.83" width="28" height="32.28" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 300.75 L100.2 273.89 L159 248.81 L217.8 223.59 L276.6 186.8 L335.4 174.08 L394.2 177.42 L453 165.3 L511.8 146.81 L570.6 151.25" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -896,6 +970,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -945,6 +1020,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +1.5%</strong>
+      <span class="proximity-badge imminent">돌파 임박</span>
       <span>바닥 이후 +0.3%</span>
       <span>기간 조정</span>
     </div>
@@ -1042,6 +1118,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="224.1" y2="273.96" class="candle-wick"/>
     <rect x="556.6" y="234.02" width="28" height="29.33" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 246.9 L100.2 220.56 L159 203.86 L217.8 207.01 L276.6 190.58 L335.4 207.64 L394.2 236.66 L453 238.99 L511.8 224.93 L570.6 237.23" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -1078,6 +1155,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1127,6 +1205,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +3.6%</strong>
+      <span class="proximity-badge near">근접</span>
       <span>바닥 이후 +21.2%</span>
       <span>기간 조정</span>
     </div>
@@ -1190,59 +1269,61 @@ th { color: var(--muted); font-size: 12px; }
       <text x="12" y="20" class="chart-title">최근 2주 일봉</text>
       <line x1="12" x2="600" y1="112.5" y2="112.5" class="grid-line"/><line x1="12" x2="600" y1="191" y2="191" class="grid-line"/><line x1="12" x2="600" y1="269.5" y2="269.5" class="grid-line"/>
       <g class="candle down">
-    <line x1="41.4" x2="41.4" y1="301.46" y2="326.33" class="candle-wick"/>
-    <rect x="27.4" y="317.64" width="28" height="3.01" rx="2" class="candle-body"/>
+    <line x1="41.4" x2="41.4" y1="294.71" y2="318.87" class="candle-wick"/>
+    <rect x="27.4" y="310.43" width="28" height="2.92" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="100.2" x2="100.2" y1="303.61" y2="327.07" class="candle-wick"/>
-    <rect x="86.2" y="315.14" width="28" height="9.77" rx="2" class="candle-body"/>
+    <line x1="100.2" x2="100.2" y1="296.8" y2="319.59" class="candle-wick"/>
+    <rect x="86.2" y="308" width="28" height="9.49" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="159" x2="159" y1="249.38" y2="299.92" class="candle-wick"/>
-    <rect x="145" y="263.69" width="28" height="32.25" rx="2" class="candle-body"/>
+    <line x1="159" x2="159" y1="244.13" y2="293.22" class="candle-wick"/>
+    <rect x="145" y="258.03" width="28" height="31.33" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="217.8" x2="217.8" y1="223.09" y2="251.09" class="candle-wick"/>
-    <rect x="203.8" y="243.42" width="28" height="2" rx="2" class="candle-body"/>
+    <line x1="217.8" x2="217.8" y1="218.58" y2="245.78" class="candle-wick"/>
+    <rect x="203.8" y="238.33" width="28" height="2" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="276.6" x2="276.6" y1="216.34" y2="258.53" class="candle-wick"/>
-    <rect x="262.6" y="225.02" width="28" height="30.1" rx="2" class="candle-body"/>
+    <line x1="276.6" x2="276.6" y1="212.03" y2="253.01" class="candle-wick"/>
+    <rect x="262.6" y="220.46" width="28" height="29.24" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="335.4" x2="335.4" y1="188.91" y2="231.16" class="candle-wick"/>
-    <rect x="321.4" y="214.63" width="28" height="3.63" rx="2" class="candle-body"/>
+    <line x1="335.4" x2="335.4" y1="185.38" y2="226.42" class="candle-wick"/>
+    <rect x="321.4" y="210.37" width="28" height="3.53" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="394.2" x2="394.2" y1="225.88" y2="258.13" class="candle-wick"/>
-    <rect x="380.2" y="226.84" width="28" height="15.5" rx="2" class="candle-body"/>
+    <line x1="394.2" x2="394.2" y1="221.29" y2="252.62" class="candle-wick"/>
+    <rect x="380.2" y="222.23" width="28" height="15.06" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="453" x2="453" y1="244.05" y2="268.92" class="candle-wick"/>
-    <rect x="439" y="244.9" width="28" height="7.5" rx="2" class="candle-body"/>
+    <line x1="453" x2="453" y1="238.94" y2="263.1" class="candle-wick"/>
+    <rect x="439" y="239.77" width="28" height="7.28" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="511.8" x2="511.8" y1="226.5" y2="263.47" class="candle-wick"/>
-    <rect x="497.8" y="227.29" width="28" height="30.38" rx="2" class="candle-body"/>
+    <line x1="511.8" x2="511.8" y1="221.89" y2="257.81" class="candle-wick"/>
+    <rect x="497.8" y="222.67" width="28" height="29.51" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="570.6" x2="570.6" y1="235.36" y2="261.05" class="candle-wick"/>
-    <rect x="556.6" y="239.22" width="28" height="15" rx="2" class="candle-body"/>
+    <line x1="570.6" x2="570.6" y1="230.5" y2="255.46" class="candle-wick"/>
+    <rect x="556.6" y="234.25" width="28" height="14.57" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 327.03 L100.2 327.07 L159 313.57 L217.8 289.27 L276.6 267.64 L335.4 247.04 L394.2 229.88 L453 226.23 L511.8 229 L570.6 231.76" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">3차 목표 / 신고가 목표</text>
     <text x="612" y="76.4" class="level-price">$160.65</text>
   </g><g>
-    <line x1="12" x2="600" y1="202.71" y2="202.71" class="level-line buy2"/>
-    <text x="612" y="198.71" class="level-label">2차 목표</text>
-    <text x="612" y="213.71" class="level-price">$136.47</text>
+    <line x1="12" x2="600" y1="198.78" y2="198.78" class="level-line buy2"/>
+    <text x="612" y="194.78" class="level-label">2차 목표</text>
+    <text x="612" y="209.78" class="level-price">$136.47</text>
   </g><g>
-    <line x1="12" x2="600" y1="212.7" y2="212.7" class="level-line buy1"/>
-    <text x="612" y="222.71" class="level-label">1차 목표</text>
-    <text x="612" y="237.71" class="level-price">$134.71</text>
+    <line x1="12" x2="600" y1="208.49" y2="208.49" class="level-line buy1"/>
+    <text x="612" y="218.78" class="level-label">1차 목표</text>
+    <text x="612" y="233.78" class="level-price">$134.71</text>
   </g>
       
-      <line x1="12" x2="600" y1="239.22" y2="239.22" class="current-line"/>
-      <circle cx="570.6" cy="239.22" r="4.5" class="current-dot"/>
-      <text x="612" y="243.22" class="current-label">$130.04</text>
+      <line x1="12" x2="600" y1="234.25" y2="234.25" class="current-line"/>
+      <circle cx="570.6" cy="234.25" r="4.5" class="current-dot"/>
+      <text x="612" y="238.25" class="current-label">$130.04</text>
       <text x="12" y="370" class="axis-label">2026-06-29</text>
       <text x="600" y="370" text-anchor="end" class="axis-label">2026-07-13</text>
     </svg>
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1274,7 +1355,18 @@ th { color: var(--muted); font-size: 12px; }
     </div>
   </div>
     <p class="muted small">관망: bottom 2026-06-25 @ 107.27; 1차 2026-06-15 @ 134.71; 2차 2026-06-08 @ 136.47; 3차 2026-06-01 @ 160.65; breakout 2026-06-01 @ 160.65</p>
-  </article><article class="stock-card stage-calm">
+  </article>
+    </div>
+  </section><section class="stock-section">
+    <div class="stock-section-head">
+      <div>
+        <h3>대기</h3>
+        <p>아직 목표가까지 거리가 있는 종목</p>
+      </div>
+      <span class="pill">5</span>
+    </div>
+    <div class="stock-grid">
+      <article class="stock-card stage-calm">
     <div class="stock-head">
       <div>
         <span class="ticker">MU</span>
@@ -1289,6 +1381,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +5.8%</strong>
+      <span class="proximity-badge wait">대기</span>
       <span>바닥 이후 0%</span>
       <span>기간 조정</span>
     </div>
@@ -1382,6 +1475,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="284.93" y2="318.17" class="candle-wick"/>
     <rect x="556.6" y="290.21" width="28" height="6.92" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 142.84 L100.2 126.18 L159 128.81 L217.8 167.51 L276.6 191.5 L335.4 225.14 L394.2 258.55 L453 265.15 L511.8 264.54 L570.6 272.31" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">3차 목표 / 신고가 목표</text>
@@ -1414,6 +1508,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1460,6 +1555,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +6.3%</strong>
+      <span class="proximity-badge wait">대기</span>
       <span>바닥 이후 +0.2%</span>
       <span>기간 조정</span>
     </div>
@@ -1557,6 +1653,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="223.54" y2="279.19" class="candle-wick"/>
     <rect x="556.6" y="226.68" width="28" height="39.07" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 305.4 L100.2 274.47 L159 234.99 L217.8 220.45 L276.6 188.67 L335.4 195.76 L394.2 216.82 L453 231.69 L511.8 220.34 L570.6 240.18" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -1593,6 +1690,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1636,13 +1734,14 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">KR</span>
     </div>
     <div class="price-line">
-      <strong>₩785</strong>
-      <span class="up">0%</span>
+      <strong>₩793</strong>
+      <span class="down">-0.8%</span>
     </div>
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
-      <strong>다음 목표까지 +10.6%</strong>
-      <span>바닥 이후 0%</span>
+      <strong>다음 목표까지 +9.6%</strong>
+      <span class="proximity-badge wait">대기</span>
+      <span>바닥 이후 +1%</span>
       <span>중립-하락</span>
     </div>
     <div class="chart-wrap full">
@@ -1656,41 +1755,41 @@ th { color: var(--muted); font-size: 12px; }
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
       
       <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 48.72 L21.97 47.77 L31.93 47.12 L41.9 46.56 L51.86 46.28 L61.83 47.2 L71.8 43.23 L81.76 40.23 L91.73 41.66 L101.69 41.03 L111.66 44.78 L121.63 41.9 L131.59 42.38 L141.56 43.86 L151.53 42.71 L161.49 42.76 L171.46 46.53 L181.42 46.84 L191.39 44.94 L201.36 53.17 L211.32 55.68 L221.29 59.27 L231.25 63.07 L241.22 56.37 L251.19 48.97 L261.15 47.44 L271.12 52.72 L281.08 56.58 L291.05 60.55 L301.02 63.88 L310.98 67.1 L320.95 63.92 L330.92 70.26 L340.88 82.48 L350.85 74.91 L360.81 77.08 L370.78 71 L380.75 66.69 L390.71 66.02 L400.68 68.08 L410.64 66.3 L420.61 70.47 L430.58 75.07 L440.54 74.83 L450.51 85.15 L460.47 82.76 L470.44 85.65 L480.41 90.54 L490.37 81.25 L500.34 81.84 L510.31 80.07 L520.27 88.48 L530.24 88.25 L540.2 91.12 L550.17 93.24 L560.14 99.45 L570.1 98.24 L580.07 92.41 L590.03 204.8 L600 99.4 L600 218 L12 218 Z" fill="url(#area--KQ11-full)"/>
-      <path d="M12 48.72 L21.97 47.77 L31.93 47.12 L41.9 46.56 L51.86 46.28 L61.83 47.2 L71.8 43.23 L81.76 40.23 L91.73 41.66 L101.69 41.03 L111.66 44.78 L121.63 41.9 L131.59 42.38 L141.56 43.86 L151.53 42.71 L161.49 42.76 L171.46 46.53 L181.42 46.84 L191.39 44.94 L201.36 53.17 L211.32 55.68 L221.29 59.27 L231.25 63.07 L241.22 56.37 L251.19 48.97 L261.15 47.44 L271.12 52.72 L281.08 56.58 L291.05 60.55 L301.02 63.88 L310.98 67.1 L320.95 63.92 L330.92 70.26 L340.88 82.48 L350.85 74.91 L360.81 77.08 L370.78 71 L380.75 66.69 L390.71 66.02 L400.68 68.08 L410.64 66.3 L420.61 70.47 L430.58 75.07 L440.54 74.83 L450.51 85.15 L460.47 82.76 L470.44 85.65 L480.41 90.54 L490.37 81.25 L500.34 81.84 L510.31 80.07 L520.27 88.48 L530.24 88.25 L540.2 91.12 L550.17 93.24 L560.14 99.45 L570.1 98.24 L580.07 92.41 L590.03 204.8 L600 99.4" class="price-path"/>
+      <path d="M12 64.05 L21.97 61.47 L31.93 59.71 L41.9 58.19 L51.86 57.42 L61.83 59.91 L71.8 49.13 L81.76 40.98 L91.73 44.85 L101.69 43.14 L111.66 53.33 L121.63 45.52 L131.59 46.82 L141.56 50.83 L151.53 47.72 L161.49 47.86 L171.46 58.09 L181.42 58.95 L191.39 53.79 L201.36 76.14 L211.32 82.98 L221.29 92.73 L231.25 103.05 L241.22 84.84 L251.19 64.72 L261.15 60.56 L271.12 74.93 L281.08 85.43 L291.05 96.22 L301.02 105.26 L310.98 114.01 L320.95 105.37 L330.92 122.62 L340.88 155.84 L350.85 135.26 L360.81 141.16 L370.78 124.63 L380.75 112.91 L390.71 111.09 L400.68 116.7 L410.64 111.85 L420.61 123.17 L430.58 135.7 L440.54 135.04 L450.51 163.09 L460.47 156.6 L470.44 164.45 L480.41 177.74 L490.37 152.49 L500.34 154.1 L510.31 149.29 L520.27 172.14 L530.24 171.53 L540.2 179.31 L550.17 185.09 L560.14 201.96 L570.1 198.68 L580.07 182.83 L590.03 196.72 L600 199.2 L600 218 L12 218 Z" fill="url(#area--KQ11-full)"/>
+      <path d="M12 64.05 L21.97 61.47 L31.93 59.71 L41.9 58.19 L51.86 57.42 L61.83 59.91 L71.8 49.13 L81.76 40.98 L91.73 44.85 L101.69 43.14 L111.66 53.33 L121.63 45.52 L131.59 46.82 L141.56 50.83 L151.53 47.72 L161.49 47.86 L171.46 58.09 L181.42 58.95 L191.39 53.79 L201.36 76.14 L211.32 82.98 L221.29 92.73 L231.25 103.05 L241.22 84.84 L251.19 64.72 L261.15 60.56 L271.12 74.93 L281.08 85.43 L291.05 96.22 L301.02 105.26 L310.98 114.01 L320.95 105.37 L330.92 122.62 L340.88 155.84 L350.85 135.26 L360.81 141.16 L370.78 124.63 L380.75 112.91 L390.71 111.09 L400.68 116.7 L410.64 111.85 L420.61 123.17 L430.58 135.7 L440.54 135.04 L450.51 163.09 L460.47 156.6 L470.44 164.45 L480.41 177.74 L490.37 152.49 L500.34 154.1 L510.31 149.29 L520.27 172.14 L530.24 171.53 L540.2 179.31 L550.17 185.09 L560.14 201.96 L570.1 198.68 L580.07 182.83 L590.03 196.72 L600 199.2" class="price-path"/>
       <g>
-    <line x1="12" x2="600" y1="40.23" y2="40.23" class="level-line breakout"/>
-    <text x="612" y="36.23" class="level-label">신고가 목표</text>
-    <text x="612" y="51.23" class="level-price">₩1,226</text>
+    <line x1="12" x2="600" y1="40.98" y2="40.98" class="level-line breakout"/>
+    <text x="612" y="36.98" class="level-label">신고가 목표</text>
+    <text x="612" y="51.98" class="level-price">₩1,226</text>
   </g><g>
-    <line x1="12" x2="600" y1="74.83" y2="74.83" class="level-line buy3"/>
-    <text x="612" y="70.83" class="level-label">3차 목표</text>
-    <text x="612" y="85.83" class="level-price">₩968</text>
+    <line x1="12" x2="600" y1="135.04" y2="135.04" class="level-line buy3"/>
+    <text x="612" y="131.04" class="level-label">3차 목표</text>
+    <text x="612" y="146.04" class="level-price">₩968</text>
   </g><g>
-    <line x1="12" x2="600" y1="80.07" y2="80.07" class="level-line buy2"/>
-    <text x="612" y="94.83" class="level-label">2차 목표</text>
-    <text x="612" y="109.83" class="level-price">₩929</text>
+    <line x1="12" x2="600" y1="149.29" y2="149.29" class="level-line buy2"/>
+    <text x="612" y="155.04" class="level-label">2차 목표</text>
+    <text x="612" y="170.04" class="level-price">₩929</text>
   </g><g>
-    <line x1="12" x2="600" y1="88.25" y2="88.25" class="level-line buy1"/>
-    <text x="612" y="118.83" class="level-label">1차 목표</text>
-    <text x="612" y="133.82999999999998" class="level-price">₩868</text>
+    <line x1="12" x2="600" y1="171.53" y2="171.53" class="level-line buy1"/>
+    <text x="612" y="179.04" class="level-label">1차 목표</text>
+    <text x="612" y="194.04" class="level-price">₩868</text>
   </g>
       <g>
-      <circle cx="560.14" cy="99.45" r="4" class="pivot-low"/>
-      <text x="560.14" y="117.45" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="560.14" cy="201.96" r="4" class="pivot-low"/>
+      <text x="560.14" y="219.96" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="530.24" cy="88.25" r="4" class="pivot-high"/>
-      <text x="530.24" y="78.25" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="530.24" cy="171.53" r="4" class="pivot-high"/>
+      <text x="530.24" y="161.53" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="510.31" cy="80.07" r="4" class="pivot-high"/>
-      <text x="510.31" y="70.07" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="510.31" cy="149.29" r="4" class="pivot-high"/>
+      <text x="510.31" y="139.29" text-anchor="middle" class="pivot-label">2차</text>
     </g><g>
-      <circle cx="440.54" cy="74.83" r="4" class="pivot-high"/>
-      <text x="440.54" y="64.83" text-anchor="middle" class="pivot-label">3차</text>
+      <circle cx="440.54" cy="135.04" r="4" class="pivot-high"/>
+      <text x="440.54" y="125.03999999999999" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <line x1="12" x2="600" y1="99.4" y2="99.4" class="current-line"/>
-      <circle cx="600" cy="99.4" r="4.5" class="current-dot"/>
-      <text x="612" y="103.4" class="current-label">₩785</text>
+      <line x1="12" x2="600" y1="199.2" y2="199.2" class="current-line"/>
+      <circle cx="600" cy="199.2" r="4.5" class="current-dot"/>
+      <text x="612" y="203.2" class="current-label">₩793</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
       <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-14</text>
     </svg>
@@ -1709,72 +1808,74 @@ th { color: var(--muted); font-size: 12px; }
       <text x="12" y="20" class="chart-title">최근 2주 일봉</text>
       <line x1="12" x2="600" y1="112.5" y2="112.5" class="grid-line"/><line x1="12" x2="600" y1="191" y2="191" class="grid-line"/><line x1="12" x2="600" y1="269.5" y2="269.5" class="grid-line"/>
       <g class="candle up">
-    <line x1="41.4" x2="41.4" y1="123.17" y2="133.75" class="candle-wick"/>
-    <rect x="27.4" y="128.74" width="28" height="2" rx="2" class="candle-body"/>
+    <line x1="41.4" x2="41.4" y1="223.19" y2="252.09" class="candle-wick"/>
+    <rect x="27.4" y="238.4" width="28" height="3.07" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="100.2" x2="100.2" y1="134.04" y2="142.74" class="candle-wick"/>
-    <rect x="86.2" y="134.04" width="28" height="8.07" rx="2" class="candle-body"/>
+    <line x1="100.2" x2="100.2" y1="252.87" y2="276.64" class="candle-wick"/>
+    <rect x="86.2" y="252.87" width="28" height="22.04" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="159" x2="159" y1="140.26" y2="151.23" class="candle-wick"/>
-    <rect x="145" y="140.3" width="28" height="2" rx="2" class="candle-body"/>
+    <line x1="159" x2="159" y1="269.85" y2="299.81" class="candle-wick"/>
+    <rect x="145" y="269.97" width="28" height="3.95" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="217.8" x2="217.8" y1="140.96" y2="150.86" class="candle-wick"/>
-    <rect x="203.8" y="142.18" width="28" height="4.13" rx="2" class="candle-body"/>
+    <line x1="217.8" x2="217.8" y1="271.76" y2="298.79" class="candle-wick"/>
+    <rect x="203.8" y="275.09" width="28" height="11.27" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="276.6" x2="276.6" y1="142.14" y2="153.64" class="candle-wick"/>
-    <rect x="262.6" y="147.01" width="28" height="2.67" rx="2" class="candle-body"/>
+    <line x1="276.6" x2="276.6" y1="274.98" y2="306.39" class="candle-wick"/>
+    <rect x="262.6" y="288.3" width="28" height="7.29" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="335.4" x2="335.4" y1="151.37" y2="160.89" class="candle-wick"/>
-    <rect x="321.4" y="152.85" width="28" height="6.7" rx="2" class="candle-body"/>
+    <line x1="335.4" x2="335.4" y1="300.19" y2="326.2" class="candle-wick"/>
+    <rect x="321.4" y="304.24" width="28" height="18.29" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="394.2" x2="394.2" y1="152.14" y2="161.01" class="candle-wick"/>
-    <rect x="380.2" y="157.63" width="28" height="2" rx="2" class="candle-body"/>
+    <line x1="394.2" x2="394.2" y1="302.31" y2="326.51" class="candle-wick"/>
+    <rect x="380.2" y="317.29" width="28" height="2" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="453" x2="453" y1="146.56" y2="156.26" class="candle-wick"/>
-    <rect x="439" y="148.36" width="28" height="6.49" rx="2" class="candle-body"/>
+    <line x1="453" x2="453" y1="287.05" y2="313.56" class="candle-wick"/>
+    <rect x="439" y="291.97" width="28" height="17.74" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="511.8" x2="511.8" y1="327.07" y2="327.07" class="candle-wick"/>
-    <rect x="497.8" y="327.07" width="28" height="2" rx="2" class="candle-body"/>
+    <line x1="511.8" x2="511.8" y1="314.16" y2="314.16" class="candle-wick"/>
+    <rect x="497.8" y="314.16" width="28" height="2" rx="2" class="candle-body"/>
   </g><g class="candle down">
-    <line x1="570.6" x2="570.6" y1="155.81" y2="161.08" class="candle-wick"/>
-    <rect x="556.6" y="156.95" width="28" height="2.52" rx="2" class="candle-body"/>
+    <line x1="570.6" x2="570.6" y1="312.32" y2="327.07" class="candle-wick"/>
+    <rect x="556.6" y="315.45" width="28" height="2.68" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 254.89 L100.2 257.35 L159 255.36 L217.8 263.93 L276.6 273.83 L335.4 290.66 L394.2 299.14 L453 302.75 L511.8 308.31 L570.6 312.82" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
     <text x="612" y="76.4" class="level-price">₩1,226</text>
   </g><g>
-    <line x1="12" x2="600" y1="120.41" y2="120.41" class="level-line buy3"/>
-    <text x="612" y="116.41" class="level-label">3차 목표</text>
-    <text x="612" y="131.41" class="level-price">₩968</text>
+    <line x1="12" x2="600" y1="215.64" y2="215.64" class="level-line buy3"/>
+    <text x="612" y="211.64" class="level-label">3차 목표</text>
+    <text x="612" y="226.64" class="level-price">₩968</text>
   </g><g>
-    <line x1="12" x2="600" y1="128.74" y2="128.74" class="level-line buy2"/>
-    <text x="612" y="140.41" class="level-label">2차 목표</text>
-    <text x="612" y="155.41" class="level-price">₩929</text>
+    <line x1="12" x2="600" y1="238.4" y2="238.4" class="level-line buy2"/>
+    <text x="612" y="235.64" class="level-label">2차 목표</text>
+    <text x="612" y="250.64" class="level-price">₩929</text>
   </g><g>
-    <line x1="12" x2="600" y1="141.75" y2="141.75" class="level-line buy1"/>
-    <text x="612" y="164.41" class="level-label">1차 목표</text>
-    <text x="612" y="179.41" class="level-price">₩868</text>
+    <line x1="12" x2="600" y1="273.92" y2="273.92" class="level-line buy1"/>
+    <text x="612" y="269.92" class="level-label">1차 목표</text>
+    <text x="612" y="284.92" class="level-price">₩868</text>
   </g>
       <g>
-      <circle cx="335.4" cy="159.55" r="4" class="pivot-low"/>
-      <text x="335.4" y="177.55" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="335.4" cy="322.53" r="4" class="pivot-low"/>
+      <text x="335.4" y="340.53" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
-      <circle cx="159" cy="141.75" r="4" class="pivot-high"/>
-      <text x="159" y="131.75" text-anchor="middle" class="pivot-label">1차</text>
+      <circle cx="159" cy="273.92" r="4" class="pivot-high"/>
+      <text x="159" y="263.92" text-anchor="middle" class="pivot-label">1차</text>
     </g><g>
-      <circle cx="41.4" cy="128.74" r="4" class="pivot-high"/>
-      <text x="41.4" y="118.74000000000001" text-anchor="middle" class="pivot-label">2차</text>
+      <circle cx="41.4" cy="238.4" r="4" class="pivot-high"/>
+      <text x="41.4" y="228.4" text-anchor="middle" class="pivot-label">2차</text>
     </g>
-      <line x1="12" x2="600" y1="159.47" y2="159.47" class="current-line"/>
-      <circle cx="570.6" cy="159.47" r="4.5" class="current-dot"/>
-      <text x="612" y="163.47" class="current-label">₩785</text>
+      <line x1="12" x2="600" y1="318.12" y2="318.12" class="current-line"/>
+      <circle cx="570.6" cy="318.12" r="4.5" class="current-dot"/>
+      <text x="612" y="322.12" class="current-label">₩793</text>
       <text x="12" y="370" class="axis-label">2026-07-01</text>
       <text x="600" y="370" text-anchor="end" class="axis-label">2026-07-14</text>
     </svg>
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1789,9 +1890,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 ₩868</dd></div>
-      <div><dt>목표까지</dt><dd>+10.6%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-22.9%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-36%</dd></div>
+      <div><dt>목표까지</dt><dd>+9.6%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-22.2%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-35.4%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -1818,12 +1919,13 @@ th { color: var(--muted); font-size: 12px; }
       <span class="market-badge">KR</span>
     </div>
     <div class="price-line">
-      <strong>₩1,837,000</strong>
-      <span class="down">-0.4%</span>
+      <strong>₩1,918,000</strong>
+      <span class="up">+4%</span>
     </div>
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
-      <strong>다음 목표까지 +19%</strong>
+      <strong>다음 목표까지 +14%</strong>
+      <span class="proximity-badge wait">대기</span>
       <span>바닥 이후 0%</span>
       <span>중립-하락</span>
     </div>
@@ -1838,8 +1940,8 @@ th { color: var(--muted); font-size: 12px; }
       <rect x="0" y="0" width="720" height="250" rx="8" class="chart-bg"/>
       
       <line x1="12" x2="600" y1="69.5" y2="69.5" class="grid-line"/><line x1="12" x2="600" y1="119" y2="119" class="grid-line"/><line x1="12" x2="600" y1="168.5" y2="168.5" class="grid-line"/>
-      <path d="M12 201.79 L21.97 204.18 L31.93 200.82 L41.9 195.69 L51.86 195.78 L61.83 195.6 L71.8 195.87 L81.76 189.68 L91.73 188.97 L101.69 189.59 L111.66 190.21 L121.63 175.97 L131.59 162.36 L141.56 157.67 L151.53 154.84 L161.49 137.69 L171.46 141.66 L181.42 129.2 L191.39 129.73 L201.36 143.08 L211.32 141.22 L221.29 149.62 L231.25 149.62 L241.22 132.38 L251.19 132.29 L261.15 122.48 L271.12 105.59 L281.08 101.52 L291.05 97.63 L301.02 94.98 L310.98 95.24 L320.95 100.72 L330.92 120.89 L340.88 134.94 L350.85 108.06 L360.81 122.83 L370.78 118.14 L380.75 113.81 L390.71 101.61 L400.68 93.3 L410.64 81.01 L420.61 66.5 L430.58 59.52 L440.54 45.81 L450.51 78 L460.47 72.16 L470.44 45.99 L480.41 67.57 L490.37 71.54 L500.34 69.6 L510.31 77.56 L520.27 110.54 L530.24 89.49 L540.2 96.75 L550.17 109.3 L560.14 120.35 L570.1 110.63 L580.07 111.16 L590.03 140.78 L600 141.49 L600 218 L12 218 Z" fill="url(#area-000660-KS-full)"/>
-      <path d="M12 201.79 L21.97 204.18 L31.93 200.82 L41.9 195.69 L51.86 195.78 L61.83 195.6 L71.8 195.87 L81.76 189.68 L91.73 188.97 L101.69 189.59 L111.66 190.21 L121.63 175.97 L131.59 162.36 L141.56 157.67 L151.53 154.84 L161.49 137.69 L171.46 141.66 L181.42 129.2 L191.39 129.73 L201.36 143.08 L211.32 141.22 L221.29 149.62 L231.25 149.62 L241.22 132.38 L251.19 132.29 L261.15 122.48 L271.12 105.59 L281.08 101.52 L291.05 97.63 L301.02 94.98 L310.98 95.24 L320.95 100.72 L330.92 120.89 L340.88 134.94 L350.85 108.06 L360.81 122.83 L370.78 118.14 L380.75 113.81 L390.71 101.61 L400.68 93.3 L410.64 81.01 L420.61 66.5 L430.58 59.52 L440.54 45.81 L450.51 78 L460.47 72.16 L470.44 45.99 L480.41 67.57 L490.37 71.54 L500.34 69.6 L510.31 77.56 L520.27 110.54 L530.24 89.49 L540.2 96.75 L550.17 109.3 L560.14 120.35 L570.1 110.63 L580.07 111.16 L590.03 140.78 L600 141.49" class="price-path"/>
+      <path d="M12 201.79 L21.97 204.18 L31.93 200.82 L41.9 195.69 L51.86 195.78 L61.83 195.6 L71.8 195.87 L81.76 189.68 L91.73 188.97 L101.69 189.59 L111.66 190.21 L121.63 175.97 L131.59 162.36 L141.56 157.67 L151.53 154.84 L161.49 137.69 L171.46 141.66 L181.42 129.2 L191.39 129.73 L201.36 143.08 L211.32 141.22 L221.29 149.62 L231.25 149.62 L241.22 132.38 L251.19 132.29 L261.15 122.48 L271.12 105.59 L281.08 101.52 L291.05 97.63 L301.02 94.98 L310.98 95.24 L320.95 100.72 L330.92 120.89 L340.88 134.94 L350.85 108.06 L360.81 122.83 L370.78 118.14 L380.75 113.81 L390.71 101.61 L400.68 93.3 L410.64 81.01 L420.61 66.5 L430.58 59.52 L440.54 45.81 L450.51 78 L460.47 72.16 L470.44 45.99 L480.41 67.57 L490.37 71.54 L500.34 69.6 L510.31 77.56 L520.27 110.54 L530.24 89.49 L540.2 96.75 L550.17 109.3 L560.14 120.35 L570.1 110.63 L580.07 111.16 L590.03 140.78 L600 134.33 L600 218 L12 218 Z" fill="url(#area-000660-KS-full)"/>
+      <path d="M12 201.79 L21.97 204.18 L31.93 200.82 L41.9 195.69 L51.86 195.78 L61.83 195.6 L71.8 195.87 L81.76 189.68 L91.73 188.97 L101.69 189.59 L111.66 190.21 L121.63 175.97 L131.59 162.36 L141.56 157.67 L151.53 154.84 L161.49 137.69 L171.46 141.66 L181.42 129.2 L191.39 129.73 L201.36 143.08 L211.32 141.22 L221.29 149.62 L231.25 149.62 L241.22 132.38 L251.19 132.29 L261.15 122.48 L271.12 105.59 L281.08 101.52 L291.05 97.63 L301.02 94.98 L310.98 95.24 L320.95 100.72 L330.92 120.89 L340.88 134.94 L350.85 108.06 L360.81 122.83 L370.78 118.14 L380.75 113.81 L390.71 101.61 L400.68 93.3 L410.64 81.01 L420.61 66.5 L430.58 59.52 L440.54 45.81 L450.51 78 L460.47 72.16 L470.44 45.99 L480.41 67.57 L490.37 71.54 L500.34 69.6 L510.31 77.56 L520.27 110.54 L530.24 89.49 L540.2 96.75 L550.17 109.3 L560.14 120.35 L570.1 110.63 L580.07 111.16 L590.03 140.78 L600 134.33" class="price-path"/>
       <g>
     <line x1="12" x2="600" y1="45.81" y2="45.81" class="level-line breakout"/>
     <text x="612" y="41.81" class="level-label">신고가 목표</text>
@@ -1858,8 +1960,8 @@ th { color: var(--muted); font-size: 12px; }
     <text x="612" y="128.81" class="level-price">₩2,186,000</text>
   </g>
       <g>
-      <circle cx="600" cy="141.49" r="4" class="pivot-low"/>
-      <text x="600" y="159.49" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="600" cy="134.33" r="4" class="pivot-low"/>
+      <text x="600" y="152.33" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
       <circle cx="570.1" cy="110.63" r="4" class="pivot-high"/>
       <text x="570.1" y="100.63" text-anchor="middle" class="pivot-label">1차</text>
@@ -1870,9 +1972,9 @@ th { color: var(--muted); font-size: 12px; }
       <circle cx="500.34" cy="69.6" r="4" class="pivot-high"/>
       <text x="500.34" y="59.599999999999994" text-anchor="middle" class="pivot-label">3차</text>
     </g>
-      <line x1="12" x2="600" y1="141.49" y2="141.49" class="current-line"/>
-      <circle cx="600" cy="141.49" r="4.5" class="current-dot"/>
-      <text x="612" y="145.49" class="current-label">₩1,837,000</text>
+      <line x1="12" x2="600" y1="134.33" y2="134.33" class="current-line"/>
+      <circle cx="600" cy="134.33" r="4.5" class="current-dot"/>
+      <text x="612" y="138.33" class="current-label">₩1,918,000</text>
       <text x="12" y="240" class="axis-label">2026-04-16</text>
       <text x="600" y="240" text-anchor="end" class="axis-label">2026-07-14</text>
     </svg>
@@ -1918,9 +2020,10 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="511.8" x2="511.8" y1="240.45" y2="308.71" class="candle-wick"/>
     <rect x="497.8" y="246.98" width="28" height="60.38" rx="2" class="candle-body"/>
   </g><g class="candle up">
-    <line x1="570.6" x2="570.6" y1="303.07" y2="327.07" class="candle-wick"/>
-    <rect x="556.6" y="309.16" width="28" height="2.7" rx="2" class="candle-body"/>
+    <line x1="570.6" x2="570.6" y1="288.43" y2="327.07" class="candle-wick"/>
+    <rect x="556.6" y="290.91" width="28" height="20.95" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 117.98 L100.2 150.87 L159 162.05 L217.8 174.89 L276.6 195.12 L335.4 216.93 L394.2 216.97 L453 228.01 L511.8 250.45 L570.6 263.2" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -1939,8 +2042,8 @@ th { color: var(--muted); font-size: 12px; }
     <text x="612" y="241.53" class="level-price">₩2,186,000</text>
   </g>
       <g>
-      <circle cx="570.6" cy="309.16" r="4" class="pivot-low"/>
-      <text x="570.6" y="327.16" text-anchor="middle" class="pivot-label">바닥</text>
+      <circle cx="570.6" cy="290.91" r="4" class="pivot-low"/>
+      <text x="570.6" y="308.91" text-anchor="middle" class="pivot-label">바닥</text>
     </g><g>
       <circle cx="394.2" cy="230.53" r="4" class="pivot-high"/>
       <text x="394.2" y="220.53" text-anchor="middle" class="pivot-label">1차</text>
@@ -1948,15 +2051,16 @@ th { color: var(--muted); font-size: 12px; }
       <circle cx="159" cy="176.69" r="4" class="pivot-high"/>
       <text x="159" y="166.69" text-anchor="middle" class="pivot-label">2차</text>
     </g>
-      <line x1="12" x2="600" y1="309.16" y2="309.16" class="current-line"/>
-      <circle cx="570.6" cy="309.16" r="4.5" class="current-dot"/>
-      <text x="612" y="313.16" class="current-label">₩1,837,000</text>
+      <line x1="12" x2="600" y1="290.91" y2="290.91" class="current-line"/>
+      <circle cx="570.6" cy="290.91" r="4.5" class="current-dot"/>
+      <text x="612" y="294.91" class="current-label">₩1,918,000</text>
       <text x="12" y="370" class="axis-label">2026-07-01</text>
       <text x="600" y="370" text-anchor="end" class="axis-label">2026-07-14</text>
     </svg>
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -1971,9 +2075,9 @@ th { color: var(--muted); font-size: 12px; }
     <p class="action">다음 돌파 가격 대기</p>
     <dl class="metric-list">
       <div><dt>다음 목표</dt><dd>1차 목표가 ₩2,186,000</dd></div>
-      <div><dt>목표까지</dt><dd>+19%</dd></div>
-      <div><dt>20일 수익률</dt><dd>-22.9%</dd></div>
-      <div><dt>12주 고점 대비</dt><dd>-37.1%</dd></div>
+      <div><dt>목표까지</dt><dd>+14%</dd></div>
+      <div><dt>20일 수익률</dt><dd>-19.5%</dd></div>
+      <div><dt>12주 고점 대비</dt><dd>-34.3%</dd></div>
     </dl>
     <div class="target-stack">
     <div>
@@ -1990,7 +2094,7 @@ th { color: var(--muted); font-size: 12px; }
       <strong>₩2,919,000</strong>
     </div>
   </div>
-    <p class="muted small">관망: bottom 2026-07-14 @ 1837000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000</p>
+    <p class="muted small">관망: bottom 2026-07-14 @ 1918000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000</p>
   </article><article class="stock-card stage-calm">
     <div class="stock-head">
       <div>
@@ -2006,6 +2110,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="signal-strip">
       <span class="stage-calm">관망</span>
       <strong>다음 목표까지 +30.9%</strong>
+      <span class="proximity-badge wait">대기</span>
       <span>바닥 이후 0%</span>
       <span>기간 조정</span>
     </div>
@@ -2103,6 +2208,7 @@ th { color: var(--muted); font-size: 12px; }
     <line x1="570.6" x2="570.6" y1="311.74" y2="327.07" class="candle-wick"/>
     <rect x="556.6" y="313.01" width="28" height="10.1" rx="2" class="candle-body"/>
   </g>
+      <path d="M41.4 280.95 L100.2 276.37 L159 266.09 L217.8 252.22 L276.6 246.23 L335.4 256.47 L394.2 269.3 L453 281.58 L511.8 295.2 L570.6 306.67" class="ma-line"/>
       <g>
     <line x1="12" x2="600" y1="65.4" y2="65.4" class="level-line breakout"/>
     <text x="612" y="61.400000000000006" class="level-label">신고가 목표</text>
@@ -2139,6 +2245,7 @@ th { color: var(--muted); font-size: 12px; }
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -2174,7 +2281,8 @@ th { color: var(--muted); font-size: 12px; }
   </div>
     <p class="muted small">관망: bottom 2026-07-13 @ 76.73; 1차 2026-07-02 @ 100.46; 2차 2026-06-30 @ 101.65; 3차 2026-06-17 @ 107.98; breakout 2026-05-27 @ 150.23</p>
   </article>
-    </section>
+    </div>
+  </section>
 
     <section class="details">
       <h2>시장 국면 세부</h2>
@@ -2200,19 +2308,19 @@ th { color: var(--muted); font-size: 12px; }
         <article class="detail-panel">
     <h3>Korean Market</h3>
     <div class="mini-grid">
-      <div><span>기술</span><strong>20.7</strong></div>
-      <div><span>매크로</span><strong>41.6</strong></div>
+      <div><span>기술</span><strong>21.6</strong></div>
+      <div><span>매크로</span><strong>41.7</strong></div>
       <div><span>커버리지</span><strong>2/2</strong></div>
     </div>
     <h4>Benchmarks</h4>
     <table>
       <thead><tr><th>자산</th><th>점수</th><th>20D</th><th>상태</th></tr></thead>
-      <tbody><tr><td>KOSPI</td><td>37.7</td><td>-21.9%</td><td>below MA50, above MA200, 20d -21.9%, score 37.7</td></tr><tr><td>KOSDAQ</td><td>0</td><td>-22.9%</td><td>below MA50, below MA200, 20d -22.9%, score 0</td></tr></tbody>
+      <tbody><tr><td>KOSPI</td><td>39.3</td><td>-20.2%</td><td>below MA50, above MA200, 20d -20.2%, score 39.3</td></tr><tr><td>KOSDAQ</td><td>0</td><td>-22.2%</td><td>below MA50, below MA200, 20d -22.2%, score 0</td></tr></tbody>
     </table>
     <h4>Macro</h4>
     <table>
       <thead><tr><th>지표</th><th>점수</th><th>20D</th><th>해석</th></tr></thead>
-      <tbody><tr><td>USD/KRW</td><td>52.9</td><td>-1%</td><td>lower is risk-on; 20d -1%, 5d -1.6%, score 52.9</td></tr><tr><td>US 10Y yield</td><td>42.4</td><td>+3.3%</td><td>lower is risk-on; 20d 3.3%, 5d 2.9%, score 42.4</td></tr><tr><td>US long-duration bonds</td><td>45</td><td>-2.3%</td><td>higher is risk-on; 20d -2.3%, 5d -1.7%, score 45</td></tr><tr><td>Oil ETF</td><td>53.4</td><td>-8.6%</td><td>lower is risk-on; 20d -8.6%, 5d 12.9%, score 53.4</td></tr><tr><td>High yield credit</td><td>48.9</td><td>-0.5%</td><td>higher is risk-on; 20d -0.5%, 5d -0.4%, score 48.9</td></tr><tr><td>VIX</td><td>32.4</td><td>+5.9%</td><td>lower is risk-on; 20d 5.9%, 5d 10.2%, score 32.4</td></tr><tr><td>Korea equity ETF</td><td>16</td><td>-15.5%</td><td>higher is risk-on; 20d -15.5%, 5d -11.5%, score 16</td></tr></tbody>
+      <tbody><tr><td>USD/KRW</td><td>53.6</td><td>-1.3%</td><td>lower is risk-on; 20d -1.3%, 5d -1.9%, score 53.6</td></tr><tr><td>US 10Y yield</td><td>42.4</td><td>+3.3%</td><td>lower is risk-on; 20d 3.3%, 5d 2.9%, score 42.4</td></tr><tr><td>US long-duration bonds</td><td>45</td><td>-2.3%</td><td>higher is risk-on; 20d -2.3%, 5d -1.7%, score 45</td></tr><tr><td>Oil ETF</td><td>53.4</td><td>-8.6%</td><td>lower is risk-on; 20d -8.6%, 5d 12.9%, score 53.4</td></tr><tr><td>High yield credit</td><td>48.9</td><td>-0.5%</td><td>higher is risk-on; 20d -0.5%, 5d -0.4%, score 48.9</td></tr><tr><td>VIX</td><td>32.4</td><td>+5.9%</td><td>lower is risk-on; 20d 5.9%, 5d 10.2%, score 32.4</td></tr><tr><td>Korea equity ETF</td><td>16</td><td>-15.5%</td><td>higher is risk-on; 20d -15.5%, 5d -11.5%, score 16</td></tr></tbody>
     </table>
   </article>
       </div>

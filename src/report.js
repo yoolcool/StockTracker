@@ -2,6 +2,7 @@ import { escapeHtml, money, pct, rounded } from "./utils.js";
 
 export function renderReport(report) {
   const stocks = sortStocksForAction(report.stocks || []);
+  const stockGroups = groupStocksForDisplay(stocks);
   return `<!doctype html>
 <html lang="ko">
 <head>
@@ -36,9 +37,7 @@ export function renderReport(report) {
       <div class="pill">${report.stocks.length}/${report.watchlistMaxItems} tracked</div>
     </section>
 
-    <section class="stock-grid">
-      ${stocks.map((stock) => renderStockCard(stock, report.marketProfiles[stock.market], report.regimes[stock.market])).join("")}
-    </section>
+    ${stockGroups.map((group) => renderStockGroup(group, report.marketProfiles, report.regimes)).join("")}
 
     <section class="details">
       <h2>시장 국면 세부</h2>
@@ -93,6 +92,42 @@ function sortStocksForAction(stocks) {
   });
 }
 
+function groupStocksForDisplay(stocks) {
+  const signal = [];
+  const near = [];
+  const waiting = [];
+  stocks.forEach((stock) => {
+    const distance = triggerDistancePct(stock, stock.nextTrigger);
+    if (stagePriority(stock.stage) === 0) {
+      signal.push(stock);
+    } else if (distance !== null && distance >= 0 && distance <= 5) {
+      near.push(stock);
+    } else {
+      waiting.push(stock);
+    }
+  });
+  return [
+    { title: "매수 신호", description: "목표가를 이미 돌파한 종목", stocks: signal },
+    { title: "돌파 임박", description: "다음 목표까지 5% 이내", stocks: near },
+    { title: "대기", description: "아직 목표가까지 거리가 있는 종목", stocks: waiting }
+  ].filter((group) => group.stocks.length);
+}
+
+function renderStockGroup(group, marketProfiles, regimes) {
+  return `<section class="stock-section">
+    <div class="stock-section-head">
+      <div>
+        <h3>${escapeHtml(group.title)}</h3>
+        <p>${escapeHtml(group.description)}</p>
+      </div>
+      <span class="pill">${group.stocks.length}</span>
+    </div>
+    <div class="stock-grid">
+      ${group.stocks.map((stock) => renderStockCard(stock, marketProfiles[stock.market], regimes[stock.market])).join("")}
+    </div>
+  </section>`;
+}
+
 function stagePriority(stage = "") {
   if (/최대|3차|2차|1차/.test(stage)) return 0;
   if (/관망/.test(stage)) return 1;
@@ -104,6 +139,15 @@ function triggerDistancePct(stock, trigger) {
   const price = Number(trigger?.price);
   if (!Number.isFinite(current) || !Number.isFinite(price) || current === 0) return null;
   return rounded(((price - current) / current) * 100);
+}
+
+function proximityMeta(distance, stock) {
+  if (stagePriority(stock?.stage) === 0) return { label: "신호 발생", className: "signal" };
+  if (distance === null) return { label: "대기", className: "wait" };
+  if (distance < 0) return { label: "목표 돌파", className: "signal" };
+  if (distance <= 2) return { label: "돌파 임박", className: "imminent" };
+  if (distance <= 5) return { label: "근접", className: "near" };
+  return { label: "대기", className: "wait" };
 }
 
 function bottomReboundPct(stock) {
@@ -131,6 +175,7 @@ function renderStockCard(stock, profile, regime) {
   const currency = profile?.currency || "USD";
   const distance = triggerDistancePct(stock, trigger);
   const rebound = bottomReboundPct(stock);
+  const proximity = proximityMeta(distance, stock);
   return `<article class="stock-card ${stageClass(stock.stage)}">
     <div class="stock-head">
       <div>
@@ -146,6 +191,7 @@ function renderStockCard(stock, profile, regime) {
     <div class="signal-strip">
       <span class="${stageClass(stock.stage)}">${escapeHtml(stock.stage)}</span>
       <strong>${distance === null ? "다음 목표 n/a" : `다음 목표까지 ${pct(distance)}`}</strong>
+      <span class="proximity-badge ${proximity.className}">${escapeHtml(proximity.label)}</span>
       <span>바닥 이후 ${pct(rebound)}</span>
       <span>${escapeHtml(regime?.label || "시장 n/a")}</span>
     </div>
@@ -232,6 +278,13 @@ function renderCandlestickChart(stock, currency, options = {}) {
     : [];
   const chart = fullChart.slice(-(options.days || 10));
   if (chart.length < 2) return `<div class="chart-empty">차트 데이터 없음</div>`;
+  const chartStartIndex = fullChart.length - chart.length;
+  const ma5 = chart
+    .map((bar, index) => ({
+      date: bar.date,
+      value: movingAverageAt(fullChart, chartStartIndex + index, 5)
+    }))
+    .filter((point) => Number.isFinite(point.value));
 
   const width = 720;
   const height = 380;
@@ -239,6 +292,7 @@ function renderCandlestickChart(stock, currency, options = {}) {
   const levels = chartLevels(stock);
   const prices = [
     ...chart.flatMap((bar) => [bar.open, bar.high, bar.low, bar.close]),
+    ...ma5.map((point) => point.value),
     ...levels.map((level) => level.price)
   ].map(Number).filter(Number.isFinite);
   const min = Math.min(...prices);
@@ -260,6 +314,7 @@ function renderCandlestickChart(stock, currency, options = {}) {
       <text x="${pad.left}" y="20" class="chart-title">${escapeHtml(options.title || "최근 2주 일봉")}</text>
       ${[0.25, 0.5, 0.75].map((ratio) => `<line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" y2="${rounded(pad.top + ratio * (height - pad.top - pad.bottom), 2)}" class="grid-line"/>`).join("")}
       ${chart.map((bar, index) => renderCandle(bar, x(index), y, candleWidth)).join("")}
+      ${renderMaLine(ma5, chart, x, y)}
       ${renderLevelLines(levels, y, width, height, pad, currency)}
       ${renderPivotMarkers(stock, chart, x, y, { exactOnly: true })}
       <line x1="${pad.left}" x2="${width - pad.right}" y1="${rounded(y(stock.lastClose), 2)}" y2="${rounded(y(stock.lastClose), 2)}" class="current-line"/>
@@ -271,6 +326,7 @@ function renderCandlestickChart(stock, currency, options = {}) {
     <div class="legend">
       <span><i class="legend-candle up"></i>상승 일봉</span>
       <span><i class="legend-candle down"></i>하락 일봉</span>
+      <span><i class="legend-line ma5"></i>5일선</span>
       <span><i class="legend-line buy1"></i>1차 목표</span>
       <span><i class="legend-line buy2"></i>2차 목표</span>
       <span><i class="legend-line buy3"></i>3차 목표</span>
@@ -278,6 +334,23 @@ function renderCandlestickChart(stock, currency, options = {}) {
       <span><i class="legend-dot"></i>바닥</span>
     </div>
   </div>`;
+}
+
+function movingAverageAt(chart, index, length) {
+  if (index < length - 1) return null;
+  const slice = chart.slice(index - length + 1, index + 1).map((bar) => Number(bar.close));
+  if (slice.some((value) => !Number.isFinite(value))) return null;
+  return rounded(slice.reduce((sum, value) => sum + value, 0) / slice.length, 4);
+}
+
+function renderMaLine(points, chart, x, y) {
+  if (points.length < 2) return "";
+  const path = points.map((point, pointIndex) => {
+    const index = chart.findIndex((bar) => bar.date === point.date);
+    if (index < 0) return "";
+    return `${pointIndex === 0 ? "M" : "L"}${rounded(x(index), 2)} ${rounded(y(point.value), 2)}`;
+  }).filter(Boolean).join(" ");
+  return path ? `<path d="${path}" class="ma-line"/>` : "";
 }
 
 function renderCandle(bar, cx, y, candleWidth) {
@@ -523,6 +596,24 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .muted { color: var(--muted); line-height: 1.5; }
 .small { font-size: 12px; }
 .section-header { margin: 28px 0 14px; }
+.stock-section {
+  margin-top: 18px;
+}
+.stock-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.stock-section-head h3 {
+  font-size: 20px;
+}
+.stock-section-head p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 3px;
+}
 .pill, .market-badge {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -548,7 +639,7 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .down { color: var(--red); }
 .signal-strip {
   display: grid;
-  grid-template-columns: auto minmax(150px, 1fr) auto auto;
+  grid-template-columns: auto minmax(150px, 1fr) auto auto auto;
   gap: 8px;
   align-items: center;
   margin: 0 0 12px;
@@ -580,6 +671,26 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   color: var(--blue);
 }
 .signal-strip span:first-child.stage-calm {
+  background: #f4f0e7;
+  color: var(--amber);
+}
+.proximity-badge {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.proximity-badge.signal,
+.proximity-badge.imminent {
+  background: #e8f4ee;
+  color: var(--green);
+}
+.proximity-badge.near {
+  background: #e8f0f7;
+  color: var(--blue);
+}
+.proximity-badge.wait {
   background: #f4f0e7;
   color: var(--amber);
 }
@@ -630,6 +741,14 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .candle-wick {
   stroke-width: 1.5;
   stroke-linecap: round;
+}
+.ma-line {
+  fill: none;
+  stroke: #111827;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.72;
 }
 .level-line {
   stroke-width: 1.6;
@@ -694,6 +813,7 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .legend-line.buy2 { border-top-style: dashed; border-top-color: var(--violet); }
 .legend-line.buy3 { border-top-style: dashed; border-top-color: var(--amber); }
 .legend-line.breakout { border-top-style: dashed; border-top-color: var(--green); }
+.legend-line.ma5 { border-top-color: var(--ink); }
 .legend-candle {
   display: inline-block;
   width: 9px;
