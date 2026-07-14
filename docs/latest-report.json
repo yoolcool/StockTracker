@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-14T01:25:57.147Z",
-  "generatedAtKst": "2026. 7. 14. 오전 10:25",
+  "generatedAt": "2026-07-14T01:26:50.556Z",
+  "generatedAtKst": "2026. 7. 14. AM 10:26",
   "tradingDate": "2026-07-14",
   "watchlistMaxItems": 10,
   "marketProfiles": {
@@ -374,7 +374,7 @@
     "kr": {
       "market": "kr",
       "label": "중립-하락",
-      "score": 28.6,
+      "score": 28.5,
       "actionBias": "반등 확인 우선",
       "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
       "change": {
@@ -383,7 +383,7 @@
         "summary": "중립-하락 maintained (-0.1 pts)."
       },
       "technical": {
-        "score": 21.6,
+        "score": 21.5,
         "label": "하락 추세",
         "benchmarks": [
           {
@@ -395,19 +395,19 @@
             "weight": 0.55,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 39.3,
-            "lastClose": 6960.3198,
+            "score": 39,
+            "lastClose": 6935.5801,
             "dataDate": "2026-07-14",
-            "dailyChangePct": null,
-            "return5dPct": -9.1,
-            "return20dPct": -20.2,
-            "return60dPct": 14.3,
-            "drawdownFrom52wHighPct": -25.8,
-            "ma50": 7837.14,
-            "ma200": 5514.6,
+            "dailyChangePct": 1.9,
+            "return5dPct": -9.4,
+            "return20dPct": -20.5,
+            "return60dPct": 13.9,
+            "drawdownFrom52wHighPct": -26.1,
+            "ma50": 7972.79,
+            "ma200": 5548.51,
             "aboveMa50": false,
             "aboveMa200": true,
-            "reason": "below MA50, above MA200, 20d -20.2%, score 39.3"
+            "reason": "below MA50, above MA200, 20d -20.5%, score 39"
           },
           {
             "ticker": "^KQ11",
@@ -419,18 +419,18 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 0,
-            "lastClose": 792.57,
+            "lastClose": 790.1,
             "dataDate": "2026-07-14",
-            "dailyChangePct": -0.8,
-            "return5dPct": -4.7,
-            "return20dPct": -22.2,
-            "return60dPct": -31.2,
-            "drawdownFrom52wHighPct": -35.5,
-            "ma50": 1012.89,
-            "ma200": 1003.77,
+            "dailyChangePct": -1.2,
+            "return5dPct": -4.9,
+            "return20dPct": -22.4,
+            "return60dPct": -31.4,
+            "drawdownFrom52wHighPct": -35.7,
+            "ma50": 1012.84,
+            "ma200": 1003.75,
             "aboveMa50": false,
             "aboveMa200": false,
-            "reason": "below MA50, below MA200, 20d -22.2%, score 0"
+            "reason": "below MA50, below MA200, 20d -22.4%, score 0"
           }
         ]
       },
@@ -445,11 +445,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 53.6,
+            "score": 53.5,
             "dataDate": "2026-07-14",
-            "return5dPct": -1.9,
+            "return5dPct": -1.8,
             "return20dPct": -1.3,
-            "reason": "lower is risk-on; 20d -1.3%, 5d -1.9%, score 53.6"
+            "reason": "lower is risk-on; 20d -1.3%, 5d -1.8%, score 53.5"
           },
           {
             "ticker": "^TNX",
@@ -5218,12 +5218,12 @@
       "market": "kr",
       "dataStatus": "ok",
       "dataDate": "2026-07-14",
-      "lastClose": 792.57,
-      "dailyChangePct": -0.8,
-      "return5dPct": -4.7,
-      "return20dPct": -22.2,
-      "drawdownFrom52wHighPct": -35.5,
-      "drawdownFromTrackingHighPct": -35.4,
+      "lastClose": 790.1,
+      "dailyChangePct": -1.2,
+      "return5dPct": -4.9,
+      "return20dPct": -22.4,
+      "drawdownFrom52wHighPct": -35.7,
+      "drawdownFromTrackingHighPct": -35.6,
       "high52w": 1229.42,
       "trackingWindow": {
         "weeks": 12,
@@ -5289,7 +5289,7 @@
         "date": "2026-04-27",
         "price": 1226.1801
       },
-      "distanceToFirstReclaimPct": -8.7,
+      "distanceToFirstReclaimPct": -9,
       "chart": [
         {
           "date": "2026-04-16",
@@ -5707,7 +5707,7 @@
         {
           "date": "2026-07-14",
           "open": 797.16,
-          "close": 792.57,
+          "close": 790.1,
           "high": 802.53,
           "low": 777.22
         }
@@ -5806,12 +5806,12 @@
       "market": "kr",
       "dataStatus": "ok",
       "dataDate": "2026-07-14",
-      "lastClose": 1918000,
-      "dailyChangePct": 4,
-      "return5dPct": -12.9,
-      "return20dPct": -19.5,
-      "drawdownFrom52wHighPct": -35.8,
-      "drawdownFromTrackingHighPct": -34.3,
+      "lastClose": 1906000,
+      "dailyChangePct": 3.3,
+      "return5dPct": -13.4,
+      "return20dPct": -20,
+      "drawdownFrom52wHighPct": -36.2,
+      "drawdownFromTrackingHighPct": -34.7,
       "high52w": 2987000,
       "trackingWindow": {
         "weeks": 12,
@@ -5837,7 +5837,7 @@
       },
       "bottom": {
         "date": "2026-07-14",
-        "price": 1918000
+        "price": 1906000
       },
       "firstReclaim": {
         "date": "2026-07-09",
@@ -5877,7 +5877,7 @@
         "date": "2026-06-22",
         "price": 2919000
       },
-      "distanceToFirstReclaimPct": -12.3,
+      "distanceToFirstReclaimPct": -12.8,
       "chart": [
         {
           "date": "2026-04-16",
@@ -6295,7 +6295,7 @@
         {
           "date": "2026-07-14",
           "open": 1825000,
-          "close": 1918000,
+          "close": 1906000,
           "high": 1929000,
           "low": 1757500
         }
@@ -6382,7 +6382,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-14 @ 1918000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000"
+      "reason": "관망: bottom 2026-07-14 @ 1906000; 1차 2026-07-09 @ 2186000; 2차 2026-07-03 @ 2425000; 3차 2026-06-30 @ 2650000; breakout 2026-06-22 @ 2919000"
     }
   ]
 }
