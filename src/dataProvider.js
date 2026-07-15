@@ -42,7 +42,9 @@ function parseBars(result) {
       close: quote.close?.[index],
       volume: quote.volume?.[index]
     }))
-    .filter((bar) => Number.isFinite(Number(bar.close)))
+    // Yahoo can briefly publish an unfinished daily bar with a zero close.
+    // Treat it as missing so it cannot create a false 100% drawdown signal.
+    .filter((bar) => Number.isFinite(Number(bar.close)) && Number(bar.close) > 0)
     .map((bar) => ({
       date: bar.date,
       open: Number(bar.open ?? bar.close),

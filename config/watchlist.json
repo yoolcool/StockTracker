@@ -1,14 +1,64 @@
 {
-  "maxItems": 10,
+  "maxItems": 36,
   "items": [
     {
-      "ticker": "^GSPC",
-      "name": "S&P 500",
+      "ticker": "000660.KS",
+      "name": "SK hynix",
+      "market": "kr"
+    },
+    {
+      "ticker": "005930.KS",
+      "name": "Samsung Electronics",
+      "market": "kr"
+    },
+    {
+      "ticker": "005380.KS",
+      "name": "Hyundai Motor",
+      "market": "kr"
+    },
+    {
+      "ticker": "036010.KQ",
+      "name": "Abico Electronics",
+      "market": "kr"
+    },
+    {
+      "ticker": "042660.KS",
+      "name": "Hanwha Ocean",
+      "market": "kr"
+    },
+    {
+      "ticker": "042700.KS",
+      "name": "Hanmi Semiconductor",
+      "market": "kr"
+    },
+    {
+      "ticker": "069960.KS",
+      "name": "Hyundai Department Store",
+      "market": "kr"
+    },
+    {
+      "ticker": "267260.KS",
+      "name": "HD Hyundai Electric",
+      "market": "kr"
+    },
+    {
+      "ticker": "329180.KS",
+      "name": "HD Hyundai Heavy Industries",
+      "market": "kr"
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
       "market": "us"
     },
     {
-      "ticker": "^NDX",
-      "name": "Nasdaq 100",
+      "ticker": "INTC",
+      "name": "Intel",
+      "market": "us"
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
       "market": "us"
     },
     {
@@ -17,23 +67,13 @@
       "market": "us"
     },
     {
-      "ticker": "MU",
-      "name": "Micron Technology",
+      "ticker": "ASML",
+      "name": "ASML Holding ADR",
       "market": "us"
     },
     {
-      "ticker": "PLTR",
-      "name": "Palantir",
-      "market": "us"
-    },
-    {
-      "ticker": "TSLA",
-      "name": "Tesla",
-      "market": "us"
-    },
-    {
-      "ticker": "RKLB",
-      "name": "Rocket Lab",
+      "ticker": "AVGO",
+      "name": "Broadcom",
       "market": "us"
     },
     {
@@ -42,14 +82,104 @@
       "market": "us"
     },
     {
-      "ticker": "^KQ11",
-      "name": "KOSDAQ",
-      "market": "kr"
+      "ticker": "MSTR",
+      "name": "Strategy",
+      "market": "us"
     },
     {
-      "ticker": "000660.KS",
-      "name": "SK hynix",
-      "market": "kr"
+      "ticker": "TSM",
+      "name": "TSMC ADR",
+      "market": "us"
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "market": "us"
+    },
+    {
+      "ticker": "MU",
+      "name": "Micron Technology",
+      "market": "us"
+    },
+    {
+      "ticker": "GOOG",
+      "name": "Alphabet Class C",
+      "market": "us"
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies",
+      "market": "us"
+    },
+    {
+      "ticker": "JOBY",
+      "name": "Joby Aviation",
+      "market": "us"
+    },
+    {
+      "ticker": "BKSY",
+      "name": "BlackSky Technology",
+      "market": "us"
+    },
+    {
+      "ticker": "RKLB",
+      "name": "Rocket Lab",
+      "market": "us"
+    },
+    {
+      "ticker": "BMNR",
+      "name": "BitMine Immersion Technologies",
+      "market": "us"
+    },
+    {
+      "ticker": "SPCX",
+      "name": "SpaceX",
+      "market": "us"
+    },
+    {
+      "ticker": "SKHY",
+      "name": "SK hynix ADR",
+      "market": "us"
+    },
+    {
+      "ticker": "SOXX",
+      "name": "iShares Semiconductor ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "RSP",
+      "name": "Invesco S&P 500 Equal Weight ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "SCHD",
+      "name": "Schwab U.S. Dividend Equity ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "BOTZ",
+      "name": "Global X Robotics & AI ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "JEPI",
+      "name": "JPMorgan Equity Premium Income ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "AIPO",
+      "name": "Defiance AI & Power Infrastructure ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "NASA",
+      "name": "Tema Space Innovators ETF",
+      "market": "us"
+    },
+    {
+      "ticker": "DRAM",
+      "name": "Roundhill Memory ETF",
+      "market": "us"
     }
   ]
 }

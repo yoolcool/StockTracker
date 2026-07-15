@@ -22,6 +22,8 @@ assert(report.stocks.length > 0, "no stock signals generated");
 
 for (const stock of report.stocks) {
   assert(stock.ticker, "stock ticker missing");
+  assert(stock.dataStatus === "ok", `market data missing for ${stock.ticker}: ${stock.reason || "unknown reason"}`);
+  assert(Number(stock.lastClose) > 0, `invalid last close for ${stock.ticker}: ${stock.lastClose}`);
   assert(stock.stage, `stage missing for ${stock.ticker}`);
   assert(stock.nextTrigger, `nextTrigger missing for ${stock.ticker}`);
   assert(Array.isArray(stock.chart), `chart data missing for ${stock.ticker}`);
