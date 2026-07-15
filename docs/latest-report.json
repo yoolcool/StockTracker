@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T15:18:23.828Z",
-  "generatedAtKst": "2026. 7. 16. 오전 12:18",
+  "generatedAt": "2026-07-15T15:19:21.800Z",
+  "generatedAtKst": "2026. 7. 16. AM 12:19",
   "tradingDate": "2026-07-15",
   "watchlistMaxItems": 36,
   "marketProfiles": {
@@ -166,14 +166,14 @@
       "label": "기간 조정",
       "score": 76.8,
       "actionBias": "추격 보류, 돌파 확인",
-      "conclusion": "장기 추세는 유지되지만 단기 추세가 둔화되어 기간 조정으로 본다. 기술 91.1점, 매크로 50.3점.",
+      "conclusion": "장기 추세는 유지되지만 단기 추세가 둔화되어 기간 조정으로 본다. 기술 91.2점, 매크로 50.3점.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": -0.2,
-        "summary": "기간 조정 maintained (-0.2 pts)."
+        "scoreDelta": 0,
+        "summary": "기간 조정 maintained (0 pts)."
       },
       "technical": {
-        "score": 91.1,
+        "score": 91.2,
         "label": "상승 추세 우위",
         "benchmarks": [
           {
@@ -186,15 +186,15 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 100,
-            "lastClose": 7555.4399,
+            "lastClose": 7558.2402,
             "dataDate": "2026-07-15",
-            "dailyChangePct": 0.5,
+            "dailyChangePct": 0.6,
             "return5dPct": 0.7,
             "return20dPct": 1.7,
             "return60dPct": 7.3,
-            "drawdownFrom52wHighPct": -0.9,
-            "ma50": 7447.64,
-            "ma200": 6974.02,
+            "drawdownFrom52wHighPct": -0.8,
+            "ma50": 7447.7,
+            "ma200": 6974.03,
             "aboveMa50": true,
             "aboveMa200": true,
             "reason": "above MA50, above MA200, 20d 1.7%, score 100"
@@ -208,19 +208,19 @@
             "weight": 0.5,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 82.1,
-            "lastClose": 29381.4023,
+            "score": 82.3,
+            "lastClose": 29396.127,
             "dataDate": "2026-07-15",
-            "dailyChangePct": 0.4,
-            "return5dPct": 0.7,
-            "return20dPct": -0.9,
+            "dailyChangePct": 0.5,
+            "return5dPct": 0.8,
+            "return20dPct": -0.8,
             "return60dPct": 11.6,
-            "drawdownFrom52wHighPct": -4.5,
-            "ma50": 29469.76,
-            "ma200": 26267.01,
+            "drawdownFrom52wHighPct": -4.4,
+            "ma50": 29470.05,
+            "ma200": 26267.08,
             "aboveMa50": false,
             "aboveMa200": true,
-            "reason": "below MA50, above MA200, 20d -0.9%, score 82.1"
+            "reason": "below MA50, above MA200, 20d -0.8%, score 82.3"
           }
         ]
       },
@@ -235,11 +235,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 47.1,
+            "score": 47.2,
             "dataDate": "2026-07-15",
-            "return5dPct": 0.6,
+            "return5dPct": 0.5,
             "return20dPct": 1.5,
-            "reason": "lower is risk-on; 20d 1.5%, 5d 0.6%, score 47.1"
+            "reason": "lower is risk-on; 20d 1.5%, 5d 0.5%, score 47.2"
           },
           {
             "ticker": "^IRX",
@@ -261,11 +261,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 46.8,
+            "score": 46.9,
             "dataDate": "2026-07-15",
-            "return5dPct": -0.4,
+            "return5dPct": -0.3,
             "return20dPct": -1.8,
-            "reason": "higher is risk-on; 20d -1.8%, 5d -0.4%, score 46.8"
+            "reason": "higher is risk-on; 20d -1.8%, 5d -0.3%, score 46.9"
           },
           {
             "ticker": "TIP",
@@ -342,8 +342,8 @@
             "score": 50,
             "dataDate": "2026-07-15",
             "return5dPct": -0.4,
-            "return20dPct": -1.5,
-            "reason": "context signal; 20d -1.5%, 5d -0.4%, score 50"
+            "return20dPct": -1.4,
+            "reason": "context signal; 20d -1.4%, 5d -0.4%, score 50"
           },
           {
             "ticker": "^VIX",
@@ -352,11 +352,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 63.1,
+            "score": 62.6,
             "dataDate": "2026-07-15",
-            "return5dPct": 0.4,
-            "return20dPct": -8.4,
-            "reason": "lower is risk-on; 20d -8.4%, 5d 0.4%, score 63.1"
+            "return5dPct": 0.6,
+            "return20dPct": -8.2,
+            "reason": "lower is risk-on; 20d -8.2%, 5d 0.6%, score 62.6"
           }
         ]
       },
@@ -374,13 +374,13 @@
     "kr": {
       "market": "kr",
       "label": "중립-하락",
-      "score": 30.7,
+      "score": 30.6,
       "actionBias": "반등 확인 우선",
       "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": 0.1,
-        "summary": "중립-하락 maintained (+0.1 pts)."
+        "scoreDelta": -0.1,
+        "summary": "중립-하락 maintained (-0.1 pts)."
       },
       "technical": {
         "score": 21.6,
@@ -458,11 +458,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 47.1,
+            "score": 47.2,
             "dataDate": "2026-07-15",
-            "return5dPct": 0.6,
+            "return5dPct": 0.5,
             "return20dPct": 1.5,
-            "reason": "lower is risk-on; 20d 1.5%, 5d 0.6%, score 47.1"
+            "reason": "lower is risk-on; 20d 1.5%, 5d 0.5%, score 47.2"
           },
           {
             "ticker": "TLT",
@@ -471,11 +471,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 46.8,
+            "score": 46.9,
             "dataDate": "2026-07-15",
-            "return5dPct": -0.4,
+            "return5dPct": -0.3,
             "return20dPct": -1.8,
-            "reason": "higher is risk-on; 20d -1.8%, 5d -0.4%, score 46.8"
+            "reason": "higher is risk-on; 20d -1.8%, 5d -0.3%, score 46.9"
           },
           {
             "ticker": "USO",
@@ -510,11 +510,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 63.1,
+            "score": 62.6,
             "dataDate": "2026-07-15",
-            "return5dPct": 0.4,
-            "return20dPct": -8.4,
-            "reason": "lower is risk-on; 20d -8.4%, 5d 0.4%, score 63.1"
+            "return5dPct": 0.6,
+            "return20dPct": -8.2,
+            "reason": "lower is risk-on; 20d -8.2%, 5d 0.6%, score 62.6"
           },
           {
             "ticker": "EWY",
@@ -5805,10 +5805,10 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 324.37,
-      "dailyChangePct": 2.2,
-      "return5dPct": 4.4,
-      "return20dPct": 11.4,
+      "lastClose": 324.49,
+      "dailyChangePct": 2.3,
+      "return5dPct": 4.5,
+      "return20dPct": 11.5,
       "drawdownFrom52wHighPct": -0.4,
       "drawdownFromTrackingHighPct": 0,
       "high52w": 325.68,
@@ -5817,7 +5817,7 @@
         "tradingDays": 60,
         "startDate": "2026-04-17",
         "endDate": "2026-07-15",
-        "high": 324.37
+        "high": 324.49
       },
       "priorPeak": {
         "type": "high",
@@ -5876,7 +5876,7 @@
         "date": "2026-07-13",
         "price": 317.31
       },
-      "distanceToFirstReclaimPct": 8.8,
+      "distanceToFirstReclaimPct": 8.9,
       "chart": [
         {
           "date": "2026-04-17",
@@ -6294,7 +6294,7 @@
         {
           "date": "2026-07-15",
           "open": 317.625,
-          "close": 324.37,
+          "close": 324.49,
           "high": 325.68,
           "low": 317.32
         }
@@ -6385,12 +6385,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 101.62,
-      "dailyChangePct": -1.5,
-      "return5dPct": -7.9,
-      "return20dPct": -18.4,
-      "drawdownFrom52wHighPct": -28.6,
-      "drawdownFromTrackingHighPct": -27.9,
+      "lastClose": 101.4751,
+      "dailyChangePct": -1.6,
+      "return5dPct": -8.1,
+      "return20dPct": -18.5,
+      "drawdownFrom52wHighPct": -28.7,
+      "drawdownFromTrackingHighPct": -28,
       "high52w": 142.35,
       "trackingWindow": {
         "weeks": 12,
@@ -6456,7 +6456,7 @@
         "date": "2026-06-22",
         "price": 140.94
       },
-      "distanceToFirstReclaimPct": -9.8,
+      "distanceToFirstReclaimPct": -10,
       "chart": [
         {
           "date": "2026-04-17",
@@ -6874,7 +6874,7 @@
         {
           "date": "2026-07-15",
           "open": 109.3,
-          "close": 101.62,
+          "close": 101.4751,
           "high": 109.49,
           "low": 101.12
         }
@@ -6973,10 +6973,10 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 396.01,
+      "lastClose": 396.08,
       "dailyChangePct": 1.3,
-      "return5dPct": 1.8,
-      "return20dPct": 1.3,
+      "return5dPct": 1.9,
+      "return20dPct": 1.4,
       "drawdownFrom52wHighPct": -28.7,
       "drawdownFromTrackingHighPct": -14,
       "high52w": 555.45,
@@ -7462,7 +7462,7 @@
         {
           "date": "2026-07-15",
           "open": 387.8,
-          "close": 396.01,
+          "close": 396.08,
           "high": 397.79,
           "low": 386.4
         }
@@ -7565,12 +7565,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 208.69,
-      "dailyChangePct": 2.5,
+      "lastClose": 208.8,
+      "dailyChangePct": 2.6,
       "return5dPct": 6,
-      "return20dPct": 1.7,
-      "drawdownFrom52wHighPct": -11.8,
-      "drawdownFromTrackingHighPct": -11.5,
+      "return20dPct": 1.8,
+      "drawdownFrom52wHighPct": -11.7,
+      "drawdownFromTrackingHighPct": -11.4,
       "high52w": 236.54,
       "trackingWindow": {
         "weeks": 12,
@@ -8054,7 +8054,7 @@
         {
           "date": "2026-07-15",
           "open": 212.01,
-          "close": 208.69,
+          "close": 208.8,
           "high": 213.81,
           "low": 208.37
         }
@@ -8157,12 +8157,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 1765.66,
-      "dailyChangePct": 2.3,
-      "return5dPct": 1.1,
-      "return20dPct": -5.3,
-      "drawdownFrom52wHighPct": -11.7,
-      "drawdownFromTrackingHighPct": -11.2,
+      "lastClose": 1770.045,
+      "dailyChangePct": 2.5,
+      "return5dPct": 1.3,
+      "return20dPct": -5,
+      "drawdownFrom52wHighPct": -11.5,
+      "drawdownFromTrackingHighPct": -11,
       "high52w": 1999.96,
       "trackingWindow": {
         "weeks": 12,
@@ -8210,7 +8210,7 @@
         "date": "2026-06-30",
         "price": 1989.4399
       },
-      "distanceToFirstReclaimPct": 8.1,
+      "distanceToFirstReclaimPct": 8.4,
       "chart": [
         {
           "date": "2026-04-17",
@@ -8628,7 +8628,7 @@
         {
           "date": "2026-07-15",
           "open": 1825,
-          "close": 1765.66,
+          "close": 1770.045,
           "high": 1830,
           "low": 1756.1801
         }
@@ -8735,7 +8735,7 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 388.4,
+      "lastClose": 388.455,
       "dailyChangePct": 1.1,
       "return5dPct": 4.8,
       "return20dPct": 1.7,
@@ -9224,7 +9224,7 @@
         {
           "date": "2026-07-15",
           "open": 396.06,
-          "close": 388.4,
+          "close": 388.455,
           "high": 399,
           "low": 387.12
         }
@@ -9331,12 +9331,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 164.2,
-      "dailyChangePct": 1.7,
-      "return5dPct": 3,
-      "return20dPct": -3.2,
-      "drawdownFrom52wHighPct": -63.1,
-      "drawdownFromTrackingHighPct": -24.2,
+      "lastClose": 164.65,
+      "dailyChangePct": 2,
+      "return5dPct": 3.3,
+      "return20dPct": -2.9,
+      "drawdownFrom52wHighPct": -63,
+      "drawdownFromTrackingHighPct": -24,
       "high52w": 444.65,
       "trackingWindow": {
         "weeks": 12,
@@ -9402,7 +9402,7 @@
         "date": "2026-05-11",
         "price": 216.6
       },
-      "distanceToFirstReclaimPct": -0.4,
+      "distanceToFirstReclaimPct": -0.1,
       "chart": [
         {
           "date": "2026-04-20",
@@ -9820,7 +9820,7 @@
         {
           "date": "2026-07-15",
           "open": 165.58,
-          "close": 164.2,
+          "close": 164.65,
           "high": 167.47,
           "low": 160.34
         }
@@ -9923,12 +9923,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 98.425,
-      "dailyChangePct": 6.9,
-      "return5dPct": 1.1,
-      "return20dPct": -20.6,
+      "lastClose": 98.53,
+      "dailyChangePct": 7,
+      "return5dPct": 1.2,
+      "return20dPct": -20.5,
       "drawdownFrom52wHighPct": -78.5,
-      "drawdownFromTrackingHighPct": -49.8,
+      "drawdownFromTrackingHighPct": -49.7,
       "high52w": 457.22,
       "trackingWindow": {
         "weeks": 12,
@@ -10412,7 +10412,7 @@
         {
           "date": "2026-07-15",
           "open": 99.78,
-          "close": 98.425,
+          "close": 98.53,
           "high": 101.8975,
           "low": 96.9001
         }
@@ -10515,8 +10515,8 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 419.325,
-      "dailyChangePct": -0.5,
+      "lastClose": 419.16,
+      "dailyChangePct": -0.6,
       "return5dPct": -3.1,
       "return20dPct": -1.1,
       "drawdownFrom52wHighPct": -12.5,
@@ -11004,7 +11004,7 @@
         {
           "date": "2026-07-15",
           "open": 425.75,
-          "close": 419.325,
+          "close": 419.16,
           "high": 428.875,
           "low": 415.07
         }
@@ -11107,11 +11107,11 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 396.54,
+      "lastClose": 396.835,
       "dailyChangePct": 0.5,
-      "return5dPct": -1.6,
+      "return5dPct": -1.5,
       "return20dPct": -2.4,
-      "drawdownFrom52wHighPct": -20.5,
+      "drawdownFrom52wHighPct": -20.4,
       "drawdownFromTrackingHighPct": -10.9,
       "high52w": 498.83,
       "trackingWindow": {
@@ -11178,7 +11178,7 @@
         "date": "2026-05-13",
         "price": 445.27
       },
-      "distanceToFirstReclaimPct": -2.1,
+      "distanceToFirstReclaimPct": -2,
       "chart": [
         {
           "date": "2026-04-17",
@@ -11596,7 +11596,7 @@
         {
           "date": "2026-07-15",
           "open": 399.395,
-          "close": 396.54,
+          "close": 396.835,
           "high": 406.5895,
           "low": 393.236
         }
@@ -11699,12 +11699,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 901.59,
-      "dailyChangePct": -3.8,
-      "return5dPct": -3.9,
-      "return20dPct": -8.2,
-      "drawdownFrom52wHighPct": -28.2,
-      "drawdownFromTrackingHighPct": -25.7,
+      "lastClose": 904.1892,
+      "dailyChangePct": -3.5,
+      "return5dPct": -3.6,
+      "return20dPct": -7.9,
+      "drawdownFrom52wHighPct": -28,
+      "drawdownFromTrackingHighPct": -25.5,
       "high52w": 1255,
       "trackingWindow": {
         "weeks": 12,
@@ -11752,7 +11752,7 @@
         "date": "2026-06-25",
         "price": 1213.5601
       },
-      "distanceToFirstReclaimPct": -16.5,
+      "distanceToFirstReclaimPct": -16.2,
       "chart": [
         {
           "date": "2026-04-17",
@@ -12170,7 +12170,7 @@
         {
           "date": "2026-07-15",
           "open": 975.805,
-          "close": 901.59,
+          "close": 904.1892,
           "high": 978.4,
           "low": 898.3
         }
@@ -12265,12 +12265,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 367.64,
+      "lastClose": 367.87,
       "dailyChangePct": 2.9,
-      "return5dPct": 2.5,
-      "return20dPct": 0.1,
-      "drawdownFrom52wHighPct": -9.1,
-      "drawdownFromTrackingHighPct": -7.9,
+      "return5dPct": 2.6,
+      "return20dPct": 0.2,
+      "drawdownFrom52wHighPct": -9,
+      "drawdownFromTrackingHighPct": -7.8,
       "high52w": 404.47,
       "trackingWindow": {
         "weeks": 12,
@@ -12336,7 +12336,7 @@
         "date": "2026-05-13",
         "price": 399.04
       },
-      "distanceToFirstReclaimPct": 0,
+      "distanceToFirstReclaimPct": 0.1,
       "chart": [
         {
           "date": "2026-04-20",
@@ -12754,7 +12754,7 @@
         {
           "date": "2026-07-15",
           "open": 355.915,
-          "close": 367.64,
+          "close": 367.87,
           "high": 368.25,
           "low": 355.67
         }
@@ -12857,12 +12857,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 134.73,
-      "dailyChangePct": 0.8,
-      "return5dPct": 1.9,
-      "return20dPct": 0,
+      "lastClose": 134.585,
+      "dailyChangePct": 0.6,
+      "return5dPct": 1.8,
+      "return20dPct": -0.1,
       "drawdownFrom52wHighPct": -35.1,
-      "drawdownFromTrackingHighPct": -16.1,
+      "drawdownFromTrackingHighPct": -16.2,
       "high52w": 207.52,
       "trackingWindow": {
         "weeks": 12,
@@ -12878,13 +12878,13 @@
         "price": 160.65,
         "label": "신고가 목표"
       },
-      "stage": "1차 매수",
-      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
+      "stage": "관망",
+      "action": "다음 돌파 가격 대기",
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "2차 목표가",
-        "price": 136.47,
-        "date": "2026-06-08"
+        "label": "1차 목표가",
+        "price": 134.71,
+        "date": "2026-06-15"
       },
       "bottom": {
         "date": "2026-06-25",
@@ -12928,7 +12928,7 @@
         "date": "2026-06-01",
         "price": 160.65
       },
-      "distanceToFirstReclaimPct": 0,
+      "distanceToFirstReclaimPct": -0.1,
       "chart": [
         {
           "date": "2026-04-20",
@@ -13346,7 +13346,7 @@
         {
           "date": "2026-07-15",
           "open": 134.17,
-          "close": 134.73,
+          "close": 134.585,
           "high": 136.88,
           "low": 132.88
         }
@@ -13445,7 +13445,7 @@
           }
         ]
       },
-      "reason": "1차 매수: bottom 2026-06-25 @ 107.27; 1차 2026-06-15 @ 134.71; 2차 2026-06-08 @ 136.47; 3차 2026-06-01 @ 160.65; breakout 2026-06-01 @ 160.65"
+      "reason": "관망: bottom 2026-06-25 @ 107.27; 1차 2026-06-15 @ 134.71; 2차 2026-06-08 @ 136.47; 3차 2026-06-01 @ 160.65; breakout 2026-06-01 @ 160.65"
     },
     {
       "ticker": "JOBY",
@@ -13453,12 +13453,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 7.775,
-      "dailyChangePct": -1.5,
-      "return5dPct": -2,
-      "return20dPct": -19.6,
-      "drawdownFrom52wHighPct": -62.9,
-      "drawdownFromTrackingHighPct": -36.8,
+      "lastClose": 7.785,
+      "dailyChangePct": -1.3,
+      "return5dPct": -1.8,
+      "return20dPct": -19.5,
+      "drawdownFrom52wHighPct": -62.8,
+      "drawdownFromTrackingHighPct": -36.7,
       "high52w": 20.95,
       "trackingWindow": {
         "weeks": 12,
@@ -13524,7 +13524,7 @@
         "date": "2026-05-28",
         "price": 12.3
       },
-      "distanceToFirstReclaimPct": -2.7,
+      "distanceToFirstReclaimPct": -2.6,
       "chart": [
         {
           "date": "2026-04-20",
@@ -13942,7 +13942,7 @@
         {
           "date": "2026-07-15",
           "open": 7.95,
-          "close": 7.775,
+          "close": 7.785,
           "high": 8.18,
           "low": 7.7201
         }
@@ -14057,10 +14057,10 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 25.635,
-      "dailyChangePct": -0.1,
+      "lastClose": 25.66,
+      "dailyChangePct": 0,
       "return5dPct": -0.9,
-      "return20dPct": -17.8,
+      "return20dPct": -17.7,
       "drawdownFrom52wHighPct": -51.5,
       "drawdownFromTrackingHighPct": -50.3,
       "high52w": 52.88,
@@ -14128,7 +14128,7 @@
         "date": "2026-05-28",
         "price": 51.63
       },
-      "distanceToFirstReclaimPct": -13.2,
+      "distanceToFirstReclaimPct": -13.1,
       "chart": [
         {
           "date": "2026-04-20",
@@ -14546,7 +14546,7 @@
         {
           "date": "2026-07-15",
           "open": 25.73,
-          "close": 25.635,
+          "close": 25.66,
           "high": 26.6648,
           "low": 25.32
         }
@@ -14649,12 +14649,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 77.26,
-      "dailyChangePct": -2,
-      "return5dPct": -7.3,
-      "return20dPct": -29.3,
-      "drawdownFrom52wHighPct": -48.8,
-      "drawdownFromTrackingHighPct": -48.6,
+      "lastClose": 77.435,
+      "dailyChangePct": -1.7,
+      "return5dPct": -7.1,
+      "return20dPct": -29.1,
+      "drawdownFrom52wHighPct": -48.7,
+      "drawdownFromTrackingHighPct": -48.5,
       "high52w": 151,
       "trackingWindow": {
         "weeks": 12,
@@ -14720,7 +14720,7 @@
         "date": "2026-05-27",
         "price": 150.23
       },
-      "distanceToFirstReclaimPct": -23.1,
+      "distanceToFirstReclaimPct": -22.9,
       "chart": [
         {
           "date": "2026-04-20",
@@ -15138,7 +15138,7 @@
         {
           "date": "2026-07-15",
           "open": 78.94,
-          "close": 77.26,
+          "close": 77.435,
           "high": 81.05,
           "low": 76.785
         }
@@ -15221,12 +15221,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 16.185,
-      "dailyChangePct": -0.6,
-      "return5dPct": 8.9,
-      "return20dPct": -5.4,
+      "lastClose": 16.22,
+      "dailyChangePct": -0.4,
+      "return5dPct": 9.2,
+      "return20dPct": -5.2,
       "drawdownFrom52wHighPct": -77.4,
-      "drawdownFromTrackingHighPct": -30.6,
+      "drawdownFromTrackingHighPct": -30.4,
       "high52w": 71.74,
       "trackingWindow": {
         "weeks": 12,
@@ -15292,7 +15292,7 @@
         "date": "2026-04-22",
         "price": 23.31
       },
-      "distanceToFirstReclaimPct": 17.3,
+      "distanceToFirstReclaimPct": 17.5,
       "chart": [
         {
           "date": "2026-04-20",
@@ -15710,7 +15710,7 @@
         {
           "date": "2026-07-15",
           "open": 16.785,
-          "close": 16.185,
+          "close": 16.22,
           "high": 16.94,
           "low": 15.97
         }
@@ -15825,11 +15825,11 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 135.92,
+      "lastClose": 136,
       "dailyChangePct": -0.1,
       "return5dPct": -8.3,
       "return20dPct": -29.4,
-      "drawdownFrom52wHighPct": -39.8,
+      "drawdownFrom52wHighPct": -39.7,
       "drawdownFromTrackingHighPct": -35.7,
       "high52w": 225.64,
       "trackingWindow": {
@@ -15856,7 +15856,7 @@
       },
       "bottom": {
         "date": "2026-07-15",
-        "price": 135.92
+        "price": 136
       },
       "firstReclaim": {
         "date": "2026-07-09",
@@ -15896,7 +15896,7 @@
         "date": "2026-06-16",
         "price": 211.39
       },
-      "distanceToFirstReclaimPct": -10.7,
+      "distanceToFirstReclaimPct": -10.6,
       "chart": [
         {
           "date": "2026-06-12",
@@ -16048,7 +16048,7 @@
         {
           "date": "2026-07-15",
           "open": 137.505,
-          "close": 135.92,
+          "close": 136,
           "high": 139.34,
           "low": 135.84
         }
@@ -16091,7 +16091,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-15 @ 135.92; 1차 2026-07-09 @ 152.16; 2차 2026-07-02 @ 162; 3차 2026-06-30 @ 170.86; breakout 2026-06-16 @ 211.39"
+      "reason": "관망: bottom 2026-07-15 @ 136; 1차 2026-07-09 @ 152.16; 2차 2026-07-02 @ 162; 3차 2026-06-30 @ 170.86; breakout 2026-06-16 @ 211.39"
     },
     {
       "ticker": "SKHY",
@@ -16099,12 +16099,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 173.62,
-      "dailyChangePct": -10.5,
+      "lastClose": 174.43,
+      "dailyChangePct": -10.1,
       "return5dPct": null,
       "return20dPct": null,
-      "drawdownFrom52wHighPct": -10.9,
-      "drawdownFromTrackingHighPct": -10.5,
+      "drawdownFrom52wHighPct": -10.5,
+      "drawdownFromTrackingHighPct": -10.1,
       "high52w": 194.8,
       "trackingWindow": {
         "weeks": 12,
@@ -16152,7 +16152,7 @@
         "date": "2026-07-14",
         "price": 193.92
       },
-      "distanceToFirstReclaimPct": 3.3,
+      "distanceToFirstReclaimPct": 3.8,
       "chart": [
         {
           "date": "2026-07-10",
@@ -16178,7 +16178,7 @@
         {
           "date": "2026-07-15",
           "open": 181.954,
-          "close": 173.62,
+          "close": 174.43,
           "high": 187.9499,
           "low": 171.2
         }
@@ -16197,12 +16197,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 548.27,
-      "dailyChangePct": -1,
-      "return5dPct": -0.6,
+      "lastClose": 548.8,
+      "dailyChangePct": -0.9,
+      "return5dPct": -0.5,
       "return20dPct": -8,
-      "drawdownFrom52wHighPct": -16.4,
-      "drawdownFromTrackingHighPct": -16.3,
+      "drawdownFrom52wHighPct": -16.3,
+      "drawdownFromTrackingHighPct": -16.2,
       "high52w": 655.95,
       "trackingWindow": {
         "weeks": 12,
@@ -16668,7 +16668,7 @@
         {
           "date": "2026-07-15",
           "open": 575.87,
-          "close": 548.27,
+          "close": 548.8,
           "high": 575.87,
           "low": 546.29
         }
@@ -16775,12 +16775,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 213.785,
+      "lastClose": 213.845,
       "dailyChangePct": -0.2,
       "return5dPct": -0.4,
       "return20dPct": 1,
       "drawdownFrom52wHighPct": -1.2,
-      "drawdownFromTrackingHighPct": -0.6,
+      "drawdownFromTrackingHighPct": -0.5,
       "high52w": 216.37,
       "trackingWindow": {
         "weeks": 12,
@@ -17255,7 +17255,7 @@
         {
           "date": "2026-07-15",
           "open": 213.75,
-          "close": 213.785,
+          "close": 213.845,
           "high": 214.155,
           "low": 213.35
         }
@@ -17342,7 +17342,7 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 32.4299,
+      "lastClose": 32.4301,
       "dailyChangePct": -0.4,
       "return5dPct": -0.3,
       "return20dPct": -1.2,
@@ -17831,7 +17831,7 @@
         {
           "date": "2026-07-15",
           "open": 32.25,
-          "close": 32.4299,
+          "close": 32.4301,
           "high": 32.5,
           "low": 32.21
         }
@@ -17926,10 +17926,10 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 36.0424,
+      "lastClose": 36.055,
       "dailyChangePct": 0.5,
-      "return5dPct": 0.1,
-      "return20dPct": -5.8,
+      "return5dPct": 0.2,
+      "return20dPct": -5.7,
       "drawdownFrom52wHighPct": -13.6,
       "drawdownFromTrackingHighPct": -13.4,
       "high52w": 41.71,
@@ -17997,7 +17997,7 @@
         "date": "2026-05-13",
         "price": 41.63
       },
-      "distanceToFirstReclaimPct": -2.4,
+      "distanceToFirstReclaimPct": -2.3,
       "chart": [
         {
           "date": "2026-04-20",
@@ -18415,7 +18415,7 @@
         {
           "date": "2026-07-15",
           "open": 36.19,
-          "close": 36.0424,
+          "close": 36.055,
           "high": 36.3352,
           "low": 36.0164
         }
@@ -18518,7 +18518,7 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 56.705,
+      "lastClose": 56.7177,
       "dailyChangePct": 0.2,
       "return5dPct": 0.3,
       "return20dPct": 0.6,
@@ -19007,7 +19007,7 @@
         {
           "date": "2026-07-15",
           "open": 56.69,
-          "close": 56.705,
+          "close": 56.7177,
           "high": 56.745,
           "low": 56.56
         }
@@ -19673,10 +19673,10 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 24.795,
+      "lastClose": 24.8081,
       "dailyChangePct": -1.6,
       "return5dPct": -6.8,
-      "return20dPct": -23.7,
+      "return20dPct": -23.6,
       "drawdownFrom52wHighPct": -41.9,
       "drawdownFromTrackingHighPct": -40.8,
       "high52w": 42.68,
@@ -19704,7 +19704,7 @@
       },
       "bottom": {
         "date": "2026-07-15",
-        "price": 24.795
+        "price": 24.8081
       },
       "firstReclaim": {
         "date": "2026-07-14",
@@ -20162,7 +20162,7 @@
         {
           "date": "2026-07-15",
           "open": 25.26,
-          "close": 24.795,
+          "close": 24.8081,
           "high": 25.65,
           "low": 24.75
         }
@@ -20241,7 +20241,7 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-15 @ 24.795; 1차 2026-07-14 @ 25.21; 2차 2026-07-09 @ 26.69; 3차 2026-06-30 @ 30.38; breakout 2026-05-27 @ 41.89"
+      "reason": "관망: bottom 2026-07-15 @ 24.8081; 1차 2026-07-14 @ 25.21; 2차 2026-07-09 @ 26.69; 3차 2026-06-30 @ 30.38; breakout 2026-05-27 @ 41.89"
     },
     {
       "ticker": "DRAM",
@@ -20249,12 +20249,12 @@
       "market": "us",
       "dataStatus": "ok",
       "dataDate": "2026-07-15",
-      "lastClose": 56.62,
-      "dailyChangePct": -7.5,
-      "return5dPct": -8.7,
-      "return20dPct": -20.3,
-      "drawdownFrom52wHighPct": -30.4,
-      "drawdownFromTrackingHighPct": -29.9,
+      "lastClose": 56.69,
+      "dailyChangePct": -7.4,
+      "return5dPct": -8.6,
+      "return20dPct": -20.2,
+      "drawdownFrom52wHighPct": -30.3,
+      "drawdownFromTrackingHighPct": -29.8,
       "high52w": 81.34,
       "trackingWindow": {
         "weeks": 12,
@@ -20302,7 +20302,7 @@
         "date": "2026-06-22",
         "price": 80.72
       },
-      "distanceToFirstReclaimPct": -18.8,
+      "distanceToFirstReclaimPct": -18.7,
       "chart": [
         {
           "date": "2026-04-20",
@@ -20720,7 +20720,7 @@
         {
           "date": "2026-07-15",
           "open": 60.63,
-          "close": 56.62,
+          "close": 56.69,
           "high": 60.69,
           "low": 56.3175
         }
