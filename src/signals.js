@@ -5,6 +5,7 @@ const DEFAULT_MIN_SWING_PCT = 5;
 const TARGET_PEAK_WINDOW = 2;
 const TRACKING_WEEKS = 12;
 const TRACKING_TRADING_DAYS = TRACKING_WEEKS * 5;
+const BOTTOM_LOOKBACK_TRADING_DAYS = 30;
 
 export function buildStockSignal(item, marketItem, regime) {
   if (!marketItem || marketItem.dataStatus !== "ok") {
@@ -25,7 +26,7 @@ export function buildStockSignal(item, marketItem, regime) {
   const targetLows = detectLocalLows(trackingHistory, TARGET_PEAK_WINDOW);
   const latestClose = Number(marketItem.lastClose);
   const latestDate = marketItem.dataDate;
-  const lastLow = resolveCurrentBottom(trackingHistory, targetLows);
+  const lastLow = resolveCurrentBottom(trackingHistory);
   const targets = buildReclaimTargets(trackingHistory, lastLow);
   const firstReclaim = targets[0] || null;
   const secondReclaim = targets[1] || null;
@@ -162,31 +163,15 @@ function detectLocalLows(history, window = TARGET_PEAK_WINDOW) {
   return lows;
 }
 
-function resolveCurrentBottom(history, localLows) {
-  const latest = history.at(-1);
-  const latestClose = Number(latest?.close);
-  const latestBottom = latest && Number.isFinite(latestClose)
-    ? {
-        type: "low",
-        index: history.length - 1,
-        date: latest.date,
-        price: rounded(latestClose, 4)
-      }
-    : null;
-  const lastLocalLow = localLows.at(-1);
-  if (!latestBottom) return lastLocalLow || buildTrackingLow(history);
-  if (!lastLocalLow || latestBottom.price <= Number(lastLocalLow.price)) return latestBottom;
-  return lastLocalLow;
-}
-
-function buildTrackingLow(history) {
-  return history.reduce((low, bar, index) => {
+function resolveCurrentBottom(history) {
+  const startIndex = Math.max(0, history.length - BOTTOM_LOOKBACK_TRADING_DAYS);
+  return history.slice(startIndex).reduce((low, bar, offset) => {
     const close = Number(bar.close);
     if (!Number.isFinite(close)) return low;
     if (!low || close <= Number(low.price)) {
       return {
         type: "low",
-        index,
+        index: startIndex + offset,
         date: bar.date,
         price: rounded(close, 4)
       };

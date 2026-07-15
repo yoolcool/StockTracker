@@ -28,6 +28,13 @@ for (const stock of report.stocks) {
   assert(stock.nextTrigger, `nextTrigger missing for ${stock.ticker}`);
   assert(Array.isArray(stock.chart), `chart data missing for ${stock.ticker}`);
   assert(stock.chart.length <= 60, `chart data exceeds 12-week window for ${stock.ticker}`);
+  const bottomWindow = stock.chart.slice(-30);
+  const expectedBottom = bottomWindow.reduce(
+    (lowest, bar) => (!lowest || Number(bar.close) <= Number(lowest.close) ? bar : lowest),
+    null
+  );
+  assert(stock.bottom?.date === expectedBottom?.date, `bottom is not the latest 30-day low for ${stock.ticker}`);
+  assert(Number(stock.bottom?.price) === Number(expectedBottom?.close), `bottom price mismatch for ${stock.ticker}`);
   assert(stock.trackingWindow?.weeks === 12, `tracking window missing for ${stock.ticker}`);
   assert(Array.isArray(stock.targets), `target levels missing for ${stock.ticker}`);
   assert(stock.breakoutTarget, `breakout target missing for ${stock.ticker}`);
