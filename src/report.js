@@ -37,6 +37,8 @@ export function renderReport(report) {
       <div class="pill">${report.stocks.length}/${report.watchlistMaxItems} tracked</div>
     </section>
 
+    ${renderPriorityLegend()}
+
     ${stockGroups.map((group) => renderStockGroup(group, report.marketProfiles, report.regimes)).join("")}
 
     <section class="details">
@@ -98,7 +100,7 @@ function groupStocksForDisplay(stocks) {
   const waiting = [];
   stocks.forEach((stock) => {
     const distance = triggerDistancePct(stock, stock.nextTrigger);
-    if (stagePriority(stock.stage) === 0) {
+    if (stagePriority(stock.stage) <= 3) {
       signal.push(stock);
     } else if (distance !== null && distance >= 0 && distance <= 5) {
       near.push(stock);
@@ -111,6 +113,16 @@ function groupStocksForDisplay(stocks) {
     { title: "돌파 임박", description: "다음 목표까지 5% 이내", stocks: near },
     { title: "대기", description: "아직 목표가까지 거리가 있는 종목", stocks: waiting }
   ].filter((group) => group.stocks.length);
+}
+
+function renderPriorityLegend() {
+  return `<div class="priority-legend" aria-label="종목 중요도 순서">
+    <strong>중요도 순서</strong>
+    <span class="stage-breakout">1 신고가 돌파</span>
+    <span class="stage-three">2 3차 목표가 돌파</span>
+    <span class="stage-two">3 2차 목표가 돌파</span>
+    <span class="stage-one">4 1차 목표가 돌파</span>
+  </div>`;
 }
 
 function renderStockGroup(group, marketProfiles, regimes) {
@@ -129,9 +141,12 @@ function renderStockGroup(group, marketProfiles, regimes) {
 }
 
 function stagePriority(stage = "") {
-  if (/최대|3차|2차|1차/.test(stage)) return 0;
-  if (/관망/.test(stage)) return 1;
-  return 2;
+  if (/최대|신고가/.test(stage)) return 0;
+  if (/3차/.test(stage)) return 1;
+  if (/2차/.test(stage)) return 2;
+  if (/1차/.test(stage)) return 3;
+  if (/관망/.test(stage)) return 4;
+  return 5;
 }
 
 function triggerDistancePct(stock, trigger) {
@@ -142,7 +157,7 @@ function triggerDistancePct(stock, trigger) {
 }
 
 function proximityMeta(distance, stock) {
-  if (stagePriority(stock?.stage) === 0) return { label: "신호 발생", className: "signal" };
+  if (stagePriority(stock?.stage) <= 3) return { label: "신호 발생", className: "signal" };
   if (distance === null) return { label: "대기", className: "wait" };
   if (distance < 0) return { label: "목표 돌파", className: "signal" };
   if (distance <= 2) return { label: "돌파 임박", className: "imminent" };
@@ -176,20 +191,25 @@ function renderStockCard(stock, profile, regime) {
   const distance = triggerDistancePct(stock, trigger);
   const rebound = bottomReboundPct(stock);
   const proximity = proximityMeta(distance, stock);
-  return `<article class="stock-card ${stageClass(stock.stage)}">
+  const stageTone = stageClass(stock.stage);
+  const displayStage = stageLabel(stock.stage);
+  return `<article class="stock-card ${stageTone}" data-stage-rank="${stagePriority(stock.stage)}">
     <div class="stock-head">
       <div>
         <span class="ticker">${escapeHtml(stock.ticker)}</span>
         <h3>${escapeHtml(stock.name)}</h3>
       </div>
-      <span class="market-badge">${escapeHtml((stock.market || "").toUpperCase())}</span>
+      <div class="stock-badges">
+        <span class="market-badge">${escapeHtml((stock.market || "").toUpperCase())}</span>
+        <span class="achievement-badge ${stageTone}">${escapeHtml(displayStage)}</span>
+      </div>
     </div>
     <div class="price-line">
       <strong>${money(stock.lastClose, currency)}</strong>
       <span class="${Number(stock.dailyChangePct) >= 0 ? "up" : "down"}">${pct(stock.dailyChangePct)}</span>
     </div>
     <div class="signal-strip">
-      <span class="${stageClass(stock.stage)}">${escapeHtml(stock.stage)}</span>
+      <span class="${stageTone}">${escapeHtml(displayStage)}</span>
       <strong>${distance === null ? "다음 목표 n/a" : `다음 목표까지 ${pct(distance)}`}</strong>
       <span class="proximity-badge ${proximity.className}">${escapeHtml(proximity.label)}</span>
       <span>바닥 이후 ${pct(rebound)}</span>
@@ -500,10 +520,20 @@ function toneClass(label) {
 }
 
 function stageClass(stage) {
-  if (/(전량|2차)/.test(stage)) return "stage-hot";
-  if (/1차/.test(stage)) return "stage-watch";
+  if (/최대|신고가/.test(stage)) return "stage-breakout";
+  if (/3차/.test(stage)) return "stage-three";
+  if (/2차/.test(stage)) return "stage-two";
+  if (/1차/.test(stage)) return "stage-one";
   if (/데이터/.test(stage)) return "stage-missing";
   return "stage-calm";
+}
+
+function stageLabel(stage = "") {
+  if (/최대|신고가/.test(stage)) return "신고가 돌파";
+  if (/3차/.test(stage)) return "3차 목표가 돌파";
+  if (/2차/.test(stage)) return "2차 목표가 돌파";
+  if (/1차/.test(stage)) return "1차 목표가 돌파";
+  return stage;
 }
 
 function safeId(value) {
@@ -524,6 +554,10 @@ function styles() {
   --amber: #9a6700;
   --blue: #1c5d99;
   --violet: #6b4fd6;
+  --breakout: #6d28d9;
+  --stage-three: #047857;
+  --stage-two: #1d4ed8;
+  --stage-one: #b45309;
 }
 * { box-sizing: border-box; }
 body {
@@ -596,6 +630,37 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
 .muted { color: var(--muted); line-height: 1.5; }
 .small { font-size: 12px; }
 .section-header { margin: 28px 0 14px; }
+.priority-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+}
+.priority-legend strong { margin-right: 4px; color: var(--ink); }
+.priority-legend span,
+.achievement-badge {
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: #fff;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.priority-legend .stage-breakout,
+.achievement-badge.stage-breakout { background: var(--breakout); }
+.priority-legend .stage-three,
+.achievement-badge.stage-three { background: var(--stage-three); }
+.priority-legend .stage-two,
+.achievement-badge.stage-two { background: var(--stage-two); }
+.priority-legend .stage-one,
+.achievement-badge.stage-one { background: var(--stage-one); }
+.achievement-badge.stage-calm { background: #7a858d; }
+.achievement-badge.stage-missing { background: var(--red); }
 .stock-section {
   margin-top: 18px;
 }
@@ -628,11 +693,34 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 16px;
 }
-.stock-card { border-left: 5px solid var(--line); }
-.stock-card.stage-hot { border-left-color: var(--green); }
-.stock-card.stage-watch { border-left-color: var(--blue); }
+.stock-card { border-left: 7px solid var(--line); }
+.stock-card.stage-breakout {
+  border-left-color: var(--breakout);
+  background: linear-gradient(110deg, #f5f0ff 0, #fff 23%);
+  box-shadow: 0 3px 14px rgba(109, 40, 217, 0.12);
+}
+.stock-card.stage-three {
+  border-left-color: var(--stage-three);
+  background: linear-gradient(110deg, #edf9f4 0, #fff 23%);
+}
+.stock-card.stage-two {
+  border-left-color: var(--stage-two);
+  background: linear-gradient(110deg, #eff5ff 0, #fff 23%);
+}
+.stock-card.stage-one {
+  border-left-color: var(--stage-one);
+  background: linear-gradient(110deg, #fff7ed 0, #fff 23%);
+}
 .stock-card.stage-missing { border-left-color: var(--red); }
 .stock-head { align-items: start; }
+.stock-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+}
+.achievement-badge { font-size: 11px; }
 .price-line { margin: 16px 0 10px; }
 .price-line strong { font-size: 26px; }
 .up { color: var(--green); }
@@ -662,14 +750,10 @@ main { padding: 24px clamp(16px, 4vw, 48px) 48px; }
   color: var(--blue);
   white-space: nowrap;
 }
-.signal-strip span:first-child.stage-hot {
-  background: #e8f4ee;
-  color: var(--green);
-}
-.signal-strip span:first-child.stage-watch {
-  background: #e8f0f7;
-  color: var(--blue);
-}
+.signal-strip span:first-child.stage-breakout { background: #eee7ff; color: var(--breakout); }
+.signal-strip span:first-child.stage-three { background: #e5f5ee; color: var(--stage-three); }
+.signal-strip span:first-child.stage-two { background: #e8f0ff; color: var(--stage-two); }
+.signal-strip span:first-child.stage-one { background: #fff0dc; color: var(--stage-one); }
 .signal-strip span:first-child.stage-calm {
   background: #f4f0e7;
   color: var(--amber);

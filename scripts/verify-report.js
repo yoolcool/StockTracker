@@ -14,11 +14,18 @@ const report = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 assert(html.includes("Stock Tracker"), "HTML title/header missing");
 assert(html.includes("차트 기반 매수 타이밍"), "HTML stock signal section missing");
 assert(html.includes("price-chart"), "HTML price chart missing");
+assert(html.includes("중요도 순서"), "stage priority legend missing");
 assert(html.includes("시장 국면 세부"), "HTML regime details missing");
 assert(report.regimes?.us?.label, "US regime missing");
 assert(report.regimes?.kr?.label, "KR regime missing");
 assert(Array.isArray(report.stocks), "stocks array missing");
 assert(report.stocks.length > 0, "no stock signals generated");
+
+const renderedStageRanks = [...html.matchAll(/data-stage-rank="(\d+)"/g)].map((match) => Number(match[1]));
+assert(renderedStageRanks.length === report.stocks.length, "rendered stock card count mismatch");
+for (let index = 1; index < renderedStageRanks.length; index += 1) {
+  assert(renderedStageRanks[index - 1] <= renderedStageRanks[index], "stock cards are not sorted by stage priority");
+}
 
 for (const stock of report.stocks) {
   assert(stock.ticker, "stock ticker missing");
