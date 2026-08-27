@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T22:55:54.592Z",
-  "generatedAtKst": "2026. 8. 26. AM 7:55",
-  "tradingDate": "2026-08-25",
+  "generatedAt": "2026-08-27T03:28:02.470Z",
+  "generatedAtKst": "2026. 8. 27. PM 12:28",
+  "tradingDate": "2026-08-27",
   "watchlistMaxItems": 36,
   "marketProfiles": {
     "us": {
@@ -164,16 +164,16 @@
     "us": {
       "market": "us",
       "label": "기간 조정",
-      "score": 73.5,
+      "score": 74.8,
       "actionBias": "추격 보류, 돌파 확인",
-      "conclusion": "장기 추세는 유지되지만 단기 추세가 둔화되어 기간 조정으로 본다. 기술 84.6점, 매크로 53점.",
+      "conclusion": "장기 추세는 유지되지만 단기 추세가 둔화되어 기간 조정으로 본다. 기술 85.7점, 매크로 54.7점.",
       "change": {
         "status": "unchanged",
-        "scoreDelta": 1.5,
-        "summary": "기간 조정 maintained (+1.5 pts)."
+        "scoreDelta": 1.3,
+        "summary": "기간 조정 maintained (+1.3 pts)."
       },
       "technical": {
-        "score": 84.6,
+        "score": 85.7,
         "label": "상승 추세 우위",
         "benchmarks": [
           {
@@ -186,18 +186,18 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 100,
-            "lastClose": 7677.2798,
-            "dataDate": "2026-08-25",
-            "dailyChangePct": 0.3,
-            "return5dPct": -0.2,
-            "return20dPct": 3.3,
-            "return60dPct": 1.3,
+            "lastClose": 7675.7002,
+            "dataDate": "2026-08-26",
+            "dailyChangePct": 0,
+            "return5dPct": -0.4,
+            "return20dPct": 4.9,
+            "return60dPct": 1,
             "drawdownFrom52wHighPct": -1.8,
-            "ma50": 7551.14,
-            "ma200": 7104.54,
+            "ma50": 7553.56,
+            "ma200": 7109.31,
             "aboveMa50": true,
             "aboveMa200": true,
-            "reason": "above MA50, above MA200, 20d 3.3%, score 100"
+            "reason": "above MA50, above MA200, 20d 4.9%, score 100"
           },
           {
             "ticker": "^NDX",
@@ -208,24 +208,24 @@
             "weight": 0.5,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 69.1,
-            "lastClose": 29209.2285,
-            "dataDate": "2026-08-25",
-            "dailyChangePct": 0.6,
-            "return5dPct": -1,
-            "return20dPct": 5.2,
-            "return60dPct": -3.7,
+            "score": 71.3,
+            "lastClose": 29224.5215,
+            "dataDate": "2026-08-26",
+            "dailyChangePct": 0.1,
+            "return5dPct": -0.7,
+            "return20dPct": 7.5,
+            "return60dPct": -4.2,
             "drawdownFrom52wHighPct": -5,
-            "ma50": 29307.9,
-            "ma200": 26862.74,
+            "ma50": 29281.52,
+            "ma200": 26883.22,
             "aboveMa50": false,
             "aboveMa200": true,
-            "reason": "below MA50, above MA200, 20d 5.2%, score 69.1"
+            "reason": "below MA50, above MA200, 20d 7.5%, score 71.3"
           }
         ]
       },
       "macro": {
-        "score": 53,
+        "score": 54.7,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -235,11 +235,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 49.8,
-            "dataDate": "2026-08-25",
-            "return5dPct": -1.4,
-            "return20dPct": 0.8,
-            "reason": "lower is risk-on; 20d 0.8%, 5d -1.4%, score 49.8"
+            "score": 48.4,
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.2,
+            "return20dPct": 0.9,
+            "reason": "lower is risk-on; 20d 0.9%, 5d 0.2%, score 48.4"
           },
           {
             "ticker": "^IRX",
@@ -248,11 +248,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 52.4,
-            "dataDate": "2026-08-25",
-            "return5dPct": 0,
-            "return20dPct": -1.5,
-            "reason": "lower is risk-on; 20d -1.5%, 5d 0%, score 52.4"
+            "score": 48.8,
+            "dataDate": "2026-08-26",
+            "return5dPct": -0.3,
+            "return20dPct": 0.9,
+            "reason": "lower is risk-on; 20d 0.9%, 5d -0.3%, score 48.8"
           },
           {
             "ticker": "TLT",
@@ -261,11 +261,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 50.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": 2.2,
-            "return20dPct": -0.9,
-            "reason": "higher is risk-on; 20d -0.9%, 5d 2.2%, score 50.3"
+            "score": 51,
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.3,
+            "return20dPct": 0.5,
+            "reason": "higher is risk-on; 20d 0.5%, 5d 0.3%, score 51"
           },
           {
             "ticker": "TIP",
@@ -275,10 +275,10 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 50,
-            "dataDate": "2026-08-25",
-            "return5dPct": 0.6,
-            "return20dPct": 0,
-            "reason": "context signal; 20d 0%, 5d 0.6%, score 50"
+            "dataDate": "2026-08-26",
+            "return5dPct": 0,
+            "return20dPct": -0.2,
+            "reason": "context signal; 20d -0.2%, 5d 0%, score 50"
           },
           {
             "ticker": "USO",
@@ -287,11 +287,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 45.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": -3.5,
-            "return20dPct": 4.7,
-            "reason": "lower is risk-on; 20d 4.7%, 5d -3.5%, score 45.3"
+            "score": 54.6,
+            "dataDate": "2026-08-26",
+            "return5dPct": -2.7,
+            "return20dPct": -1.5,
+            "reason": "lower is risk-on; 20d -1.5%, 5d -2.7%, score 54.6"
           },
           {
             "ticker": "GLD",
@@ -301,10 +301,10 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 50,
-            "dataDate": "2026-08-25",
-            "return5dPct": 7.4,
-            "return20dPct": 15.9,
-            "reason": "context signal; 20d 15.9%, 5d 7.4%, score 50"
+            "dataDate": "2026-08-26",
+            "return5dPct": 1.8,
+            "return20dPct": 13.5,
+            "reason": "context signal; 20d 13.5%, 5d 1.8%, score 50"
           },
           {
             "ticker": "UUP",
@@ -313,11 +313,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 54.1,
-            "dataDate": "2026-08-25",
-            "return5dPct": -0.7,
-            "return20dPct": -2.2,
-            "reason": "lower is risk-on; 20d -2.2%, 5d -0.7%, score 54.1"
+            "score": 51.8,
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.5,
+            "return20dPct": -1.4,
+            "reason": "lower is risk-on; 20d -1.4%, 5d 0.5%, score 51.8"
           },
           {
             "ticker": "HYG",
@@ -327,10 +327,10 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 51.4,
-            "dataDate": "2026-08-25",
-            "return5dPct": 0.5,
-            "return20dPct": 0.6,
-            "reason": "higher is risk-on; 20d 0.6%, 5d 0.5%, score 51.4"
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.2,
+            "return20dPct": 0.8,
+            "reason": "higher is risk-on; 20d 0.8%, 5d 0.2%, score 51.4"
           },
           {
             "ticker": "LQD",
@@ -340,10 +340,10 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 50,
-            "dataDate": "2026-08-25",
-            "return5dPct": 1,
-            "return20dPct": 0,
-            "reason": "context signal; 20d 0%, 5d 1%, score 50"
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.2,
+            "return20dPct": 0.5,
+            "reason": "context signal; 20d 0.5%, 5d 0.2%, score 50"
           },
           {
             "ticker": "^VIX",
@@ -352,11 +352,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 76.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": -2.5,
-            "return20dPct": -15.2,
-            "reason": "lower is risk-on; 20d -15.2%, 5d -2.5%, score 76.3"
+            "score": 90.6,
+            "dataDate": "2026-08-26",
+            "return5dPct": 2.1,
+            "return20dPct": -26.4,
+            "reason": "lower is risk-on; 20d -26.4%, 5d 2.1%, score 90.6"
           }
         ]
       },
@@ -373,18 +373,18 @@
     },
     "kr": {
       "market": "kr",
-      "label": "중립-하락",
-      "score": 31.6,
-      "actionBias": "반등 확인 우선",
-      "conclusion": "시장 국면이 방어 쪽으로 기울었다. 반등 확인 전까지 매수 속도를 낮춘다.",
+      "label": "중립",
+      "score": 49.6,
+      "actionBias": "방향성 확인",
+      "conclusion": "시장 방향성이 중립이다. 종목별 트리거와 현금 비중을 함께 확인한다.",
       "change": {
-        "status": "unchanged",
-        "scoreDelta": -1.1,
-        "summary": "중립-하락 maintained (-1.1 pts)."
+        "status": "changed",
+        "scoreDelta": 18,
+        "summary": "중립-하락 -> 중립"
       },
       "technical": {
-        "score": 16.5,
-        "label": "하락 추세",
+        "score": 42.1,
+        "label": "방향성 중립",
         "benchmarks": [
           {
             "ticker": "^KS11",
@@ -395,19 +395,19 @@
             "weight": 0.55,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 30,
-            "lastClose": 6696.96,
-            "dataDate": "2026-08-24",
-            "dailyChangePct": -3.1,
-            "return5dPct": -4,
-            "return20dPct": 0.1,
-            "return60dPct": -18.6,
-            "drawdownFrom52wHighPct": -28.6,
-            "ma50": 7299.59,
-            "ma200": 5942.64,
+            "score": 51.4,
+            "lastClose": 6948.8398,
+            "dataDate": "2026-08-27",
+            "dailyChangePct": 2.1,
+            "return5dPct": 1.4,
+            "return20dPct": 22.7,
+            "return60dPct": -20.9,
+            "drawdownFrom52wHighPct": -26,
+            "ma50": 7201.66,
+            "ma200": 5983.06,
             "aboveMa50": false,
             "aboveMa200": true,
-            "reason": "below MA50, above MA200, 20d 0.1%, score 30"
+            "reason": "below MA50, above MA200, 20d 22.7%, score 51.4"
           },
           {
             "ticker": "^KQ11",
@@ -418,24 +418,24 @@
             "weight": 0.45,
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 0,
-            "lastClose": 813.33,
-            "dataDate": "2026-08-24",
-            "dailyChangePct": 1.4,
-            "return5dPct": -5.9,
-            "return20dPct": 8.7,
-            "return60dPct": -28.2,
-            "drawdownFrom52wHighPct": -33.8,
-            "ma50": 840.22,
-            "ma200": 993.19,
-            "aboveMa50": false,
+            "score": 30.7,
+            "lastClose": 836.02,
+            "dataDate": "2026-08-27",
+            "dailyChangePct": 1.1,
+            "return5dPct": -0.6,
+            "return20dPct": 26.2,
+            "return60dPct": -20.4,
+            "drawdownFrom52wHighPct": -32,
+            "ma50": 828.38,
+            "ma200": 992.11,
+            "aboveMa50": true,
             "aboveMa200": false,
-            "reason": "below MA50, below MA200, 20d 8.7%, score 0"
+            "reason": "above MA50, below MA200, 20d 26.2%, score 30.7"
           }
         ]
       },
       "macro": {
-        "score": 59.7,
+        "score": 63.4,
         "label": "매크로 중립-우호",
         "signals": [
           {
@@ -445,11 +445,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 59.6,
-            "dataDate": "2026-08-25",
-            "return5dPct": -2.2,
-            "return20dPct": -4.9,
-            "reason": "lower is risk-on; 20d -4.9%, 5d -2.2%, score 59.6"
+            "score": 57.2,
+            "dataDate": "2026-08-27",
+            "return5dPct": -0.6,
+            "return20dPct": -4.2,
+            "reason": "lower is risk-on; 20d -4.2%, 5d -0.6%, score 57.2"
           },
           {
             "ticker": "^TNX",
@@ -458,11 +458,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 49.8,
-            "dataDate": "2026-08-25",
-            "return5dPct": -1.4,
-            "return20dPct": 0.8,
-            "reason": "lower is risk-on; 20d 0.8%, 5d -1.4%, score 49.8"
+            "score": 48.4,
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.2,
+            "return20dPct": 0.9,
+            "reason": "lower is risk-on; 20d 0.9%, 5d 0.2%, score 48.4"
           },
           {
             "ticker": "TLT",
@@ -471,11 +471,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 50.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": 2.2,
-            "return20dPct": -0.9,
-            "reason": "higher is risk-on; 20d -0.9%, 5d 2.2%, score 50.3"
+            "score": 51,
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.3,
+            "return20dPct": 0.5,
+            "reason": "higher is risk-on; 20d 0.5%, 5d 0.3%, score 51"
           },
           {
             "ticker": "USO",
@@ -484,11 +484,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 45.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": -3.5,
-            "return20dPct": 4.7,
-            "reason": "lower is risk-on; 20d 4.7%, 5d -3.5%, score 45.3"
+            "score": 54.6,
+            "dataDate": "2026-08-26",
+            "return5dPct": -2.7,
+            "return20dPct": -1.5,
+            "reason": "lower is risk-on; 20d -1.5%, 5d -2.7%, score 54.6"
           },
           {
             "ticker": "HYG",
@@ -498,10 +498,10 @@
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
             "score": 51.4,
-            "dataDate": "2026-08-25",
-            "return5dPct": 0.5,
-            "return20dPct": 0.6,
-            "reason": "higher is risk-on; 20d 0.6%, 5d 0.5%, score 51.4"
+            "dataDate": "2026-08-26",
+            "return5dPct": 0.2,
+            "return20dPct": 0.8,
+            "reason": "higher is risk-on; 20d 0.8%, 5d 0.2%, score 51.4"
           },
           {
             "ticker": "^VIX",
@@ -510,11 +510,11 @@
             "riskOnWhen": "down",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 76.3,
-            "dataDate": "2026-08-25",
-            "return5dPct": -2.5,
-            "return20dPct": -15.2,
-            "reason": "lower is risk-on; 20d -15.2%, 5d -2.5%, score 76.3"
+            "score": 90.6,
+            "dataDate": "2026-08-26",
+            "return5dPct": 2.1,
+            "return20dPct": -26.4,
+            "reason": "lower is risk-on; 20d -26.4%, 5d 2.1%, score 90.6"
           },
           {
             "ticker": "EWY",
@@ -523,11 +523,11 @@
             "riskOnWhen": "up",
             "dataStatus": "ok",
             "dataFreshness": "LIVE",
-            "score": 85.1,
-            "dataDate": "2026-08-25",
-            "return5dPct": 5.9,
-            "return20dPct": 19,
-            "reason": "higher is risk-on; 20d 19%, 5d 5.9%, score 85.1"
+            "score": 90.9,
+            "dataDate": "2026-08-26",
+            "return5dPct": 2.7,
+            "return20dPct": 24.2,
+            "reason": "higher is risk-on; 20d 24.2%, 5d 2.7%, score 90.9"
           }
         ]
       },
@@ -549,24 +549,24 @@
       "name": "SK hynix",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 1678000,
-      "dailyChangePct": 0.4,
-      "return5dPct": 1,
-      "return20dPct": -7.6,
-      "drawdownFrom52wHighPct": -43.8,
-      "drawdownFromTrackingHighPct": -42.5,
+      "dataDate": "2026-08-27",
+      "lastClose": 1751500,
+      "dailyChangePct": 3.8,
+      "return5dPct": 3.6,
+      "return20dPct": 25,
+      "drawdownFrom52wHighPct": -41.4,
+      "drawdownFromTrackingHighPct": -40,
       "high52w": 2987000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 2919000
       },
       "priorPeak": {
         "type": "high",
-        "index": 15,
+        "index": 13,
         "date": "2026-06-22",
         "price": 2919000,
         "label": "신고가 목표"
@@ -621,22 +621,8 @@
         "date": "2026-06-22",
         "price": 2919000
       },
-      "distanceToFirstReclaimPct": -7.6,
+      "distanceToFirstReclaimPct": -3.6,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 2352000,
-          "close": 2333000,
-          "high": 2379000,
-          "low": 2290500
-        },
-        {
-          "date": "2026-06-01",
-          "open": 2299000,
-          "close": 2363000,
-          "high": 2398000,
-          "low": 2296000
-        },
         {
           "date": "2026-06-02",
           "open": 2376000,
@@ -1042,14 +1028,24 @@
           "close": 1678000,
           "high": 1687000,
           "low": 1557000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 1668000,
+          "close": 1688000,
+          "high": 1735000,
+          "low": 1662000
+        },
+        {
+          "date": "2026-08-27",
+          "open": 1776000,
+          "close": 1751500,
+          "high": 1788000,
+          "low": 1708000
         }
       ],
       "pivots": {
         "lows": [
-          {
-            "date": "2026-06-08",
-            "price": 1911000
-          },
           {
             "date": "2026-07-30",
             "price": 1322000
@@ -1066,10 +1062,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-23",
-            "price": 2555000
-          },
           {
             "date": "2026-07-02",
             "price": 2187000
@@ -1097,6 +1089,10 @@
           {
             "date": "2026-08-19",
             "price": 1500000
+          },
+          {
+            "date": "2026-08-24",
+            "price": 1671000
           }
         ],
         "targetPeaks": [
@@ -1141,24 +1137,24 @@
       "name": "Samsung Electronics",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 257000,
-      "dailyChangePct": 0,
-      "return5dPct": -4.3,
-      "return20dPct": 1.2,
-      "drawdownFrom52wHighPct": -31.4,
-      "drawdownFromTrackingHighPct": -29.1,
+      "dataDate": "2026-08-27",
+      "lastClose": 268000,
+      "dailyChangePct": 2.5,
+      "return5dPct": -1.1,
+      "return20dPct": 28.5,
+      "drawdownFrom52wHighPct": -28.4,
+      "drawdownFromTrackingHighPct": -26.1,
       "high52w": 374500,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 362500
       },
       "priorPeak": {
         "type": "high",
-        "index": 13,
+        "index": 11,
         "date": "2026-06-18",
         "price": 362500,
         "label": "신고가 목표"
@@ -1213,22 +1209,8 @@
         "date": "2026-06-18",
         "price": 362500
       },
-      "distanceToFirstReclaimPct": 1.2,
+      "distanceToFirstReclaimPct": 5.5,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 309500,
-          "close": 317000,
-          "high": 319000,
-          "low": 305500
-        },
-        {
-          "date": "2026-06-01",
-          "open": 319500,
-          "close": 349000,
-          "high": 354500,
-          "low": 319500
-        },
         {
           "date": "2026-06-02",
           "open": 360500,
@@ -1634,13 +1616,27 @@
           "close": 257000,
           "high": 258000,
           "low": 245000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 256500,
+          "close": 261500,
+          "high": 266500,
+          "low": 255500
+        },
+        {
+          "date": "2026-08-27",
+          "open": 270000,
+          "close": 268000,
+          "high": 271000,
+          "low": 262500
         }
       ],
       "pivots": {
         "lows": [
           {
-            "date": "2026-06-08",
-            "price": 295500
+            "date": "2026-06-23",
+            "price": 310000
           },
           {
             "date": "2026-07-20",
@@ -1666,10 +1662,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-23",
-            "price": 310000
-          },
           {
             "date": "2026-07-02",
             "price": 286000
@@ -1697,6 +1689,10 @@
           {
             "date": "2026-08-19",
             "price": 247500
+          },
+          {
+            "date": "2026-08-25",
+            "price": 257000
           }
         ],
         "targetPeaks": [
@@ -1741,35 +1737,35 @@
       "name": "Hyundai Motor",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 421000,
-      "dailyChangePct": 1.7,
-      "return5dPct": -3.2,
-      "return20dPct": 4.5,
-      "drawdownFrom52wHighPct": -46.2,
-      "drawdownFromTrackingHighPct": -43.9,
+      "dataDate": "2026-08-27",
+      "lastClose": 400000,
+      "dailyChangePct": -2,
+      "return5dPct": -4.2,
+      "return20dPct": 13.2,
+      "drawdownFrom52wHighPct": -48.9,
+      "drawdownFromTrackingHighPct": -45.1,
       "high52w": 783000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
-        "high": 750000
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
+        "high": 729000
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
-        "date": "2026-06-01",
-        "price": 750000,
+        "index": 0,
+        "date": "2026-06-02",
+        "price": 729000,
         "label": "신고가 목표"
       },
-      "stage": "1차 매수",
-      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
+      "stage": "관망",
+      "action": "다음 돌파 가격 대기",
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "2차 목표가",
-        "price": 432000,
-        "date": "2026-07-23"
+        "label": "1차 목표가",
+        "price": 403000,
+        "date": "2026-07-27"
       },
       "bottom": {
         "date": "2026-07-30",
@@ -1810,25 +1806,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-01",
-        "price": 750000
+        "date": "2026-06-02",
+        "price": 729000
       },
-      "distanceToFirstReclaimPct": 4.5,
+      "distanceToFirstReclaimPct": -0.7,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 704000,
-          "close": 723000,
-          "high": 739000,
-          "low": 701000
-        },
-        {
-          "date": "2026-06-01",
-          "open": 736000,
-          "close": 750000,
-          "high": 783000,
-          "low": 727000
-        },
         {
           "date": "2026-06-02",
           "open": 770000,
@@ -2234,6 +2216,20 @@
           "close": 421000,
           "high": 427250,
           "low": 406000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 427000,
+          "close": 408000,
+          "high": 434000,
+          "low": 406500
+        },
+        {
+          "date": "2026-08-27",
+          "open": 411000,
+          "close": 400000,
+          "high": 414000,
+          "low": 396500
         }
       ],
       "pivots": {
@@ -2323,45 +2319,49 @@
           {
             "date": "2026-08-14",
             "price": 453000
+          },
+          {
+            "date": "2026-08-25",
+            "price": 421000
           }
         ]
       },
-      "reason": "1차 매수: bottom 2026-07-30 @ 351000; 1차 2026-07-27 @ 403000; 2차 2026-07-23 @ 432000; 3차 2026-07-15 @ 434000; breakout 2026-06-01 @ 750000"
+      "reason": "관망: bottom 2026-07-30 @ 351000; 1차 2026-07-27 @ 403000; 2차 2026-07-23 @ 432000; 3차 2026-07-15 @ 434000; breakout 2026-06-02 @ 729000"
     },
     {
       "ticker": "036010.KQ",
       "name": "Abico Electronics",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 6840,
-      "dailyChangePct": 3.6,
-      "return5dPct": -6.7,
-      "return20dPct": 17.5,
-      "drawdownFrom52wHighPct": -52,
-      "drawdownFromTrackingHighPct": -47.7,
+      "dataDate": "2026-08-27",
+      "lastClose": 7000,
+      "dailyChangePct": 2.8,
+      "return5dPct": -0.8,
+      "return20dPct": 53.3,
+      "drawdownFrom52wHighPct": -50.9,
+      "drawdownFromTrackingHighPct": -45.1,
       "high52w": 14260,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
-        "high": 13090
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
+        "high": 12740
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
-        "date": "2026-06-01",
-        "price": 13090,
+        "index": 11,
+        "date": "2026-06-18",
+        "price": 12740,
         "label": "신고가 목표"
       },
-      "stage": "2차 매수",
-      "action": "2차 목표가 돌파: 추가 분할 매수 후보",
+      "stage": "3차 매수",
+      "action": "3차 목표가 돌파: 최대 모멘텀 전 단계",
       "confidence": "HIGH",
       "nextTrigger": {
-        "label": "3차 목표가",
-        "price": 6870,
-        "date": "2026-07-15"
+        "label": "신고가 목표",
+        "price": 12740,
+        "date": "2026-06-18"
       },
       "bottom": {
         "date": "2026-07-30",
@@ -2402,25 +2402,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-01",
-        "price": 13090
+        "date": "2026-06-18",
+        "price": 12740
       },
-      "distanceToFirstReclaimPct": 17.5,
+      "distanceToFirstReclaimPct": 20.3,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 13830,
-          "close": 11780,
-          "high": 13850,
-          "low": 11500
-        },
-        {
-          "date": "2026-06-01",
-          "open": 11510,
-          "close": 13090,
-          "high": 13310,
-          "low": 10900
-        },
         {
           "date": "2026-06-02",
           "open": 13090,
@@ -2826,14 +2812,24 @@
           "close": 6840,
           "high": 6910,
           "low": 6190
+        },
+        {
+          "date": "2026-08-26",
+          "open": 6830,
+          "close": 6810,
+          "high": 6990,
+          "low": 6680
+        },
+        {
+          "date": "2026-08-27",
+          "open": 6850,
+          "close": 7000,
+          "high": 7050,
+          "low": 6820
         }
       ],
       "pivots": {
         "lows": [
-          {
-            "date": "2026-06-08",
-            "price": 9310
-          },
           {
             "date": "2026-07-08",
             "price": 6090
@@ -2854,10 +2850,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-08",
-            "price": 9310
-          },
           {
             "date": "2026-06-26",
             "price": 8300
@@ -2885,6 +2877,10 @@
           {
             "date": "2026-08-07",
             "price": 5880
+          },
+          {
+            "date": "2026-08-24",
+            "price": 6600
           }
         ],
         "targetPeaks": [
@@ -2918,42 +2914,42 @@
           }
         ]
       },
-      "reason": "2차 매수: bottom 2026-07-30 @ 4450; 1차 2026-07-27 @ 5820; 2차 2026-07-23 @ 6220; 3차 2026-07-15 @ 6870; breakout 2026-06-01 @ 13090"
+      "reason": "3차 매수: bottom 2026-07-30 @ 4450; 1차 2026-07-27 @ 5820; 2차 2026-07-23 @ 6220; 3차 2026-07-15 @ 6870; breakout 2026-06-18 @ 12740"
     },
     {
       "ticker": "042660.KS",
       "name": "Hanwha Ocean",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 86600,
-      "dailyChangePct": 3.8,
-      "return5dPct": -4.7,
-      "return20dPct": -2.5,
-      "drawdownFrom52wHighPct": -44.1,
-      "drawdownFromTrackingHighPct": -34.9,
+      "dataDate": "2026-08-27",
+      "lastClose": 89100,
+      "dailyChangePct": 2.1,
+      "return5dPct": 0.7,
+      "return20dPct": 19.4,
+      "drawdownFrom52wHighPct": -42.4,
+      "drawdownFromTrackingHighPct": -33.1,
       "high52w": 154800,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 133100
       },
       "priorPeak": {
         "type": "high",
-        "index": 12,
+        "index": 10,
         "date": "2026-06-17",
         "price": 133100,
         "label": "신고가 목표"
       },
-      "stage": "관망",
-      "action": "다음 돌파 가격 대기",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 목표가",
-        "price": 88800,
-        "date": "2026-07-27"
+        "label": "2차 목표가",
+        "price": 89900,
+        "date": "2026-07-23"
       },
       "bottom": {
         "date": "2026-07-29",
@@ -2997,22 +2993,8 @@
         "date": "2026-06-17",
         "price": 133100
       },
-      "distanceToFirstReclaimPct": -2.5,
+      "distanceToFirstReclaimPct": 0.3,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 126700,
-          "close": 123300,
-          "high": 126800,
-          "low": 120200
-        },
-        {
-          "date": "2026-06-01",
-          "open": 126300,
-          "close": 124900,
-          "high": 130800,
-          "low": 122600
-        },
         {
           "date": "2026-06-02",
           "open": 122700,
@@ -3418,6 +3400,20 @@
           "close": 86600,
           "high": 86600,
           "low": 81100
+        },
+        {
+          "date": "2026-08-26",
+          "open": 86300,
+          "close": 87300,
+          "high": 87700,
+          "low": 85000
+        },
+        {
+          "date": "2026-08-27",
+          "open": 88000,
+          "close": 89100,
+          "high": 89900,
+          "low": 87900
         }
       ],
       "pivots": {
@@ -3451,10 +3447,6 @@
         ],
         "targetLows": [
           {
-            "date": "2026-06-09",
-            "price": 102200
-          },
-          {
             "date": "2026-06-23",
             "price": 104500
           },
@@ -3481,6 +3473,10 @@
           {
             "date": "2026-08-11",
             "price": 89000
+          },
+          {
+            "date": "2026-08-24",
+            "price": 83400
           }
         ],
         "targetPeaks": [
@@ -3514,31 +3510,31 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-29 @ 74600; 1차 2026-07-27 @ 88800; 2차 2026-07-23 @ 89900; 3차 2026-07-06 @ 116100; breakout 2026-06-17 @ 133100"
+      "reason": "1차 매수: bottom 2026-07-29 @ 74600; 1차 2026-07-27 @ 88800; 2차 2026-07-23 @ 89900; 3차 2026-07-06 @ 116100; breakout 2026-06-17 @ 133100"
     },
     {
       "ticker": "042700.KS",
       "name": "Hanmi Semiconductor",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 217500,
-      "dailyChangePct": 4.1,
-      "return5dPct": -5,
-      "return20dPct": 6.4,
-      "drawdownFrom52wHighPct": -48.9,
-      "drawdownFromTrackingHighPct": -39.8,
+      "dataDate": "2026-08-27",
+      "lastClose": 222500,
+      "dailyChangePct": 1.4,
+      "return5dPct": -1.3,
+      "return20dPct": 32.8,
+      "drawdownFrom52wHighPct": -47.8,
+      "drawdownFromTrackingHighPct": -38.4,
       "high52w": 426000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 361000
       },
       "priorPeak": {
         "type": "high",
-        "index": 9,
+        "index": 7,
         "date": "2026-06-12",
         "price": 361000,
         "label": "신고가 목표"
@@ -3593,22 +3589,8 @@
         "date": "2026-06-12",
         "price": 361000
       },
-      "distanceToFirstReclaimPct": 6.4,
+      "distanceToFirstReclaimPct": 8.8,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 301000,
-          "close": 282000,
-          "high": 301000,
-          "low": 277500
-        },
-        {
-          "date": "2026-06-01",
-          "open": 289500,
-          "close": 293000,
-          "high": 299000,
-          "low": 285500
-        },
         {
           "date": "2026-06-02",
           "open": 295500,
@@ -4014,14 +3996,24 @@
           "close": 217500,
           "high": 217500,
           "low": 195100
+        },
+        {
+          "date": "2026-08-26",
+          "open": 217000,
+          "close": 219500,
+          "high": 222000,
+          "low": 213500
+        },
+        {
+          "date": "2026-08-27",
+          "open": 227000,
+          "close": 222500,
+          "high": 227500,
+          "low": 217000
         }
       ],
       "pivots": {
         "lows": [
-          {
-            "date": "2026-06-08",
-            "price": 253500
-          },
           {
             "date": "2026-07-08",
             "price": 199200
@@ -4055,10 +4047,6 @@
         ],
         "targetLows": [
           {
-            "date": "2026-06-02",
-            "price": 275500
-          },
-          {
             "date": "2026-06-08",
             "price": 253500
           },
@@ -4085,13 +4073,13 @@
           {
             "date": "2026-08-07",
             "price": 192300
+          },
+          {
+            "date": "2026-08-24",
+            "price": 209000
           }
         ],
         "targetPeaks": [
-          {
-            "date": "2026-06-04",
-            "price": 304000
-          },
           {
             "date": "2026-06-12",
             "price": 361000
@@ -4129,35 +4117,35 @@
       "name": "Hyundai Department Store",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 93100,
-      "dailyChangePct": -0.6,
-      "return5dPct": -6.9,
-      "return20dPct": -32.1,
-      "drawdownFrom52wHighPct": -58.1,
-      "drawdownFromTrackingHighPct": -55,
+      "dataDate": "2026-08-27",
+      "lastClose": 93900,
+      "dailyChangePct": -1.7,
+      "return5dPct": -0.6,
+      "return20dPct": -21,
+      "drawdownFrom52wHighPct": -57.7,
+      "drawdownFromTrackingHighPct": -54.6,
       "high52w": 222000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 207000
       },
       "priorPeak": {
         "type": "high",
-        "index": 12,
+        "index": 10,
         "date": "2026-06-17",
         "price": 207000,
         "label": "신고가 목표"
       },
-      "stage": "관망",
-      "action": "다음 돌파 가격 대기",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 목표가",
-        "price": 93700,
-        "date": "2026-08-24"
+        "label": "2차 목표가",
+        "price": 102200,
+        "date": "2026-08-14"
       },
       "bottom": {
         "date": "2026-08-25",
@@ -4201,22 +4189,8 @@
         "date": "2026-06-17",
         "price": 207000
       },
-      "distanceToFirstReclaimPct": -0.6,
+      "distanceToFirstReclaimPct": 0.2,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 111000,
-          "close": 109800,
-          "high": 112500,
-          "low": 105800
-        },
-        {
-          "date": "2026-06-01",
-          "open": 109600,
-          "close": 112100,
-          "high": 118000,
-          "low": 107600
-        },
         {
           "date": "2026-06-02",
           "open": 115000,
@@ -4622,6 +4596,20 @@
           "close": 93100,
           "high": 94200,
           "low": 91000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 94400,
+          "close": 95500,
+          "high": 96200,
+          "low": 93100
+        },
+        {
+          "date": "2026-08-27",
+          "open": 96400,
+          "close": 93900,
+          "high": 96500,
+          "low": 92800
         }
       ],
       "pivots": {
@@ -4657,6 +4645,10 @@
           {
             "date": "2026-08-12",
             "price": 97800
+          },
+          {
+            "date": "2026-08-25",
+            "price": 93100
           }
         ],
         "targetPeaks": [
@@ -4686,31 +4678,31 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-08-25 @ 93100; 1차 2026-08-24 @ 93700; 2차 2026-08-14 @ 102200; 3차 2026-08-10 @ 103800; breakout 2026-06-17 @ 207000"
+      "reason": "1차 매수: bottom 2026-08-25 @ 93100; 1차 2026-08-24 @ 93700; 2차 2026-08-14 @ 102200; 3차 2026-08-10 @ 103800; breakout 2026-06-17 @ 207000"
     },
     {
       "ticker": "267260.KS",
       "name": "HD Hyundai Electric",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 719000,
-      "dailyChangePct": -0.1,
-      "return5dPct": -8.4,
-      "return20dPct": -9.8,
-      "drawdownFrom52wHighPct": -49.7,
-      "drawdownFromTrackingHighPct": -39.8,
+      "dataDate": "2026-08-27",
+      "lastClose": 797000,
+      "dailyChangePct": 8.7,
+      "return5dPct": 6.8,
+      "return20dPct": 36,
+      "drawdownFrom52wHighPct": -44.3,
+      "drawdownFromTrackingHighPct": -33.2,
       "high52w": 1430000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 1194000
       },
       "priorPeak": {
         "type": "high",
-        "index": 10,
+        "index": 8,
         "date": "2026-06-15",
         "price": 1194000,
         "label": "신고가 목표"
@@ -4765,22 +4757,8 @@
         "date": "2026-06-15",
         "price": 1194000
       },
-      "distanceToFirstReclaimPct": -17.3,
+      "distanceToFirstReclaimPct": -8.3,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 1089000,
-          "close": 1053000,
-          "high": 1090000,
-          "low": 1010000
-        },
-        {
-          "date": "2026-06-01",
-          "open": 1054000,
-          "close": 1066000,
-          "high": 1112000,
-          "low": 1037000
-        },
         {
           "date": "2026-06-02",
           "open": 1065000,
@@ -5186,6 +5164,20 @@
           "close": 719000,
           "high": 719000,
           "low": 673000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 722000,
+          "close": 733000,
+          "high": 739000,
+          "low": 711000
+        },
+        {
+          "date": "2026-08-27",
+          "open": 778000,
+          "close": 797000,
+          "high": 806000,
+          "low": 770000
         }
       ],
       "pivots": {
@@ -5297,24 +5289,24 @@
       "name": "HD Hyundai Heavy Industries",
       "market": "kr",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 464500,
-      "dailyChangePct": 2,
-      "return5dPct": -5.1,
-      "return20dPct": -4.5,
-      "drawdownFrom52wHighPct": -39.3,
-      "drawdownFromTrackingHighPct": -34.9,
+      "dataDate": "2026-08-27",
+      "lastClose": 468500,
+      "dailyChangePct": 0.9,
+      "return5dPct": -1.5,
+      "return20dPct": 7.9,
+      "drawdownFrom52wHighPct": -38.8,
+      "drawdownFromTrackingHighPct": -34.4,
       "high52w": 765000,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-05-29",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-27",
         "high": 714000
       },
       "priorPeak": {
         "type": "high",
-        "index": 10,
+        "index": 8,
         "date": "2026-06-15",
         "price": 714000,
         "label": "신고가 목표"
@@ -5369,22 +5361,8 @@
         "date": "2026-06-15",
         "price": 714000
       },
-      "distanceToFirstReclaimPct": -4.5,
+      "distanceToFirstReclaimPct": -3.7,
       "chart": [
-        {
-          "date": "2026-05-29",
-          "open": 720000,
-          "close": 696000,
-          "high": 723000,
-          "low": 690000
-        },
-        {
-          "date": "2026-06-01",
-          "open": 700000,
-          "close": 684000,
-          "high": 719000,
-          "low": 684000
-        },
         {
           "date": "2026-06-02",
           "open": 679000,
@@ -5790,14 +5768,24 @@
           "close": 464500,
           "high": 465000,
           "low": 441000
+        },
+        {
+          "date": "2026-08-26",
+          "open": 467500,
+          "close": 464500,
+          "high": 468000,
+          "low": 456000
+        },
+        {
+          "date": "2026-08-27",
+          "open": 469000,
+          "close": 468500,
+          "high": 473000,
+          "low": 461000
         }
       ],
       "pivots": {
         "lows": [
-          {
-            "date": "2026-06-09",
-            "price": 612000
-          },
           {
             "date": "2026-06-26",
             "price": 564000
@@ -5889,35 +5877,35 @@
       "name": "Apple",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 309.9,
-      "dailyChangePct": -0.1,
-      "return5dPct": 0,
-      "return20dPct": -8.9,
-      "drawdownFrom52wHighPct": -10.1,
-      "drawdownFromTrackingHighPct": -8.9,
+      "dataDate": "2026-08-26",
+      "lastClose": 313.45,
+      "dailyChangePct": 1.1,
+      "return5dPct": -1.1,
+      "return20dPct": -7.3,
+      "drawdownFrom52wHighPct": -9,
+      "drawdownFromTrackingHighPct": -7.8,
       "high52w": 344.57,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 340.08
       },
       "priorPeak": {
         "type": "high",
-        "index": 39,
+        "index": 38,
         "date": "2026-07-28",
         "price": 340.08,
         "label": "신고가 목표"
       },
-      "stage": "관망",
-      "action": "다음 돌파 가격 대기",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
       "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "1차 목표가",
-        "price": 313.33,
-        "date": "2026-08-07"
+        "label": "2차 목표가",
+        "price": 340.08,
+        "date": "2026-07-28"
       },
       "bottom": {
         "date": "2026-08-12",
@@ -5952,15 +5940,8 @@
         "date": "2026-07-28",
         "price": 340.08
       },
-      "distanceToFirstReclaimPct": -1.1,
+      "distanceToFirstReclaimPct": 0,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 309.63,
-          "close": 306.31,
-          "high": 310.94,
-          "low": 305.02
-        },
         {
           "date": "2026-06-02",
           "open": 307.46,
@@ -6369,10 +6350,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 310.935,
+          "open": 310.79,
           "close": 309.9,
-          "high": 313.58,
+          "high": 313.59,
           "low": 308.21
+        },
+        {
+          "date": "2026-08-26",
+          "open": 310.245,
+          "close": 313.45,
+          "high": 315.43,
+          "low": 308.8001
         }
       ],
       "pivots": {
@@ -6404,8 +6392,8 @@
             "price": 340.08
           },
           {
-            "date": "2026-08-07",
-            "price": 313.33
+            "date": "2026-08-19",
+            "price": 316.83
           }
         ],
         "targetLows": [
@@ -6465,31 +6453,31 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-08-12 @ 302.25; 1차 2026-08-07 @ 313.33; 2차 2026-07-28 @ 340.08; breakout 2026-07-28 @ 340.08"
+      "reason": "1차 매수: bottom 2026-08-12 @ 302.25; 1차 2026-08-07 @ 313.33; 2차 2026-07-28 @ 340.08; breakout 2026-07-28 @ 340.08"
     },
     {
       "ticker": "INTC",
       "name": "Intel",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 87.48,
-      "dailyChangePct": 0.3,
-      "return5dPct": -9.5,
-      "return20dPct": 1.4,
-      "drawdownFrom52wHighPct": -38.5,
-      "drawdownFromTrackingHighPct": -37.9,
+      "dataDate": "2026-08-26",
+      "lastClose": 88.24,
+      "dailyChangePct": 0.9,
+      "return5dPct": -4.9,
+      "return20dPct": 7.8,
+      "drawdownFrom52wHighPct": -38,
+      "drawdownFromTrackingHighPct": -37.4,
       "high52w": 142.35,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 140.94
       },
       "priorPeak": {
         "type": "high",
-        "index": 14,
+        "index": 13,
         "date": "2026-06-22",
         "price": 140.94,
         "label": "신고가 목표"
@@ -6544,15 +6532,8 @@
         "date": "2026-06-22",
         "price": 140.94
       },
-      "distanceToFirstReclaimPct": -17,
+      "distanceToFirstReclaimPct": -16.3,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 109.43,
-          "close": 109.33,
-          "high": 113.3,
-          "low": 106.33
-        },
         {
           "date": "2026-06-02",
           "open": 107.45,
@@ -6961,10 +6942,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 89.9,
+          "open": 90.06,
           "close": 87.48,
           "high": 90.18,
           "low": 87.29
+        },
+        {
+          "date": "2026-08-26",
+          "open": 86.825,
+          "close": 88.24,
+          "high": 88.2799,
+          "low": 85.63
         }
       ],
       "pivots": {
@@ -7012,6 +7000,10 @@
           {
             "date": "2026-08-10",
             "price": 97.52
+          },
+          {
+            "date": "2026-08-24",
+            "price": 87.26
           }
         ],
         "targetPeaks": [
@@ -7056,24 +7048,24 @@
       "name": "Microsoft",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 491.71,
+      "dataDate": "2026-08-26",
+      "lastClose": 496.37,
       "dailyChangePct": 0.9,
-      "return5dPct": 2.1,
-      "return20dPct": 25,
-      "drawdownFrom52wHighPct": -11.2,
-      "drawdownFromTrackingHighPct": -2.8,
+      "return5dPct": 2.5,
+      "return20dPct": 27.1,
+      "drawdownFrom52wHighPct": -10.4,
+      "drawdownFromTrackingHighPct": -1.9,
       "high52w": 553.72,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 506.06
       },
       "priorPeak": {
         "type": "high",
-        "index": 48,
+        "index": 47,
         "date": "2026-08-10",
         "price": 506.06,
         "label": "신고가 목표"
@@ -7099,8 +7091,8 @@
         "price": 428.05
       },
       "thirdReclaim": {
-        "date": "2026-06-01",
-        "price": 460.52
+        "date": "2026-06-02",
+        "price": 441.31
       },
       "targets": [
         {
@@ -7118,8 +7110,8 @@
         {
           "label": "3차 목표가",
           "targetNumber": 3,
-          "date": "2026-06-01",
-          "price": 460.52
+          "date": "2026-06-02",
+          "price": 441.31
         }
       ],
       "breakoutTarget": {
@@ -7128,15 +7120,8 @@
         "date": "2026-08-10",
         "price": 506.06
       },
-      "distanceToFirstReclaimPct": 22.2,
+      "distanceToFirstReclaimPct": 23.4,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 464.84,
-          "close": 460.52,
-          "high": 466.32,
-          "low": 458.27
-        },
         {
           "date": "2026-06-02",
           "open": 446.88,
@@ -7545,10 +7530,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 485.565,
+          "open": 485.44,
           "close": 491.71,
-          "high": 492.435,
+          "high": 492.44,
           "low": 484.3
+        },
+        {
+          "date": "2026-08-26",
+          "open": 487.85,
+          "close": 496.37,
+          "high": 497.4,
+          "low": 487.31
         }
       ],
       "pivots": {
@@ -7633,42 +7625,42 @@
           }
         ]
       },
-      "reason": "3차 매수: bottom 2026-07-23 @ 381.58; 1차 2026-07-20 @ 402.29; 2차 2026-06-04 @ 428.05; 3차 2026-06-01 @ 460.52; breakout 2026-08-10 @ 506.06"
+      "reason": "3차 매수: bottom 2026-07-23 @ 381.58; 1차 2026-07-20 @ 402.29; 2차 2026-06-04 @ 428.05; 3차 2026-06-02 @ 441.31; breakout 2026-08-10 @ 506.06"
     },
     {
       "ticker": "NVDA",
       "name": "NVIDIA",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 213.05,
-      "dailyChangePct": 2.2,
-      "return5dPct": -3,
-      "return20dPct": 8.1,
-      "drawdownFrom52wHighPct": -9.9,
-      "drawdownFromTrackingHighPct": -5.4,
+      "dataDate": "2026-08-26",
+      "lastClose": 209.66,
+      "dailyChangePct": -1.6,
+      "return5dPct": -3.6,
+      "return20dPct": 10.3,
+      "drawdownFrom52wHighPct": -11.4,
+      "drawdownFromTrackingHighPct": -6.9,
       "high52w": 236.54,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 225.3
       },
       "priorPeak": {
         "type": "high",
-        "index": 51,
+        "index": 50,
         "date": "2026-08-13",
         "price": 225.3,
         "label": "신고가 목표"
       },
-      "stage": "3차 매수",
-      "action": "3차 목표가 돌파: 최대 모멘텀 전 단계",
-      "confidence": "HIGH",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
+      "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "신고가 목표",
-        "price": 225.3,
-        "date": "2026-08-13"
+        "label": "2차 목표가",
+        "price": 212.06,
+        "date": "2026-07-22"
       },
       "bottom": {
         "date": "2026-07-29",
@@ -7712,15 +7704,8 @@
         "date": "2026-08-13",
         "price": 225.3
       },
-      "distanceToFirstReclaimPct": 8.1,
+      "distanceToFirstReclaimPct": 6.4,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 215.73,
-          "close": 224.36,
-          "high": 224.87,
-          "low": 215.7
-        },
         {
           "date": "2026-06-02",
           "open": 227.18,
@@ -8129,10 +8114,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 211.025,
+          "open": 211.03,
           "close": 213.05,
-          "high": 214.7291,
+          "high": 214.73,
           "low": 210.11
+        },
+        {
+          "date": "2026-08-26",
+          "open": 212.42,
+          "close": 209.66,
+          "high": 213.6,
+          "low": 209.23
         }
       ],
       "pivots": {
@@ -8162,10 +8154,6 @@
         ],
         "targetLows": [
           {
-            "date": "2026-06-05",
-            "price": 205.1
-          },
-          {
             "date": "2026-06-10",
             "price": 200.42
           },
@@ -8192,6 +8180,10 @@
           {
             "date": "2026-08-11",
             "price": 217.5
+          },
+          {
+            "date": "2026-08-24",
+            "price": 208.48
           }
         ],
         "targetPeaks": [
@@ -8225,31 +8217,31 @@
           }
         ]
       },
-      "reason": "3차 매수: bottom 2026-07-29 @ 190.01; 1차 2026-07-28 @ 197.01; 2차 2026-07-22 @ 212.06; 3차 2026-07-15 @ 212.5; breakout 2026-08-13 @ 225.3"
+      "reason": "1차 매수: bottom 2026-07-29 @ 190.01; 1차 2026-07-28 @ 197.01; 2차 2026-07-22 @ 212.06; 3차 2026-07-15 @ 212.5; breakout 2026-08-13 @ 225.3"
     },
     {
       "ticker": "ASML",
       "name": "ASML Holding ADR",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 1744.16,
-      "dailyChangePct": 0.2,
-      "return5dPct": -3.3,
-      "return20dPct": 10.2,
-      "drawdownFrom52wHighPct": -12.8,
+      "dataDate": "2026-08-26",
+      "lastClose": 1745.64,
+      "dailyChangePct": 0.1,
+      "return5dPct": -0.3,
+      "return20dPct": 12.6,
+      "drawdownFrom52wHighPct": -12.7,
       "drawdownFromTrackingHighPct": -12.3,
       "high52w": 1999.96,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 1989.4399
       },
       "priorPeak": {
         "type": "high",
-        "index": 20,
+        "index": 19,
         "date": "2026-06-30",
         "price": 1989.4399,
         "label": "신고가 목표"
@@ -8304,15 +8296,8 @@
         "date": "2026-06-30",
         "price": 1989.4399
       },
-      "distanceToFirstReclaimPct": -3.3,
+      "distanceToFirstReclaimPct": -3.2,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 1594.47,
-          "close": 1628.5699,
-          "high": 1646.53,
-          "low": 1585.61
-        },
         {
           "date": "2026-06-02",
           "open": 1659.6899,
@@ -8721,10 +8706,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 1759.63,
+          "open": 1759.15,
           "close": 1744.16,
           "high": 1769.99,
           "low": 1735.87
+        },
+        {
+          "date": "2026-08-26",
+          "open": 1745.8,
+          "close": 1745.64,
+          "high": 1761.58,
+          "low": 1732.3501
         }
       ],
       "pivots": {
@@ -8749,10 +8741,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-05",
-            "price": 1641.74
-          },
           {
             "date": "2026-06-10",
             "price": 1734.1899
@@ -8780,6 +8768,10 @@
           {
             "date": "2026-07-29",
             "price": 1550.6899
+          },
+          {
+            "date": "2026-08-24",
+            "price": 1740.13
           }
         ],
         "targetPeaks": [
@@ -8824,24 +8816,24 @@
       "name": "Broadcom",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 356.74,
-      "dailyChangePct": -0.6,
-      "return5dPct": -6.1,
-      "return20dPct": -6.3,
-      "drawdownFrom52wHighPct": -27.9,
-      "drawdownFromTrackingHighPct": -25.9,
+      "dataDate": "2026-08-26",
+      "lastClose": 355.59,
+      "dailyChangePct": -0.3,
+      "return5dPct": -1.9,
+      "return20dPct": -4,
+      "drawdownFrom52wHighPct": -28.2,
+      "drawdownFromTrackingHighPct": -26.2,
       "high52w": 495,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 481.57
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
+        "index": 0,
         "date": "2026-06-02",
         "price": 481.57,
         "label": "신고가 목표"
@@ -8855,8 +8847,8 @@
         "date": "2026-08-21"
       },
       "bottom": {
-        "date": "2026-08-25",
-        "price": 356.74
+        "date": "2026-08-26",
+        "price": 355.59
       },
       "firstReclaim": {
         "date": "2026-08-21",
@@ -8896,15 +8888,8 @@
         "date": "2026-06-02",
         "price": 481.57
       },
-      "distanceToFirstReclaimPct": -3.2,
+      "distanceToFirstReclaimPct": -3.5,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 450.09,
-          "close": 459.97,
-          "high": 466.05,
-          "low": 442.22
-        },
         {
           "date": "2026-06-02",
           "open": 488.79,
@@ -9313,10 +9298,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 360.995,
+          "open": 361.1,
           "close": 356.74,
           "high": 362.99,
-          "low": 355.32
+          "low": 355.31
+        },
+        {
+          "date": "2026-08-26",
+          "open": 357.24,
+          "close": 355.59,
+          "high": 359.4699,
+          "low": 350.07
         }
       ],
       "pivots": {
@@ -9401,42 +9393,42 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-08-25 @ 356.74; 1차 2026-08-21 @ 368.45; 2차 2026-08-13 @ 417.82; 3차 2026-08-07 @ 427.76; breakout 2026-06-02 @ 481.57"
+      "reason": "관망: bottom 2026-08-26 @ 355.59; 1차 2026-08-21 @ 368.45; 2차 2026-08-13 @ 417.82; 3차 2026-08-07 @ 427.76; breakout 2026-06-02 @ 481.57"
     },
     {
       "ticker": "COIN",
       "name": "Coinbase Global",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 187.16,
-      "dailyChangePct": 4.3,
-      "return5dPct": 28,
-      "return20dPct": 11.5,
-      "drawdownFrom52wHighPct": -53.5,
-      "drawdownFromTrackingHighPct": 0,
+      "dataDate": "2026-08-26",
+      "lastClose": 181.78,
+      "dailyChangePct": -2.9,
+      "return5dPct": 13.5,
+      "return20dPct": 13.5,
+      "drawdownFrom52wHighPct": -54.8,
+      "drawdownFromTrackingHighPct": -2.9,
       "high52w": 402.16,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 187.16
       },
       "priorPeak": {
         "type": "high",
-        "index": 57,
-        "date": "2026-08-21",
-        "price": 186.49,
+        "index": 58,
+        "date": "2026-08-25",
+        "price": 187.16,
         "label": "신고가 목표"
       },
-      "stage": "최대 모멘텀",
-      "action": "이전 최고점 돌파: 신고가 모멘텀 확인",
+      "stage": "3차 매수",
+      "action": "3차 목표가 돌파: 최대 모멘텀 전 단계",
       "confidence": "HIGH",
       "nextTrigger": {
-        "label": "추가 트리거 없음",
-        "price": null,
-        "date": null
+        "label": "신고가 목표",
+        "price": 187.16,
+        "date": "2026-08-25"
       },
       "bottom": {
         "date": "2026-08-06",
@@ -9477,18 +9469,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-08-21",
-        "price": 186.49
+        "date": "2026-08-25",
+        "price": 187.16
       },
-      "distanceToFirstReclaimPct": 24.2,
+      "distanceToFirstReclaimPct": 20.6,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 179.21,
-          "close": 182.61,
-          "high": 186.6,
-          "low": 176.18
-        },
         {
           "date": "2026-06-02",
           "open": 177.17,
@@ -9897,10 +9882,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 176.165,
+          "open": 176,
           "close": 187.16,
           "high": 189.27,
           "low": 174.73
+        },
+        {
+          "date": "2026-08-26",
+          "open": 181.65,
+          "close": 181.78,
+          "high": 185.47,
+          "low": 179.4317
         }
       ],
       "pivots": {
@@ -9993,33 +9985,33 @@
           }
         ]
       },
-      "reason": "최대 모멘텀: bottom 2026-08-06 @ 145.41; 1차 2026-08-04 @ 150.73; 2차 2026-07-30 @ 163.58; 3차 2026-07-28 @ 167.9; breakout 2026-08-21 @ 186.49; prior peak reached"
+      "reason": "3차 매수: bottom 2026-08-06 @ 145.41; 1차 2026-08-04 @ 150.73; 2차 2026-07-30 @ 163.58; 3차 2026-07-28 @ 167.9; breakout 2026-08-25 @ 187.16"
     },
     {
       "ticker": "MSTR",
       "name": "Strategy",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 126.83,
-      "dailyChangePct": 3.4,
-      "return5dPct": 37.1,
-      "return20dPct": 31.9,
-      "drawdownFrom52wHighPct": -65.3,
-      "drawdownFromTrackingHighPct": -15.3,
+      "dataDate": "2026-08-26",
+      "lastClose": 123.19,
+      "dailyChangePct": -2.9,
+      "return5dPct": 18.2,
+      "return20dPct": 32,
+      "drawdownFrom52wHighPct": -66.3,
+      "drawdownFromTrackingHighPct": -9.5,
       "high52w": 365.21,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
-        "high": 149.78
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
+        "high": 136.08
       },
       "priorPeak": {
         "type": "high",
         "index": 0,
-        "date": "2026-06-01",
-        "price": 149.78,
+        "date": "2026-06-02",
+        "price": 136.08,
         "label": "신고가 목표"
       },
       "stage": "1차 매수",
@@ -10043,8 +10035,8 @@
         "price": 131.14
       },
       "thirdReclaim": {
-        "date": "2026-06-01",
-        "price": 149.78
+        "date": "2026-06-02",
+        "price": 136.08
       },
       "targets": [
         {
@@ -10062,25 +10054,18 @@
         {
           "label": "3차 목표가",
           "targetNumber": 3,
-          "date": "2026-06-01",
-          "price": 149.78
+          "date": "2026-06-02",
+          "price": 136.08
         }
       ],
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-01",
-        "price": 149.78
+        "date": "2026-06-02",
+        "price": 136.08
       },
-      "distanceToFirstReclaimPct": 24.4,
+      "distanceToFirstReclaimPct": 20.8,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 148.47,
-          "close": 149.78,
-          "high": 153.87,
-          "low": 144.29
-        },
         {
           "date": "2026-06-02",
           "open": 142.69,
@@ -10489,10 +10474,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 119.01,
+          "open": 119.11,
           "close": 126.83,
           "high": 128.66,
           "low": 118.45
+        },
+        {
+          "date": "2026-08-26",
+          "open": 123.195,
+          "close": 123.19,
+          "high": 125.54,
+          "low": 120.87
         }
       ],
       "pivots": {
@@ -10585,31 +10577,31 @@
           }
         ]
       },
-      "reason": "1차 매수: bottom 2026-07-24 @ 91.67; 1차 2026-07-21 @ 101.95; 2차 2026-06-15 @ 131.14; 3차 2026-06-01 @ 149.78; breakout 2026-06-01 @ 149.78"
+      "reason": "1차 매수: bottom 2026-07-24 @ 91.67; 1차 2026-07-21 @ 101.95; 2차 2026-06-15 @ 131.14; 3차 2026-06-02 @ 136.08; breakout 2026-06-02 @ 136.08"
     },
     {
       "ticker": "TSM",
       "name": "TSMC ADR",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 417.41,
-      "dailyChangePct": 1.8,
-      "return5dPct": 1,
-      "return20dPct": 6.4,
-      "drawdownFrom52wHighPct": -12.9,
-      "drawdownFromTrackingHighPct": -12.6,
+      "dataDate": "2026-08-26",
+      "lastClose": 417.69,
+      "dailyChangePct": 0.1,
+      "return5dPct": 1.4,
+      "return20dPct": 11.5,
+      "drawdownFrom52wHighPct": -12.8,
+      "drawdownFromTrackingHighPct": -12.5,
       "high52w": 479,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 477.57
       },
       "priorPeak": {
         "type": "high",
-        "index": 20,
+        "index": 19,
         "date": "2026-06-30",
         "price": 477.57,
         "label": "신고가 목표"
@@ -10664,15 +10656,8 @@
         "date": "2026-06-30",
         "price": 477.57
       },
-      "distanceToFirstReclaimPct": -1.7,
+      "distanceToFirstReclaimPct": -1.6,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 424.88,
-          "close": 435.63,
-          "high": 449.39,
-          "low": 422.5
-        },
         {
           "date": "2026-06-02",
           "open": 440.58,
@@ -11081,10 +11066,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 414.585,
+          "open": 414.59,
           "close": 417.41,
-          "high": 419.7695,
+          "high": 419.77,
           "low": 414.03
+        },
+        {
+          "date": "2026-08-26",
+          "open": 418.45,
+          "close": 417.69,
+          "high": 420.75,
+          "low": 414.41
         }
       ],
       "pivots": {
@@ -11144,6 +11136,10 @@
           {
             "date": "2026-08-19",
             "price": 412.09
+          },
+          {
+            "date": "2026-08-24",
+            "price": 410.12
           }
         ],
         "targetPeaks": [
@@ -11188,24 +11184,24 @@
       "name": "Tesla",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 350.25,
-      "dailyChangePct": 0.4,
-      "return5dPct": 4,
-      "return20dPct": 13.9,
-      "drawdownFrom52wHighPct": -29.8,
-      "drawdownFromTrackingHighPct": -17.6,
+      "dataDate": "2026-08-26",
+      "lastClose": 345.82,
+      "dailyChangePct": -1.3,
+      "return5dPct": -1.5,
+      "return20dPct": 15.9,
+      "drawdownFrom52wHighPct": -30.7,
+      "drawdownFromTrackingHighPct": -18.7,
       "high52w": 498.83,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 425.3
       },
       "priorPeak": {
         "type": "high",
-        "index": 21,
+        "index": 20,
         "date": "2026-07-01",
         "price": 425.3,
         "label": "신고가 목표"
@@ -11260,15 +11256,8 @@
         "date": "2026-07-01",
         "price": 425.3
       },
-      "distanceToFirstReclaimPct": -7.6,
+      "distanceToFirstReclaimPct": -8.7,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 427.49,
-          "close": 415.88,
-          "high": 429.6,
-          "low": 415.43
-        },
         {
           "date": "2026-06-02",
           "open": 418.22,
@@ -11677,10 +11666,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 349.63,
+          "open": 349.58,
           "close": 350.25,
           "high": 357,
-          "low": 349.2003
+          "low": 349.2
+        },
+        {
+          "date": "2026-08-26",
+          "open": 345.25,
+          "close": 345.82,
+          "high": 351.93,
+          "low": 342.53
         }
       ],
       "pivots": {
@@ -11772,24 +11768,24 @@
       "name": "Micron Technology",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 932.97,
-      "dailyChangePct": 2.5,
-      "return5dPct": -0.8,
-      "return20dPct": 13.7,
-      "drawdownFrom52wHighPct": -25.7,
-      "drawdownFromTrackingHighPct": -23.1,
+      "dataDate": "2026-08-26",
+      "lastClose": 938.4,
+      "dailyChangePct": 0.6,
+      "return5dPct": 0.1,
+      "return20dPct": 27,
+      "drawdownFrom52wHighPct": -25.2,
+      "drawdownFromTrackingHighPct": -22.7,
       "high52w": 1255,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 1213.5601
       },
       "priorPeak": {
         "type": "high",
-        "index": 17,
+        "index": 16,
         "date": "2026-06-25",
         "price": 1213.5601,
         "label": "신고가 목표"
@@ -11844,15 +11840,8 @@
         "date": "2026-06-25",
         "price": 1213.5601
       },
-      "distanceToFirstReclaimPct": -5.8,
+      "distanceToFirstReclaimPct": -5.2,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 1009.72,
-          "close": 1035.5,
-          "high": 1046.97,
-          "low": 1009.5
-        },
         {
           "date": "2026-06-02",
           "open": 1050,
@@ -12261,10 +12250,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 928.975,
+          "open": 928.98,
           "close": 932.97,
-          "high": 946.621,
+          "high": 946.67,
           "low": 916.3
+        },
+        {
+          "date": "2026-08-26",
+          "open": 925.74,
+          "close": 938.4,
+          "high": 945.7499,
+          "low": 924.6
         }
       ],
       "pivots": {
@@ -12289,10 +12285,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-05",
-            "price": 864.01
-          },
           {
             "date": "2026-06-10",
             "price": 891.88
@@ -12320,6 +12312,10 @@
           {
             "date": "2026-08-19",
             "price": 937.11
+          },
+          {
+            "date": "2026-08-24",
+            "price": 910.43
           }
         ],
         "targetPeaks": [
@@ -12364,24 +12360,24 @@
       "name": "Alphabet Class C",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 343.34,
-      "dailyChangePct": -0.4,
-      "return5dPct": 0.6,
-      "return20dPct": 3.2,
-      "drawdownFrom52wHighPct": -15.1,
-      "drawdownFromTrackingHighPct": -8.5,
+      "dataDate": "2026-08-26",
+      "lastClose": 339.1,
+      "dailyChangePct": -1.2,
+      "return5dPct": -0.8,
+      "return20dPct": 1,
+      "drawdownFrom52wHighPct": -16.2,
+      "drawdownFromTrackingHighPct": -9.7,
       "high52w": 404.47,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 375.35
       },
       "priorPeak": {
         "type": "high",
-        "index": 44,
+        "index": 43,
         "date": "2026-08-04",
         "price": 375.35,
         "label": "신고가 목표"
@@ -12436,15 +12432,8 @@
         "date": "2026-08-04",
         "price": 375.35
       },
-      "distanceToFirstReclaimPct": -2.3,
+      "distanceToFirstReclaimPct": -3.5,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 372.575,
-          "close": 372.58,
-          "high": 374.6,
-          "low": 369.71
-        },
         {
           "date": "2026-06-02",
           "open": 363.16,
@@ -12853,10 +12842,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 345.662,
+          "open": 345.97,
           "close": 343.34,
           "high": 346.7,
           "low": 342.145
+        },
+        {
+          "date": "2026-08-26",
+          "open": 343.145,
+          "close": 339.1,
+          "high": 343.1911,
+          "low": 337.01
         }
       ],
       "pivots": {
@@ -12877,10 +12873,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-03",
-            "price": 355.68
-          },
           {
             "date": "2026-06-10",
             "price": 353.32
@@ -12934,6 +12926,10 @@
           {
             "date": "2026-08-13",
             "price": 343.94
+          },
+          {
+            "date": "2026-08-24",
+            "price": 344.59
           }
         ]
       },
@@ -12944,24 +12940,24 @@
       "name": "Palantir Technologies",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 172.73,
-      "dailyChangePct": -1.8,
-      "return5dPct": 0.7,
-      "return20dPct": 39.8,
-      "drawdownFrom52wHighPct": -16.8,
-      "drawdownFromTrackingHighPct": -4,
+      "dataDate": "2026-08-26",
+      "lastClose": 177.5,
+      "dailyChangePct": 2.8,
+      "return5dPct": 1.3,
+      "return20dPct": 44.3,
+      "drawdownFrom52wHighPct": -14.5,
+      "drawdownFromTrackingHighPct": -1.4,
       "high52w": 207.52,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 179.94
       },
       "priorPeak": {
         "type": "high",
-        "index": 57,
+        "index": 56,
         "date": "2026-08-21",
         "price": 179.94,
         "label": "신고가 목표"
@@ -13016,15 +13012,8 @@
         "date": "2026-08-21",
         "price": 179.94
       },
-      "distanceToFirstReclaimPct": 31.3,
+      "distanceToFirstReclaimPct": 35,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 159.98,
-          "close": 160.65,
-          "high": 163.7,
-          "low": 155.88
-        },
         {
           "date": "2026-06-02",
           "open": 156.69,
@@ -13433,10 +13422,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 176.655,
+          "open": 176.63,
           "close": 172.73,
           "high": 179.87,
-          "low": 172.2004
+          "low": 172.2
+        },
+        {
+          "date": "2026-08-26",
+          "open": 170.424,
+          "close": 177.5,
+          "high": 178.49,
+          "low": 168.9
         }
       ],
       "pivots": {
@@ -13536,26 +13532,26 @@
       "name": "Joby Aviation",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 7.22,
-      "dailyChangePct": 0.4,
-      "return5dPct": -5.6,
-      "return20dPct": -0.7,
-      "drawdownFrom52wHighPct": -63.9,
-      "drawdownFromTrackingHighPct": -39.7,
+      "dataDate": "2026-08-26",
+      "lastClose": 7.14,
+      "dailyChangePct": -1.1,
+      "return5dPct": -7.5,
+      "return20dPct": 7.4,
+      "drawdownFrom52wHighPct": -64.3,
+      "drawdownFromTrackingHighPct": -39.8,
       "high52w": 19.98,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
-        "high": 11.97
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
+        "high": 11.87
       },
       "priorPeak": {
         "type": "high",
         "index": 0,
-        "date": "2026-06-01",
-        "price": 11.97,
+        "date": "2026-06-02",
+        "price": 11.87,
         "label": "신고가 목표"
       },
       "stage": "관망",
@@ -13605,18 +13601,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-06-01",
-        "price": 11.97
+        "date": "2026-06-02",
+        "price": 11.87
       },
-      "distanceToFirstReclaimPct": -2,
+      "distanceToFirstReclaimPct": -3.1,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 11.635,
-          "close": 11.97,
-          "high": 12.29,
-          "low": 11.47
-        },
         {
           "date": "2026-06-02",
           "open": 11.87,
@@ -14029,6 +14018,13 @@
           "close": 7.22,
           "high": 7.32,
           "low": 7.14
+        },
+        {
+          "date": "2026-08-26",
+          "open": 7.18,
+          "close": 7.14,
+          "high": 7.355,
+          "low": 7.11
         }
       ],
       "pivots": {
@@ -14109,31 +14105,31 @@
           }
         ]
       },
-      "reason": "관망: bottom 2026-07-29 @ 6.65; 1차 2026-07-27 @ 7.37; 2차 2026-07-21 @ 7.66; 3차 2026-07-14 @ 7.89; breakout 2026-06-01 @ 11.97"
+      "reason": "관망: bottom 2026-07-29 @ 6.65; 1차 2026-07-27 @ 7.37; 2차 2026-07-21 @ 7.66; 3차 2026-07-14 @ 7.89; breakout 2026-06-02 @ 11.87"
     },
     {
       "ticker": "BKSY",
       "name": "BlackSky Technology",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 25.21,
-      "dailyChangePct": -1.5,
-      "return5dPct": -12.9,
-      "return20dPct": 14.9,
-      "drawdownFrom52wHighPct": -52.3,
-      "drawdownFromTrackingHighPct": -42.6,
+      "dataDate": "2026-08-26",
+      "lastClose": 24.68,
+      "dailyChangePct": -2.1,
+      "return5dPct": -11.5,
+      "return20dPct": 19.7,
+      "drawdownFrom52wHighPct": -53.3,
+      "drawdownFromTrackingHighPct": -43.8,
       "high52w": 52.88,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 43.91
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
+        "index": 0,
         "date": "2026-06-02",
         "price": 43.91,
         "label": "신고가 목표"
@@ -14188,15 +14184,8 @@
         "date": "2026-06-02",
         "price": 43.91
       },
-      "distanceToFirstReclaimPct": 14.2,
+      "distanceToFirstReclaimPct": 11.8,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 45.76,
-          "close": 42.38,
-          "high": 46.987,
-          "low": 41
-        },
         {
           "date": "2026-06-02",
           "open": 43.5,
@@ -14609,6 +14598,13 @@
           "close": 25.21,
           "high": 26.48,
           "low": 25
+        },
+        {
+          "date": "2026-08-26",
+          "open": 24.94,
+          "close": 24.68,
+          "high": 25.6999,
+          "low": 24.42
         }
       ],
       "pivots": {
@@ -14696,24 +14692,24 @@
       "name": "Rocket Lab",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 66.91,
-      "dailyChangePct": -2,
-      "return5dPct": -15.5,
-      "return20dPct": 4.7,
-      "drawdownFrom52wHighPct": -55.7,
-      "drawdownFromTrackingHighPct": -45.7,
+      "dataDate": "2026-08-26",
+      "lastClose": 66.18,
+      "dailyChangePct": -1.1,
+      "return5dPct": -12.7,
+      "return20dPct": 12.9,
+      "drawdownFrom52wHighPct": -56.2,
+      "drawdownFromTrackingHighPct": -46.3,
       "high52w": 151,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 123.32
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
+        "index": 0,
         "date": "2026-06-02",
         "price": 123.32,
         "label": "신고가 목표"
@@ -14768,15 +14764,8 @@
         "date": "2026-06-02",
         "price": 123.32
       },
-      "distanceToFirstReclaimPct": 0,
+      "distanceToFirstReclaimPct": -1.1,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 132.38,
-          "close": 122.39,
-          "high": 135.63,
-          "low": 121
-        },
         {
           "date": "2026-06-02",
           "open": 125.34,
@@ -15185,10 +15174,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 69.895,
+          "open": 69.92,
           "close": 66.91,
           "high": 70,
           "low": 66.48
+        },
+        {
+          "date": "2026-08-26",
+          "open": 66.37,
+          "close": 66.18,
+          "high": 67.675,
+          "low": 65.8
         }
       ],
       "pivots": {
@@ -15272,26 +15268,26 @@
       "name": "BitMine Immersion Technologies",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 24.82,
-      "dailyChangePct": 2.8,
-      "return5dPct": 35.8,
-      "return20dPct": 41.3,
-      "drawdownFrom52wHighPct": -62.2,
+      "dataDate": "2026-08-26",
+      "lastClose": 24.91,
+      "dailyChangePct": 0.4,
+      "return5dPct": 23.1,
+      "return20dPct": 50.2,
+      "drawdownFrom52wHighPct": -62,
       "drawdownFromTrackingHighPct": 0,
       "high52w": 65.6,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
-        "high": 24.82
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
+        "high": 24.91
       },
       "priorPeak": {
         "type": "high",
         "index": 58,
-        "date": "2026-08-24",
-        "price": 24.14,
+        "date": "2026-08-25",
+        "price": 24.82,
         "label": "신고가 목표"
       },
       "stage": "최대 모멘텀",
@@ -15341,18 +15337,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-08-24",
-        "price": 24.14
+        "date": "2026-08-25",
+        "price": 24.82
       },
-      "distanceToFirstReclaimPct": 52.4,
+      "distanceToFirstReclaimPct": 52.9,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 18.46,
-          "close": 18.85,
-          "high": 19.44,
-          "low": 18.2
-        },
         {
           "date": "2026-06-02",
           "open": 18.49,
@@ -15763,8 +15752,15 @@
           "date": "2026-08-25",
           "open": 23.8,
           "close": 24.82,
-          "high": 25.7758,
+          "high": 25.776,
           "low": 23.59
+        },
+        {
+          "date": "2026-08-26",
+          "open": 24.24,
+          "close": 24.91,
+          "high": 25.26,
+          "low": 24.12
         }
       ],
       "pivots": {
@@ -15865,26 +15861,26 @@
           }
         ]
       },
-      "reason": "최대 모멘텀: bottom 2026-07-16 @ 15.44; 1차 2026-07-14 @ 16.29; 2차 2026-06-15 @ 17.11; 3차 2026-06-04 @ 17.89; breakout 2026-08-24 @ 24.14; prior peak reached"
+      "reason": "최대 모멘텀: bottom 2026-07-16 @ 15.44; 1차 2026-07-14 @ 16.29; 2차 2026-06-15 @ 17.11; 3차 2026-06-04 @ 17.89; breakout 2026-08-25 @ 24.82; prior peak reached"
     },
     {
       "ticker": "SPCX",
       "name": "SpaceX",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 137.95,
-      "dailyChangePct": 2.2,
-      "return5dPct": -3.8,
-      "return20dPct": 18.5,
-      "drawdownFrom52wHighPct": -38.9,
-      "drawdownFromTrackingHighPct": -34.7,
+      "dataDate": "2026-08-26",
+      "lastClose": 139.63,
+      "dailyChangePct": 1.2,
+      "return5dPct": 0,
+      "return20dPct": 24.1,
+      "drawdownFrom52wHighPct": -38.1,
+      "drawdownFromTrackingHighPct": -33.9,
       "high52w": 225.64,
       "trackingWindow": {
         "weeks": 12,
-        "tradingDays": 51,
+        "tradingDays": 52,
         "startDate": "2026-06-12",
-        "endDate": "2026-08-25",
+        "endDate": "2026-08-26",
         "high": 211.39
       },
       "priorPeak": {
@@ -15944,7 +15940,7 @@
         "date": "2026-06-16",
         "price": 211.39
       },
-      "distanceToFirstReclaimPct": 10.1,
+      "distanceToFirstReclaimPct": 11.4,
       "chart": [
         {
           "date": "2026-06-12",
@@ -16298,10 +16294,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 136.95,
+          "open": 136.94,
           "close": 137.95,
-          "high": 139.74,
-          "low": 136.11
+          "high": 139.75,
+          "low": 136.1
+        },
+        {
+          "date": "2026-08-26",
+          "open": 136.935,
+          "close": 139.63,
+          "high": 139.98,
+          "low": 135.1
         }
       ],
       "pivots": {
@@ -16389,19 +16392,19 @@
       "name": "SK hynix ADR",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 159.53,
-      "dailyChangePct": 2.7,
-      "return5dPct": 2.5,
-      "return20dPct": 22.6,
-      "drawdownFrom52wHighPct": -18.1,
-      "drawdownFromTrackingHighPct": -17.7,
+      "dataDate": "2026-08-26",
+      "lastClose": 158.02,
+      "dailyChangePct": -0.9,
+      "return5dPct": 1.2,
+      "return20dPct": 24.6,
+      "drawdownFrom52wHighPct": -18.9,
+      "drawdownFromTrackingHighPct": -18.5,
       "high52w": 194.8,
       "trackingWindow": {
         "weeks": 12,
-        "tradingDays": 33,
+        "tradingDays": 34,
         "startDate": "2026-07-10",
-        "endDate": "2026-08-25",
+        "endDate": "2026-08-26",
         "high": 193.92
       },
       "priorPeak": {
@@ -16461,7 +16464,7 @@
         "date": "2026-07-14",
         "price": 193.92
       },
-      "distanceToFirstReclaimPct": -5.9,
+      "distanceToFirstReclaimPct": -6.8,
       "chart": [
         {
           "date": "2026-07-10",
@@ -16689,10 +16692,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 159.77,
+          "open": 159.9,
           "close": 159.53,
-          "high": 161.18,
+          "high": 161.2,
           "low": 156.24
+        },
+        {
+          "date": "2026-08-26",
+          "open": 158.12,
+          "close": 158.02,
+          "high": 161.21,
+          "low": 157.59
         }
       ],
       "pivots": {
@@ -16736,6 +16746,10 @@
           {
             "date": "2026-08-18",
             "price": 155.62
+          },
+          {
+            "date": "2026-08-24",
+            "price": 155.37
           }
         ],
         "targetPeaks": [
@@ -16772,24 +16786,24 @@
       "name": "iShares Semiconductor ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 514.06,
-      "dailyChangePct": 1.6,
-      "return5dPct": -3.3,
-      "return20dPct": 4.6,
-      "drawdownFrom52wHighPct": -21.6,
-      "drawdownFromTrackingHighPct": -21.5,
+      "dataDate": "2026-08-26",
+      "lastClose": 515.4,
+      "dailyChangePct": 0.3,
+      "return5dPct": -0.8,
+      "return20dPct": 10.8,
+      "drawdownFrom52wHighPct": -21.4,
+      "drawdownFromTrackingHighPct": -21.3,
       "high52w": 655.95,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 655.01
       },
       "priorPeak": {
         "type": "high",
-        "index": 14,
+        "index": 13,
         "date": "2026-06-22",
         "price": 655.01,
         "label": "신고가 목표"
@@ -16844,15 +16858,8 @@
         "date": "2026-06-22",
         "price": 655.01
       },
-      "distanceToFirstReclaimPct": -7.5,
+      "distanceToFirstReclaimPct": -7.2,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 563.67,
-          "close": 571.93,
-          "high": 577.99,
-          "low": 557.38
-        },
         {
           "date": "2026-06-02",
           "open": 585.17,
@@ -17261,10 +17268,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 516.105,
+          "open": 515.91,
           "close": 514.06,
-          "high": 520.085,
+          "high": 520.1,
           "low": 509.66
+        },
+        {
+          "date": "2026-08-26",
+          "open": 512.63,
+          "close": 515.4,
+          "high": 516.385,
+          "low": 509.3
         }
       ],
       "pivots": {
@@ -17294,10 +17308,6 @@
         ],
         "targetLows": [
           {
-            "date": "2026-06-16",
-            "price": 591.24
-          },
-          {
             "date": "2026-06-26",
             "price": 589.94
           },
@@ -17324,6 +17334,10 @@
           {
             "date": "2026-08-19",
             "price": 519.67
+          },
+          {
+            "date": "2026-08-24",
+            "price": 506.18
           }
         ],
         "targetPeaks": [
@@ -17368,24 +17382,24 @@
       "name": "Invesco S&P 500 Equal Weight ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 221.77,
-      "dailyChangePct": -0.1,
-      "return5dPct": 0.9,
-      "return20dPct": 1.9,
-      "drawdownFrom52wHighPct": -0.7,
-      "drawdownFromTrackingHighPct": -0.4,
+      "dataDate": "2026-08-26",
+      "lastClose": 222.11,
+      "dailyChangePct": 0.2,
+      "return5dPct": 0,
+      "return20dPct": 3,
+      "drawdownFrom52wHighPct": -0.6,
+      "drawdownFromTrackingHighPct": -0.3,
       "high52w": 223.44,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 222.77
       },
       "priorPeak": {
         "type": "high",
-        "index": 52,
+        "index": 51,
         "date": "2026-08-14",
         "price": 222.77,
         "label": "신고가 목표"
@@ -17431,15 +17445,8 @@
         "date": "2026-08-14",
         "price": 222.77
       },
-      "distanceToFirstReclaimPct": 4.2,
+      "distanceToFirstReclaimPct": 4.4,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 208.05,
-          "close": 209.21,
-          "high": 209.77,
-          "low": 207.79
-        },
         {
           "date": "2026-06-02",
           "open": 209.11,
@@ -17848,9 +17855,16 @@
         },
         {
           "date": "2026-08-25",
-          "open": 222.235,
+          "open": 222.24,
           "close": 221.77,
           "high": 222.28,
+          "low": 221.24
+        },
+        {
+          "date": "2026-08-26",
+          "open": 221.31,
+          "close": 222.11,
+          "high": 222.715,
           "low": 221.24
         }
       ],
@@ -17947,61 +17961,52 @@
       "name": "Schwab U.S. Dividend Equity ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 35.11,
-      "dailyChangePct": -0.3,
-      "return5dPct": 1.7,
+      "dataDate": "2026-08-26",
+      "lastClose": 35.05,
+      "dailyChangePct": -0.2,
+      "return5dPct": -0.1,
       "return20dPct": 3.6,
-      "drawdownFrom52wHighPct": -0.6,
-      "drawdownFromTrackingHighPct": -0.3,
+      "drawdownFrom52wHighPct": -0.7,
+      "drawdownFromTrackingHighPct": -0.5,
       "high52w": 35.31,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 35.21
       },
       "priorPeak": {
         "type": "high",
-        "index": 58,
+        "index": 57,
         "date": "2026-08-24",
         "price": 35.21,
         "label": "신고가 목표"
       },
-      "stage": "2차 매수",
-      "action": "2차 목표가 돌파: 추가 분할 매수 후보",
-      "confidence": "HIGH",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
+      "confidence": "MEDIUM",
       "nextTrigger": {
         "label": "신고가 목표",
         "price": 35.21,
         "date": "2026-08-24"
       },
       "bottom": {
-        "date": "2026-07-15",
-        "price": 32.34
+        "date": "2026-07-20",
+        "price": 32.75
       },
       "firstReclaim": {
-        "date": "2026-07-13",
-        "price": 32.56
+        "date": "2026-07-16",
+        "price": 33.04
       },
-      "secondReclaim": {
-        "date": "2026-06-12",
-        "price": 32.82
-      },
+      "secondReclaim": null,
       "thirdReclaim": null,
       "targets": [
         {
           "label": "1차 목표가",
           "targetNumber": 1,
-          "date": "2026-07-13",
-          "price": 32.56
-        },
-        {
-          "label": "2차 목표가",
-          "targetNumber": 2,
-          "date": "2026-06-12",
-          "price": 32.82
+          "date": "2026-07-16",
+          "price": 33.04
         }
       ],
       "breakoutTarget": {
@@ -18010,15 +18015,8 @@
         "date": "2026-08-24",
         "price": 35.21
       },
-      "distanceToFirstReclaimPct": 7.8,
+      "distanceToFirstReclaimPct": 6.1,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 32.27,
-          "close": 32.18,
-          "high": 32.34,
-          "low": 32.15
-        },
         {
           "date": "2026-06-02",
           "open": 32.14,
@@ -18427,10 +18425,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 35.109,
+          "open": 35.11,
           "close": 35.11,
           "high": 35.15,
           "low": 34.94
+        },
+        {
+          "date": "2026-08-26",
+          "open": 35.015,
+          "close": 35.05,
+          "high": 35.18,
+          "low": 34.98
         }
       ],
       "pivots": {
@@ -18482,10 +18487,6 @@
         ],
         "targetPeaks": [
           {
-            "date": "2026-06-23",
-            "price": 32.02
-          },
-          {
             "date": "2026-06-26",
             "price": 32.09
           },
@@ -18512,34 +18513,38 @@
           {
             "date": "2026-08-14",
             "price": 34.52
+          },
+          {
+            "date": "2026-08-24",
+            "price": 35.21
           }
         ]
       },
-      "reason": "2차 매수: bottom 2026-07-15 @ 32.34; 1차 2026-07-13 @ 32.56; 2차 2026-06-12 @ 32.82; breakout 2026-08-24 @ 35.21"
+      "reason": "1차 매수: bottom 2026-07-20 @ 32.75; 1차 2026-07-16 @ 33.04; breakout 2026-08-24 @ 35.21"
     },
     {
       "ticker": "BOTZ",
       "name": "Global X Robotics & AI ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 35.85,
-      "dailyChangePct": 1.7,
-      "return5dPct": -1.9,
-      "return20dPct": 5.5,
-      "drawdownFrom52wHighPct": -14,
-      "drawdownFromTrackingHighPct": -11.8,
+      "dataDate": "2026-08-26",
+      "lastClose": 35.63,
+      "dailyChangePct": -0.6,
+      "return5dPct": -2.1,
+      "return20dPct": 5.8,
+      "drawdownFrom52wHighPct": -14.6,
+      "drawdownFromTrackingHighPct": -12.3,
       "high52w": 41.71,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 40.64
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
+        "index": 0,
         "date": "2026-06-02",
         "price": 40.64,
         "label": "신고가 목표"
@@ -18594,15 +18599,8 @@
         "date": "2026-06-02",
         "price": 40.64
       },
-      "distanceToFirstReclaimPct": 4.4,
+      "distanceToFirstReclaimPct": 3.8,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 40.32,
-          "close": 40.6,
-          "high": 40.735,
-          "low": 40.17
-        },
         {
           "date": "2026-06-02",
           "open": 40.59,
@@ -19013,8 +19011,15 @@
           "date": "2026-08-25",
           "open": 35.695,
           "close": 35.85,
-          "high": 35.8999,
+          "high": 35.9,
           "low": 35.635
+        },
+        {
+          "date": "2026-08-26",
+          "open": 35.71,
+          "close": 35.63,
+          "high": 35.865,
+          "low": 35.55
         }
       ],
       "pivots": {
@@ -19035,10 +19040,6 @@
           }
         ],
         "targetLows": [
-          {
-            "date": "2026-06-17",
-            "price": 37.59
-          },
           {
             "date": "2026-06-26",
             "price": 36.01
@@ -19066,6 +19067,10 @@
           {
             "date": "2026-08-06",
             "price": 36.94
+          },
+          {
+            "date": "2026-08-24",
+            "price": 35.25
           }
         ],
         "targetPeaks": [
@@ -19110,26 +19115,26 @@
       "name": "JPMorgan Equity Premium Income ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 58.14,
-      "dailyChangePct": 0.1,
-      "return5dPct": 0.5,
-      "return20dPct": 1.1,
+      "dataDate": "2026-08-26",
+      "lastClose": 58.16,
+      "dailyChangePct": 0,
+      "return5dPct": 0.3,
+      "return20dPct": 2.2,
       "drawdownFrom52wHighPct": -2.9,
       "drawdownFromTrackingHighPct": 0,
       "high52w": 59.9,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
-        "high": 58.14
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
+        "high": 58.16
       },
       "priorPeak": {
         "type": "high",
         "index": 58,
-        "date": "2026-08-24",
-        "price": 58.09,
+        "date": "2026-08-25",
+        "price": 58.14,
         "label": "신고가 목표"
       },
       "stage": "최대 모멘텀",
@@ -19161,18 +19166,11 @@
       "breakoutTarget": {
         "label": "신고가 목표",
         "targetNumber": null,
-        "date": "2026-08-24",
-        "price": 58.09
+        "date": "2026-08-25",
+        "price": 58.14
       },
-      "distanceToFirstReclaimPct": 2,
+      "distanceToFirstReclaimPct": 2.1,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 55.65,
-          "close": 55.32,
-          "high": 55.68,
-          "low": 55.245
-        },
         {
           "date": "2026-06-02",
           "open": 55.28,
@@ -19585,6 +19583,13 @@
           "close": 58.14,
           "high": 58.2,
           "low": 58.06
+        },
+        {
+          "date": "2026-08-26",
+          "open": 58.16,
+          "close": 58.16,
+          "high": 58.2698,
+          "low": 58.08
         }
       ],
       "pivots": {
@@ -19669,31 +19674,31 @@
           }
         ]
       },
-      "reason": "최대 모멘텀: bottom 2026-07-20 @ 56.39; 1차 2026-07-16 @ 56.98; breakout 2026-08-24 @ 58.09; prior peak reached"
+      "reason": "최대 모멘텀: bottom 2026-07-20 @ 56.39; 1차 2026-07-16 @ 56.98; breakout 2026-08-25 @ 58.14; prior peak reached"
     },
     {
       "ticker": "AIPO",
       "name": "Defiance AI & Power Infrastructure ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 28.72,
-      "dailyChangePct": 1.1,
-      "return5dPct": -3.1,
-      "return20dPct": 3.1,
-      "drawdownFrom52wHighPct": -17.4,
-      "drawdownFromTrackingHighPct": -17.4,
+      "dataDate": "2026-08-26",
+      "lastClose": 28.93,
+      "dailyChangePct": 0.7,
+      "return5dPct": -1.2,
+      "return20dPct": 10,
+      "drawdownFrom52wHighPct": -16.8,
+      "drawdownFromTrackingHighPct": -16.8,
       "high52w": 34.79,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 34.77
       },
       "priorPeak": {
         "type": "high",
-        "index": 14,
+        "index": 13,
         "date": "2026-06-22",
         "price": 34.77,
         "label": "신고가 목표"
@@ -19748,15 +19753,8 @@
         "date": "2026-06-22",
         "price": 34.77
       },
-      "distanceToFirstReclaimPct": -5.7,
+      "distanceToFirstReclaimPct": -5.1,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 32.61,
-          "close": 32.83,
-          "high": 33.2,
-          "low": 32.29
-        },
         {
           "date": "2026-06-02",
           "open": 33.24,
@@ -20165,10 +20163,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 28.95,
+          "open": 28.98,
           "close": 28.72,
           "high": 29.09,
           "low": 28.56
+        },
+        {
+          "date": "2026-08-26",
+          "open": 28.71,
+          "close": 28.93,
+          "high": 29.1599,
+          "low": 28.71
         }
       ],
       "pivots": {
@@ -20220,6 +20225,10 @@
           {
             "date": "2026-08-10",
             "price": 29.69
+          },
+          {
+            "date": "2026-08-24",
+            "price": 28.42
           }
         ],
         "targetPeaks": [
@@ -20260,35 +20269,35 @@
       "name": "Tema Space Innovators ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 23.69,
-      "dailyChangePct": 0.4,
-      "return5dPct": -7.7,
-      "return20dPct": 8,
-      "drawdownFrom52wHighPct": -44.5,
-      "drawdownFromTrackingHighPct": -37.3,
+      "dataDate": "2026-08-26",
+      "lastClose": 23.64,
+      "dailyChangePct": -0.2,
+      "return5dPct": -5.4,
+      "return20dPct": 15.1,
+      "drawdownFrom52wHighPct": -44.6,
+      "drawdownFromTrackingHighPct": -37.4,
       "high52w": 42.68,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 37.77
       },
       "priorPeak": {
         "type": "high",
-        "index": 1,
+        "index": 0,
         "date": "2026-06-02",
         "price": 37.77,
         "label": "신고가 목표"
       },
-      "stage": "2차 매수",
-      "action": "2차 목표가 돌파: 추가 분할 매수 후보",
-      "confidence": "HIGH",
+      "stage": "1차 매수",
+      "action": "1차 목표가 돌파: V자 반등 1차 분할 매수 후보",
+      "confidence": "MEDIUM",
       "nextTrigger": {
-        "label": "3차 목표가",
-        "price": 25.21,
-        "date": "2026-07-14"
+        "label": "2차 목표가",
+        "price": 23.69,
+        "date": "2026-07-21"
       },
       "bottom": {
         "date": "2026-07-29",
@@ -20332,15 +20341,8 @@
         "date": "2026-06-02",
         "price": 37.77
       },
-      "distanceToFirstReclaimPct": 5.5,
+      "distanceToFirstReclaimPct": 5.3,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 38.83,
-          "close": 37.11,
-          "high": 39.14,
-          "low": 36.55
-        },
         {
           "date": "2026-06-02",
           "open": 37.36,
@@ -20751,8 +20753,15 @@
           "date": "2026-08-25",
           "open": 24.06,
           "close": 23.69,
-          "high": 24.05,
-          "low": 23.58
+          "high": 24.1,
+          "low": 23.57
+        },
+        {
+          "date": "2026-08-26",
+          "open": 23.59,
+          "close": 23.64,
+          "high": 24.025,
+          "low": 23.45
         }
       ],
       "pivots": {
@@ -20796,6 +20805,10 @@
           {
             "date": "2026-07-29",
             "price": 20.54
+          },
+          {
+            "date": "2026-08-24",
+            "price": 23.6
           }
         ],
         "targetPeaks": [
@@ -20829,31 +20842,31 @@
           }
         ]
       },
-      "reason": "2차 매수: bottom 2026-07-29 @ 20.54; 1차 2026-07-27 @ 22.45; 2차 2026-07-21 @ 23.69; 3차 2026-07-14 @ 25.21; breakout 2026-06-02 @ 37.77"
+      "reason": "1차 매수: bottom 2026-07-29 @ 20.54; 1차 2026-07-27 @ 22.45; 2차 2026-07-21 @ 23.69; 3차 2026-07-14 @ 25.21; breakout 2026-06-02 @ 37.77"
     },
     {
       "ticker": "DRAM",
       "name": "Roundhill Memory ETF",
       "market": "us",
       "dataStatus": "ok",
-      "dataDate": "2026-08-25",
-      "lastClose": 56.24,
-      "dailyChangePct": 3.6,
-      "return5dPct": 2.1,
-      "return20dPct": 17.7,
-      "drawdownFrom52wHighPct": -30.9,
-      "drawdownFromTrackingHighPct": -30.3,
+      "dataDate": "2026-08-26",
+      "lastClose": 56.39,
+      "dailyChangePct": 0.3,
+      "return5dPct": 2.3,
+      "return20dPct": 25.7,
+      "drawdownFrom52wHighPct": -30.7,
+      "drawdownFromTrackingHighPct": -30.1,
       "high52w": 81.34,
       "trackingWindow": {
         "weeks": 12,
         "tradingDays": 60,
-        "startDate": "2026-06-01",
-        "endDate": "2026-08-25",
+        "startDate": "2026-06-02",
+        "endDate": "2026-08-26",
         "high": 80.72
       },
       "priorPeak": {
         "type": "high",
-        "index": 14,
+        "index": 13,
         "date": "2026-06-22",
         "price": 80.72,
         "label": "신고가 목표"
@@ -20908,15 +20921,8 @@
         "date": "2026-06-22",
         "price": 80.72
       },
-      "distanceToFirstReclaimPct": -3.5,
+      "distanceToFirstReclaimPct": -3.3,
       "chart": [
-        {
-          "date": "2026-06-01",
-          "open": 65.74,
-          "close": 68,
-          "high": 68.76,
-          "low": 65.46
-        },
         {
           "date": "2026-06-02",
           "open": 68.15,
@@ -21325,10 +21331,17 @@
         },
         {
           "date": "2026-08-25",
-          "open": 55.975,
+          "open": 55.98,
           "close": 56.24,
-          "high": 56.695,
-          "low": 55.215
+          "high": 56.7,
+          "low": 55.21
+        },
+        {
+          "date": "2026-08-26",
+          "open": 55.8,
+          "close": 56.39,
+          "high": 56.735,
+          "low": 55.725
         }
       ],
       "pivots": {
@@ -21362,10 +21375,6 @@
         ],
         "targetLows": [
           {
-            "date": "2026-06-10",
-            "price": 57.37
-          },
-          {
             "date": "2026-06-23",
             "price": 69.22
           },
@@ -21392,6 +21401,10 @@
           {
             "date": "2026-08-18",
             "price": 55.1
+          },
+          {
+            "date": "2026-08-24",
+            "price": 54.28
           }
         ],
         "targetPeaks": [
